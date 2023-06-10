@@ -11,27 +11,11 @@ body {
     background-color: var(--white);
 }
 
-nav {
-    background-color: var(--black);
-    height: 73px;
-    padding: 0 145px;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-}
-
-nav img {
-    width: 215px;
-}
-
-nav .redes-sociais {
-    display: flex;
-}
-
-nav .links a {
+h1 {
+    font-size: 50px;
     color: var(--white);
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-    margin: 0 15px;
+}
+p {
+    font-size: 20px;
+    font-weight: 400;
 }
