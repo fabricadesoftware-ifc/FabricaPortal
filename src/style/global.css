@@ -1,2 +1,37 @@
 @import './base.css';
 
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+}
+
+nav {
+    background-color: var(--black);
+    height: 73px;
+    padding: 0 145px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+nav img {
+    width: 215px;
+}
+
+nav .redes-sociais {
+    display: flex;
+}
+
+nav .links a {
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 15px;
+}
