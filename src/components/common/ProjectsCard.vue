@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="container-img">
-      <img :src=image alt="" />
+      <img :src="image" alt="" />
     </div>
     <div class="project-details">
       <h3>{{ title }}</h3>
@@ -19,10 +19,10 @@
 </template>
 
 <script setup>
-defineProps ({
-    description: String,
-    title: String,
-    image: String
+defineProps({
+  description: String,
+  title: String,
+  image: String
 })
 const langs = [
   {
@@ -43,11 +43,11 @@ const langs = [
 <style scoped>
 .card {
   background-color: var(--background-color);
-  width: 48%;
+  width: 47.5%;
   height: 125px;
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: flex;
 }
 .card .container-img {

@@ -1,7 +1,8 @@
 <template>
   <div class="card">
-    <img src="src/assets/images/fabricaAmbiente.jpeg" alt="" />
-
+    <div class="image"><div>a</div></div>
+    <!--     <img src="src/assets/images/fabricaAmbiente.jpeg" alt="" />
+ -->
     <div>
       <h4>O QUE É A FÁBRICA?</h4>
       <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
@@ -38,5 +39,14 @@ import ButtonMore from './common/ButtonMore.vue'
   max-height: 285px;
   border-radius: 5px;
   margin-right: 7px;
+}
+.card .image {
+  width: 1487px;
+    height: 245px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background: url(/src/assets/images/fabricaAmbiente.jpeg) no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 </style>
