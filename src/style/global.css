@@ -9,13 +9,51 @@
 
 body {
     background-color: var(--white);
+    scrollbar-width: thin;
 }
 
 h1 {
     font-size: 50px;
     color: var(--white);
 }
-p {
+
+h2 {
+    font-size: 35px;
+    font-weight: 600;
+}
+h3 {
+    font-size: 25px;
+    font-weight: 500;
+}
+h4 {
     font-size: 20px;
+}
+p {
+    font-size: 18px;
     font-weight: 400;
 }
+
+section {
+    margin: 80px 0;
+}
+
+main {
+    padding: 0 145px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+/* 
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} */

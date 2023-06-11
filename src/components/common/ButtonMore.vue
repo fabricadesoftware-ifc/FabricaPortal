@@ -1,7 +1,7 @@
 <template>
   <button>
     <box-icon type="solid" color="#FF6700" name="right-arrow-square"></box-icon>
-    <h3>{{ text }}</h3>
+    <span>{{ text }}</span>
   </button>
 </template>
 
@@ -23,7 +23,9 @@ button {
   border: none;
   cursor: pointer;
 }
-button h3 {
+button span {
+  font-size: 17px;
+  font-weight: 700;
   margin-left: 9px;
 }
 </style>

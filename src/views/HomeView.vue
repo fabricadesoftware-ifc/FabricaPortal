@@ -1,9 +1,11 @@
 <script setup>
-import HeroComp from "../components/HeroComp.vue"
+import HeroComp from "../components/HeroSection.vue"
+import NewsComp from "../components/NewsSection.vue"
 </script>
 
 <template>
+  <HeroComp />
   <main>
-    <HeroComp />
+    <NewsComp />
   </main>
 </template>
