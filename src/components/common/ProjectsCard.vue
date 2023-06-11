@@ -1,0 +1,85 @@
+<template>
+  <div class="card">
+    <div class="container-img">
+      <img :src=image alt="" />
+    </div>
+    <div class="project-details">
+      <h3>{{ title }}</h3>
+      <p>
+        {{ description }}
+      </p>
+      <div class="project-langs">
+        <div v-for="(lang, i) in langs" :key="i">
+          <box-icon color="#101215" type="logo" size="20px" :name="lang.icon"></box-icon>
+          <span>{{ lang.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+defineProps ({
+    description: String,
+    title: String,
+    image: String
+})
+const langs = [
+  {
+    icon: 'css3',
+    name: 'css'
+  },
+  {
+    icon: 'vuejs',
+    name: 'vue.js'
+  },
+  {
+    icon: 'typescript',
+    name: 'typescript'
+  }
+]
+</script>
+
+<style scoped>
+.card {
+  background-color: var(--background-color);
+  width: 48%;
+  height: 125px;
+  padding: 7px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+}
+.card .container-img {
+  background-color: var(--white);
+  width: 50%;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 7px;
+}
+.card .container-img img {
+  width: 100%;
+  height: auto;
+}
+.card .project-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card .project-details h3 {
+    font-weight: 600;
+}
+.card .project-langs {
+  display: flex;
+}
+.card .project-langs div {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+.card .project-langs div span {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+}
+</style>
