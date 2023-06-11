@@ -45,7 +45,7 @@ const langs = [
   background-color: var(--background-color);
   width: 48%;
   height: 125px;
-  padding: 7px;
+  padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
   display: flex;
@@ -65,9 +65,6 @@ const langs = [
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.card .project-details h3 {
-    font-weight: 600;
 }
 .card .project-langs {
   display: flex;
