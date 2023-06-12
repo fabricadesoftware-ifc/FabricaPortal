@@ -1,46 +1,46 @@
-<script setup>
+<script lang="ts" setup>
 import { RouterLink } from 'vue-router'
+
+interface ILink {
+  text?: string;
+  icon?: string,
+  to: string;
+}
+
+const links: Array<ILink> = [
+  {text: 'NOTÍCIAS', to: '/'},
+  {text: 'PROJETOS', to: '/'},
+  {text: 'MEMBROS', to: '/'},
+  {text: 'PUBLICAÇÕES', to: '/'},
+]
+
+const redesSociais: Array<ILink> = [
+  {icon: "github", to: "/"},
+  {icon: "linkedin-square", to: "/"},
+  {icon: "instagram", to: "/"},
+]
 </script>
+
 <template>
   <nav>
     <img src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
     <div class="links">
-      <RouterLink to="/">NOTÍCIAS</RouterLink>
-      <RouterLink to="/">PROJETOS</RouterLink>
-      <RouterLink to="/">MEMBROS</RouterLink>
-      <RouterLink to="/">PUBLICAÇÕES</RouterLink>
+      <RouterLink v-for="(link, i) in links" :to="link.to" :key="i">{{ link.text }}</RouterLink>     
     </div>
     <div class="rede-sociais">
-      <RouterLink to="/">
-        <box-icon
-          style="margin: 0 8px"
-          color="#fff"
-          size="2em"
-          name="github"
-          type="logo"
-        ></box-icon>
-      </RouterLink>
-      <RouterLink to="/">
+      <RouterLink v-for="(redeSocial, i) in redesSociais" :key="i" :to="redeSocial.to">
         <box-icon
           style="margin: 0 8px"
           color="#fff"
           size="2em"
           type="logo"
-          name="linkedin-square"
-        ></box-icon>
-      </RouterLink>
-      <RouterLink to="/">
-        <box-icon
-          style="margin: 0 8px"
-          color="#fff"
-          size="2em"
-          type="logo"
-          name="instagram"
+          :name="redeSocial.icon"
         ></box-icon>
       </RouterLink>
     </div>
   </nav>
 </template>
+
 <style scoped>
 nav {
   background-color: var(--black);

@@ -52,14 +52,14 @@ const langs = [
 }
 .card .container-img {
   background-color: var(--white);
-  width: 50%;
+  /* width: 50%; */
   border-radius: 5px;
   padding: 5px;
   margin-right: 7px;
 }
 .card .container-img img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 .card .project-details {
   display: flex;
