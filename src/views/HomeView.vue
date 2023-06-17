@@ -7,7 +7,7 @@ import MemberSection from "../components/MemberSection.vue"
 
 <template>
   <HeroComp />
-  <main>
+  <main class="home-view">
     <NewsComp />
     <ProjectsSection />
     <MemberSection />

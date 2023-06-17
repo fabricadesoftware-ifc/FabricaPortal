@@ -1,55 +1,65 @@
 <template>
   <div class="card">
     <div class="image"><div>&nbsp;</div></div>
-
     <div>
-      <h4>O QUE É A FÁBRICA?</h4>
-      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ipsum lectus. Integer
-        placerat ligula sed varius rhoncus. Nulla vel nunc mi. tellus. Nam egestas bibendum ante at
-        lobortis. Ut et dolor mi. Nulla in augue quis dui.Lorem ipsum dolor sit amet. Ut et dolor mi. Nulla in augue quis dui.Lorem ipsum dolor sit amet.
-      </p>
-      <ButtonMore text="VEJA MAIS" />
+      <div class="tags">
+        <h5 class="button-tag">Tecnologia</h5>
+        <h5 class="button-tag">Inovação</h5>
+        <h5 class="button-tag">Projeto</h5>
+      </div>
+      <h3>A proposta da Fábrica de Software</h3>
+      <h5>16/06/2023 ● @fabrica</h5>
+      <!--       <p>
+        Dentro de um ambiente controlado, os alunos poderão participar de todo o processo de
+        desenvolvimento de soluções na área de Sistemas de Informação.
+      </p> -->
     </div>
   </div>
 </template>
 
 <script setup>
-import {computed} from 'vue'
+import { computed } from 'vue'
 import ButtonMore from './common/ButtonMore.vue'
 const back = 'src/assets/images/fabricaAmbiente.jpeg'
 
-const background = computed(() => "url("+back+") no-repeat;")
+const background = computed(() => 'url(' + back + ') no-repeat;')
 </script>
 
 <style scoped>
 .card {
-  width: 100%;
+  width: 300px;
   height: auto;
   padding: 10px;
   border-radius: 5px;
+  margin-right: 20px;
   background-color: var(--background-color);
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  flex-direction: column;
 }
-.card h4 {
-  color: var(--secondary-color);
-}
-.card img {
-  width: 1487px;
-  max-height: 285px;
+.card .button-tag {
+  background-color: #2e2e2e;
   border-radius: 5px;
-  margin-right: 7px;
+  padding: 3px;
+  margin-right: 5px;
+
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+.card p {
+  text-align: justify;
+}
+.card .tags {
+  width: 100%;
+  display: flex;
 }
 .card .image {
-  width: 1487px;
-    height: 285px;
-    border-radius: 5px;
-    margin-right: 10px;
-    background: url(src/assets/images/fabricaAmbiente.jpeg) no-repeat;
-    background-position: center;
-    background-size: cover;
+  width: 100%;
+  height: 190px;
+  border-radius: 5px;
+  background: url(src/assets/images/fabricaAmbiente.jpeg) no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 </style>

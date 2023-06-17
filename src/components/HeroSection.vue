@@ -38,6 +38,7 @@ section div {
 }
 
 p {
+  color: var(--white);
   width: 949px;
   text-align: center;
   margin-bottom: 7px;

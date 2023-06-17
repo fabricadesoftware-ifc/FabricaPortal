@@ -2,13 +2,25 @@
   <section>
     <h2>Notícias</h2>
     <div class="news-container">
-      <NewsCard />
+      <div class="scroll">
+        <div>
+          <NewsCard />
+          <NewsCard />
+          <NewsCard />
+          <NewsCard />
+          <NewsCard />
+          <NewsCard />
+          <NewsCard />
+
+        </div>
+      </div>
       <ButtonAll text="Ver todas as notícias" />
     </div>
   </section>
 </template>
 
 <script setup>
+import VueScrollSnap from 'vue-scroll-snap'
 import ButtonAll from './common/ButtonAll.vue'
 import NewsCard from './NewsCard.vue'
 </script>
@@ -22,5 +34,12 @@ section .news-container {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+section .scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+section div {
+  display: flex;
 }
 </style>
