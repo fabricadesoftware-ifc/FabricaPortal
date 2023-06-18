@@ -10,7 +10,7 @@
       </p>
       <div class="project-langs">
         <div v-for="(lang, i) in langs" :key="i">
-          <box-icon color="#101215" type="logo" size="20px" :name="lang.icon"></box-icon>
+          <box-icon color="#fff" type="logo" size="20px" :name="lang.icon"></box-icon>
           <span>{{ lang.name }}</span>
         </div>
       </div>
@@ -49,22 +49,24 @@ const langs = [
   border-radius: 5px;
   margin-bottom: 12px;
   display: flex;
-}
-.card .container-img {
-  background-color: var(--white);
-  /* width: 50%; */
-  border-radius: 5px;
-  padding: 5px;
-  margin-right: 7px;
+  align-items: center;
+  align-content: space-around;
 }
 .card .container-img img {
   width: auto;
-  height: 100%;
+  margin-right: 7px;
+  height: 125px;
+}
+
+.card .container-img {
+  display: flex;
+  align-items: center;
 }
 .card .project-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: var(--white);
 }
 .card .project-langs {
   display: flex;
