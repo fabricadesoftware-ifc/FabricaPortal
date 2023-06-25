@@ -1,84 +1,117 @@
+<script setup>
+import { computed } from 'vue'
+import ButtonMore from '../common/ButtonMore.vue'
+
+defineProps({
+  description: String,
+  title: String,
+  image: String,
+  status: String,
+  type: String,
+  style: {
+    type: Object,
+    default: () => ({})
+  }
+})
+</script>
+
 <template>
   <div class="card">
-    <div class="container-img">
-      <img :src="image" alt="" />
-    </div>
-    <div class="project-details">
-      <h3>{{ title }}</h3>
-      <p>
-        {{ description }}
-      </p>
-      <div class="project-langs">
-        <div v-for="(lang, i) in langs" :key="i">
-          <box-icon color="#fff" type="logo" size="20px" :name="lang.icon"></box-icon>
-          <span>{{ lang.name }}</span>
+    <router-link to="/">
+      <div class="container-img">
+        <div>
+          <img :src="image" alt="" />
         </div>
       </div>
+    </router-link>
+    <div class="container-details">
+      <div class="status">
+        <h5>{{ status }}</h5>
+        <h5>{{ type }}</h5>
+      </div>
+      <h3>{{ title }}</h3>
+      <p>{{ description }}</p>
     </div>
   </div>
 </template>
 
-<script setup>
-defineProps({
-  description: String,
-  title: String,
-  image: String
-})
-const langs = [
-  {
-    icon: 'css3',
-    name: 'css'
-  },
-  {
-    icon: 'vuejs',
-    name: 'vue.js'
-  },
-  {
-    icon: 'typescript',
-    name: 'typescript'
-  }
-]
-</script>
-
 <style scoped>
-.card {
-  background-color: var(--background-color);
-  width: 47.5%;
-  height: 125px;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  align-content: space-around;
-}
-.card .container-img img {
-  width: auto;
-  margin-right: 7px;
-  height: 125px;
+h3,
+p {
+  margin: 3px 0;
 }
 
-.card .container-img {
+.card {
+  width: 49%;
+  height: auto;
   display: flex;
   align-items: center;
-}
-.card .project-details {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  color: var(--white);
 }
-.card .project-langs {
-  display: flex;
+
+.card a {
+  width: 100%;
+  height: 40vh;
 }
-.card .project-langs div {
-  margin-right: 8px;
+
+.card a .container-img {
+  width: 100%;
+  height: 40vh;
+  margin-bottom: 5px;
+  border-bottom: 5px solid var(--primary-color);
+  background: url(src/assets/images/code.jpeg) no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
-.card .project-langs div span {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 13px;
+
+.card a .container-img div {
+  width: 100%;
+  height: 100%;
+  background-color: #000000b4;
+  transition: background-color .6s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.card a .container-img img {
+  width: auto;
+  height: 125px;  
+  transition: transform 0.6s;
+  transform: scale(95%);
+}
+
+.card a:hover .container-img img {
+  transform: scale(100%);
+}
+
+.card a:hover .container-img div {
+  background-color: #00000081;
+}
+
+.card .container-details h3::first-letter {
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+}
+
+.card .container-details {
+  width: 100%;
+  padding: 15px;
+}
+
+.card .container-details .status {
+  display: flex;
+}
+
+.card .status h5 {
+  margin-right: 10px;
+  padding: 5px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
 </style>

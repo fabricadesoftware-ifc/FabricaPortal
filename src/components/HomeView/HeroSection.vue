@@ -6,13 +6,13 @@
         Um ambiente exclusivo projetado para os alunos da área da Informática (Superior e Técnico)
         que desejam mergulhar nas práticas de uma verdadeira softwarehouse.
       </p>
-      <ButtonMore text="VEJA MAIS SOBRE A FÁBRICA" />
+      <ButtonMore link="/" text="VEJA MAIS SOBRE A FÁBRICA" />
     </div>
   </section>
 </template>
 
 <script setup>
-import ButtonMore from './common/ButtonMore.vue'
+import ButtonMore from '../common/ButtonMore.vue'
 </script>
 
 <style scoped>
@@ -20,7 +20,7 @@ import ButtonMore from './common/ButtonMore.vue'
 
 section {
   margin: 0;
-  background: url(../assets/images/fabricaAmbiente.jpeg) no-repeat;
+  background: url(../../assets/images/fabricaAmbiente.jpeg) no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;

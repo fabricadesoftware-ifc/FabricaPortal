@@ -1,15 +1,22 @@
+<script setup lang="ts">
+defineProps({
+  link: {
+    type: String,
+    required: true
+  },
+  text: {
+    type: String,
+    required: true
+  }
+});
+</script>
+
 <template>
   <button>
     <box-icon type="solid" color="#FF6700" name="right-arrow-square"></box-icon>
-    <span>{{ text }}</span>
+    <RouterLink :to="link" >{{ text }}</RouterLink>
   </button>
 </template>
-
-<script setup>
-defineProps({
-  text: String
-})
-</script>
 
 <style scoped>
 @import '@/style/base.css';
@@ -23,9 +30,12 @@ button {
   border: none;
   cursor: pointer;
 }
-button span {
-  font-size: 17px;
+button a {
+  font-size: 16px;
   font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  text-transform: uppercase ;
   margin-left: 9px;
 }
 </style>

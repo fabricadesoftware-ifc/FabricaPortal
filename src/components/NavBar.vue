@@ -8,10 +8,10 @@ interface ILink {
 }
 
 const links: Array<ILink> = [
-  {text: 'NOTÍCIAS', to: '/'},
-  {text: 'PROJETOS', to: '/'},
-  {text: 'MEMBROS', to: '/'},
-  {text: 'PUBLICAÇÕES', to: '/'},
+  {text: 'NOTÍCIAS', to: '/noticias'},
+  {text: 'PROJETOS', to: '/projetos'},
+  {text: 'MEMBROS', to: '/membros'},
+  {text: 'PUBLICAÇÕES', to: '/publicacaos'},
 ]
 
 const redesSociais: Array<ILink> = [
@@ -23,7 +23,9 @@ const redesSociais: Array<ILink> = [
 
 <template>
   <nav>
-    <img src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
+    <RouterLink to="/">
+      <img src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
+    </RouterLink>
     <div class="links">
       <RouterLink v-for="(link, i) in links" :to="link.to" :key="i">{{ link.text }}</RouterLink>     
     </div>
@@ -50,6 +52,7 @@ nav {
   width: -webkit-fill-available;
   justify-content: space-between;
   display: flex;
+  z-index: 1;
   align-items: center;
 }
 
