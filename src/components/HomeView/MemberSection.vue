@@ -54,6 +54,22 @@ const members = [
       'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
     type: 'professor'
   },
+  {
+    id: '5',
+    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
+    name: 'Fábio Longo de Moura',
+    description:
+      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
+    type: 'professor'
+  },
+  {
+    id: '6',
+    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
+    name: 'Fábio Longo de Moura',
+    description:
+      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
+    type: 'professor'
+  },
 ]
 </script>
 
@@ -68,7 +84,6 @@ const members = [
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
-  height: 39vh;
   align-content: space-between;
 }
 </style>

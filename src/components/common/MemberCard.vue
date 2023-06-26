@@ -10,9 +10,8 @@ defineProps({
 <template>
   <div class="card">
     <router-link to="/">
-      <div class="container-img">
-        <img :src="image" alt="" />
-      </div>
+      <img :src="image" alt="" />
+
       <div class="member-details">
         <h5>{{ type }}</h5>
         <h3>{{ name }}</h3>
@@ -27,7 +26,7 @@ defineProps({
 <style scoped>
 .card {
   background-color: var(--background-color);
-  width: 49%;
+  width: 50%;
   height: auto;
   margin-bottom: 12px;
   display: flex;
@@ -46,24 +45,19 @@ defineProps({
   transform: scale(100%);
 }
 
-.card .container-img {
-  border-right: 5px solid var(--primary-color);
-  display: flex;
-  align-items: center;
-}
-
-.card:hover .container-img img {
+.card:hover img {
   filter: brightness(1);
 }
-.card .container-img img {
-  width: auto;
-  height: 125px;
+.card img {
+  width: 25%;
+  height: auto;
   transition: filter 0.6s;
   filter: brightness(0.6);
 }
 
 
 .card .member-details {
+  border-left: 5px solid var(--primary-color);
   padding: 10px;
   display: flex;
   flex-direction: column;
