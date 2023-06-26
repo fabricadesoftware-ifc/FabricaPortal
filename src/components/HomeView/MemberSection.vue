@@ -53,7 +53,7 @@ const members = [
     description:
       'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
     type: 'professor'
-  }
+  },
 ]
 </script>
 

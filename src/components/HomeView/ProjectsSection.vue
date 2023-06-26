@@ -1,23 +1,3 @@
-<template>
-  <section class="section-projects">
-    <h2>Projetos</h2>
-    <div class="projects-container">
-      <div class="projects">
-        <ProjectsCard
-          v-for="project of projects"
-          :key="project.id"
-          :title="project.title"
-          :description="project.description"
-          :image="project.image"
-          :type="project.type"
-          :status="project.status"
-          />
-      </div>
-      <ButtonAll link="/" text="Ver todos os projetos" />
-    </div>
-  </section>
-</template>
-
 <script setup>
 import ButtonAll from '../common/ButtonAll.vue'
 import ProjectsCard from '../common/ProjectsCard.vue'
@@ -58,9 +38,47 @@ const projects = [
     status: 'finalizado',
     type: 'extensão',
     description: 'O projeto tem o foco de gerar auxílio à aprendizagem para o ensino fundamental.'
-  }
+  },
+  {
+    id: '5',
+    image:
+      'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/project/WhatsApp_Image_2018-09-17_at_13.14.24.jpeg',
+    title: 'Goofy Educa',
+    status: 'finalizado',
+    type: 'extensão',
+    description: 'O projeto tem o foco de gerar auxílio à aprendizagem para o ensino fundamental.'
+  },
+  {
+    id: '6',
+    image:
+      'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/project/WhatsApp_Image_2018-09-17_at_13.14.24.jpeg',
+    title: 'Goofy Educa',
+    status: 'finalizado',
+    type: 'extensão',
+    description: 'O projeto tem o foco de gerar auxílio à aprendizagem para o ensino fundamental.'
+  },
 ]
 </script>
+
+<template>
+  <section class="section-projects">
+    <h2>Projetos</h2>
+    <div class="projects-container">
+      <div class="projects">
+        <ProjectsCard
+          v-for="project of projects"
+          :key="project.id"
+          :title="project.title"
+          :description="project.description"
+          :image="project.image"
+          :type="project.type"
+          :status="project.status"
+          />
+      </div>
+      <ButtonAll link="/" text="Ver todos os projetos" />
+    </div>
+  </section>
+</template>
 
 <style scoped>
 section {
@@ -78,7 +96,6 @@ section .projects-container {
 section .projects {
   display: flex;
   flex-wrap: wrap;
-  height: 135vh;
   justify-content: space-between;
   align-content: space-between;
 }

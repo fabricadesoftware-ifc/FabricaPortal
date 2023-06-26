@@ -42,8 +42,9 @@ p {
 }
 
 .card {
-  width: 49%;
+  width: 32%;
   height: auto;
+  padding-bottom: 15px;
   display: flex;
   align-items: center;
   flex-direction: column;
