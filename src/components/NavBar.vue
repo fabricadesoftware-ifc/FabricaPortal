@@ -9,8 +9,8 @@ interface ILink {
 
 const links: Array<ILink> = [
   {text: 'NOTÍCIAS', to: '/noticias'},
-  {text: 'PROJETOS', to: '/projetos'},
-  {text: 'MEMBROS', to: '/membros'},
+  {text: 'PROJETOS', to: '/?#projetos'},
+  {text: 'MEMBROS', to: '/?#membros'},
   {text: 'PUBLICAÇÕES', to: '/publicacaos'},
 ]
 
@@ -27,7 +27,7 @@ const redesSociais: Array<ILink> = [
       <img src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
     </RouterLink>
     <div class="links">
-      <RouterLink v-for="(link, i) in links" :to="link.to" :key="i">{{ link.text }}</RouterLink>     
+      <a v-for="(link, i) in links" :href="link.to" :key="i">{{ link.text }}</a>     
     </div>
     <div class="rede-sociais">
       <RouterLink v-for="(redeSocial, i) in redesSociais" :key="i" :to="redeSocial.to">

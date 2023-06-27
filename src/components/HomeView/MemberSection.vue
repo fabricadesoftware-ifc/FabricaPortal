@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="membros">
     <h2>Membros</h2>
     <div class="container-members">
       <div class="members">
@@ -18,59 +18,21 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+
 import MemberCard from '../common/MemberCard.vue'
 import ButtonAll from '../common/ButtonAll.vue'
 
-const members = [
-  {
-    id: '1',
-    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
-    name: 'Fábio Longo de Moura',
-    description:
-      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
-    type: 'professor'
-  },
-  {
-    id: '2',
-    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
-    name: 'Fábio Longo de Moura',
-    description:
-      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
-    type: 'professor'
-  },
-  {
-    id: '3',
-    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
-    name: 'Fábio Longo de Moura',
-    description:
-      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
-    type: 'professor'
-  },
-  {
-    id: '4',
-    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
-    name: 'Fábio Longo de Moura',
-    description:
-      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
-    type: 'professor'
-  },
-  {
-    id: '5',
-    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
-    name: 'Fábio Longo de Moura',
-    description:
-      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
-    type: 'professor'
-  },
-  {
-    id: '6',
-    image: 'https://avatars.githubusercontent.com/u/849206?v=4',
-    name: 'Fábio Longo de Moura',
-    description:
-      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
-    type: 'professor'
-  },
-]
+import MembersApi from '@/api/members'
+const membersApi = new MembersApi()
+const members = ref([])
+
+
+onMounted(() => {
+  members.value = membersApi.getMembers()
+})
+
+
 </script>
 
 <style scoped>

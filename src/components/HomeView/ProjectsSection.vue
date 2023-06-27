@@ -61,7 +61,7 @@ const projects = [
 </script>
 
 <template>
-  <section class="section-projects">
+  <section class="section-projects" id="projetos">
     <h2>Projetos</h2>
     <div class="projects-container">
       <div class="projects">

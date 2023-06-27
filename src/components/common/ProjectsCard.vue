@@ -1,6 +1,6 @@
 <script setup>
-import { computed } from 'vue'
-import ButtonMore from '../common/ButtonMore.vue'
+// import { computed } from 'vue'
+// import ButtonMore from '../common/ButtonMore.vue'
 
 defineProps({
   description: String,

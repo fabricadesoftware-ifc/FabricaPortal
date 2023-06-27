@@ -1,6 +1,6 @@
 <script setup>
-import { computed } from 'vue'
-import ButtonMore from './ButtonMore.vue'
+// import { computed } from 'vue'
+// import ButtonMore from './ButtonMore.vue'
 
 defineProps({
   title: String,
@@ -9,11 +9,11 @@ defineProps({
   background: String, 
 })
 
-const computedBackgroundStyle = computed(() => {
-  return {
-    backgroundImage: `url(${background})`
-  };
-});
+// const computedBackgroundStyle = computed(() => {
+//   return {
+//     backgroundImage: `url(${background})`
+//   };
+// });
 </script>
 
 <template>
