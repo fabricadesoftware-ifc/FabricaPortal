@@ -1,6 +1,6 @@
-import { members, IMembros } from '@/_data/membros'
+import { members, type IMembers } from '@/_data/members'
 export default class MembersApi {
-    getMembers(): IMembros[] {
+    getMembers(): IMembers[] {
         return members
     }
 }

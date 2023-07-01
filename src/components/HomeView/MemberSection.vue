@@ -1,3 +1,18 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+
+import MemberCard from '../common/MemberCard.vue'
+import ButtonAll from '../common/ButtonAll.vue'
+
+import MembersApi from '@/api/members'
+const membersApi = new MembersApi()
+const members = ref([])
+
+onMounted(() => {
+  members.value = membersApi.getMembers()
+})
+</script>
+
 <template>
   <section id="membros">
     <h2>Membros</h2>
@@ -16,24 +31,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import { ref, onMounted } from 'vue'
-
-import MemberCard from '../common/MemberCard.vue'
-import ButtonAll from '../common/ButtonAll.vue'
-
-import MembersApi from '@/api/members'
-const membersApi = new MembersApi()
-const members = ref([])
-
-
-onMounted(() => {
-  members.value = membersApi.getMembers()
-})
-
-
-</script>
 
 <style scoped>
 .container-members {
