@@ -1,19 +1,10 @@
 <script setup>
-// import { computed } from 'vue'
-// import ButtonMore from './ButtonMore.vue'
-
 defineProps({
   title: String,
   data: String,
   user: String,
-  background: String, 
+  background: String
 })
-
-// const computedBackgroundStyle = computed(() => {
-//   return {
-//     backgroundImage: `url(${background})`
-//   };
-// });
 </script>
 
 <template>
@@ -27,7 +18,7 @@ defineProps({
           </div>
         </div>
       </router-link>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -60,7 +51,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transition: background-color .6s;
+  transition: background-color 0.6s;
 }
 
 .card .container-details:hover {
