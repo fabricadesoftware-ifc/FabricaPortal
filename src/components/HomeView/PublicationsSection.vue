@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import ButtonMore from '../common/ButtonMore.vue'
+import ButtonAll from '../common/ButtonAll.vue'
 import PublicationsApi from '@/api/publications'
 const publicationsApi = new PublicationsApi()
 const articles = ref([])
@@ -17,43 +18,46 @@ onMounted(() => {
 <template>
   <section>
     <h2>Publicações</h2>
-    <div class="container">
-      <div>
-        <h3>Livros e capítulos de livros</h3>
-        <ul v-for="(book, li) in books" :key="li">
-          <li>
-            <span class="title"> {{ book.title }} ({{ book.data }}) </span>
-            <span>
-              {{ book.member }}
-            </span>
-            <ButtonMore link="/" text="ver mais" />
-          </li>
-        </ul>
+    <div class="publications">
+      <div class="container">
+        <div>
+          <h3>Livros e capítulos de livros</h3>
+          <ul v-for="(book, li) in books" :key="li">
+            <li>
+              <span class="title"> {{ book.title }} ({{ book.data }}) </span>
+              <span>
+                {{ book.member }}
+              </span>
+              <ButtonMore link="/" text="ver mais" />
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Artigos</h3>
+          <ul v-for="(article, li) in articles" :key="li">
+            <li>
+              <span class="title"> {{ article.title }} ({{ article.data }}) </span>
+              <span>
+                {{ article.member }}
+              </span>
+              <ButtonMore link="/" text="ver mais" />
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Conferências</h3>
+          <ul v-for="(conference, li) in conferences" :key="li">
+            <li>
+              <span class="title"> {{ conference.title }} ({{ conference.data }}) </span>
+              <span>
+                {{ conference.member }}
+              </span>
+              <ButtonMore link="/" text="ver mais" />
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Artigos</h3>
-        <ul v-for="(article, li) in articles" :key="li">
-          <li>
-            <span class="title"> {{ article.title }} ({{ article.data }}) </span>
-            <span>
-              {{ article.member }}
-            </span>
-            <ButtonMore link="/" text="ver mais" />
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h3>Conferências</h3>
-        <ul v-for="(conference, li) in conferences" :key="li">
-          <li>
-            <span class="title"> {{ conference.title }} ({{ conference.data }}) </span>
-            <span>
-              {{ conference.member }}
-            </span>
-            <ButtonMore link="/" text="ver mais" />
-          </li>
-        </ul>
-      </div>
+      <ButtonAll text="Ver todas as publicações" link="/" />
     </div>
   </section>
 </template>
@@ -65,8 +69,12 @@ section {
   padding: 80px 145px;
   border-top: 5px solid var(--primary-color);
 }
-
-.container {
+section .publications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -81,16 +89,16 @@ section {
   color: var(--primary-color);
 }
 
-ul {
+.container ul {
   list-style-type: disc;
   padding: 20px;
 }
 
-ul li {
+.container ul li {
   margin-bottom: 10px;
 }
 
-ul li .title {
+li .title {
   font-weight: 500;
   display: block;
 }

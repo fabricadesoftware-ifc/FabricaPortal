@@ -117,7 +117,7 @@ footer .links ul li {
 }
 footer .links ul li a {
   text-decoration: none;
-  color: var(--white)
+  color: var(--white);
 }
 footer .links ul li a:hover {
   text-decoration: underline;
