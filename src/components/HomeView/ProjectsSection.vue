@@ -25,7 +25,7 @@ onMounted(() => {
           :image="project.image"
           :type="project.type"
           :status="project.status"
-          />
+        />
       </div>
       <ButtonAll link="/" text="Ver todos os projetos" />
     </div>
@@ -36,15 +36,18 @@ onMounted(() => {
 section {
   background-color: var(--background-color);
 }
+
 .section-projects {
   margin: 80px 0;
   padding: 80px 145px;
 }
+
 section .projects-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 section .projects {
   display: flex;
   flex-wrap: wrap;
