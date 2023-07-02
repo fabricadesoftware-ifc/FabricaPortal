@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
   --primary-color: #FF6700;
-  --secondary-color: #267A7A;
   --text-color: #000000;
   --black: #101215;
-  --white: #f3f3f3;
-  --background-color:#ffffff;
+  --white: #ffffff;
+  --background-color: #f3f3f3;
+
 }

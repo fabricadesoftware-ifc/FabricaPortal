@@ -8,12 +8,14 @@
 }
 
 body {
-    background-color: var(--white);
     scrollbar-width: thin;
 }
 
 .home-view section h3, h4, h5, p{
     color: var(--text-color);
+}
+.home-view {
+    background-color: var(--background-color);
 }
 h1 {
     font-size: 50px;
@@ -40,8 +42,8 @@ p {
     font-weight: 400;
 }
 
-.home-view section {
-    margin: 80px 145px;
+main section {
+    padding: 80px 145px;
 }
 
 

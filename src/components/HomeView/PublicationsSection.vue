@@ -64,7 +64,7 @@ onMounted(() => {
 
 <style scoped>
 section {
-  background-color: var(--background-color);
+  background-color: var(--white);
   margin: 80px 0 0 0;
   padding: 80px 145px;
   border-top: 5px solid var(--primary-color);

@@ -25,7 +25,7 @@ defineProps({
 
 <style scoped>
 .card {
-  background-color: var(--background-color);
+  background-color: var(--white);
   width: 50%;
   height: auto;
   margin-bottom: 12px;

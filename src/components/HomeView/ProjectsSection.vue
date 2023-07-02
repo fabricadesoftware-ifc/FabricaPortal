@@ -34,7 +34,7 @@ onMounted(() => {
 
 <style scoped>
 section {
-  background-color: var(--background-color);
+  background-color: var(--white);
 }
 
 .section-projects {

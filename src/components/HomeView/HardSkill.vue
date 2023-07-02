@@ -14,7 +14,7 @@ const langs = [{ name: 'vuejs' }, { name: 'react' }, { name: 'django' }, { name:
 section {
   width: 100%;
   height: 194px;
-  background-color: var(--white);
+  background-color: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;

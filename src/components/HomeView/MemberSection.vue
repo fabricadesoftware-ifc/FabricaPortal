@@ -27,7 +27,7 @@ onMounted(() => {
           :type="member.type"
         />
       </div>
-      <ButtonAll link="/" text="Ver todos os membros" />
+      <ButtonAll link="/members" text="Ver todos os membros" />
     </div>
   </section>
 </template>
