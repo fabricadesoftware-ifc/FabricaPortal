@@ -13,7 +13,7 @@ defineProps({
       <img :src="image" alt="" />
 
       <div class="member-details">
-        <h5>{{ type }}</h5>
+        <h5>{{ type.description }}</h5>
         <h3>{{ name }}</h3>
         <p>
           {{ description }}
@@ -36,6 +36,7 @@ defineProps({
 }
 
 .card a {
+  color: var(--black);
   text-decoration: none;
   display: flex;
 }

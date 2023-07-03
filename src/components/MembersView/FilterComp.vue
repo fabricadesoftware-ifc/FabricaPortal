@@ -1,4 +1,16 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+import MembersApi from '@/api/members'
+const membersApi = new MembersApi()
+const members = ref([])
+const types = ref([])
+
+onMounted(() => {
+  members.value = membersApi.getMembers()
+  types.value = membersApi.getTypes()
+})
+</script>
 
 <template>
   <section>
@@ -7,41 +19,32 @@
       <div class="container">
         <label for="">pesquise</label>
         <div>
-          <input type="text" name="fruit" list="fruits" autocomplete="off" />
-          <datalist id="fruits">
-            <option>Fábio Longo de Moura</option>
-            <option>Eduardo da Silva</option>
-            <option>Marco André Mendes</option>
-            <option>Marco Antônio Rojas</option>
-            <option>Gabriel Pereira</option>
+          <!-- olha esse required -->
+          <input type="text" name="member" list="member" required autocomplete="off" />
+          <datalist id="member">
+            <option v-for="member of members" :key="member.id">
+              {{ member.name }}
+            </option>
           </datalist>
         </div>
       </div>
       <div class="container">
-        <label for="">ocupação</label>
-        <select>
-          <option disabled value="">Escolha uma ocupação</option>
-          <option>a</option>
-          <option>a</option>
-          <option>a</option>
-          <option>a</option>
+        <label for="type">ocupação</label>
+        <select id="type" required>
+          <option value="" disabled selected>Selecione uma opção</option>
+          <option v-for="type of types" :key="type.id">
+            {{ type.description }}
+          </option>
         </select>
       </div>
       <div class="container">
         <label for="order">ordernar por</label>
-        <select id="order">
-          <option disabled value="">Escolha um</option>
+        <select id="order" required>
+          <option value="" disabled selected>Selecione uma opção</option>
           <option>a</option>
           <option>a</option>
           <option>a</option>
           <option>a</option>
-          <!--           <option
-            v-for="linguagem of linguagens"
-            :key="linguagem.iso_639_1"
-            :value="linguagem.iso_639_1"
-          >
-            {{ linguagem.name }}
-          </option> -->
         </select>
       </div>
     </div>
@@ -49,15 +52,15 @@
 </template>
 
 <style scoped>
-
 section {
+  height: 20vh;
+  background-color: var(--white);
   border-left: 5px solid var(--primary-color);
-    padding: 0 25px;
-    display: flex;
-    height: 20vh;
-    margin: 80px 145px;
-    flex-direction: column;
-    justify-content: center;
+  padding: 0 25px;
+  display: flex;
+  margin: 48px 145px;
+  flex-direction: column;
+  justify-content: center;
 }
 section .filter {
   width: 100%;
@@ -72,26 +75,29 @@ section .filter {
 .container label {
   text-transform: uppercase;
   font-weight: 600;
+  /* criar variavel para essa cor */
   color: #343434;
   margin-bottom: 5px;
 }
 .container input,
 .container select {
+  width: 100%;
+  height: auto;
   font-weight: 500;
   color: #484848;
-  padding: 3px 8px;
+  padding: 11px 8px;
   background-color: var(--background-color);
-  border: none;
-  transition: 180ms border-bottom ease;
-  height: 4vh;
-  width: 100%;
+  border: 0;
+  transition: 180ms border-bottom ease-in-out;
 }
 
 .container input:focus,
 .container input:hover,
+.container input:valid,
 .container select:focus,
+.container select:valid,
 .container select:hover {
-  outline: none;
+  outline: 0;
   border-bottom: 5px solid var(--primary-color);
 }
 </style>

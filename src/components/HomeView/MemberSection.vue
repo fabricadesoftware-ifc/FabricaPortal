@@ -9,7 +9,7 @@ const membersApi = new MembersApi()
 const members = ref([])
 
 onMounted(() => {
-  members.value = membersApi.getMembers()
+  members.value = membersApi.getSixMembers()
 })
 </script>
 
