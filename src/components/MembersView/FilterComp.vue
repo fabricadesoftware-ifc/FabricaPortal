@@ -16,7 +16,7 @@ onMounted(() => {
   <section>
     <h2>Membros</h2>
     <div class="filter">
-      <div class="container">
+      <div class="container" id="search-container">
         <label for="">pesquise</label>
         <div>
           <!-- olha esse required -->
@@ -28,7 +28,7 @@ onMounted(() => {
           </datalist>
         </div>
       </div>
-      <div class="container">
+      <div class="container" id="occupation-container">
         <label for="occupation">ocupação</label>
         <select id="occupation" required>
           <option value="" disabled selected>Selecione uma opção</option>
@@ -37,16 +37,10 @@ onMounted(() => {
           </option>
         </select>
       </div>
-/*       <div class="container">
-        <label for="order">ordernar por</label>
-        <select id="order" required>
-          <option value="" disabled selected>Selecione uma opção</option>
-          <option>a</option>
-          <option>a</option>
-          <option>a</option>
-          <option>a</option>
-        </select>
-      </div> */
+      <div class="btn-order">
+        <box-icon size="2em" color="#fff" name='sort-up'></box-icon>
+        <span>a-z</span>
+      </div>
     </div>
   </section>
 </template>
@@ -70,7 +64,26 @@ section .filter {
 .filter .container {
   display: flex;
   flex-direction: column;
-  width: 32%;
+  margin-right: 20px;
+}
+.filter #search-container {
+  width: 50%;
+}
+.filter #occupation-container {
+  width: 37%;
+}
+.filter .btn-order {
+  height: 70px;
+  width: 70px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.filter .btn-order span {
+  color: var(--white);
+  font-weight: bold;
 }
 .container label {
   text-transform: uppercase;
