@@ -4,11 +4,11 @@ import { ref, onMounted } from 'vue'
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const members = ref([])
-const types = ref([])
+const occupations = ref([])
 
 onMounted(() => {
   members.value = membersApi.getMembers()
-  types.value = membersApi.getTypes()
+  occupations.value = membersApi.getoccupations()
 })
 </script>
 
@@ -20,7 +20,7 @@ onMounted(() => {
         <label for="">pesquise</label>
         <div>
           <!-- olha esse required -->
-          <input type="text" name="member" list="member" required autocomplete="off" />
+          <input occupation="text" name="member" list="member" required autocomplete="off" />
           <datalist id="member">
             <option v-for="member of members" :key="member.id">
               {{ member.name }}
@@ -29,15 +29,15 @@ onMounted(() => {
         </div>
       </div>
       <div class="container">
-        <label for="type">ocupação</label>
-        <select id="type" required>
+        <label for="occupation">ocupação</label>
+        <select id="occupation" required>
           <option value="" disabled selected>Selecione uma opção</option>
-          <option v-for="type of types" :key="type.id">
-            {{ type.description }}
+          <option v-for="occupation of occupations" :key="occupation.id">
+            {{ occupation.description }}
           </option>
         </select>
       </div>
-      <div class="container">
+/*       <div class="container">
         <label for="order">ordernar por</label>
         <select id="order" required>
           <option value="" disabled selected>Selecione uma opção</option>
@@ -46,7 +46,7 @@ onMounted(() => {
           <option>a</option>
           <option>a</option>
         </select>
-      </div>
+      </div> */
     </div>
   </section>
 </template>

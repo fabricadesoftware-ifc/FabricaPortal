@@ -24,7 +24,7 @@ onMounted(() => {
           :image="member.image"
           :name="member.name"
           :description="member.description"
-          :type="member.type"
+          :occupation="member.occupation"
         />
       </div>
       <ButtonAll link="/members" text="Ver todos os membros" />

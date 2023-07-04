@@ -1,10 +1,10 @@
-import { members, type IMembers, types, type ITypes } from '@/_data/members'
+import { members, type IMembers, occupations, type Ioccupations } from '@/_data/members'
 export default class MembersApi {
     getMembers(): IMembers[] {
         return members
     }
-    getTypes(): ITypes[] {
-        return types
+    getoccupations(): Ioccupations[] {
+        return occupations
     }
     getSixMembers(): IMembers[] {
         return members.slice(0, 6)

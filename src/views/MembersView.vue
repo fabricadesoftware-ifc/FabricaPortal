@@ -6,11 +6,11 @@ import MemberCard from '../components/common/MemberCard.vue'
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const members = ref([])
-const types = ref([])
+const occupations = ref([])
 
 onMounted(() => {
   members.value = membersApi.getMembers()
-  types.value = membersApi.getTypes()
+  occupations.value = membersApi.getoccupations()
 })
 </script>
 
@@ -24,7 +24,7 @@ onMounted(() => {
         :image="member.image"
         :name="member.name"
         :description="member.description"
-        :type="member.type"
+        :occupation="member.occupation"
       />
     </section>
   </main>

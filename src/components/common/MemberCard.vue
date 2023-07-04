@@ -3,7 +3,7 @@ defineProps({
   image: String,
   name: String,
   description: String,
-  type: String
+  occupation: String
 })
 </script>
 
@@ -12,7 +12,7 @@ defineProps({
     <router-link to="/">
       <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div>
       <div class="member-details">
-        <h5>{{ type.description }}</h5>
+        <h5>{{ occupation.description }}</h5>
         <h3>{{ name }}</h3>
         <p>
           {{ description }}
