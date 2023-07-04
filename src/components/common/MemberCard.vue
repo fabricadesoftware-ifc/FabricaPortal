@@ -10,8 +10,7 @@ defineProps({
 <template>
   <div class="card">
     <router-link to="/">
-      <img :src="image" alt="" />
-
+      <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div>
       <div class="member-details">
         <h5>{{ type.description }}</h5>
         <h3>{{ name }}</h3>
@@ -27,7 +26,7 @@ defineProps({
 .card {
   background-color: var(--white);
   width: 50%;
-  height: auto;
+  height: 20vh;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -46,20 +45,22 @@ defineProps({
   transform: scale(100%);
 }
 
-.card:hover img {
+.card:hover .image {
   filter: brightness(1);
 }
-.card img {
-  width: 25%;
-  height: auto;
+.card .image {
+  width: 200px;
+  height: 20vh;
+  background-position: center;
+  background-size: cover;
   transition: filter 0.6s;
   filter: brightness(0.6);
 }
 
-
 .card .member-details {
   border-left: 5px solid var(--primary-color);
   padding: 10px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

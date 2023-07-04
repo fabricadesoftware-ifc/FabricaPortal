@@ -90,7 +90,7 @@ h4 {
 
 footer {
   width: 100%;
-  height: 47vh;
+  height: 57vh;
   padding: 56px 0;
   background-color: var(--black);
   color: var(--background-color);
