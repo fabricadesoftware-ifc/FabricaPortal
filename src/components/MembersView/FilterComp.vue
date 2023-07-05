@@ -1,13 +1,15 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, defineEmits, defineProps, onMounted } from 'vue'
 
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
-const members = ref([])
 const occupations = ref([])
+const filterName =  ref('')
+
+const props = defineProps(['members'])
+defineEmits(['change'])
 
 onMounted(() => {
-  members.value = membersApi.getMembers()
   occupations.value = membersApi.getoccupations()
 })
 </script>
@@ -20,14 +22,14 @@ onMounted(() => {
         <label for="">pesquise</label>
         <div>
           <!-- olha esse required -->
-          <input occupation="text" name="member" list="member" required autocomplete="off" />
-          <datalist id="member">
-            <option v-for="member of members" :key="member.id">
+          <input occupation="text" name="member" list="members" required autocomplete="off" v-model="filterName" @input="$emit('change', filterName)"/>
+          <datalist id="members">
+            <option v-for="member of props.members" :key="member.id">
               {{ member.name }}
             </option>
           </datalist>
         </div>
-      </div>
+      </div>  
       <div class="container" id="occupation-container">
         <label for="occupation">ocupação</label>
         <select id="occupation" required>

@@ -1,25 +1,35 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted, Ref } from 'vue'
+
 import FilterComp from '@/components/MembersView/FilterComp.vue'
 import MemberCard from '../components/common/MemberCard.vue'
 
+// import { IMembers } from '@/_data/members'
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const members = ref([])
 const occupations = ref([])
+const filterName = ref('')
+
+const filteredMembers = computed(() => members.value.filter(m => m.name.toLowerCase().includes(filterName.value.toLowerCase()) ))
 
 onMounted(() => {
   members.value = membersApi.getMembers()
   occupations.value = membersApi.getoccupations()
 })
+
+function changeFilterName(name) {
+  filterName.value = name
+}
+
 </script>
 
 <template>
   <main>
-    <FilterComp />
+    <FilterComp :members="members" @change="changeFilterName"/>
     <section class="container">
       <MemberCard
-        v-for="member of members"
+        v-for="member of filteredMembers"
         :key="member.id"
         :image="member.image"
         :name="member.name"

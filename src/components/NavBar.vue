@@ -50,6 +50,7 @@ nav {
   padding: 0 145px;
   position: fixed;
   width: -webkit-fill-available;
+  width: -moz-available;
   justify-content: space-between;
   display: flex;
   z-index: 1;
