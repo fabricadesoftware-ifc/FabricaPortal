@@ -3,13 +3,20 @@ defineProps({
   image: String,
   name: String,
   description: String,
-  occupation: String
+  occupation: String,
+  linkMember: {
+    type: Object,
+  }
 })
+
+const UrlMember = (id) => {
+  return `/membro/${id}`
+};
 </script>
 
 <template>
   <div class="card">
-    <router-link to="/">
+    <router-link :to="UrlMember(linkMember.id)">
       <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div>
       <div class="member-details">
         <h5>{{ occupation.description }}</h5>

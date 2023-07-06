@@ -4,11 +4,10 @@ import { ref, computed, onMounted } from 'vue'
 import FilterComp from '@/components/MembersView/FilterComp.vue'
 import MemberCard from '../components/common/MemberCard.vue'
 
-// import { IMembers } from '@/_data/members'
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const members = ref([])
-const occupations = ref([])
+const occupations = ref([''])
 const filterName = ref('')
 
 function removeAccents(name) {
@@ -16,21 +15,22 @@ function removeAccents(name) {
 }
 
 const filteredMembers = computed(() =>
+  /* o main onde aparece todos os membros é aqui */
   members.value.filter((m) => {
     const memberName = removeAccents(m.name.toLowerCase());
     const filter = removeAccents(filterName.value.toLowerCase());
     return memberName.includes(filter);
   })
 );
-onMounted(() => {
-  members.value = membersApi.getMembers()
-  occupations.value = membersApi.getOccupations()
-})
 
 function changeFilterName(name) {
   filterName.value = name
 }
 
+onMounted(() => {
+  members.value = membersApi.getMembers()
+  occupations.value = membersApi.getOccupations()
+})
 </script>
 
 <template>
@@ -43,6 +43,7 @@ function changeFilterName(name) {
         :image="member.image"
         :name="member.name"
         :description="member.description"
+        :linkMember="member"
         :occupation="member.occupation"
       />
     </section>

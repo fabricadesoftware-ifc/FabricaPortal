@@ -5,6 +5,7 @@ import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const occupations = ref([])
 const filterName = ref('')
+const filterOccupation = ref('')
 
 const props = defineProps(['members'])
 defineEmits(['change'])
@@ -41,7 +42,7 @@ onMounted(() => {
         <label for="occupation">ocupação</label>
         <select
           id="occupation"
-          v-model="filterOccopation"
+          v-model="filterOccupation"
           @select="$emit('change', filterOccupation)"
           required
         >
