@@ -14,11 +14,11 @@ interface Ioccupations {
 const occupations: Array<Ioccupations> = [
   {
     id: '1',
-    description: 'Aluno'
+    description: 'Professor'
   },
   {
     id: '2',
-    description: 'Professor'
+    description: 'Aluno'
   },
   {
     id: '3',
@@ -43,7 +43,7 @@ const members: Array<IMembers> = [
       'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -54,7 +54,7 @@ const members: Array<IMembers> = [
       'Hands-on with cloud computing, devops tools, full-stack, programming concepts and open source/leading frameworks.',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -65,7 +65,7 @@ const members: Array<IMembers> = [
       'Docente em cursos de tecnologia Licenciado em Computação Licenciado em Matemática Mestre em Ciências da Computação.',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -75,7 +75,7 @@ const members: Array<IMembers> = [
     description: 'Professor no IFC, desenvolvedor Python e Django.',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -85,7 +85,7 @@ const members: Array<IMembers> = [
     description: '',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   // Adicione mais membros aqui:
@@ -96,7 +96,7 @@ const members: Array<IMembers> = [
     description: '',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -106,7 +106,7 @@ const members: Array<IMembers> = [
     description: 'Em 2017 foi pesquisador de pós-doutorado na área de Cybersecurity no Canadian Institute for Cybersecurity (CIC) na ...',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -116,7 +116,7 @@ const members: Array<IMembers> = [
     description: 'Desenvolvedor full-stack com experiência em JavaScript e frameworks modernos.',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -126,7 +126,7 @@ const members: Array<IMembers> = [
     description: 'Especialista em UX/UI com vasta experiência em design de interfaces para aplicativos móveis.',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -136,7 +136,7 @@ const members: Array<IMembers> = [
     description: 'Engenheiro de software com foco em desenvolvimento de sistemas distribuídos.',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -146,7 +146,7 @@ const members: Array<IMembers> = [
     description: 'Desenvolvedora front-end com conhecimentos avançados em HTML, CSS e JavaScript.',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
     }
   },
   {
@@ -156,7 +156,27 @@ const members: Array<IMembers> = [
     description: 'É Bacharel em Ciência da Computação pela Universidade...',
     occupation: {
       id: '1',
-      description:'professor'
+      description:'Professor'
+    }
+  },
+  {
+    id: '15',
+    image: 'https://avatars.githubusercontent.com/u/99155494?v=4',
+    name: 'Geovana Sophia Horodeski',
+    description: 'Gosto de filmes, ABBA e FrontEnd',
+    occupation: {
+      id: '2',
+      description:'Aluno'
+    }
+  },
+  {
+    id: '17',
+    image: 'https://avatars.githubusercontent.com/u/99155494?v=4',
+    name: 'pessoa bacana',
+    description: 'Gosto de filmes, ABBA e FrontEnd',
+    occupation: {
+      id: '4',
+      description:'Graduação'
     }
   },
 ]

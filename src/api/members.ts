@@ -3,7 +3,7 @@ export default class MembersApi {
     getMembers(): IMembers[] {
         return members
     }
-    getoccupations(): Ioccupations[] {
+    getOccupations(): Ioccupations[] {
         return occupations
     }
     getSixMembers(): IMembers[] {

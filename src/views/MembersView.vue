@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, Ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 import FilterComp from '@/components/MembersView/FilterComp.vue'
 import MemberCard from '../components/common/MemberCard.vue'
@@ -11,11 +11,20 @@ const members = ref([])
 const occupations = ref([])
 const filterName = ref('')
 
-const filteredMembers = computed(() => members.value.filter(m => m.name.toLowerCase().includes(filterName.value.toLowerCase()) ))
+function removeAccents(name) {
+  return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
 
+const filteredMembers = computed(() =>
+  members.value.filter((m) => {
+    const memberName = removeAccents(m.name.toLowerCase());
+    const filter = removeAccents(filterName.value.toLowerCase());
+    return memberName.includes(filter);
+  })
+);
 onMounted(() => {
   members.value = membersApi.getMembers()
-  occupations.value = membersApi.getoccupations()
+  occupations.value = membersApi.getOccupations()
 })
 
 function changeFilterName(name) {

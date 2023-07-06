@@ -4,13 +4,13 @@ import { ref, defineEmits, defineProps, onMounted } from 'vue'
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const occupations = ref([])
-const filterName =  ref('')
+const filterName = ref('')
 
 const props = defineProps(['members'])
 defineEmits(['change'])
 
 onMounted(() => {
-  occupations.value = membersApi.getoccupations()
+  occupations.value = membersApi.getOccupations()
 })
 </script>
 
@@ -21,18 +21,30 @@ onMounted(() => {
       <div class="container" id="search-container">
         <label for="">pesquise</label>
         <div>
-          <!-- olha esse required -->
-          <input occupation="text" name="member" list="members" required autocomplete="off" v-model="filterName" @input="$emit('change', filterName)"/>
+          <input
+            occupation="text"
+            name="member"
+            list="members"
+            required
+            autocomplete="off"
+            v-model="filterName"
+            @keyup.enter="$emit('change', filterName)"
+          />
           <datalist id="members">
             <option v-for="member of props.members" :key="member.id">
               {{ member.name }}
             </option>
           </datalist>
         </div>
-      </div>  
+      </div>
       <div class="container" id="occupation-container">
         <label for="occupation">ocupação</label>
-        <select id="occupation" required>
+        <select
+          id="occupation"
+          v-model="filterOccopation"
+          @select="$emit('change', filterOccupation)"
+          required
+        >
           <option value="" disabled selected>Selecione uma opção</option>
           <option v-for="occupation of occupations" :key="occupation.id">
             {{ occupation.description }}
@@ -40,7 +52,7 @@ onMounted(() => {
         </select>
       </div>
       <div class="btn-order">
-        <box-icon size="2em" color="#fff" name='sort-up'></box-icon>
+        <box-icon size="2em" color="#fff" name="sort-up"></box-icon>
         <span>a-z</span>
       </div>
     </div>
