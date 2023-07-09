@@ -16,8 +16,8 @@ const router = createRouter({
       component: MembersView,
     },
     {
-      path: "/membro/:id",
-      name: "membro",
+      path: "/member/:id",
+      name: "member",
       component: MemberProfile,
       props: true,
     },

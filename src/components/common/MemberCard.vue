@@ -3,14 +3,16 @@ defineProps({
   image: String,
   name: String,
   description: String,
-  occupation: String,
+  occupation: {
+    type: Object,
+  },
   linkMember: {
     type: Object,
   }
 })
 
 const UrlMember = (id) => {
-  return `/membro/${id}`
+  return `/member/${id}`
 };
 </script>
 

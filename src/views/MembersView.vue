@@ -44,6 +44,7 @@ onMounted(() => {
         :name="member.name"
         :description="member.description"
         :linkMember="member"
+        :background="member.background"
         :occupation="member.occupation"
       />
     </section>

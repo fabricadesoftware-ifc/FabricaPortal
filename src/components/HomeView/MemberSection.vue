@@ -24,6 +24,7 @@ onMounted(() => {
           :image="member.image"
           :name="member.name"
           :description="member.description"
+          :linkMember="member"
           :occupation="member.occupation"
         />
       </div>
