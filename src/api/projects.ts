@@ -3,4 +3,8 @@ export default class ProjectsApi {
     getProjects(): IProjects[] {
         return projects
     }
+    getProjectsById(id: string): IProjects | undefined {
+        return projects.find((project) => project.id === id)
+    }
+    
 }

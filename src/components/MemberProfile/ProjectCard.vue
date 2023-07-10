@@ -79,9 +79,9 @@ p {
   justify-content: space-between;
 }
 .card .container-details p {
-  max-height: 3em; /* Altura máxima de 3 linhas */
+  max-height: 3em; 
   overflow: hidden;
-  text-overflow: ellipsis; /* Exibir reticências para o conteúdo que excede a altura máxima */
+  text-overflow: ellipsis; 
 
 }
 

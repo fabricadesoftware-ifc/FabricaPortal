@@ -1,6 +1,5 @@
 <script setup>
 import ProjectCard from '@/components/MemberProfile/ProjectCard.vue'
-import ProjectCardUm from '@/components/common/ProjectsCard.vue'
 import { ref, onMounted } from 'vue'
 
 defineProps({
@@ -11,17 +10,14 @@ defineProps({
   occupation: {
     type: Object
   },
+  projects: {
+    type: Array
+  },
   linkMember: {
     type: Object
   }
 })
-import ProjectsApi from '@/api/projects'
-const projectsApi = new ProjectsApi()
-const projects = ref([])
 
-onMounted(() => {
-  projects.value = projectsApi.getProjects()
-})
 </script>
 <template>
   <section class="projetos">

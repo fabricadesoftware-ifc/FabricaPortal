@@ -75,7 +75,11 @@ const UrlMember = (id) => {
   justify-content: center;
   align-items: flex-start;
 }
-
+.card .member-details p{
+  max-height: 3em; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
 h5 {
   color: #ff6700;
   text-transform: uppercase;

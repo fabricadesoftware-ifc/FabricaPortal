@@ -1,6 +1,7 @@
 <script setup>
 import ProjectsComp from '@/components/MemberProfile/ProjectsComp.vue'
 import PublicationsComp from '@/components/MemberProfile/PublicationsComp.vue'
+import DetailsProfile from '@/components/MemberProfile/DetailsProfile.vue'
 import MembersApi from '@/api/members'
 import { ref, onMounted } from 'vue'
 
@@ -12,43 +13,51 @@ defineProps({
   occupation: {
     type: Object
   },
-  linkMember: {
-    type: Object
-  }
+  socialLinks: {
+    type: Array
+  },
 })
+
 
 const membersApi = new MembersApi()
-const members = ref([])
 
-onMounted(() => {
-  members.value = membersApi.getMembers()
-})
+const memberId = ref(null)
+const member = ref(null)
+const memberProjects = ref([])
+
+onMounted(fetchMember)
+
+async function fetchMember() {
+  const path = window.location.pathname
+  const memberIdFromUrl = path.substring(path.lastIndexOf('/') + 1)
+  memberId.value = memberIdFromUrl
+
+  try {
+    member.value = membersApi.getMemberById(memberId.value)
+  } catch (error) {
+    console.error(error)
+  }
+}
 </script>
 
 <template>
-  <section>
+  <section v-if="member">
     <div class="col">
-      <img class="image" :src="image" alt="" />
+      <img class="image" :src="member.image" alt="" />
       <div class="midias">
-        <box-icon size="2em" type="logo" name="github"></box-icon>
-        <box-icon size="2em" type="logo" name="linkedin"></box-icon>
-        <box-icon size="2em" type="logo" name="twitter"></box-icon>
-        <box-icon size="2em" name="link"></box-icon>
+        <a v-for="socialLink in member.socialLinks" :key="socialLink.icon" target="_blank" :href="socialLink.href">
+          <box-icon size="2em" :type="socialLink.type" :name="socialLink.icon"></box-icon>
+        </a>
       </div>
     </div>
     <div>
-      <div class="nameOccup">
-        <h3>{{ occupation.description }}</h3>
-        <div>
-          <h2>{{ name }}</h2>
-        </div>
-      </div>
-      <div class="desc">
-        <h3>Descrição</h3>
-
-        <p>{{ description }}</p>
-      </div>
-      <ProjectsComp />
+      <DetailsProfile
+        :name="member.name"
+        :key="member.id"
+        :occupation="member.occupation"
+        :description="member.description"
+      /> 
+      <ProjectsComp/>
       <PublicationsComp />
     </div>
   </section>
@@ -92,18 +101,5 @@ section .midias {
   justify-content: space-between;
   padding: 4px;
 }
-section .nameOccup {
-  border-bottom: 5px solid var(--primary-color);
-  margin-bottom: 14px;
-  width: 100%;
-}
-section .desc {
-  margin-bottom: 14px;
-}
-section .nameOccup h3 {
-  color: var(--primary-color);
-  text-transform: uppercase;
-  font-weight: 600;
 
-}
 </style>
