@@ -1,5 +1,4 @@
-import { members, IMembers, occupations, Ioccupations } from '@/_data/members'
-import http from '../http-common'
+import { members, type IMembers, occupations, type IOccupations, type ILink, redesSociais } from '@/_data/members'
 
 export default class MembersApi {
   getMembers(): IMembers[] {
@@ -10,7 +9,7 @@ export default class MembersApi {
     return members.find((member) => member.id === id)
   }
 
-  getOccupations(): Ioccupations[] {
+  getOccupations(): IOccupations[] {
     return occupations
   }
 

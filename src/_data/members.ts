@@ -3,15 +3,45 @@ interface IMembers {
   name: string
   image: string
   description: string
-  occupation: Ioccupations
+  occupation: IOccupations
+  projectIds?: string[]
+  socialLinks?: ILink[]
 }
 
-interface Ioccupations {
+interface IOccupations {
   id: string
   description: string
 }
 
-const occupations: Array<Ioccupations> = [
+interface ILink {
+  icon?: string
+  href: string
+  type?: string
+}
+
+const redesSociais: Array<ILink> = [
+  {
+    icon: 'github',
+    href: '',
+    type: 'logo'
+  },
+  {
+    icon: 'linkedin',
+    href: '',
+    type: 'logo'
+  },
+  {
+    icon: 'twitter',
+    href: '',
+    type: 'logo'
+  },
+  {
+    icon: 'link',
+    href: '',
+    type: ''
+  }
+]
+const occupations: Array<IOccupations> = [
   {
     id: '1',
     description: 'Professor'
@@ -31,7 +61,7 @@ const occupations: Array<Ioccupations> = [
   {
     id: '5',
     description: 'Bolsista'
-  },
+  }
 ]
 
 const members: Array<IMembers> = [
@@ -40,42 +70,88 @@ const members: Array<IMembers> = [
     image: 'https://avatars.githubusercontent.com/u/849206?v=4',
     name: 'Fábio Longo de Moura',
     description:
-      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas...',
+      'Possui graduação em Sistemas de Informação pela Universidade da Região de Joinville (2005) e mestrado em Sistemas de Informação pela Universidade do Minho (2014). Atualmente é pesquisador e professor do ensino básico, técnico e tecnológico do Instituto Federal Catarinense e pesquisador do Departamento de Sistemas de Informação da Universidade do Minho (Campus Azurém), em Guimarães, Portugal. Tem experiência na área de Ciência da Computação, com ênfase em Sistemas de Informação, atuando principalmente nos seguintes temas: information system, information system management, competences, capability, management.',
     occupation: {
       id: '1',
-      description:'Professor'
-    }
+      description: 'Professor'
+    },
+    projectIds: ['1', '3'],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/ldmfabio',
+        type: 'logo'
+      },
+      {
+        icon: 'linkedin',
+        href: 'https://br.linkedin.com/in/ldmfabio',
+        type: 'logo'
+      },
+      {
+        icon: 'twitter',
+        href: 'https://twitter.com/ldmfabio',
+        type: 'logo'
+      },
+      {
+        icon: 'link',
+        href: 'https://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=861850B8C5D3CDD40E48946E9E30EF06.buscatextual_0',
+        type: ''
+      }
+    ]
   },
   {
     id: '2',
     image: 'https://avatars.githubusercontent.com/u/48130339?v=4',
     name: 'Eduardo da Silva',
     description:
-      'Hands-on with cloud computing, devops tools, full-stack, programming concepts and open source/leading frameworks.',
+      'Possui graduação em Bacharelado em Ciência da Computação pela Universidade do Estado de Santa Catarina (2003) e mestrado em Informática pela Universidade Federal do Paraná (2009) e doutorado em Ciência da Computação pela Universidade Federal do Paraná (2014). Foi administrador de rede e professor do IST/SOCIESC. Atualmente, é professor no Instituto Federal Catarinense (IFC). É membro do grupo de pesquisa em Computação Aplicada (IFC/Araquari). Em 2018, participou como docente convidado em um programa de pós-doutorado na Universidade de Aveiro, em Portugal. Tem experiência na área de Ciência da Computação, com ênfase em redes de computadores.',
     occupation: {
       id: '1',
-      description:'Professor'
-    }
+      description: 'Professor'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/eduardo-da-silva',
+        type: 'logo'
+      },
+      {
+        icon: 'linkedin',
+        href: 'https://br.linkedin.com/in/eduardosilva3?trk=public_profile_browsemap',
+        type: 'logo'
+      },
+      {
+        icon: 'twitter',
+        href: 'https://twitter.com/edudasilva',
+        type: 'logo'
+      },
+      {
+        icon: 'link',
+        href: 'https://buscatextual.cnpq.br/buscatextual/visualizacv.do',
+        type: ''
+      }
+    ]
   },
   {
     id: '3',
     image: 'https://avatars.githubusercontent.com/u/107952878?v=4',
     name: 'Alann Perini',
     description:
-      'Docente em cursos de tecnologia Licenciado em Computação Licenciado em Matemática Mestre em Ciências da Computação.',
+      'Docente Universitário em diversas áreas da computação , disciplinas voltadas a Graduação e Cursos Tecnológicos. Mestrado em Ciências da Computação pela Faculdade Campo Limpo Paulista - UNIFACCAMP Pós-graduação em Segurança de Informação e Ambientes Operacionais pela Faculdade Associadas de São Paulo - FASP , Pós-graduação em Didática e Tecnologias do Ensino Superior - UNASP - SP - Graduado em Licenciatura em Computação pelo Centro Universitário Adventista - UNASP Graduado em Licenciatura em Matemática - FAEL - SC Orientação de monografias e trabalho de conclusão de curso - Graduação em Informática e Técnico em Informática. Orientações de trabalhos de iniciação científica nas seguintes áreas: Jogos Educacionais com Realidade Virtual e Aumentada, Segurança da Informação, Desenvolvimento de Sistemas com a Linguagem Java ,Ontologia , Web Semântica.',
     occupation: {
       id: '1',
-      description:'Professor'
+      description: 'Professor'
     }
   },
   {
     id: '4',
     image: 'https://avatars.githubusercontent.com/u/165224?v=4',
     name: 'Marco André Mendes',
-    description: 'Professor no IFC, desenvolvedor Python e Django.',
+    description:
+      'Possui graduação em Tecnologia Em Processamento de Dados pela Universidade do Estado de Santa Catarina (1994) e mestrado em Ciências da Computação pela Universidade Federal de Santa Catarina (2001). Atualmente é prof. de ensino médio, técnico e tecnológico do Instituto Federal Catarinense. Tem experiência na área de Ciência da Computação, com ênfase em Segurança da Informação, atuando principalmente nos seguintes temas: python, linguagem de programação, segurança da informação, programação e criptografia.',
     occupation: {
       id: '1',
-      description:'Professor'
+      description: 'Professor'
     }
   },
   {
@@ -85,10 +161,9 @@ const members: Array<IMembers> = [
     description: '',
     occupation: {
       id: '1',
-      description:'Professor'
+      description: 'Professor'
     }
   },
-  // Adicione mais membros aqui:
   {
     id: '7',
     image: 'https://avatars.githubusercontent.com/u/98765432?v=4',
@@ -96,57 +171,18 @@ const members: Array<IMembers> = [
     description: '',
     occupation: {
       id: '1',
-      description:'Professor'
+      description: 'Professor'
     }
   },
   {
     id: '8',
     image: 'https://avatars.githubusercontent.com/u/98765432?v=4',
     name: 'Marco Antônio Rojas',
-    description: 'Em 2017 foi pesquisador de pós-doutorado na área de Cybersecurity no Canadian Institute for Cybersecurity (CIC) na ...',
+    description:
+      'Em 2017 foi pesquisador de pós-doutorado na área de Cybersecurity no Canadian Institute for Cybersecurity (CIC) na ...',
     occupation: {
       id: '1',
-      description:'Professor'
-    }
-  },
-  {
-    id: '9',
-    image: 'https://avatars.githubusercontent.com/u/98765432?v=4',
-    name: 'João Pereira',
-    description: 'Desenvolvedor full-stack com experiência em JavaScript e frameworks modernos.',
-    occupation: {
-      id: '1',
-      description:'Professor'
-    }
-  },
-  {
-    id: '10',
-    image: 'https://avatars.githubusercontent.com/u/987654321?v=4',
-    name: 'Maria Souza',
-    description: 'Especialista em UX/UI com vasta experiência em design de interfaces para aplicativos móveis.',
-    occupation: {
-      id: '1',
-      description:'Professor'
-    }
-  },
-  {
-    id: '11',
-    image: 'https://avatars.githubusercontent.com/u/98765432?v=4',
-    name: 'Carlos Ferreira',
-    description: 'Engenheiro de software com foco em desenvolvimento de sistemas distribuídos.',
-    occupation: {
-      id: '1',
-      description:'Professor'
-    }
-  },
-  {
-    id: '13',
-    image: 'https://avatars.githubusercontent.com/u/9876543210?v=4',
-    name: 'Rafaela Almeida',
-    description: 'Desenvolvedora front-end com conhecimentos avançados em HTML, CSS e JavaScript.',
-    occupation: {
-      id: '1',
-      description:'Professor'
+      description: 'Professor'
     }
   },
   {
@@ -156,7 +192,7 @@ const members: Array<IMembers> = [
     description: 'É Bacharel em Ciência da Computação pela Universidade...',
     occupation: {
       id: '1',
-      description:'Professor'
+      description: 'Professor'
     }
   },
   {
@@ -166,7 +202,7 @@ const members: Array<IMembers> = [
     description: 'Gosto de filmes, ABBA e FrontEnd',
     occupation: {
       id: '2',
-      description:'Aluno'
+      description: 'Aluno'
     }
   },
   {
@@ -176,9 +212,9 @@ const members: Array<IMembers> = [
     description: 'Gosto de filmes, ABBA e FrontEnd',
     occupation: {
       id: '4',
-      description:'Graduação'
+      description: 'Graduação'
     }
-  },
+  }
 ]
 
-export { type IMembers, members, type Ioccupations, occupations }
+export { type IMembers, members, type IOccupations, occupations, type ILink, redesSociais }
