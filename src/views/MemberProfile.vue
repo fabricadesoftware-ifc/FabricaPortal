@@ -1,5 +1,4 @@
 <script setup>
-import DescComp from '@/components/MemberProfile/DescComp.vue'
 import ProfileComp from '@/components/MemberProfile/ProfileComp.vue'
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
@@ -33,9 +32,8 @@ async function fetchMember() {
       :name="member.name"
       :occupation="member.occupation"
       :description="member.description"
-      :background="member.image"
+      :image="member.image"
     />
-    <DescComp :key="member.id" :description="member.description" />
   </main>
 </template>
 
