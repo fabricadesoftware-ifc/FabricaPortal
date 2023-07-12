@@ -101,7 +101,7 @@ p {
 
 .card .container-details {
   width: 100%;
-  padding: 15px;
+  padding-top: 15px;
 }
 
 .card .container-details .status {

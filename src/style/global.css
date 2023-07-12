@@ -12,7 +12,7 @@ body {
     scrollbar-width: thin;
 }
 
-.home-view section h3, h4, h5, p{
+h3, h4, h5, p{
     color: var(--text-color);
 }
 .home-view {

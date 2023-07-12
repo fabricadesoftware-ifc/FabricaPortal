@@ -12,9 +12,6 @@ defineProps({
   occupation: {
     type: Object
   },
-  linkMember: {
-    type: Object
-  }
 })
 
 const membersApi = new MembersApi()
@@ -43,7 +40,7 @@ async function fetchMemberProjects() {
 }
 </script>
 <template>
-  <section class="projects">
+  <section v-if="projects.length > 0" class="projects">
     <h3>Projetos</h3>
     <div class="container">
       <ProjectCard

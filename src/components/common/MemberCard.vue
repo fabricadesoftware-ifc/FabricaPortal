@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue';
+
 defineProps({
   image: String,
   name: String,
@@ -9,11 +11,23 @@ defineProps({
   linkMember: {
     type: Object,
   }
-})
+});
+
+const encurtarNome = (name) => {
+  if (name.length > 20) {
+    const partesNome = nome.split(" ");
+    const primeiroNome = partesNome[0];
+    const ultimoNome = partesNome[partesNome.length - 1];
+    const nomeEncurtado = primeiroNome[0] + ". " + ultimoNome;
+    return nomeEncurtado;
+  }
+  return name;
+};
 
 const UrlMember = (id) => {
-  return `/member/${id}`
+  return `/member/${id}`;
 };
+
 </script>
 
 <template>
@@ -30,6 +44,8 @@ const UrlMember = (id) => {
     </router-link>
   </div>
 </template>
+
+<!-- Resto do código permanece igual -->
 
 <style scoped>
 .card {

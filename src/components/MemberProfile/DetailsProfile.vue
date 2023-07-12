@@ -15,7 +15,7 @@ defineProps({
       <h2>{{ name }}</h2>
     </div>
   </div>
-  <div class="desc">
+  <div v-if="description.length > 0" class="desc">
     <h3>Descrição</h3>
     <p>{{ description }}</p>
   </div>

@@ -8,6 +8,8 @@ import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const members = ref([])
 
+
+
 onMounted(() => {
   members.value = membersApi.getSixMembers()
 })
@@ -22,7 +24,7 @@ onMounted(() => {
           v-for="member of members"
           :key="member.id"
           :image="member.image"
-          :name="member.name"
+          :nomeEncurtado="member.name"
           :description="member.description"
           :linkMember="member"
           :occupation="member.occupation"

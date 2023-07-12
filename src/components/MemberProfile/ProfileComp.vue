@@ -35,7 +35,7 @@ async function fetchMember() {
 
 <template>
   <section v-if="member">
-    <div class="col">
+    <div class="col-1">
       <img class="image" :src="member.image" alt="" />
       <div class="midias">
         <a
@@ -48,7 +48,7 @@ async function fetchMember() {
         </a>
       </div>
     </div>
-    <div>
+    <div class="col-2">
       <DetailsProfile
         :name="member.name"
         :key="member.id"
@@ -73,8 +73,13 @@ p {
 section {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
-section .col {
+section .col-2 {
+  width: 100%;
+
+}
+section .col-1 {
   margin-right: 45px;
 }
 section .container {
