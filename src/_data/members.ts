@@ -5,6 +5,7 @@ interface IMembers {
   description: string
   occupation: IOccupations
   projectIds?: string[]
+  publicationIds?: string[]
   socialLinks?: ILink[]
 }
 
@@ -75,7 +76,7 @@ const members: Array<IMembers> = [
       id: '1',
       description: 'Professor'
     },
-    projectIds: ['1', '3'],
+    projectIds: ['7'],
     socialLinks: [
       {
         icon: 'github',
@@ -99,6 +100,7 @@ const members: Array<IMembers> = [
       }
     ]
   },
+
   {
     id: '2',
     image: 'https://avatars.githubusercontent.com/u/48130339?v=4',
@@ -109,6 +111,8 @@ const members: Array<IMembers> = [
       id: '1',
       description: 'Professor'
     },
+    publicationIds: ['1'],
+    projectIds: ['7', '6', '1'],
     socialLinks: [
       {
         icon: 'github',
@@ -138,17 +142,6 @@ const members: Array<IMembers> = [
     name: 'Alann Perini',
     description:
       'Docente Universitário em diversas áreas da computação , disciplinas voltadas a Graduação e Cursos Tecnológicos. Mestrado em Ciências da Computação pela Faculdade Campo Limpo Paulista - UNIFACCAMP Pós-graduação em Segurança de Informação e Ambientes Operacionais pela Faculdade Associadas de São Paulo - FASP , Pós-graduação em Didática e Tecnologias do Ensino Superior - UNASP - SP - Graduado em Licenciatura em Computação pelo Centro Universitário Adventista - UNASP Graduado em Licenciatura em Matemática - FAEL - SC Orientação de monografias e trabalho de conclusão de curso - Graduação em Informática e Técnico em Informática. Orientações de trabalhos de iniciação científica nas seguintes áreas: Jogos Educacionais com Realidade Virtual e Aumentada, Segurança da Informação, Desenvolvimento de Sistemas com a Linguagem Java ,Ontologia , Web Semântica.',
-    occupation: {
-      id: '1',
-      description: 'Professor'
-    }
-  },
-  {
-    id: '4',
-    image: 'https://avatars.githubusercontent.com/u/165224?v=4',
-    name: 'Marco André Mendes',
-    description:
-      'Possui graduação em Tecnologia Em Processamento de Dados pela Universidade do Estado de Santa Catarina (1994) e mestrado em Ciências da Computação pela Universidade Federal de Santa Catarina (2001). Atualmente é prof. de ensino médio, técnico e tecnológico do Instituto Federal Catarinense. Tem experiência na área de Ciência da Computação, com ênfase em Segurança da Informação, atuando principalmente nos seguintes temas: python, linguagem de programação, segurança da informação, programação e criptografia.',
     occupation: {
       id: '1',
       description: 'Professor'
