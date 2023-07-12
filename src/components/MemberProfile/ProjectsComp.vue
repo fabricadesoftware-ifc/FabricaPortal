@@ -1,6 +1,8 @@
 <script setup>
 import ProjectCard from '@/components/MemberProfile/ProjectCard.vue'
 import { ref, onMounted } from 'vue'
+import MembersApi from '@/api/members'
+import ProjectsApi from '@/api/projects'
 
 defineProps({
   image: String,
@@ -10,17 +12,38 @@ defineProps({
   occupation: {
     type: Object
   },
-  projects: {
-    type: Array
-  },
   linkMember: {
     type: Object
   }
 })
 
+const membersApi = new MembersApi()
+const projectsApi = new ProjectsApi()
+
+const memberId = ref(null)
+const member = ref(null)
+const projects = ref([])
+
+onMounted(fetchMemberProjects)
+async function fetchMemberProjects() {
+  const path = window.location.pathname
+  const memberIdFromUrl = path.substring(path.lastIndexOf('/') + 1)
+  memberId.value = memberIdFromUrl
+
+  member.value = membersApi.getMemberById(memberId.value)
+  if (member.value && member.value.projectIds) {
+    const projectIds = member.value.projectIds
+    for (const projectId of projectIds) {
+      const project = projectsApi.getProjectsById(projectId)
+      if (project) {
+        projects.value.push(project)
+      }
+    }
+  }
+}
 </script>
 <template>
-  <section class="projetos">
+  <section class="projects">
     <h3>Projetos</h3>
     <div class="container">
       <ProjectCard
@@ -36,12 +59,6 @@ defineProps({
   </section>
 </template>
 <style scoped>
-.projetos {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-
 section .container {
   margin-bottom: 20px;
   display: flex;

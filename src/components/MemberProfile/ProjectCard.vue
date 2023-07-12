@@ -1,6 +1,4 @@
 <script setup>
-// import { computed } from 'vue'
-// import ButtonMore from '../common/ButtonMore.vue'
 
 defineProps({
   description: String,
@@ -18,16 +16,13 @@ defineProps({
 <template>
   <div class="card">
     <router-link to="/">
-      <div class="container-img">
-        <img :src="image" alt="" />
-      </div>
+
     </router-link>
     <div class="container-details">
       <div>
-        <h3>{{ title }}</h3>
+        <h4>{{ title }}</h4>
         <div class="status">
           <h5>{{ status }}</h5>
-          <h5>{{ type }}</h5>
         </div>
       </div>
       <p>{{ description }}</p>
@@ -40,25 +35,19 @@ h3,
 p {
   margin: 3px 0;
 }
+h4 {
+  font-weight: 500;
+}
 
 .card {
   width: 100%;
   margin: 10px 0;
+  border-left: 5px solid var(--primary-color);
+  background-color: var(--background-color);
   height: auto;
   display: flex;
-  border: 5px solid var(--background-color);
 }
 
-.card a .container-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card a .container-img img {
-  width: auto;
-  height: 125px;
-}
 
 .card a:hover .container-img div {
   background-color: #00000081;
@@ -75,14 +64,13 @@ p {
 }
 
 .card .container-details div {
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
 .card .container-details p {
-  max-height: 3em; 
+  max-height: 3em;
   overflow: hidden;
-  text-overflow: ellipsis; 
-
+  text-overflow: ellipsis;
 }
 
 .card .container-details .status {
@@ -94,6 +82,7 @@ p {
   padding: 5px;
   background-color: var(--primary-color);
   color: var(--background-color);
+  width: max-content;
   margin-left: 5px;
 }
 </style>

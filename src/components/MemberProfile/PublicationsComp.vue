@@ -1,57 +1,90 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import ButtonMore from '../common/ButtonMore.vue'
-import PublicationsApi from '@/api/publications'
-const publicationsApi = new PublicationsApi()
-const articles = ref([])
-const books = ref([])
-const conferences = ref([])
+import ButtonAll from '../common/ButtonAll.vue'
+import PublicationComp from '../common/PublicationComp.vue'
 
-onMounted(() => {
-  articles.value = publicationsApi.getArticles()
-  conferences.value = publicationsApi.getConferences()
-  books.value = publicationsApi.getBooks()
+import PublicationsApi from '@/api/publications'
+import MembersApi from '@/api/members'
+
+const publicationsApi = new PublicationsApi()
+const publications = ref([])
+const filteredBooks = ref([])
+const filteredArticles = ref([])
+const filteredConferences = ref([])
+const memberId = ref(null)
+
+async function fetchMember() {
+  const path = window.location.pathname
+  const memberIdFromUrl = path.substring(path.lastIndexOf('/') + 1)
+  return (memberId.value = memberIdFromUrl)
+}
+
+onMounted(async () => {
+  fetchMember()
+  publications.value = publicationsApi.getPublicationsByMember(memberId.value)
+  filterPublications()
 })
+
+async function filterPublications() {
+  const formats = publicationsApi.getFormats()
+
+  const booksFormat = formats.find((format) => format.id === '1')
+  const articlesFormat = formats.find((format) => format.id === '2')
+  const conferencesFormat = formats.find((format) => format.id === '3')
+
+  if (booksFormat) {
+    filteredBooks.value = publicationsApi.getPublicationsByFormat(booksFormat.id)
+  }
+
+  if (articlesFormat) {
+    filteredArticles.value = publicationsApi.getPublicationsByFormat(articlesFormat.id)
+  }
+
+  if (conferencesFormat) {
+    filteredConferences.value = publicationsApi.getPublicationsByFormat(conferencesFormat.id)
+  }
+}
 </script>
 
 <template>
-  <section>
+  <section v-if="publications.length > 0" class="publications">
+    <h3>Publicações</h3>
     <div class="publications">
-      <h3>Publicações</h3>
       <div class="container">
-        <div>
+        <div v-if="filteredBooks.length > 0" class="publication-format">
           <h4>Livros e capítulos de livros</h4>
-          <ul v-for="(book, li) in books" :key="li">
-            <li>
-              <span class="title"> {{ book.title }} ({{ book.data }}) </span>
-              <span>
-                {{ book.member }}
-              </span>
-              <ButtonMore link="/" text="ver mais" />
+          <ul>
+            <li v-for="publication in filteredBooks" :key="publication.id">
+              <PublicationComp
+                :title="publication.title"
+                :data="publication.data"
+                :members="publication.members"
+              />
             </li>
           </ul>
         </div>
-        <div>
+        <div v-if="filteredArticles.length > 0" class="publication-format">
           <h4>Artigos</h4>
-          <ul v-for="(article, li) in articles" :key="li">
-            <li>
-              <span class="title"> {{ article.title }} ({{ article.data }}) </span>
-              <span>
-                {{ article.member }}
-              </span>
-              <ButtonMore link="/" text="ver mais" />
+          <ul>
+            <li v-for="publication in filteredArticles" :key="publication.id">
+              <PublicationComp
+                :title="publication.title"
+                :data="publication.data"
+                :members="publication.members"
+              />
             </li>
           </ul>
         </div>
-        <div>
+        <div v-if="filteredConferences.length > 0" class="publication-format">
           <h4>Conferências</h4>
-          <ul v-for="(conference, li) in conferences" :key="li">
-            <li>
-              <span class="title"> {{ conference.title }} ({{ conference.data }}) </span>
-              <span>
-                {{ conference.member }}
-              </span>
-              <ButtonMore link="/" text="ver mais" />
+          <ul>
+            <li v-for="publication in filteredConferences" :key="publication.id">
+              <PublicationComp
+                :title="publication.title"
+                :data="publication.data"
+                :members="publication.members"
+              />>
             </li>
           </ul>
         </div>
@@ -61,32 +94,23 @@ onMounted(() => {
 </template>
 
 <style scoped>
-section {
-  background-color: var(--white);
-  margin: 10px 0 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
 section .container {
-    margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.container div {
-  width: 47%;
-  margin-bottom: 5px;
+.container .publication-format {
+  margin-top: 10px;
 }
 
-.container div h3 {
+.container div h4 {
   color: var(--primary-color);
 }
 
 .container ul {
   list-style-type: disc;
-  padding: 10px;
+  padding: 20px;
 }
 
 .container ul li {

@@ -15,7 +15,6 @@ function removeAccents(name) {
 }
 
 const filteredMembers = computed(() =>
-  /* o main onde aparece todos os membros é aqui */
   members.value.filter((m) => {
     const memberName = removeAccents(m.name.toLowerCase());
     const filter = removeAccents(filterName.value.toLowerCase());

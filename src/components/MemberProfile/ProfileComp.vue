@@ -8,22 +8,19 @@ import { ref, onMounted } from 'vue'
 defineProps({
   image: String,
   name: String,
-  background: String,
   description: String,
   occupation: {
     type: Object
   },
   socialLinks: {
     type: Array
-  },
+  }
 })
-
 
 const membersApi = new MembersApi()
 
 const memberId = ref(null)
 const member = ref(null)
-const memberProjects = ref([])
 
 onMounted(fetchMember)
 
@@ -32,11 +29,7 @@ async function fetchMember() {
   const memberIdFromUrl = path.substring(path.lastIndexOf('/') + 1)
   memberId.value = memberIdFromUrl
 
-  try {
-    member.value = membersApi.getMemberById(memberId.value)
-  } catch (error) {
-    console.error(error)
-  }
+  return (member.value = membersApi.getMemberById(memberId.value))
 }
 </script>
 
@@ -45,7 +38,12 @@ async function fetchMember() {
     <div class="col">
       <img class="image" :src="member.image" alt="" />
       <div class="midias">
-        <a v-for="socialLink in member.socialLinks" :key="socialLink.icon" target="_blank" :href="socialLink.href">
+        <a
+          v-for="socialLink in member.socialLinks"
+          :key="socialLink.icon"
+          target="_blank"
+          :href="socialLink.href"
+        >
           <box-icon size="2em" :type="socialLink.type" :name="socialLink.icon"></box-icon>
         </a>
       </div>
@@ -56,8 +54,8 @@ async function fetchMember() {
         :key="member.id"
         :occupation="member.occupation"
         :description="member.description"
-      /> 
-      <ProjectsComp/>
+      />
+      <ProjectsComp />
       <PublicationsComp />
     </div>
   </section>
@@ -66,6 +64,11 @@ async function fetchMember() {
 <style scoped>
 p {
   text-align: justify;
+}
+.projects, .publications {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 section {
   display: flex;
@@ -101,5 +104,4 @@ section .midias {
   justify-content: space-between;
   padding: 4px;
 }
-
 </style>
