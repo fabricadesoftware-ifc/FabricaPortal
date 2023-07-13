@@ -33,7 +33,7 @@ const redesSociais: Array<ILink> = [
       <RouterLink v-for="(redeSocial, i) in redesSociais" :key="i" :to="redeSocial.to">
         <box-icon
           style="margin: 0 8px"
-          color="#fff"
+          color="var(--color-icon-nav)"
           size="2em"
           type="logo"
           :name="redeSocial.icon"
@@ -45,7 +45,7 @@ const redesSociais: Array<ILink> = [
 
 <style scoped>
 nav {
-  background-color: var(--black);
+  background-color: var(--background-color-nav);
   height: 73px;
   padding: 0 145px;
   position: fixed;
@@ -66,7 +66,7 @@ nav .redes-sociais {
 }
 
 nav .links a {
-  color: var(--white);
+  color: var(--color-links-nav);
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;

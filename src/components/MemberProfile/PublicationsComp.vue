@@ -105,7 +105,7 @@ section .container {
 }
 
 .container div h4 {
-  color: var(--primary-color);
+  color: var(--color-details-members);
 }
 
 .container ul {
@@ -117,8 +117,4 @@ section .container {
   margin-bottom: 10px;
 }
 
-li .title {
-  font-weight: 500;
-  display: block;
-}
 </style>

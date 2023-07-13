@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <footer>
     <div class="links">
@@ -64,36 +68,30 @@
     <hr />
     <div class="container">
       <img src="src/assets/images/logos/logo_ifc.png" alt="" />
-      <h5>© Todos os direitos reservados</h5>
+      <span>© Todos os direitos reservados</span>
       <img src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
     </div>
   </footer>
 </template>
 
-<script>
-export default {}
-</script>
 
 <style scoped>
 hr {
   width: 75%;
 }
 
-h5 {
-  color: var(--background-color);
-}
 
 h4 {
   text-transform: uppercase;
-  color: var(--primary-color);
+  color: var(--type-links-footer);
 }
 
 footer {
   width: 100%;
   height: 57vh;
   padding: 56px 0;
-  background-color: var(--black);
-  color: var(--background-color);
+  background-color: var(--background-color-footer);
+  color: var(--color-links-footer);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -117,7 +115,7 @@ footer .links ul li {
 }
 footer .links ul li a {
   text-decoration: none;
-  color: var(--white);
+  color: var(--color-links-footer);
 }
 footer .links ul li a:hover {
   text-decoration: underline;

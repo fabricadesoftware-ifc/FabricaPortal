@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import ButtonMore from '../common/ButtonMore.vue'
 import ButtonAll from '../common/ButtonAll.vue'
 import PublicationComp from '../common/PublicationComp.vue'
 
@@ -87,10 +86,10 @@ async function filterPublications() {
 
 <style scoped>
 section {
-  background-color: var(--white);
+  background-color: var(--background-color-publications);
   margin: 80px 0 0 0;
   padding: 80px 145px;
-  border-top: 5px solid var(--primary-color);
+  border-top: 5px solid var(--color-details-publications);
 }
 
 section .publications {
@@ -111,7 +110,7 @@ section .container {
 }
 
 .container div h3 {
-  color: var(--primary-color);
+  color: var(--color-details-publications);
 }
 
 .container ul {

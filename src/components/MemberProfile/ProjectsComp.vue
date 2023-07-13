@@ -62,9 +62,4 @@ section .container {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-section p {
-  font-weight: 500;
-  color: #252525;
-  margin: 10px;
-}
 </style>

@@ -54,11 +54,9 @@ const UrlMember = (id) => {
   </div>
 </template>
 
-<!-- Resto do código permanece igual -->
-
 <style scoped>
 .card {
-  background-color: var(--white);
+  background-color: var(--background-color-card-member);
   width: 50%;
   height: 20vh;
   margin-bottom: 12px;
@@ -69,7 +67,6 @@ const UrlMember = (id) => {
 }
 
 .card a {
-  color: var(--black);
   text-decoration: none;
   display: flex;
 }
@@ -92,7 +89,7 @@ const UrlMember = (id) => {
 }
 
 .card .member-details {
-  border-left: 5px solid var(--primary-color);
+  border-left: 5px solid var(--color-details-members);
   padding: 10px;
   width: 100%;
   display: flex;
@@ -106,7 +103,7 @@ const UrlMember = (id) => {
   text-overflow: ellipsis;
 }
 h5 {
-  color: #ff6700;
+  color: var(--color-details-members);
   text-transform: uppercase;
 }
 </style>

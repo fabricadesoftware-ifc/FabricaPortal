@@ -19,8 +19,7 @@ defineProps({
 
 <style scoped>
 button {
-  background-color: var(--primary-color);
-  color: var(--white);
+  background-color: var(--background-color-btn-all);
   border: none;
   cursor: pointer;
   padding: 5px 7px;
@@ -32,7 +31,7 @@ button {
 
 button a {
   font-size: 17px;
-  color: var(--white);
+  color: var(--text-color-btn-all);
   text-decoration: none;
   font-weight: 600;
 }

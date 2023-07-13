@@ -28,8 +28,8 @@ section {
 
 section div {
   width: 100%;
-  background-color: #0000008c;
-  color: var(--white);
+  background-color: var(--light-shadow);
+  color: var(--text-color-hero);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ section div {
 }
 
 p {
-  color: var(--white);
+  color: var(--text-color-hero);
   width: 949px;
   text-align: center;
   margin-bottom: 7px;

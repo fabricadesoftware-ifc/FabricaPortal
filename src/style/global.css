@@ -16,11 +16,10 @@ h3, h4, h5, p{
     color: var(--text-color);
 }
 .home-view {
-    background-color: var(--background-color);
+    background-color: var(--light-gray);
 }
 h1 {
     font-size: 50px;
-    color: var(--white);
 }
 .home-view h2 {
     margin-bottom: 40px;

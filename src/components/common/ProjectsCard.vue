@@ -59,7 +59,7 @@ p {
   width: 100%;
   height: 40vh;
   margin-bottom: 5px;
-  border-bottom: 5px solid var(--primary-color);
+  border-bottom: 5px solid var(--color-details-projects);
   background: url(src/assets/images/code.jpeg) no-repeat;
   background-position: center;
   background-size: cover;
@@ -71,7 +71,7 @@ p {
 .card a .container-img div {
   width: 100%;
   height: 100%;
-  background-color: #000000b4;
+  background-color: var(--dark-shadow);
   transition: background-color .6s;
 
   display: flex;
@@ -91,12 +91,12 @@ p {
 }
 
 .card a:hover .container-img div {
-  background-color: #00000081;
+  background-color: var(--light-shadow);
 }
 
 .card .container-details h3::first-letter {
   text-decoration: underline;
-  text-decoration-color: var(--primary-color);
+  text-decoration-color: var(--color-details-projects);
 }
 
 .card .container-details {
@@ -111,8 +111,8 @@ p {
 .card .status h5 {
   margin-right: 10px;
   padding: 5px;
-  background-color: var(--primary-color);
-  color: var(--background-color);
+  background-color: var(--color-details-projects);
+  color: var(--white);
 }
 
 </style>

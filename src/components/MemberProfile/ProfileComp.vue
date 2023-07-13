@@ -82,26 +82,10 @@ section .col-2 {
 section .col-1 {
   margin-right: 45px;
 }
-section .container {
-  background-color: var(--background-color);
-  padding: 5px;
-  display: flex;
-  margin-bottom: 14px;
-
-  justify-content: space-between;
-}
-section .container div {
-  display: flex;
-  align-items: center;
-}
-section .container div span {
-  font-weight: 500;
-  margin-left: 5px;
-}
 section .image {
   width: 235px;
   height: auto;
-  border-bottom: 5px solid var(--primary-color);
+  border-bottom: 5px solid var(--color-details-members);
 }
 section .midias {
   display: flex;

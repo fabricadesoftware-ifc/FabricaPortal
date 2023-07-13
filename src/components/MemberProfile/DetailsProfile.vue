@@ -22,7 +22,7 @@ defineProps({
 </template>
 <style scoped>
 section .nameOccup {
-  border-bottom: 5px solid var(--primary-color);
+  border-bottom: 5px solid var(--color-details-members);
   margin-bottom: 14px;
   width: 100%;
 }
@@ -30,7 +30,7 @@ section .desc {
   margin-bottom: 14px;
 }
 section .nameOccup h3 {
-  color: var(--primary-color);
+  color: var(--color-details-members);
   text-transform: uppercase;
   font-weight: 600;
 }

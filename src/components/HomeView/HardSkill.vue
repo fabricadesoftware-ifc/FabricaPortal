@@ -5,7 +5,7 @@ const langs = [{ name: 'vuejs' }, { name: 'react' }, { name: 'django' }, { name:
 <template>
   <section>
     <div v-for="(lang, i) in langs" :key="i">
-      <box-icon type="logo" size="7em" color="#555" :name="lang.name" />
+      <box-icon type="logo" size="7em" color="var(--color-hard-skill)" :name="lang.name" />
     </div>
   </section>
 </template>
@@ -14,7 +14,7 @@ const langs = [{ name: 'vuejs' }, { name: 'react' }, { name: 'django' }, { name:
 section {
   width: 100%;
   height: 194px;
-  background-color: var(--background-color);
+  background-color: var(--background-color-hard-skill);
   display: flex;
   justify-content: center;
   align-items: center;

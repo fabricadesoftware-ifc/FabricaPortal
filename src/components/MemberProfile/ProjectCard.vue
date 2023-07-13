@@ -42,20 +42,10 @@ h4 {
 .card {
   width: 100%;
   margin: 10px 0;
-  border-left: 5px solid var(--primary-color);
-  background-color: var(--background-color);
+  border-left: 5px solid var(--color-details-members);
+  background-color: var(--background-color-card-project);
   height: auto;
   display: flex;
-}
-
-
-.card a:hover .container-img div {
-  background-color: #00000081;
-}
-
-.card .container-details h3::first-letter {
-  text-decoration: underline;
-  text-decoration-color: var(--primary-color);
 }
 
 .card .container-details {
@@ -80,8 +70,8 @@ h4 {
 
 .card .status h5 {
   padding: 5px;
-  background-color: var(--primary-color);
-  color: var(--background-color);
+  background-color: var(--color-details-members);
+  color: var(--white);
   width: max-content;
   margin-left: 5px;
 }
