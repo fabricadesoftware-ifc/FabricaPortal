@@ -1,33 +1,42 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 defineProps({
   image: String,
   name: String,
   description: String,
   occupation: {
-    type: Object,
+    type: Object
   },
   linkMember: {
-    type: Object,
+    type: Object
   }
-});
+})
 
-const encurtarNome = (name) => {
-  if (name.length > 20) {
-    const partesNome = nome.split(" ");
-    const primeiroNome = partesNome[0];
-    const ultimoNome = partesNome[partesNome.length - 1];
-    const nomeEncurtado = primeiroNome[0] + ". " + ultimoNome;
-    return nomeEncurtado;
+const shortenName = (name) => {
+  if (name.length > 25) {
+    const nameParts = name.split(' ')
+    const firstName = nameParts[0]
+    let shortenedName = firstName
+
+    if (nameParts.length > 2) {
+      for (let i = 1; i < nameParts.length - 1; i++) {
+        const middleName = nameParts[i]
+        if (middleName.length > 2) {
+          shortenedName += ' ' + middleName[0] + '.'
+        }
+      }
+    }
+
+    shortenedName += ' ' + nameParts[nameParts.length - 1]
+    return shortenedName
   }
-  return name;
-};
+  return name
+}
 
 const UrlMember = (id) => {
-  return `/member/${id}`;
-};
-
+  return `/member/${id}`
+}
 </script>
 
 <template>
@@ -36,7 +45,7 @@ const UrlMember = (id) => {
       <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div>
       <div class="member-details">
         <h5>{{ occupation.description }}</h5>
-        <h3>{{ name }}</h3>
+        <h3>{{ shortenName(name) }}</h3>
         <p>
           {{ description }}
         </p>
@@ -91,10 +100,10 @@ const UrlMember = (id) => {
   justify-content: center;
   align-items: flex-start;
 }
-.card .member-details p{
-  max-height: 3em; 
+.card .member-details p {
+  max-height: 3em;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 h5 {
   color: #ff6700;
