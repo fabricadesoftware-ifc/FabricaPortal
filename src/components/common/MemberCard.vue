@@ -1,4 +1,5 @@
 <script setup>
+
 defineProps({
   image: String,
   name: String,
@@ -96,9 +97,11 @@ const UrlMember = (id) => {
   align-items: flex-start;
 }
 .card .member-details p {
-  max-height: 3em;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
 }
 h5 {
   color: var(--color-details-members);

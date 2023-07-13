@@ -44,7 +44,7 @@
   --color-details-projects: var(--primary-color);
   
   /*! MembersSection, MemberCard and MemberProfile*/
-  --background-color-card-member: var(--light-gray);
+  --background-color-card-member: var(--white);
   --background-color-card-project: var(--light-gray);
   --color-details-members: var(--primary-color);
   

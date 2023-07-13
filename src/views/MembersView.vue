@@ -55,7 +55,7 @@ main {
   padding-top: 80px;
 }
 main .container {
-  background-color: var(--background-color);
+  background-color: var(--light-gray);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
