@@ -7,9 +7,14 @@ import NewsApi from '@/api/news'
 const newsApi = new NewsApi()
 const news = ref([])
 
+async function fetchNews() {
+  news.value = newsApi.getNews()
+}
+
 onMounted(() => {
-  news.value = newsApi.getNews
+  fetchNews()
 })
+
 </script>
 
 <template>
@@ -18,12 +23,12 @@ onMounted(() => {
     <div class="news-container">
       <div>
         <NewsCard
-          v-for="newI of news"
-          :key="newI.id"
-          :title="newI.title"
-          :data="newI.data"
-          :user="newI.user"
-          :background="newI.background"
+          v-for="newCard in news"
+          :key="newCard.id"
+          :title="newCard.title"
+          :data="newCard.data"
+          :user="newCard.user"
+          :background="newCard.background"
         />
       </div>
       <ButtonAll link="/" text="Ver todas as notícias" />
