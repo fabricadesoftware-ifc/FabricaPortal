@@ -60,7 +60,6 @@ defineProps({
 </template>
 
 <style scoped>
-
 button {
   background-color: transparent;
   display: flex;
@@ -135,8 +134,12 @@ p {
 .card .container-details .header .image {
   display: block;
   flex-shrink: 0;
+  padding: 5px;
+  border: 2px solid var(--background-color-btn-all);
+  background-color: #ffa769;
   height: 4rem;
   width: 4rem;
+  border-radius: 10px;
   object-fit: cover;
 }
 

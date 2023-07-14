@@ -88,7 +88,88 @@ const projects: Array<IProjects> = [
     status: 'finalizado',
     type: 'ensino',
     description: 'Núcleo de Aprendizagem Interativo virtual, é um sistema onde usuários terão acesso a conteúdo disponibilizados por professores, com intuito de estudar para concurso público.'  
-  }
+  },
+  {
+    id: '10',
+    image:
+      'src/assets/images/logos/projeto/fabrica news icon.svg',
+    title: 'FabricaNews',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: 'Portal de Notícias da Fábrica de Software.'  
+  },
+  {
+    id: '11',
+    image:
+      'src/assets/images/logos/projeto/fabrica needs icon.svg',
+    title: 'FabricaNeeds',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
+  {
+    id: '12',
+    image:
+      'src/assets/images/logos/projeto/fabrica faceID icon.svg',
+    title: 'FabricaFaceID',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
+  {
+    id: '13',
+    image:
+      'src/assets/images/logos/projeto/fabrica auth v1 icon.svg',
+    title: 'FabricaAuth',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
+  {
+    id: '14',
+    image:
+      'src/assets/images/logos/projeto/fabrica build icon.svg',
+    title: 'FabricaBuild',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
+    {
+    id: '15',
+    image:
+      'src/assets/images/logos/projeto/fabrica locker icon.svg',
+    title: 'FabricaLocker',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
+  {
+    id: '16',
+    image:
+      'src/assets/images/logos/projeto/fabrica manager icon.svg',
+    title: 'FabricaManager',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
+  {
+    id: '17',
+    image:
+      'src/assets/images/logos/projeto/fabrica notes icon.svg',
+    title: 'FabricaNotes',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
+  {
+    id: '17',
+    image:
+      'src/assets/images/logos/projeto/site fabrica icon.svg',
+    title: 'Readequação do Portal da Fábrica de Software ',
+    status: 'Em desenvolvimento',
+    type: 'extensão',
+    description: ''  
+  },
 ]
 
 
