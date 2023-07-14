@@ -196,7 +196,7 @@ const members: Array<IMembers> = [
 
   },
   {
-    id: '10',
+    id: '16',
     image: 'https://avatars.githubusercontent.com/u/99155494?v=4',
     name: 'Geovana Sophia Horodeski',
     description: 'Gosto de filmes, ABBA e FrontEnd',
