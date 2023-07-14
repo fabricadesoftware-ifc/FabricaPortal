@@ -22,6 +22,7 @@ onMounted(() => {
           :key="project.id"
           :title="project.title"
           :description="project.description"
+          :logo="project.logo"
           :image="project.image"
           :type="project.type"
           :status="project.status"

@@ -2,6 +2,7 @@
 defineProps({
   description: String,
   title: String,
+  logo: String,
   image: String,
   status: String,
   type: String,
@@ -14,10 +15,10 @@ defineProps({
 
 <template>
   <div class="card">
-    <img class="container-img" src="src/assets/images/code.jpeg" />
+    <img :src="logo" class="image" />
+    <img class="container-img" :src="image" />
     <div class="container-details">
       <div class="header">
-        <img :src="image" class="image" />
         <div>
           <h3>{{ title }}</h3>
           <div class="status">
@@ -86,20 +87,18 @@ h3 {
   color: var(--black);
   font-size: 1.4em;
   font-weight: 500;
-  text-decoration: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 p {
   margin: 10px 0;
+  -webkit-line-clamp: 4;
+}
+p, h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  text-align: justify;
 }
 .card {
   width: 31%;
@@ -108,7 +107,7 @@ p {
 .card .container-img {
   width: 100%;
   filter: brightness(0.5);
-  height: 30vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,6 +116,7 @@ p {
 .card:hover .container-img {
   filter: brightness(1);
 }
+
 .card .container-details {
   padding: 10px 0;
   border-top: 5px solid var(--color-details-projects);
@@ -131,18 +131,20 @@ p {
   gap: 1rem;
 }
 
-.card .container-details .header .image {
-  display: block;
+.card .image {
   flex-shrink: 0;
-  padding: 5px;
-  border: 2px solid var(--background-color-btn-all);
-  background-color: #ffa769;
   height: 4rem;
+  margin: 10px;
+  position: absolute;
+  z-index: 1;
   width: 4rem;
-  border-radius: 10px;
-  object-fit: cover;
-}
+  opacity: 1;
+  transition: opacity 0.3s;
 
+}
+.card:hover .image {
+  opacity: 0;
+}
 .card .container-details .row .members {
   display: flex;
 }
