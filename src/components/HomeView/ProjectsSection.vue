@@ -8,7 +8,7 @@ const projectsApi = new ProjectsApi()
 const projects = ref([])
 
 onMounted(() => {
-  projects.value = projectsApi.getProjects()
+  projects.value = projectsApi.getSixProjects()
 })
 </script>
 
