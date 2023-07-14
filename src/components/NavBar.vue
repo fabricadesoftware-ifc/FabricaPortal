@@ -53,7 +53,7 @@ nav {
   width: -moz-available;
   justify-content: space-between;
   display: flex;
-  z-index: 1;
+  z-index: 2;
   align-items: center;
 }
 
