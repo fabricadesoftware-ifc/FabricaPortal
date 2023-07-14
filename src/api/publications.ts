@@ -1,5 +1,4 @@
 import { publications, type IFormats, formats, type IPublications } from '@/_data/publications'
-import { members } from '@/_data/members'
 
 export default class PublicationsApi {
   getPublications(): IPublications[] {

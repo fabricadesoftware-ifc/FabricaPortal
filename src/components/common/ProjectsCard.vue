@@ -6,9 +6,8 @@ defineProps({
   image: String,
   status: String,
   type: String,
-  style: {
-    type: Object,
-    default: () => ({})
+  langsProject: {
+    type: Object
   }
 })
 </script>
@@ -32,19 +31,6 @@ defineProps({
       </p>
       <div class="row">
         <div>
-          <span>Linguagens</span>
-          <div>
-            <box-icon color="var(--dark-shadow)" size="2em" type="logo" name="java"></box-icon>
-            <box-icon color="var(--dark-shadow)" size="2em" name="php" type="logo"></box-icon>
-            <box-icon
-              color="var(--dark-shadow)"
-              size="2em"
-              name="tailwind-css"
-              type="logo"
-            ></box-icon>
-          </div>
-        </div>
-        <div>
           <span>Membros</span>
           <div class="members">
             <img src="https://avatars.githubusercontent.com/u/99155494?v=4" />
@@ -53,6 +39,12 @@ defineProps({
             <div>
               <span>+3</span>
             </div>
+          </div>
+        </div>
+        <div>
+          <span>Feito com</span>
+          <div>
+            <box-icon v-for="lang in langsProject" :key="lang.id" color="var(--dark-shadow)" size="2.2em" :type="lang.type" :name="lang.icon"></box-icon>
           </div>
         </div>
       </div>
@@ -150,8 +142,8 @@ p, h3 {
 }
 .card .container-details .row .members img,
 .card .container-details .row .members div {
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   position: relative;
   border-radius: 50px;
   margin-right: -14px;

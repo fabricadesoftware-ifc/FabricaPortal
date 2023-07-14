@@ -2,13 +2,14 @@
 import { ref, onMounted } from 'vue'
 import ButtonAll from '../common/ButtonAll.vue'
 import ProjectsCard from '../common/ProjectsCard.vue'
-
 import ProjectsApi from '@/api/projects'
+
 const projectsApi = new ProjectsApi()
 const projects = ref([])
 
-onMounted(() => {
+onMounted(async () => {
   projects.value = projectsApi.getSixProjects()
+
 })
 </script>
 
@@ -25,6 +26,7 @@ onMounted(() => {
           :logo="project.logo"
           :image="project.image"
           :type="project.type"
+          :langsProject="project.langsProject"
           :status="project.status"
         />
       </div>
