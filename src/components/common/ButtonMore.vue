@@ -30,12 +30,21 @@ button {
   border: none;
   cursor: pointer;
 }
+
+button box-icon {
+  margin-right: 15px;
+  transition: 0.2s;
+}
+
 button a {
   font-size: 16px;
   font-weight: 700;
   color: var(--text-color-btn-more);
   text-decoration: none;
   text-transform: uppercase ;
-  margin-left: 9px;
+}
+
+button:hover box-icon {
+  transform: translateX(10px);
 }
 </style>
