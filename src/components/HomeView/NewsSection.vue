@@ -21,7 +21,7 @@ onMounted(() => {
   <section>
     <h2>Notícias</h2>
     <div class="news-container">
-      <div>
+      <div class="cards-news">
         <NewsCard
           v-for="newCard in news"
           :key="newCard.id"
@@ -44,7 +44,7 @@ section .news-container {
   flex-direction: column;
   align-items: center;
 }
-section div {
+section .cards-news {
   display: flex;
 }
 </style>

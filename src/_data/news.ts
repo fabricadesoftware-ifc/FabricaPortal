@@ -22,6 +22,14 @@ const news: Array<INews> = [
     user: 'fabrica',
     background:
       'https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/infohackathon_PSOT-494x500.jpg'
+  },
+  {
+    id: '3',
+    title: 'INFO Hackathon acontecerá durante os sábados letivos do mês de junho',
+    data: '5h',
+    user: 'fabrica',
+    background:
+      'https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/infohackathon_PSOT-494x500.jpg'
   }
 ]
 
