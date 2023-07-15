@@ -14,6 +14,6 @@ export default class MembersApi {
   }
 
   getSixMembers(): IMembers[] {
-    return members.slice(0, 6)
+    return members.sort(()=> Math.random() - 0.5).slice(0, 6)
   }
 }
