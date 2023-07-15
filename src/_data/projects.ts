@@ -174,56 +174,163 @@ const projects: Array<IProjects> = [
     id: '10',
     logo: 'src/assets/images/logos/projeto/fabrica news icon.svg',
     title: 'FabricaNews',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
     status: 'Em desenvolvimento',
     type: 'extensão',
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
 
     description: 'Portal de Notícias da Fábrica de Software.'
   },
   {
     id: '11',
     logo: 'src/assets/images/logos/projeto/fabrica needs icon.svg',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
     title: 'FabricaNeeds',
     status: 'Em desenvolvimento',
     type: 'extensão',
-    description: ''
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
+    description:
+      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
     id: '12',
     logo: 'src/assets/images/logos/projeto/fabrica faceID icon.svg',
     title: 'FabricaFaceID',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
     status: 'Em desenvolvimento',
     type: 'extensão',
-    description: ''
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
+    description:
+      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
     id: '13',
     logo: 'src/assets/images/logos/projeto/fabrica auth v3 icon.svg',
     title: 'FabricaAuth',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
     status: 'Em desenvolvimento',
     type: 'extensão',
-    description: ''
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
+    description:
+      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
     id: '14',
     logo: 'src/assets/images/logos/projeto/fabrica build icon.svg',
     title: 'FabricaBuild',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
     status: 'Em desenvolvimento',
     type: 'extensão',
-    description: ''
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
+    description:
+      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
     id: '15',
     logo: 'src/assets/images/logos/projeto/fabrica locker v2 icon.svg',
     title: 'FabricaLocker',
     status: 'Em desenvolvimento',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
     type: 'extensão',
-    description: ''
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
+    description:
+      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
     id: '18',
@@ -231,17 +338,53 @@ const projects: Array<IProjects> = [
     title: 'FabricaManager',
     status: 'Em desenvolvimento',
     type: 'extensão',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
-    description: ''
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    description:
+      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
     id: '17',
     logo: 'src/assets/images/logos/projeto/fabrica notes icon.svg',
     title: 'FabricaNotes',
     status: 'Em desenvolvimento',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
+    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
     type: 'extensão',
-    description: ''
+    langsProject: [
+      {
+        id: '8',
+        icon: 'php',
+        type: 'logo'
+      },
+      {
+        id: '10',
+        icon: 'java',
+        type: 'logo'
+      },
+      {
+        id: '11',
+        icon: 'tailwind-css',
+        type: 'logo'
+      }
+    ],
+    description:
+      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
     id: '16',
@@ -251,20 +394,20 @@ const projects: Array<IProjects> = [
     status: 'Em desenvolvimento',
     langsProject: [
       {
-        id: '1',
-        icon: 'java',
+        id: '12',
+        icon: 'vuejs',
         type: 'logo'
       },
       {
-        id: '8',
-        icon: 'php',
+        id: '9',
+        icon: 'typescript',
         type: 'logo'
       },
       {
-        id: '11',
-        icon: 'tailwind-css',
+        id: '16',
+        icon: 'css3',
         type: 'logo'
-      },
+      }
     ],
     type: 'extensão',
     description:
