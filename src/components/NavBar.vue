@@ -2,16 +2,17 @@
 import { RouterLink } from 'vue-router'
 
 interface ILink {
-  text?: string;
-  icon?: string,
-  to: string;
+  text?: string
+  icon?: string
+  to: string
+  active?: string
 }
 
 const links: Array<ILink> = [
-  {text: 'NOTÍCIAS', to: '/noticias'},
-  {text: 'PROJETOS', to: '/?#projetos'},
-  {text: 'MEMBROS', to: '/?#membros'},
-  {text: 'PUBLICAÇÕES', to: '/publicacaos'},
+  {text: 'NOTÍCIAS', to: '/noticias', active: 'noticias-effect'},
+  {text: 'PROJETOS', to: '/?#projetos', active: 'projetos-effect'},
+  {text: 'MEMBROS', to: '/?#membros', active: 'membros-effect'},
+  {text: 'PUBLICAÇÕES', to: '/publicacoes', active: 'publicacoes-effect'},
 ]
 
 const redesSociais: Array<ILink> = [
@@ -27,7 +28,7 @@ const redesSociais: Array<ILink> = [
       <img src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
     </RouterLink>
     <div class="links">
-      <a v-for="(link, i) in links" :href="link.to" :key="i">{{ link.text }}</a>     
+      <a v-for="(link, i) in links" :class="link.active" :href="link.to" :key="i">{{ link.text }}</a>     
     </div>
     <div class="rede-sociais">
       <RouterLink v-for="(redeSocial, i) in redesSociais" :key="i" :to="redeSocial.to">

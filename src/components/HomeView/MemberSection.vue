@@ -36,6 +36,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
 .container-members {
   display: flex;
   flex-direction: column;

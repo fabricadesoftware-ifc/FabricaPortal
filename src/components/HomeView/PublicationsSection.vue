@@ -85,6 +85,7 @@ async function filterPublications() {
 </template>
 
 <style scoped>
+
 section {
   background-color: var(--background-color-publications);
   margin: 80px 0 0 0;

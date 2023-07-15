@@ -37,7 +37,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
 section .news-container {
   display: flex;
   justify-content: center;

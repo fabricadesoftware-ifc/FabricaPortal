@@ -23,15 +23,29 @@ h3, h4, h5, p {
 h1 {
     font-size: 50px;
 }
-
-.home-view h2 {
-    margin-bottom: 40px;
-
+/*! efeito para mudar o link quando estiver na section certa*/
+/* nav .projetos-effect {
+    position:relative;
+    
 }
+nav .projetos-effect:before{
+    content:"projetos";
 
+    position:absolute;
+    color:var(--primary-color);
+    top:0;
+    left:0;
+    width:0%;
+    overflow:hidden;
+    transition:ease-in-out 0.5s;
+}
+.home-view section:hover, .projetos-effect:before{
+    width:100%;
+} */
 h2 {
     font-size: 35px;
     margin-bottom: 8px;
+    margin-bottom: 40px;
     font-weight: 700;
 }
 
@@ -57,12 +71,11 @@ main section {
 .status span {
     margin-right: 10px;
     padding: 5px;
-    background-color: #ff66004a;
-    border: 1px solid  var(--primary-color);
+    background-color: var(--primary-color);
     border-radius: 5px;
     font-weight: 500;
-    font-size: 0.9em;
-    color: var(--primary-color);
+    font-size: 0.8em;
+    color: #ffffff;
 }
 
 .status {
