@@ -72,8 +72,6 @@ button a {
 }
 
 h3 {
-  font-size: 1.4em;
-  font-weight: 500;
   -webkit-line-clamp: 2;
 }
 p {

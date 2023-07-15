@@ -9,60 +9,103 @@ defineProps({
 
 <template>
   <div class="card">
-    <div class="image" :style="{ backgroundImage: `url(${background})` }">
-      <router-link to="/">
-        <div class="container-details">
+    <div class="wrapper" :style="{ backgroundImage: `url(${background})` }">
+      <div class="container-details">
+        <div class="header">
           <div>
-            <h3>{{ title }}</h3>
-            <h5>{{ data }} ● @{{ user }}</h5>
+            <span >{{ data }}</span>
           </div>
         </div>
-      </router-link>
+        <div class="data">
+          <div class="content">
+            <div class="status"><span>evento</span></div>
+            <h3>
+              {{ title }}
+            </h3>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt debitis nam tempore
+              modi nobis.
+            </p>
+            <!-- buttonall aqui -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.card {
-  width: 337px;
-  height: 40vh;
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+span, h3, p{
+  color: var(--white);
+
+}
+h3 {
+  margin-bottom: 10px;
 }
 
-.card .image {
-  width: 100%;
-  height: 100%;
+.card {
+  width: 31%;
+}
+
+.card .wrapper {
+  background-color: var(--white);
+  min-height: 60vh;
+  position: relative;
+  overflow: hidden;
   border-bottom: 5px solid var(--primary-color);
   background-position: center;
   background-size: cover;
+  box-shadow: 0 19px 38px rgba(var(--black), 0.3), 0 15px 12px rgba(var(--black), 0.2);
 }
 
-.card .image a {
-  text-decoration: none;
+.card .wrapper:hover  .container-details .data {
+  transform: translateY(0);
 }
-
 .card .container-details {
-  background-color: #000000b4;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  transition: background-color 0.6s;
+  width: 100%;
+  height: 60vh;
+  background-color: var(--light-shadow);
+}
+.card .container-details .data {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(calc(70px + 1em));
+  transition: transform 0.3s;
 }
 
-.card .container-details:hover {
-  background-color: #00000081;
+.card .container-details .data .content {
+  padding: 1em;
+  position: relative;
+  z-index: 1;
 }
 
-.card .container-details div {
-  padding: 14px;
+.card .container-details .data .content .author {
+  font-size: 12px;
 }
 
-.card h3,
-h5 {
-  color: var(--white);
+.card .container-details .data .text {
+  height: 70px;
+  margin: 0;
 }
+
+.card .wrapper:hover .menu-content span {
+  transform: translate(-50%, -10px);
+  opacity: 1;
+}
+
+.card .header {
+  color: #ffffff;
+  padding: 1em;
+}
+
+.card .container-details .header  div {
+  float: left;
+  font-size: 12px;
+}
+
+.card .container-details .header .data {
+  transform: translateY(calc(70px + 4em));
+}
+
 </style>

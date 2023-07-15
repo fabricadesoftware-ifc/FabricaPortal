@@ -57,7 +57,8 @@ main section {
 .status span {
     margin-right: 10px;
     padding: 5px;
-    background-color: #fce8da;
+    background-color: #ff66004a;
+    border: 1px solid  var(--primary-color);
     border-radius: 5px;
     font-weight: 500;
     font-size: 0.9em;

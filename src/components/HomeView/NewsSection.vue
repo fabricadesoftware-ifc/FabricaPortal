@@ -46,5 +46,7 @@ section .news-container {
 }
 section .cards-news {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 </style>
