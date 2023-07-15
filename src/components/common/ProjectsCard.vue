@@ -21,8 +21,8 @@ defineProps({
         <div>
           <h3>{{ title }}</h3>
           <div class="status">
-            <h5>{{ type }}</h5>
-            <h5>{{ status }}</h5>
+            <span>{{ type }}</span>
+            <span>{{ status }}</span>
           </div>
         </div>
       </div>
@@ -70,13 +70,8 @@ button a {
   text-transform: uppercase;
   margin-left: 9px;
 }
-span {
-  font-weight: 500;
-  color: var(--text-color);
-  font-size: 1.2em;
-}
+
 h3 {
-  color: var(--black);
   font-size: 1.4em;
   font-weight: 500;
   -webkit-line-clamp: 2;
@@ -140,6 +135,12 @@ p, h3 {
 .card .container-details .row .members {
   display: flex;
 }
+.card .container-details .row span {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 1.2em;
+}
+
 .card .container-details .row .members img,
 .card .container-details .row .members div {
   width: 38px;
@@ -156,18 +157,6 @@ p, h3 {
   align-items: center;
   background-color: #fce8da;
 }
-.card .container-details .row .members span {
-  color: var(--primary-color);
-}
 
-.card .container-details .header .status h5 {
-  margin-right: 10px;
-  padding: 5px;
-  background-color: #fce8da;
-  color: var(--primary-color);
-  border-radius: 5px;
-}
-.card .container-details .header .status {
-  display: flex;
-}
+
 </style>

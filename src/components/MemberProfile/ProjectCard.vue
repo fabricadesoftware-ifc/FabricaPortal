@@ -22,7 +22,7 @@ defineProps({
       <div>
         <h4>{{ title }}</h4>
         <div class="status">
-          <h5>{{ status }}</h5>
+          <span>{{ status }}</span>
         </div>
       </div>
       <p>{{ description }}</p>
@@ -34,6 +34,13 @@ defineProps({
 h3,
 p {
   margin: 3px 0;
+}
+p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 h4 {
   font-weight: 500;
@@ -57,22 +64,5 @@ h4 {
   display: flex;
   justify-content: space-between;
 }
-.card .container-details p {
-  max-height: 3em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
-.card .container-details .status {
-  display: flex;
-  align-items: center;
-}
-
-.card .status h5 {
-  padding: 5px;
-  background-color: var(--color-details-members);
-  color: var(--white);
-  width: max-content;
-  margin-left: 5px;
-}
 </style>

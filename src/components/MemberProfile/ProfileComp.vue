@@ -44,7 +44,7 @@ async function fetchMember() {
           target="_blank"
           :href="socialLink.href"
         >
-          <box-icon size="2em" :type="socialLink.type" :name="socialLink.icon"></box-icon>
+          <box-icon size="2em" color="var(--text-color)" :type="socialLink.type" :name="socialLink.icon"></box-icon>
         </a>
       </div>
     </div>

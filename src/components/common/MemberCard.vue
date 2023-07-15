@@ -1,5 +1,4 @@
 <script setup>
-
 defineProps({
   image: String,
   name: String,
@@ -45,6 +44,7 @@ const UrlMember = (id) => {
       <div class="member-details">
         <h5>{{ occupation.description }}</h5>
         <h3>{{ shortenName(name) }}</h3>
+
         <p>
           {{ description }}
         </p>
@@ -54,11 +54,16 @@ const UrlMember = (id) => {
 </template>
 
 <style scoped>
+h5 {
+  color: var(--color-details-members);
+  text-transform: uppercase;
+}
+
 .card {
   background-color: var(--background-color-card-member);
-  width: 50%;
-  height: 20vh;
-  margin-bottom: 12px;
+  width: 49%;
+  height: 29vh;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   transition: transform 0.6s;
@@ -79,8 +84,8 @@ const UrlMember = (id) => {
   filter: brightness(1);
 }
 .card .image {
-  width: 200px;
-  height: 20vh;
+  min-width: 29vh;
+  height: 29vh;
   background-position: center;
   background-size: cover;
   transition: filter 0.6s;
@@ -100,11 +105,7 @@ const UrlMember = (id) => {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; 
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-}
-h5 {
-  color: var(--color-details-members);
-  text-transform: uppercase;
 }
 </style>
