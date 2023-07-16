@@ -2,45 +2,50 @@ interface ILink {
   text?: string
   icon?: string
   to: string
-  active?: string
+  class?: string
 }
 
 const links: Array<ILink> = [
   {
     text: 'NOTÍCIAS',
     to: 'http://localhost:5173/#news',
-    active: 'noticias-effect'
+    class: 'news active',
   },
   { 
     text: 'PROJETOS',
     to: 'http://localhost:5173/#projects',
-    active: 'projetos-effect'
+    class: 'projects',
   },
   { 
     text: 'MEMBROS',
     to: 'http://localhost:5173/#members',
-    active: 'membros-effect'
+    class: 'members',
   },
   { 
     text: 'PUBLICAÇÕES',
     to: 'http://localhost:5173/#publications',
-    active: 'publicacoes-effect'
+    class: 'publications',
+
   }
 ]
 
 const socialNetworks: Array<ILink> = [
   { 
     icon: 'github',
-    to: '/'
+    to: 'https://github.com/fabricadesoftware-ifc'
   },
   { 
     icon: 'linkedin-square',
-    to: '/'
+    to: 'https://br.linkedin.com/company/nodes-fabrica-de-software'
+  },
+  {
+    icon: 'twitter',
+    to: 'https://twitter.com/f_softwareifc'
   },
   {
     icon: 'instagram',
-    to: '/'
-  }
+    to: 'https://www.instagram.com/f_softwareifc/'
+  },
 ]
 
 export { type ILink, socialNetworks,  links }
