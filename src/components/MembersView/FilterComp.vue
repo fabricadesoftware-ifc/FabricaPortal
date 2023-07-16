@@ -114,7 +114,7 @@ section .filter {
   font-weight: 500;
   color: #484848;
   padding: 11px 8px;
-  background-color: var(--background-color);
+  background-color: var(--light-gray);
   border: 0;
   transition: 180ms border-bottom ease-in-out;
 }
