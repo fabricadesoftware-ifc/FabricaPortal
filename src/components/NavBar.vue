@@ -2,49 +2,22 @@
 import { RouterLink, useRoute, useRouter } from 'vue-router';
 import {onMounted, ref, onUnmounted,} from 'vue'
 
+import NavApi from '@/api/nav'
+import {ILink} from "@/_data/nav"
 
+const navApi = new NavApi()
+const links = ref<Array<ILink>>([])
+const socialNetworks = ref<Array<ILink>>([])
 
-interface ILink {
-  text?: string
-  icon?: string
-  to: string
-  active?: string
-}
-
-const links: Array<ILink> = [
-  {text: 'NOTÍCIAS', to: '/noticias', active: 'noticias-effect'},
-  {text: 'PROJETOS', to: '/?#projetos', active: 'projetos-effect'},
-  {text: 'MEMBROS', to: '/?#membros', active: 'membros-effect'},
-  {text: 'PUBLICAÇÕES', to: '/publicacoes', active: 'publicacoes-effect'},
-]
-
-const redesSociais: Array<ILink> = [
-  {icon: "github", to: "/"},
-  {icon: "linkedin-square", to: "/"},
-  {icon: "instagram", to: "/"},
-]
-
+onMounted(async () => {
+  links.value =  navApi.getLinks()
+  socialNetworks.value =  navApi.getSocialNetworks()
+})
 
 const logoResponId = ref<HTMLElement | null>(null)
 const logoId = ref<HTMLElement | null>(null)
 const navbar = ref<HTMLElement | null>(null)
 
-
-//! preciso que ao voltar para a HomeView,
-//! atualize a página para que o efeito
-//! do nav transparente volte a funcionar
-
-
-const returnToHome = () => {
-  const route = useRoute();
-  const router = useRouter();
-
-  if (route.path === '/') {
-    window.location.reload(); 
-  } else {
-    router.push('/'); 
-  }
-};
 
 onMounted(() => {
   window.addEventListener('load', scrollFunction)
@@ -57,7 +30,7 @@ onUnmounted(() => {
 
 function scrollFunction(): void {
   if (window.location.pathname === "/" && navbar.value && logoResponId.value && logoId.value) {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     if (scrollTop > 100) {
       navbar.value.style.padding = "45px 145px";
@@ -76,25 +49,49 @@ function scrollFunction(): void {
     }
   }
 }
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+document.documentElement.style.scrollBehavior = "smooth";
+window.onscroll = () => {
+  let current: string | null = null;
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const offset = 60;
+
+    if (window.scrollY + offset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((li) => {
+    li.classList.remove("active");
+    if (current && li.classList.contains(current)) {
+      li.classList.add("active");
+    }
+  });
+};
+
 </script>
 
 <template>
   <nav id="navbar" ref="navbar">
-    <RouterLink @click="returnToHome()" to="/" exact  >
+    <a @click="returnToHome()" href="http://localhost:5173/#hero-section" exact  >
       <img ref="logoResponId" id="logo-respon-id" src="src/assets/images/logos/LogoHorizontalCor.svg" alt="" />
       <img  ref="logoId" id="logo-id" src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
-    </RouterLink>
+    </a>
     <div class="links">
       <a v-for="(link, i) in links" :class="link.active" :href="link.to" :key="i">{{ link.text }}</a>     
     </div>
     <div class="rede-sociais">
-      <RouterLink v-for="(redeSocial, i) in redesSociais" :key="i" :to="redeSocial.to">
+      <RouterLink v-for="(socialNetwork, i) in socialNetworks" :key="i" :to="socialNetwork.to">
         <box-icon
           style="margin: 0 8px"
           color="var(--color-icon-nav)"
           size="2em"
           type="logo"
-          :name="redeSocial.icon"
+          :name="socialNetwork.icon"
         ></box-icon>
       </RouterLink>
     </div>

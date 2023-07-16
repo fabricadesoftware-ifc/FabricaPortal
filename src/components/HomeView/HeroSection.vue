@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="hero-section">
     <div>
       <h1>illum dignissimos</h1>
       <h1>

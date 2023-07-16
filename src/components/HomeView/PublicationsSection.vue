@@ -38,7 +38,7 @@ async function filterPublications() {
 </script>
 
 <template>
-  <section>
+  <section id="publications">
     <h2>Publicações</h2>
     <div class="publications">
       <div class="container">

@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section>
+  <section id="news">
     <h2>Notícias</h2>
     <div class="news-container">
       <div class="cards-news">

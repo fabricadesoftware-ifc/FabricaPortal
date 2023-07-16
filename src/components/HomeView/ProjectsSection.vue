@@ -14,7 +14,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="section-projects" id="projetos">
+  <section class="section-projects" id="projects">
     <h2>Projetos</h2>
     <div class="projects-container">
       <div class="projects">
