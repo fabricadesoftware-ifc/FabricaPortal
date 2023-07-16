@@ -26,6 +26,7 @@ section {
   margin: 0;
   background: url(../../assets/images/fabricaAmbiente.jpeg) no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   height: 100vh;
 }
