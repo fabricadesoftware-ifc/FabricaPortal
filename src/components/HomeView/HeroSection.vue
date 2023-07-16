@@ -1,15 +1,16 @@
 <template>
   <section>
     <div>
-      <h1>Lorem ipsum dolor sit amet</h1>
+      <h1>illum dignissimos</h1>
       <h1>
-        <span class="effect"><span class="text">Fábrica de Software</span></span>
+        laudantium eos
+        <span class="effect"><span class="text">et debitis</span></span>
       </h1>
       <p>
         Um ambiente exclusivo projetado para os alunos da área da Informática (Superior e Técnico)
         que desejam mergulhar nas práticas de uma verdadeira softwarehouse.
       </p>
-      <ButtonMore link="/" text="CONHEÇA A FÁBRICA DE SOFTWARE" />
+      <ButtonMore link="/" text="CONHEÇA-NOS" />
     </div>
   </section>
 </template>
@@ -20,7 +21,6 @@ import ButtonMore from '../common/ButtonMore.vue'
 
 <style scoped>
 @import '@/style/base.css';
-
 
 section {
   margin: 0;
@@ -67,6 +67,5 @@ p {
   color: var(--text-color-hero);
   width: 500px;
   margin: 7px 0;
-  font-weight: 500;
 }
 </style>
