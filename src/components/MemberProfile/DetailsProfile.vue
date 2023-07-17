@@ -23,6 +23,7 @@ defineProps({
 <style scoped>
 h2 {
   color: var(--text-color);
+  margin: 0;
 }
 section .nameOccup {
   border-bottom: 5px solid var(--color-details-members);
