@@ -390,7 +390,7 @@ const projects: Array<IProjects> = [
     id: '16',
     logo: 'src/assets/images/logos/projeto/site fabrica icon.svg',
     image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
-    title: 'Readequação do Portal da Fábrica de Software ',
+    title: 'Portal da Fábrica de Software ',
     status: 'Em desenvolvimento',
     langsProject: [
       {
