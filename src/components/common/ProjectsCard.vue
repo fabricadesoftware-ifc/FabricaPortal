@@ -17,21 +17,15 @@ defineProps({
     <img :src="logo" class="image" />
     <img class="container-img" :src="image" />
     <div class="container-details">
-      <div class="header">
-        <div>
-          <h3>{{ title }}</h3>
-          <div class="status">
-            <span>{{ type }}</span>
-            <span>{{ status }}</span>
-          </div>
-        </div>
-      </div>
+      <h3>{{ title }}</h3>
+
       <p>
         {{ description }}
       </p>
+
       <div class="row">
         <div>
-          <span>Membros</span>
+          <span>Equipe</span>
           <div class="members">
             <img src="https://avatars.githubusercontent.com/u/99155494?v=4" />
             <img src="https://avatars.githubusercontent.com/u/849206?v=4" />
@@ -42,51 +36,47 @@ defineProps({
           </div>
         </div>
         <div>
-          <span>Feito com</span>
+          <span>Tecnologias</span>
           <div>
-            <box-icon v-for="lang in langsProject" :key="lang.id" color="var(--dark-shadow)" size="2.2em" :type="lang.type" :name="lang.icon"></box-icon>
+            <box-icon
+              v-for="lang in langsProject"
+              :key="lang.id"
+              color="var(--dark-shadow)"
+              size="2em"
+              :type="lang.type"
+              :name="lang.icon"
+            ></box-icon>
           </div>
         </div>
       </div>
+      <!--       <div class="status">
+        <span>{{ type }}</span>
+        <span>{{ type }}</span>
+        <span>{{ status }}</span>
+      </div> -->
     </div>
   </div>
 </template>
 
 <style scoped>
-button {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color-details-btn-more);
-  border: none;
-  cursor: pointer;
-}
-button a {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text-color-btn-more);
-  text-decoration: none;
-  text-transform: uppercase;
-  margin-left: 9px;
-}
-
 h3 {
   -webkit-line-clamp: 2;
 }
 p {
   margin: 10px 0;
+  text-align: justify;
   -webkit-line-clamp: 4;
 }
-p, h3 {
+p,
+h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  text-align: justify;
 }
 .card {
-  width: 31%;
+  width: 32%;
+  border: 5px solid var(--light-gray);
   margin-bottom: 70px;
 }
 .card .container-img {
@@ -103,17 +93,16 @@ p, h3 {
 }
 
 .card .container-details {
-  padding: 10px 0;
+  padding: 10px;
+  display: flex;
+  height: 41vh;
   border-top: 5px solid var(--color-details-projects);
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .card .container-details .row {
   display: flex;
-  gap: 30px;
-}
-
-.card .container-details .header {
-  display: flex;
-  gap: 1rem;
+  justify-content: space-between;
 }
 
 .card .image {
@@ -125,7 +114,6 @@ p, h3 {
   width: 4rem;
   opacity: 1;
   transition: opacity 0.3s;
-
 }
 .card:hover .image {
   opacity: 0;
@@ -141,8 +129,7 @@ p, h3 {
 
 .card .container-details .row .members img,
 .card .container-details .row .members div {
-  width: 38px;
-  height: 38px;
+  width: 37px;
   position: relative;
   border-radius: 50px;
   margin-right: -14px;
@@ -155,6 +142,4 @@ p, h3 {
   align-items: center;
   background-color: #fce8da;
 }
-
-
 </style>

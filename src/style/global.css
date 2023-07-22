@@ -52,11 +52,15 @@ main section {
 .status span {
     margin-right: 10px;
     padding: 5px;
-    background-color: var(--primary-color);
+    border: 2px solid;
+    background-color: #ea6d1814;
     border-radius: 5px;
     font-weight: 500;
+    align-items: center;
+    width: 100%;
+    text-align: center;
     font-size: 0.8em;
-    color: #ffffff;
+    color: #ea6d18;
 }
 
 .status {
