@@ -8,53 +8,59 @@ defineProps({
   type: String,
   langsProject: {
     type: Object
+  },
+  linkProject: {
+    type: Object
   }
 })
+const UrlProject = (id) => {
+  return `/project/${id}`
+}
 </script>
 
 <template>
   <div class="card">
-    <img :src="logo" class="image" />
-    <img class="container-img" :src="image" />
-    <div class="container-details">
-      <h3>{{ title }}</h3>
-
-      <p>
-        {{ description }}
-      </p>
-
-      <div class="row">
-        <div>
-          <span>Equipe</span>
-          <div class="members">
-            <img src="https://avatars.githubusercontent.com/u/99155494?v=4" />
-            <img src="https://avatars.githubusercontent.com/u/849206?v=4" />
-            <img src="https://avatars.githubusercontent.com/u/48130339?v=4" />
+    <RouterLink :to="UrlProject(linkProject.id)">
+      <img :src="logo" class="image" />
+      <img class="container-img" :src="image" />
+      <div class="container-details">
+        <h3>{{ title }}</h3>
+        <p>
+          {{ description }}
+        </p>
+        <div class="row">
+          <div>
+            <span>Equipe</span>
+            <div class="members">
+              <img src="https://avatars.githubusercontent.com/u/99155494?v=4" />
+              <img src="https://avatars.githubusercontent.com/u/849206?v=4" />
+              <img src="https://avatars.githubusercontent.com/u/48130339?v=4" />
+              <div>
+                <span>+3</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span>Tecnologias</span>
             <div>
-              <span>+3</span>
+              <box-icon
+                v-for="lang in langsProject"
+                :key="lang.id"
+                color="var(--dark-shadow)"
+                size="2em"
+                :type="lang.type"
+                :name="lang.icon"
+              ></box-icon>
             </div>
           </div>
         </div>
-        <div>
-          <span>Tecnologias</span>
-          <div>
-            <box-icon
-              v-for="lang in langsProject"
-              :key="lang.id"
-              color="var(--dark-shadow)"
-              size="2em"
-              :type="lang.type"
-              :name="lang.icon"
-            ></box-icon>
-          </div>
-        </div>
+        <!--       <div class="status">
+          <span>{{ type }}</span>
+          <span>{{ type }}</span>
+          <span>{{ status }}</span>
+        </div> -->
       </div>
-      <!--       <div class="status">
-        <span>{{ type }}</span>
-        <span>{{ type }}</span>
-        <span>{{ status }}</span>
-      </div> -->
-    </div>
+    </RouterLink>
   </div>
 </template>
 
@@ -73,6 +79,9 @@ h3 {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+}
+a {
+  text-decoration : none;
 }
 .card {
   width: 32%;

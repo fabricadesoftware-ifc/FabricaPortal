@@ -26,11 +26,12 @@ onMounted(async () => {
           :logo="project.logo"
           :image="project.image"
           :type="project.type"
+          :linkProject="project"
           :langsProject="project.langsProject"
           :status="project.status"
         />
       </div>
-      <ButtonAll link="/" text="Ver todos os projetos" />
+      <ButtonAll link="/projects" text="Ver todos os projetos" />
     </div>
   </section>
 </template>
