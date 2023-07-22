@@ -8,7 +8,7 @@ export default class ProjectsApi {
     return projects.find((project) => project.id === id)
   }
   getProjects(): IProjects[] {
-    return projects
+    return projects.reverse()
   }
   getLangs(): ILangs[] {
     return langs

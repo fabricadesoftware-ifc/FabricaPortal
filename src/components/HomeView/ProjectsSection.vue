@@ -24,7 +24,7 @@ onMounted(async () => {
           :title="project.title"
           :description="project.description"
           :logo="project.logo"
-          :image="project.image"
+          :images="project.images"
           :type="project.type"
           :linkProject="project"
           :langsProject="project.langsProject"
@@ -54,8 +54,9 @@ section .projects-container {
 
 section .projects {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
+    width: -webkit-fill-available;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
 }
 </style>

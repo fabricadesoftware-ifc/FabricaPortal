@@ -1,28 +1,71 @@
 <script setup>
-defineProps({
+import { ref, onMounted, defineProps } from 'vue'
+
+const props = defineProps({
   description: String,
   title: String,
   logo: String,
-  image: String,
   status: String,
   type: String,
-  langsProject: {
-    type: Object
-  },
-  linkProject: {
-    type: Object
+  langsProject: { type: Object },
+  linkProject: { type: Object },
+  images: {
+    type: Array,
+    default: () => []
   }
 })
+
 const UrlProject = (id) => {
   return `/project/${id}`
 }
+
+const carouselRef = ref(null)
+const carouselInnerRef = ref(null)
+const imageElements = ref([])
+
+let currentIndex = 0
+let intervalId = null
+
+const showImage = (index) => {
+  const offset = index * -100
+  carouselInnerRef.value.style.transform = `translateX(${offset}%)`
+}
+
+const nextImage = () => {
+  currentIndex = (currentIndex + 1) % imageElements.value.length
+  showImage(currentIndex)
+}
+
+const activateCarousel = () => {
+  intervalId = setInterval(nextImage, 1500)
+}
+
+const deactivateCarousel = () => {
+  clearInterval(intervalId)
+  carouselInnerRef.value.style.transform = `translateX(${0}%)`
+}
+
+onMounted(() => {
+  imageElements.value = props.images.map((src) => {
+    const img = new Image()
+    img.src = src
+    img.classList.add('container-img')
+    carouselInnerRef.value.appendChild(img)
+    return img
+  })
+})
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" @mouseenter="activateCarousel" @mouseleave="deactivateCarousel">
     <RouterLink :to="UrlProject(linkProject.id)">
       <img :src="logo" class="image" />
-      <img class="container-img" :src="image" />
+      <div class="carousel" ref="carouselRef">
+        <div class="carousel-inner" ref="carouselInnerRef">
+          <img v-for="(img, index) in images" :key="index" class="container-img" :src="img" />
+        </div>
+      </div>
+
       <div class="container-details">
         <h3>{{ title }}</h3>
         <p>
@@ -55,10 +98,10 @@ const UrlProject = (id) => {
           </div>
         </div>
         <!--       <div class="status">
-          <span>{{ type }}</span>
-          <span>{{ type }}</span>
-          <span>{{ status }}</span>
-        </div> -->
+            <span>{{ type }}</span>
+            <span>{{ type }}</span>
+            <span>{{ status }}</span>
+          </div> -->
       </div>
     </RouterLink>
   </div>
@@ -81,8 +124,24 @@ h3 {
   -webkit-box-orient: vertical;
 }
 a {
-  text-decoration : none;
+  text-decoration: none;
 }
+.carousel {
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  height: 31vh;
+  transition: transform 0.3s ease;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
 .card {
   width: 32%;
   border: 5px solid var(--light-gray);
@@ -104,7 +163,7 @@ a {
 .card .container-details {
   padding: 10px;
   display: flex;
-  height: 41vh;
+  height: 38vh;
   border-top: 5px solid var(--color-details-projects);
   flex-direction: column;
   justify-content: space-evenly;

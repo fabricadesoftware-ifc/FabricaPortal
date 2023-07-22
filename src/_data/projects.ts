@@ -5,7 +5,7 @@ interface IProjects {
   status: string
   type: string
   description: string
-  image: string
+  images?: string[]
   langsProject?: ILangs[]
 }
 interface ILangs {
@@ -88,7 +88,6 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/project/logo-eventos.jpg',
     title: 'Gestão de Eventos',
     status: 'finalizado',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     type: 'extensão',
     description:
       'O projeto tem por objetivo desenvolver um sistema web para a gestão de eventos do Instituto Federal Catarinense. O sistema deve permitir a criação e gestão de eventos, a submissão de artigos científicos para um evento específico, a autenticação dos usuários por meio da rede CAFe...'
@@ -97,7 +96,6 @@ const projects: Array<IProjects> = [
     id: '2',
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/setting/%C3%ADndice_il3boLh.png',
     title: 'NODES',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     status: 'finalizado',
     type: 'extensão',
     description: 'Portal para Núcleo Operacionalização de Desenvolvimento de Sistemas'
@@ -106,7 +104,6 @@ const projects: Array<IProjects> = [
     id: '3',
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/project/index2.png',
     title: 'NR2',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     status: 'finalizado',
     type: 'extensão',
     description: 'Portal para o Núcleo de Redes Sem Fio e Redes Avançadas.'
@@ -115,7 +112,6 @@ const projects: Array<IProjects> = [
     id: '4',
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/project/WhatsApp_logo_2018-09-17_at_13.14.24.jpeg',
     title: 'Goofy Educa',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     status: 'finalizado',
     type: 'extensão',
     description: 'O projeto tem o foco de gerar auxílio à aprendizagem para o ensino fundamental.'
@@ -125,7 +121,6 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/project/WhatsApp_logo_2018-09-17_at_13.14.21.jpeg',
     title: 'Readequação do Site Institucional',
     status: 'finalizado',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     type: 'extensão',
     description:
       'O presente projeto tem por objetivo dar continuidade às adequações na página do Instituto Federal Catarinense (IFC), de acordo com as normas previstas, atendendo assim, as exigências da Controladoria Geral da União (CGU).'
@@ -134,7 +129,6 @@ const projects: Array<IProjects> = [
     id: '6',
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/project/issem.png',
     title: 'ISSEM',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     status: 'finalizado',
     type: 'extensão',
 
@@ -145,7 +139,6 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/setting/%C3%ADndice.png',
     title: 'Hackathon de Informática como princípio de aprendizagem ativa',
     status: 'em andamento',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     type: 'extensão',
     description:
       'O termo Hackathon é composto da união entre duas palavras da língua inglesa, hack (programar) e marathon (maratona), a sua ﬁnalidade é fomentar a criatividade e trabalho em equipe na busca de uma solução para um problema proposta (geralmente um problema real da comunidade), por meio da utilização de tecnologia, em nosso caso a tecnologia da informação. Assim, o projeto visa apresentar para os alunos um ou mais problemas a serem desenvolvidos em equipe, desta forma os discentes podem utilizar os conhecimentos adquiridos e em aquisição durante o curso para propor uma solução envolvendo a criação de um software e o desenvolvimento do respectivo protótipo (prova de conceito). Desta forma o Hackathon visa contribuir para a formação do discente tanto no aspecto pessoal como técnico, possibilitando que vivencie o trabalho em equipe, pratique a criatividade de forma sistematizada, controlada (métodos para condução da jornada) e acompanhada/suportada pelos docentes das disciplinas. O Hackathon contará com a mentoria dos professores do curso da área de informática, apresentando as principais ferramentas a serem utilizadas durante a competição, bem como efetuando o acompanhamento do desenvolvimento dos respectivos protótipos. As empresas parceiras serão responsáveis por auxiliar na avaliação ﬁnal das propostas apresentadas.'
@@ -155,7 +148,6 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/project/WhatsApp_logo_2018-09-17_at_13.14.27.jpeg',
     title: 'Controle de Acesso',
     status: 'finalizado',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     type: 'extensão',
     description:
       'Projeto coordenado por Eduardo da Silva, com os participantes Gueretz, Sebrão e João, tendo o intuito de fornecer controle de acesso utilizando a plataforma Arduino.'
@@ -165,7 +157,6 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/logo_upload/setting/%C3%ADndice_il3boLh.png',
     title: 'NAIV',
     status: 'finalizado',
-    image: 'src/assets/images/fabricaAmbiente.jpeg',
     type: 'ensino',
     description:
       'Núcleo de Aprendizagem Interativo virtual, é um sistema onde usuários terão acesso a conteúdo disponibilizados por professores, com intuito de estudar para concurso público.'
@@ -174,7 +165,7 @@ const projects: Array<IProjects> = [
     id: '10',
     logo: 'src/assets/images/logos/projeto/fabrica news icon.svg',
     title: 'FabricaNews',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
     langsProject: [
@@ -200,7 +191,7 @@ const projects: Array<IProjects> = [
   {
     id: '11',
     logo: 'src/assets/images/logos/projeto/fabrica needs icon.svg',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     title: 'FabricaNeeds',
     status: 'Em desenvolvimento',
     type: 'extensão',
@@ -228,7 +219,7 @@ const projects: Array<IProjects> = [
     id: '12',
     logo: 'src/assets/images/logos/projeto/fabrica faceID icon.svg',
     title: 'FabricaFaceID',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
     langsProject: [
@@ -255,7 +246,7 @@ const projects: Array<IProjects> = [
     id: '13',
     logo: 'src/assets/images/logos/projeto/fabrica auth v3 icon.svg',
     title: 'FabricaAuth',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
     langsProject: [
@@ -282,7 +273,7 @@ const projects: Array<IProjects> = [
     id: '14',
     logo: 'src/assets/images/logos/projeto/fabrica build icon.svg',
     title: 'FabricaBuild',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
     langsProject: [
@@ -310,7 +301,7 @@ const projects: Array<IProjects> = [
     logo: 'src/assets/images/logos/projeto/fabrica locker v2 icon.svg',
     title: 'FabricaLocker',
     status: 'Em desenvolvimento',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     type: 'extensão',
     langsProject: [
       {
@@ -355,7 +346,7 @@ const projects: Array<IProjects> = [
         type: 'logo'
       }
     ],
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -364,7 +355,7 @@ const projects: Array<IProjects> = [
     logo: 'src/assets/images/logos/projeto/fabrica notes icon.svg',
     title: 'FabricaNotes',
     status: 'Em desenvolvimento',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     type: 'extensão',
     langsProject: [
       {
@@ -389,7 +380,12 @@ const projects: Array<IProjects> = [
   {
     id: '16',
     logo: 'src/assets/images/logos/projeto/site fabrica icon.svg',
-    image: 'src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png',
+    images: [
+      'src/assets/images/Projects/FabricaPortal/image1.png',
+      'src/assets/images/Projects/FabricaPortal/image2.png',
+      'src/assets/images/Projects/FabricaPortal/image3.png'
+  
+    ],
     title: 'Portal da Fábrica de Software ',
     status: 'Em desenvolvimento',
     langsProject: [
