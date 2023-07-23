@@ -47,6 +47,7 @@ async function filterPublications() {
           <ul>
             <li v-for="publication in filteredBooks" :key="publication.id">
               <PublicationComp
+                :linkPublication="publication"
                 :title="publication.title"
                 :data="publication.data"
                 :members="publication.members"
@@ -59,6 +60,7 @@ async function filterPublications() {
           <ul>
             <li v-for="publication in filteredArticles" :key="publication.id">
               <PublicationComp
+                :linkPublication="publication"
                 :title="publication.title"
                 :data="publication.data"
                 :members="publication.members"
@@ -71,6 +73,7 @@ async function filterPublications() {
           <ul>
             <li v-for="publication in filteredConferences" :key="publication.id">
               <PublicationComp
+                :linkPublication="publication"
                 :title="publication.title"
                 :data="publication.data"
                 :members="publication.members"
@@ -79,13 +82,12 @@ async function filterPublications() {
           </ul>
         </div>
       </div>
-      <ButtonAll text="Ver todas as publicações" link="/" />
+      <ButtonAll text="Ver todas as publicações" link="/publications" />
     </div>
   </section>
 </template>
 
 <style scoped>
-
 section {
   background-color: var(--background-color-publications);
   margin: 80px 0 0 0;

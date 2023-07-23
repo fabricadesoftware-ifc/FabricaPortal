@@ -59,18 +59,20 @@ async function filterPublications() {
               <PublicationComp
                 :title="publication.title"
                 :data="publication.data"
+                :linkPublication="publication"
                 :members="publication.members"
-              />
-            </li>
-          </ul>
-        </div>
-        <div v-if="filteredArticles.length > 0" class="publication-format">
-          <h4>Artigos</h4>
-          <ul>
-            <li v-for="publication in filteredArticles" :key="publication.id">
-              <PublicationComp
+                />
+              </li>
+            </ul>
+          </div>
+          <div v-if="filteredArticles.length > 0" class="publication-format">
+            <h4>Artigos</h4>
+            <ul>
+              <li v-for="publication in filteredArticles" :key="publication.id">
+                <PublicationComp
                 :title="publication.title"
                 :data="publication.data"
+                :linkPublication="publication"
                 :members="publication.members"
               />
             </li>
@@ -83,6 +85,7 @@ async function filterPublications() {
               <PublicationComp
                 :title="publication.title"
                 :data="publication.data"
+                :linkPublication="publication"
                 :members="publication.members"
               />>
             </li>

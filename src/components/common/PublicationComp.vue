@@ -3,14 +3,20 @@ import ButtonMore from '@/components/common/ButtonMore.vue'
 defineProps({
   title: String,
   data: String,
-  members: String
+  members: String,
+  linkPublication: {
+    type: Object
+  }
 })
+const UrlPublication = (id) => {
+  return `/publication/${id}`
+}
 </script>
 <template>
   <div>
     <span class="title">{{ title }} ({{ data }})</span>
     <span class="members">{{ members }}</span>
-    <ButtonMore link="/" text="ver mais" />
+    <ButtonMore :link="UrlPublication(linkPublication.id)" text="ver mais" />
   </div>
 </template>
 <style>

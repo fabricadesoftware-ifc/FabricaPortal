@@ -2,7 +2,6 @@ import {
   createRouter,
   createWebHistory,
   RouterScrollBehavior,
-  RouteLocationNormalized
 } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MemberProfile from '../views/MemberProfile.vue'
@@ -10,6 +9,8 @@ import ProjectDetails from '../views/ProjectDetails.vue'
 import MembersView from '../views/MembersView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import AboutUs from '../views/AboutUs.vue'
+import PublicationDetails from '@/views/PublicationDetails.vue'
+import PublicationsView from '@/views/PublicationsView.vue'
 
 const routerScrollBehavior: RouterScrollBehavior = async (to, from, savedPosition) => {
   if (savedPosition) {
@@ -54,6 +55,16 @@ const router = createRouter({
       path: '/about-us',
       name: 'about-us',
       component: AboutUs
+    },
+    {
+      path: '/publication/:id',
+      name: 'publication',
+      component: PublicationDetails
+    },
+    {
+      path: '/publications',
+      name: 'publications',
+      component: PublicationsView
     }
   ],
   scrollBehavior: routerScrollBehavior,
