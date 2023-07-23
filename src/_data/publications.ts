@@ -31,7 +31,7 @@ const publications: Array<IPublications> = [
       'A experiência do ambiente da Fábrica de Software nas atividades de ensino do curso de Sistemas de Informação do IFC - Campus Araquari',
     members: 'MOTA, Casemiro; DA SILVA, Eduardo; BRAZ, Fernando; RIEGEL, Ivo; MOTA, Joice; MENDES, Marco André; DE OLIVEIRA, Paulo Cesar.',
     data: '28/07/2014',
-    membersIds: ['2', '5', '14'],
+    membersIds: ['2', '9', '5', '14', '11'],
     formatId: '2'
   }
 ]
