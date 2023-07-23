@@ -85,7 +85,7 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div>
+          <div v-if="langsProject.length > 0">
             <span>Tecnologias</span>
             <div>
               <box-icon
@@ -166,7 +166,7 @@ a {
 .card .container-details {
   padding: 10px;
   display: flex;
-  height: 38vh;
+  height: 40vh;
   border-top: 5px solid var(--color-details-projects);
   flex-direction: column;
   justify-content: space-evenly;

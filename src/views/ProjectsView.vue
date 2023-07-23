@@ -5,10 +5,24 @@ import ProjectsCard from "@/components/common/ProjectsCard.vue"
 
 const projectsApi = new ProjectsApi()
 const projects = ref([])
+const langs = ref([])
+
 
 onMounted(() => {
   projects.value = projectsApi.getProjects()
+  langs.value = projectsApi.getLangs()
+
 })
+function getProjectLangs(project) {
+  if (project.langsProject) {
+    return project.langsProject.map(langId => {
+      const lang = langs.value.find(lang => lang.id === langId)
+      return lang ? lang : null
+    }).filter(lang => lang !== null)
+  } else {
+    return []
+  }
+}
 </script>
 <template>
   <main>
@@ -19,10 +33,10 @@ onMounted(() => {
         :title="project.title"
         :description="project.description"
         :logo="project.logo"
-        :image="project.image"
+        :images="project.images"
         :type="project.type"
         :linkProject="project"
-        :langsProject="project.langsProject"
+        :langsProject="getProjectLangs(project)"
         :status="project.status"
       />
     </section>
