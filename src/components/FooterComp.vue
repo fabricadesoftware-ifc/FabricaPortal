@@ -6,6 +6,10 @@ export default {}
   <footer>
     <div class="links">
       <div>
+        <img src="/src/assets/images/logos/LogoFabricaVerticalCor.svg" alt="" />
+      </div>
+
+      <div>
         <h4>LINKS RÁPIDOS</h4>
         <ul>
           <li>
@@ -43,20 +47,6 @@ export default {}
         </ul>
       </div>
       <div>
-        <h4>bla</h4>
-        <ul>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-        </ul>
-      </div>
-      <div>
         <h4>contato</h4>
         <ul>
           <li>BR-280 - Colégio Agrícola, Araquari - SC, 89245-000</li>
@@ -65,22 +55,13 @@ export default {}
         </ul>
       </div>
     </div>
-    <hr />
     <div class="container">
-      <img src="src/assets/images/logos/logo_ifc.png" alt="" />
       <span>© Todos os direitos reservados</span>
-      <img src="src/assets/images/logos/LogoHorizontal.svg" alt="" />
     </div>
   </footer>
 </template>
 
-
 <style scoped>
-hr {
-  width: 75%;
-}
-
-
 h4 {
   text-transform: uppercase;
   color: var(--type-links-footer);
@@ -88,24 +69,27 @@ h4 {
 
 footer {
   width: 100%;
-  height: 57vh;
-  padding: 56px 0;
+  height: 48vh;
+  padding: 56px 145px;
   background-color: var(--background-color-footer);
   color: var(--color-links-footer);
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: space-between;
+  flex-direction: column;
 }
-
+footer .links {
+  justify-content: space-between;
+  display: flex;
+}
 footer .links,
 .container {
   width: 100%;
-  display: flex;
-  justify-content: space-evenly;
 }
 
 footer .container {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
