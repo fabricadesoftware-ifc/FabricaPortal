@@ -10,7 +10,7 @@
         Um ambiente exclusivo projetado para os alunos da área da Informática (Superior e Técnico)
         que desejam mergulhar nas práticas de uma verdadeira softwarehouse.
       </p>
-      <ButtonMore link="/" text="CONHEÇA-NOS" />
+      <ButtonMore link="/about-us" text="CONHEÇA-NOS" />
     </div>
   </section>
 </template>

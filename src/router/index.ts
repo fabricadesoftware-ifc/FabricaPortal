@@ -4,6 +4,8 @@ import MemberProfile from '../views/MemberProfile.vue'
 import ProjectDetails from '../views/ProjectDetails.vue'
 import MembersView from '../views/MembersView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
+import AboutUs from '../views/AboutUs.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -33,6 +35,11 @@ const router = createRouter({
       path: '/projects',
       name: 'projects',
       component: ProjectsView
+    },
+    {
+      path: '/about-us',
+      name: 'about-us',
+      component: AboutUs
     }
   ]
 })
