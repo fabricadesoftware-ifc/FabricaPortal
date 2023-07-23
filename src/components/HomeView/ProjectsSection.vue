@@ -6,11 +6,24 @@ import ProjectsApi from '@/api/projects'
 
 const projectsApi = new ProjectsApi()
 const projects = ref([])
+const langs = ref([])
 
 onMounted(async () => {
   projects.value = projectsApi.getSixProjects()
+  langs.value = projectsApi.getLangs()
 
 })
+function getProjectLangs(project) {
+  if (project.langsProject) {
+    return project.langsProject.map(langId => {
+      const lang = langs.value.find(lang => lang.id === langId)
+      return lang ? lang : null
+    }).filter(lang => lang !== null)
+  } else {
+    return []
+  }
+}
+
 </script>
 
 <template>
@@ -27,7 +40,7 @@ onMounted(async () => {
           :images="project.images"
           :type="project.type"
           :linkProject="project"
-          :langsProject="project.langsProject"
+          :langsProject="getProjectLangs(project)"
           :status="project.status"
         />
       </div>

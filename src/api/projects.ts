@@ -13,7 +13,7 @@ export default class ProjectsApi {
   getLangs(): ILangs[] {
     return langs
   }
-  getLangsById(id: string): ILangs | undefined {
+  getLangsInProjects(id: string): ILangs | undefined {
     return langs.find((lang) => lang.id === id)
   }
 }

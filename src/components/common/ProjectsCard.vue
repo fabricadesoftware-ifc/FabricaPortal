@@ -7,13 +7,15 @@ const props = defineProps({
   logo: String,
   status: String,
   type: String,
-  langsProject: { type: Object },
+  langsProject: { type: Array, default: () => [] },
   linkProject: { type: Object },
   images: {
     type: Array,
     default: () => []
   }
 })
+
+
 
 const UrlProject = (id) => {
   return `/project/${id}`
@@ -87,21 +89,16 @@ onMounted(() => {
             <span>Tecnologias</span>
             <div>
               <box-icon
-                v-for="lang in langsProject"
-                :key="lang.id"
+              v-for="langId in langsProject"
+                :key="langId"
                 color="var(--dark-shadow)"
                 size="2em"
-                :type="lang.type"
-                :name="lang.icon"
+                :type="langId.type"
+                :name="langId.icon"
               ></box-icon>
             </div>
           </div>
         </div>
-        <!--       <div class="status">
-            <span>{{ type }}</span>
-            <span>{{ type }}</span>
-            <span>{{ status }}</span>
-          </div> -->
       </div>
     </RouterLink>
   </div>
@@ -111,11 +108,13 @@ onMounted(() => {
 h3 {
   -webkit-line-clamp: 2;
 }
+
 p {
   margin: 10px 0;
   text-align: justify;
   -webkit-line-clamp: 4;
 }
+
 p,
 h3 {
   overflow: hidden;
@@ -123,9 +122,11 @@ h3 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+
 a {
   text-decoration: none;
 }
+
 .carousel {
   overflow: hidden;
 }
@@ -147,6 +148,7 @@ a {
   border: 5px solid var(--light-gray);
   margin-bottom: 70px;
 }
+
 .card .container-img {
   width: 100%;
   filter: brightness(0.5);
@@ -156,6 +158,7 @@ a {
   justify-content: center;
   transition: filter 0.6s;
 }
+
 .card:hover .container-img {
   filter: brightness(1);
 }
@@ -168,6 +171,7 @@ a {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .card .container-details .row {
   display: flex;
   justify-content: space-between;
@@ -183,12 +187,15 @@ a {
   opacity: 1;
   transition: opacity 0.3s;
 }
+
 .card:hover .image {
   opacity: 0;
 }
+
 .card .container-details .row .members {
   display: flex;
 }
+
 .card .container-details .row span {
   font-weight: 500;
   color: var(--text-color);
@@ -202,6 +209,7 @@ a {
   border-radius: 50px;
   margin-right: -14px;
 }
+
 .card .container-details .row .members div {
   display: flex;
   justify-content: center;

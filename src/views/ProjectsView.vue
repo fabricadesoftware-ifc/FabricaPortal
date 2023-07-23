@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import ProjectsApi from '@/api/projects'
 import ProjectsCard from "@/components/common/ProjectsCard.vue"
 

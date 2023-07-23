@@ -6,7 +6,7 @@ interface IProjects {
   type: string
   description: string
   images?: string[]
-  langsProject?: ILangs[]
+  langsProject?: string[]
 }
 interface ILangs {
   icon?: string
@@ -168,23 +168,6 @@ const projects: Array<IProjects> = [
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
 
     description: 'Portal de Notícias da Fábrica de Software.'
   },
@@ -195,23 +178,6 @@ const projects: Array<IProjects> = [
     title: 'FabricaNeeds',
     status: 'Em desenvolvimento',
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -222,23 +188,6 @@ const projects: Array<IProjects> = [
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -249,23 +198,6 @@ const projects: Array<IProjects> = [
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -276,23 +208,6 @@ const projects: Array<IProjects> = [
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -303,23 +218,6 @@ const projects: Array<IProjects> = [
     status: 'Em desenvolvimento',
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -329,23 +227,6 @@ const projects: Array<IProjects> = [
     title: 'FabricaManager',
     status: 'Em desenvolvimento',
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
@@ -357,23 +238,6 @@ const projects: Array<IProjects> = [
     status: 'Em desenvolvimento',
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     type: 'extensão',
-    langsProject: [
-      {
-        id: '8',
-        icon: 'php',
-        type: 'logo'
-      },
-      {
-        id: '10',
-        icon: 'java',
-        type: 'logo'
-      },
-      {
-        id: '11',
-        icon: 'tailwind-css',
-        type: 'logo'
-      }
-    ],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -388,23 +252,7 @@ const projects: Array<IProjects> = [
     ],
     title: 'Portal da Fábrica de Software ',
     status: 'Em desenvolvimento',
-    langsProject: [
-      {
-        id: '12',
-        icon: 'vuejs',
-        type: 'logo'
-      },
-      {
-        id: '9',
-        icon: 'typescript',
-        type: 'logo'
-      },
-      {
-        id: '16',
-        icon: 'css3',
-        type: 'logo'
-      }
-    ],
+    langsProject: [ '12', '9' ],
     type: 'extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
