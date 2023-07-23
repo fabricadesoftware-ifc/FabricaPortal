@@ -115,7 +115,7 @@ window.onscroll = () => {
 }
 nav {
   overflow: hidden;
-  background-color: transparent;
+  background-color: #101215;
   height: 73px;
   padding: 40px 145px;
   position: fixed;
