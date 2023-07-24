@@ -76,21 +76,21 @@ onMounted(() => {
           {{ description }}
         </p>
         <div class="row">
-          <div>
+          <div class="column">
             <span>Equipe</span>
             <div class="members">
               <img
-                v-for="member in (members.slice(0, 3))"
+                v-for="member in members.slice(0, 3)"
                 :key="member"
                 class="container-img"
                 :src="member.image"
               />
               <div v-if="members.length > 3">
-                <span>+{{ members.length - 3}}</span>
+                <span>+{{ members.length - 3 }}</span>
               </div>
             </div>
           </div>
-          <div v-if="langsProject.length > 0">
+          <div class="column" v-if="langsProject.length > 0">
             <span>Tecnologias</span>
             <div>
               <box-icon
@@ -181,7 +181,11 @@ a {
   display: flex;
   justify-content: space-between;
 }
-
+.card .container-details .row .column {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
 .card .image {
   flex-shrink: 0;
   height: 4rem;
