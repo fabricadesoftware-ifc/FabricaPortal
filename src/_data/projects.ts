@@ -146,6 +146,7 @@ const projects: Array<IProjects> = [
     title: 'Hackathon de Informática como princípio de aprendizagem ativa',
     status: 'em andamento',
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    membersProject: ['8', '6', '1', '2', '5', '9'],
     type: 'extensão',
     description:
       'O termo Hackathon é composto da união entre duas palavras da língua inglesa, hack (programar) e marathon (maratona), a sua ﬁnalidade é fomentar a criatividade e trabalho em equipe na busca de uma solução para um problema proposta (geralmente um problema real da comunidade), por meio da utilização de tecnologia, em nosso caso a tecnologia da informação. Assim, o projeto visa apresentar para os alunos um ou mais problemas a serem desenvolvidos em equipe, desta forma os discentes podem utilizar os conhecimentos adquiridos e em aquisição durante o curso para propor uma solução envolvendo a criação de um software e o desenvolvimento do respectivo protótipo (prova de conceito). Desta forma o Hackathon visa contribuir para a formação do discente tanto no aspecto pessoal como técnico, possibilitando que vivencie o trabalho em equipe, pratique a criatividade de forma sistematizada, controlada (métodos para condução da jornada) e acompanhada/suportada pelos docentes das disciplinas. O Hackathon contará com a mentoria dos professores do curso da área de informática, apresentando as principais ferramentas a serem utilizadas durante a competição, bem como efetuando o acompanhamento do desenvolvimento dos respectivos protótipos. As empresas parceiras serão responsáveis por auxiliar na avaliação ﬁnal das propostas apresentadas.'
@@ -177,8 +178,8 @@ const projects: Array<IProjects> = [
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'extensão',
+    membersProject: ['1', '2', '17', '15', '14', '13', '12', '18'],
     langsProject: [ '12', '13' ],
-    
     description: 'Portal de Notícias da Fábrica de Software.'
   },
   {
@@ -208,6 +209,7 @@ const projects: Array<IProjects> = [
     title: 'FabricaAuth',
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
+    membersProject: ['18'],
     type: 'extensão',
     langsProject: [ '9' ],
     description:
@@ -218,6 +220,7 @@ const projects: Array<IProjects> = [
     logo: 'src/assets/images/logos/projeto/fabrica build icon.svg',
     title: 'FabricaBuild',
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    membersProject: ['18'],
     status: 'Em desenvolvimento',
     type: 'extensão',
     description:
@@ -227,6 +230,7 @@ const projects: Array<IProjects> = [
     id: '15',
     logo: 'src/assets/images/logos/projeto/fabrica locker v2 icon.svg',
     title: 'FabricaLocker',
+    membersProject: ['18'],
     status: 'Em desenvolvimento',
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     type: 'extensão',
@@ -240,6 +244,7 @@ const projects: Array<IProjects> = [
     status: 'Em desenvolvimento',
     type: 'extensão',
     langsProject: [ '13', '2' ],
+    membersProject: ['12'],
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
@@ -250,6 +255,7 @@ const projects: Array<IProjects> = [
     title: 'FabricaNotes',
     status: 'Em desenvolvimento',
     images: ['src/assets/images/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    membersProject: ['18'],
     type: 'extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'

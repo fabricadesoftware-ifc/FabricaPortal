@@ -76,7 +76,7 @@ const members: Array<IMembers> = [
       id: '1',
       description: 'Professor'
     },
-    projectIds: ['7'],
+    projectIds: ['7', '16', '10'],
     socialLinks: [
       {
         icon: 'github',
@@ -112,7 +112,7 @@ const members: Array<IMembers> = [
       description: 'Professor'
     },
     publicationIds: ['1'],
-    projectIds: ['7', '6', '1'],
+    projectIds: ['7', '6', '1', '16','10'],
     socialLinks: [
       {
         icon: 'github',
@@ -200,6 +200,8 @@ const members: Array<IMembers> = [
     image: 'https://avatars.githubusercontent.com/u/99155494?v=4',
     name: 'Geovana Sophia Horodeski',
     description: 'Gosto de filmes, ABBA e FrontEnd',
+    projectIds: ['16'],
+
     occupation: {
       id: '2',
       description: 'Aluna'
@@ -216,7 +218,133 @@ const members: Array<IMembers> = [
     },
     publicationIds: ['1'],
     projectIds: ['6'],
-  }
+  },
+  {
+    id: '10',
+    image: 'https://avatars.githubusercontent.com/u/99221824?v=4',
+    name: 'Eduardo Barbaro',
+    description: '',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    projectIds: ['10', '18'],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/dudubarbaro',
+        type: 'logo'
+      },
+    ]
+  },
+    {
+    id: '12',
+    image: 'https://avatars.githubusercontent.com/u/99221824?v=4',
+    name: 'Eduardo Barbaro',
+    description: '',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    projectIds: ['10', '18'],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/dudubarbaro',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '13',
+    image: 'https://avatars.githubusercontent.com/u/106326409?v=4',
+    name: 'Lucas Lutf',
+    description: '',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    projectIds: ['10'],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/LucasLutf',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '14',
+    image: 'https://avatars.githubusercontent.com/u/94870528?v=4',
+    name: 'Davi Gabriel Tomaz',
+    description: '',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    projectIds: ['10'],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/davigtomaz',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '15',
+    image: 'https://avatars.githubusercontent.com/u/29065500?v=4',
+    name: 'Vinícius Acordi Soethe',
+    description: '',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    projectIds: ['10'],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/ViniciusAcordiSoethe',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '17',
+    image: 'https://avatars.githubusercontent.com/u/99202035?v=4',
+    name: 'Brunno Duarte da Cunha',
+    description: '',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    projectIds: ['10'],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/BrunnoDC',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '18',
+    image: 'https://avatars.githubusercontent.com/u/58995549?v=4',
+    name: 'João Felipi Cardoso',
+    description: 'A simple guy doing simple things for simple projects. I like to have a simple life.',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    projectIds: ['10', '13', '14', '15', '17', ''],
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/snow-sr',
+        type: 'logo'
+      },
+    ]
+  },
 ]
 
 export { type IMembers, members, type IOccupations, occupations, type ILink, redesSociais }
