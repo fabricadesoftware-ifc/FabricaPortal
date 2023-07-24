@@ -7,6 +7,7 @@ interface IProjects {
   description: string
   images?: string[]
   langsProject?: string[]
+  membersProject?: string[]
 }
 interface ILangs {
   icon?: string
@@ -264,6 +265,7 @@ const projects: Array<IProjects> = [
     ],
     title: 'Portal da Fábrica de Software ',
     status: 'Em desenvolvimento',
+    membersProject: ['1', '2', '16'],
     langsProject: [ '12', '9' ],
     type: 'extensão',
     description:

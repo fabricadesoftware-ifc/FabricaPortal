@@ -12,10 +12,12 @@ const props = defineProps({
   images: {
     type: Array,
     default: () => []
+  },
+  members: {
+    type: Array,
+    default: () => []
   }
 })
-
-
 
 const UrlProject = (id) => {
   return `/project/${id}`
@@ -77,11 +79,14 @@ onMounted(() => {
           <div>
             <span>Equipe</span>
             <div class="members">
-              <img src="https://avatars.githubusercontent.com/u/99155494?v=4" />
-              <img src="https://avatars.githubusercontent.com/u/849206?v=4" />
-              <img src="https://avatars.githubusercontent.com/u/48130339?v=4" />
-              <div>
-                <span>+3</span>
+              <img
+                v-for="member in (members.slice(0, 3))"
+                :key="member"
+                class="container-img"
+                :src="member.image"
+              />
+              <div v-if="members.length > 3">
+                <span>+{{ members.length - 3}}</span>
               </div>
             </div>
           </div>
@@ -89,7 +94,7 @@ onMounted(() => {
             <span>Tecnologias</span>
             <div>
               <box-icon
-              v-for="langId in langsProject"
+                v-for="langId in langsProject"
                 :key="langId"
                 color="var(--dark-shadow)"
                 size="2em"
