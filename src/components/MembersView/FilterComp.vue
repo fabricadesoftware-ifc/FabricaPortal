@@ -18,14 +18,14 @@ onMounted(() => {
 <template>
   <section>
     <h2>Membros</h2>
-    <div class="filter">
-      <div class="container" id="search-container">
-        <label for="">pesquise</label>
-        <div>
+    <form>
+      <div class="input-group" id="search">
+        <label for="input-search">pesquise</label>
           <input
             occupation="text"
             name="member"
             list="members"
+            id="input-search"
             required
             autocomplete="off"
             v-model="filterName"
@@ -36,12 +36,11 @@ onMounted(() => {
               {{ member.name }}
             </option>
           </datalist>
-        </div>
       </div>
-      <div class="container" id="occupation-container">
-        <label for="occupation">ocupação</label>
+      <div class="input-group" id="occupation">
+        <label for="select-occupation">ocupação</label>
         <select
-          id="occupation"
+          id="select-occupation"
           v-model="filterOccupation"
           @select="$emit('change', filterOccupation)"
           required
@@ -52,11 +51,11 @@ onMounted(() => {
           </option>
         </select>
       </div>
-      <div class="btn-order">
+      <button>
         <box-icon size="2em" color="#fff" name="sort-up"></box-icon>
         <span>a-z</span>
-      </div>
-    </div>
+      </button>
+    </form>
   </section>
 </template>
 
@@ -71,44 +70,45 @@ section {
   flex-direction: column;
   justify-content: center;
 }
-section .filter {
+section form {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.filter .container {
+form .input-group {
   display: flex;
   flex-direction: column;
   margin-right: 20px;
 }
-.filter #search-container {
+form #search {
   width: 50%;
 }
-.filter #occupation-container {
+form #occupation {
   width: 37%;
 }
-.filter .btn-order {
-  height: 70px;
+form button {
   width: 70px;
+  height: 70px;
   background-color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: 0;
 }
-.filter .btn-order span {
+button span {
   color: var(--white);
   font-weight: bold;
 }
-.container label {
+.input-group label {
   text-transform: uppercase;
   font-weight: 600;
   /* criar variavel para essa cor */
   color: #343434;
   margin-bottom: 5px;
 }
-.container input,
-.container select {
+.input-group input,
+.input-group select {
   width: 100%;
   height: auto;
   font-weight: 500;
@@ -119,12 +119,12 @@ section .filter {
   transition: 180ms border-bottom ease-in-out;
 }
 
-.container input:focus,
-.container input:hover,
-.container input:valid,
-.container select:focus,
-.container select:valid,
-.container select:hover {
+.input-group input:focus,
+.input-group input:hover,
+.input-group input:valid,
+.input-group select:focus,
+.input-group select:valid,
+.input-group select:hover {
   outline: 0;
   border-bottom: 5px solid var(--primary-color);
 }

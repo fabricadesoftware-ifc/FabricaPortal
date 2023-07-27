@@ -15,7 +15,7 @@ const UrlPublication = (id) => {
 <template>
   <div>
     <span class="title">{{ title }} ({{ data }})</span>
-    <span class="members">{{ members }}</span>
+    <span>{{ members }}</span>
     <ButtonMore :link="UrlPublication(linkPublication.id)" text="ver mais" />
   </div>
 </template>

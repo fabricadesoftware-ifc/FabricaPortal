@@ -38,7 +38,7 @@ function getProjectMembers(project) {
 </script>
 <template>
   <main>
-    <section class="container">
+    <section class="projects">
       <ProjectsCard
         v-for="project of projects"
         :key="project.id"
@@ -60,7 +60,7 @@ function getProjectMembers(project) {
 main {
   padding-top: 80px;
 }
-main .container {
+main .projects {
   background-color: var(--light-gray);
   display: flex;
   flex-wrap: wrap;

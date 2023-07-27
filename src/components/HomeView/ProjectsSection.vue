@@ -18,26 +18,30 @@ onMounted(async () => {
 })
 function getProjectLangs(project) {
   if (project.langsProject) {
-    return project.langsProject.map(langId => {
-      const lang = langs.value.find(lang => lang.id === langId)
-      return lang ? lang : null
-    }).filter(lang => lang !== null)
+    return project.langsProject
+      .map((langId) => {
+        const lang = langs.value.find((lang) => lang.id === langId)
+        return lang ? lang : null
+      })
+      .filter((lang) => lang !== null)
   }
 }
 function getProjectMembers(project) {
   if (project.membersProject) {
-    return project.membersProject.map(memberId => {
-      const member = members.value.find(member => member.id === memberId)
-      return member ? member : null
-    }).filter(member => member !== null)
+    return project.membersProject
+      .map((memberId) => {
+        const member = members.value.find((member) => member.id === memberId)
+        return member ? member : null
+      })
+      .filter((member) => member !== null)
   }
 }
 </script>
 
 <template>
-  <section class="section-projects" id="projects">
+  <section id="projects">
     <h2>Projetos</h2>
-    <div class="projects-container">
+    <div class="container">
       <div class="projects">
         <ProjectsCard
           v-for="project of projects"
@@ -63,22 +67,17 @@ section {
   background-color: var(--white);
 }
 
-.section-projects {
-  margin: 80px 0;
-  padding: 80px 145px;
-}
-
-section .projects-container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-section .projects {
+.projects {
   display: flex;
-    width: -webkit-fill-available;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+  width: -webkit-fill-available;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
 }
 </style>

@@ -9,7 +9,12 @@
 </template>
 
 <style scoped>
+/* 
+  #CriarVariavel 
+  Essa é distancia que o main precisa ter para
+  o nav não sobre-por o nav
+*/
 main {
-    padding-top: 100px;
+  padding-top: 100px;
 }
 </style>

@@ -1,41 +1,45 @@
 <script setup>
-
 defineProps({
   name: String,
   description: String,
   occupation: {
     type: Object
-  },
+  }
 })
 </script>
 <template>
-  <div class="nameOccup">
+  <header>
     <h3>{{ occupation.description }}</h3>
     <div>
       <h2>{{ name }}</h2>
     </div>
-  </div>
-  <div v-if="description.length > 0" class="desc">
+  </header>
+  <section v-if="description.length > 0">
     <h3>Descrição</h3>
     <p>{{ description }}</p>
-  </div>
+  </section>
 </template>
 <style scoped>
+/*padronizar os h2*/
 h2 {
   color: var(--text-color);
   margin: 0;
 }
-section .nameOccup {
+
+h3 {
+  color: var(--color-details-members);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+header {
   border-bottom: 5px solid var(--color-details-members);
   margin-bottom: 14px;
   width: 100%;
 }
-section .desc {
+
+
+section {
   margin-bottom: 14px;
-}
-section .nameOccup h3 {
-  color: var(--color-details-members);
-  text-transform: uppercase;
-  font-weight: 600;
 }
 </style>

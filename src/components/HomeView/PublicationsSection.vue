@@ -40,9 +40,9 @@ async function filterPublications() {
 <template>
   <section id="publications">
     <h2>Publicações</h2>
-    <div class="publications">
-      <div class="container">
-        <div class="publication-format">
+    <div class="container">
+      <div class="publications">
+        <section class="publication-format">
           <h3>Livros e capítulos de livros</h3>
           <ul>
             <li v-for="publication in filteredBooks" :key="publication.id">
@@ -54,8 +54,8 @@ async function filterPublications() {
               />
             </li>
           </ul>
-        </div>
-        <div class="publication-format">
+        </section>
+        <section class="publication-format">
           <h3>Artigos</h3>
           <ul>
             <li v-for="publication in filteredArticles" :key="publication.id">
@@ -67,8 +67,8 @@ async function filterPublications() {
               />
             </li>
           </ul>
-        </div>
-        <div class="publication-format">
+        </section>
+        <section class="publication-format">
           <h3>Conferências</h3>
           <ul>
             <li v-for="publication in filteredConferences" :key="publication.id">
@@ -80,7 +80,7 @@ async function filterPublications() {
               />>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
       <ButtonAll text="Ver todas as publicações" link="/publications" />
     </div>
@@ -88,45 +88,41 @@ async function filterPublications() {
 </template>
 
 <style scoped>
-section {
+#publications {
   background-color: var(--background-color-publications);
   margin: 80px 0 0 0;
   padding: 80px 145px;
   border-top: 5px solid var(--color-details-publications);
 }
 
-section .publications {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-section .container {
+.publications {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.container .publication-format {
+.publication-format {
   width: 47%;
   margin-bottom: 10px;
 }
 
-.container div h3 {
+h3 {
   color: var(--color-details-publications);
 }
 
-.container ul {
+ul {
   list-style-type: disc;
   padding: 20px;
 }
 
-.container ul li {
+ul li {
   margin-bottom: 10px;
 }
 
-li .title {
-  font-weight: 500;
-  display: block;
-}
 </style>

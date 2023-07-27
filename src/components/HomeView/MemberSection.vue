@@ -18,7 +18,7 @@ onMounted(() => {
 <template>
   <section id="members">
     <h2>Membros</h2>
-    <div class="container-members">
+    <div class="container">
       <div class="members">
         <MemberCard
           v-for="member of members"
@@ -37,7 +37,7 @@ onMounted(() => {
 
 <style scoped>
 
-.container-members {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -35,7 +35,7 @@ onMounted(() => {
 <template>
   <main>
     <FilterComp :members="members" @change="changeFilterName"/>
-    <section class="container">
+    <section class="members">
       <MemberCard
         v-for="member of filteredMembers"
         :key="member.id"
@@ -53,9 +53,9 @@ onMounted(() => {
 <style scoped>
 main {
   padding-top: 80px;
-}
-main .container {
   background-color: var(--light-gray);
+}
+main .members {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

@@ -40,9 +40,9 @@ async function fetchMemberProjects() {
 }
 </script>
 <template>
-  <section v-if="projects.length > 0" class="projects">
+  <section v-if="projects.length > 0">
     <h3>Projetos</h3>
-    <div class="container">
+    <div class="projects">
       <ProjectCard
         v-for="project of projects"
         :key="project.id"
@@ -56,7 +56,7 @@ async function fetchMemberProjects() {
   </section>
 </template>
 <style scoped>
-section .container {
+section .projects {
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;

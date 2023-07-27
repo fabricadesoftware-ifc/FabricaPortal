@@ -20,8 +20,8 @@ onMounted(() => {
 <template>
   <section id="news">
     <h2>Notícias</h2>
-    <div class="news-container">
-      <div class="cards-news">
+    <div class="container">
+      <div class="news">
         <NewsCard
           v-for="newCard in news"
           :key="newCard.id"
@@ -37,13 +37,13 @@ onMounted(() => {
 </template>
 
 <style scoped>
-section .news-container {
+.container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
-section .cards-news {
+.news {
   display: flex;
   width: 100%;
   justify-content: space-between;

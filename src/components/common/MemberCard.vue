@@ -38,19 +38,18 @@ const UrlMember = (id) => {
 </script>
 
 <template>
-  <div class="card">
-    <router-link :to="UrlMember(linkMember.id)">
+  <router-link :to="UrlMember(linkMember.id)">
+    <div class="card">
       <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div>
-      <div class="member-details">
+      <div class="details">
         <h5>{{ occupation.description }}</h5>
         <h3>{{ shortenName(name) }}</h3>
-
         <p>
           {{ description }}
         </p>
       </div>
-    </router-link>
-  </div>
+    </div>
+  </router-link>
 </template>
 
 <style scoped>
@@ -59,20 +58,27 @@ h5 {
   text-transform: uppercase;
 }
 
+a {
+  width: 49%;
+  text-decoration: none;
+}
+
+p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
 .card {
   background-color: var(--background-color-card-member);
-  width: 49%;
-  height: 29vh;
+  height: 12em;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
   transition: transform 0.6s;
   transform: scale(97%);
-}
-
-.card a {
-  text-decoration: none;
-  display: flex;
 }
 
 .card:hover {
@@ -83,29 +89,24 @@ h5 {
 .card:hover .image {
   filter: brightness(1);
 }
+
 .card .image {
-  min-width: 29vh;
-  height: 29vh;
+  min-width: 12em;
+  height: 12em;
   background-position: center;
   background-size: cover;
   transition: filter 0.6s;
   filter: brightness(0.6);
 }
 
-.card .member-details {
+.card .details {
   border-left: 5px solid var(--color-details-members);
   padding: 10px;
   width: 100%;
+  height: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-}
-.card .member-details p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
 }
 </style>

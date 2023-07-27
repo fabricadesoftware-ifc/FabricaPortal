@@ -63,34 +63,35 @@ onMounted(() => {
 <template>
   <div class="card" @mouseenter="activateCarousel" @mouseleave="deactivateCarousel">
     <RouterLink :to="UrlProject(linkProject.id)">
-      <img :src="logo" class="image" />
-      <div class="carousel" ref="carouselRef">
-        <div class="carousel-inner" ref="carouselInnerRef">
-          <img v-for="(img, index) in images" :key="index" class="container-img" :src="img" />
+      <!-- sem certeza desse figure -->
+      <header>
+        <img :src="logo" class="image" />
+        <div class="carousel" ref="carouselRef">
+          <div class="carousel-inner" ref="carouselInnerRef">
+            <img v-for="(img, index) in images" :key="index" class="container-img" :src="img" />
+          </div>
         </div>
-      </div>
-
-      <div class="container-details">
+      </header>
+      <div class="content">
         <h3>{{ title }}</h3>
         <p>
           {{ description }}
         </p>
-        <div class="row">
-          <div class="column">
+        <footer>
+          <div class="col">
             <span>Equipe</span>
             <div class="members">
               <img
                 v-for="member in members.slice(0, 3)"
                 :key="member"
-                class="container-img"
                 :src="member.image"
               />
-              <div v-if="members.length > 3">
-                <span>+{{ members.length - 3 }}</span>
-              </div>
+              <span v-if="members.length > 3">
+                +{{ members.length - 3 }}
+              </span>
             </div>
           </div>
-          <div class="column" v-if="langsProject.length > 0">
+          <div class="col" v-if="langsProject.length > 0">
             <span>Tecnologias</span>
             <div>
               <box-icon
@@ -103,7 +104,7 @@ onMounted(() => {
               ></box-icon>
             </div>
           </div>
-        </div>
+        </footer>
       </div>
     </RouterLink>
   </div>
@@ -138,23 +139,21 @@ a {
 
 .carousel-inner {
   display: flex;
-  height: 31vh;
+  aspect-ratio: 16 / 6;
   transition: transform 0.3s ease;
 }
 
 .carousel-inner img {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
+  height: fit-content;
 }
-
 .card {
   width: 32%;
   border: 5px solid var(--light-gray);
   margin-bottom: 70px;
+  background-color: var(--white);
 }
 
-.card .container-img {
+.container-img {
   width: 100%;
   filter: brightness(0.5);
   height: auto;
@@ -168,7 +167,7 @@ a {
   filter: brightness(1);
 }
 
-.card .container-details {
+.content {
   padding: 10px;
   display: flex;
   height: 40vh;
@@ -177,16 +176,16 @@ a {
   justify-content: space-evenly;
 }
 
-.card .container-details .row {
+footer {
   display: flex;
   justify-content: space-between;
 }
-.card .container-details .row .column {
+.col {
   gap: 5px;
   display: flex;
   flex-direction: column;
 }
-.card .image {
+.image {
   flex-shrink: 0;
   height: 4rem;
   margin: 10px;
@@ -201,25 +200,25 @@ a {
   opacity: 0;
 }
 
-.card .container-details .row .members {
+.members {
   display: flex;
 }
 
-.card .container-details .row span {
+span {
   font-weight: 500;
   color: var(--text-color);
   font-size: 1.2em;
 }
 
-.card .container-details .row .members img,
-.card .container-details .row .members div {
+.members img,
+.members span {
   width: 37px;
   position: relative;
   border-radius: 50px;
   margin-right: -14px;
 }
 
-.card .container-details .row .members div {
+.members span {
   display: flex;
   justify-content: center;
   font-weight: 500;

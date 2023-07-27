@@ -48,76 +48,72 @@ async function filterPublications() {
 </script>
 
 <template>
-  <section v-if="publications.length > 0" class="publications">
+  <section v-if="publications.length > 0">
     <h3>Publicações</h3>
-    <div class="publications">
-      <div class="container">
-        <div v-if="filteredBooks.length > 0" class="publication-format">
-          <h4>Livros e capítulos de livros</h4>
-          <ul>
-            <li v-for="publication in filteredBooks" :key="publication.id">
-              <PublicationComp
-                :title="publication.title"
-                :data="publication.data"
-                :linkPublication="publication"
-                :members="publication.members"
-                />
-              </li>
-            </ul>
-          </div>
-          <div v-if="filteredArticles.length > 0" class="publication-format">
-            <h4>Artigos</h4>
-            <ul>
-              <li v-for="publication in filteredArticles" :key="publication.id">
-                <PublicationComp
-                :title="publication.title"
-                :data="publication.data"
-                :linkPublication="publication"
-                :members="publication.members"
-              />
-            </li>
-          </ul>
-        </div>
-        <div v-if="filteredConferences.length > 0" class="publication-format">
-          <h4>Conferências</h4>
-          <ul>
-            <li v-for="publication in filteredConferences" :key="publication.id">
-              <PublicationComp
-                :title="publication.title"
-                :data="publication.data"
-                :linkPublication="publication"
-                :members="publication.members"
-              />>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div>
+      <section v-if="filteredBooks.length > 0">
+        <h4>Livros e capítulos de livros</h4>
+        <ul>
+          <li v-for="publication in filteredBooks" :key="publication.id">
+            <PublicationComp
+              :title="publication.title"
+              :data="publication.data"
+              :linkPublication="publication"
+              :members="publication.members"
+            />
+          </li>
+        </ul>
+      </section>
+      <section v-if="filteredArticles.length > 0">
+        <h4>Artigos</h4>
+        <ul>
+          <li v-for="publication in filteredArticles" :key="publication.id">
+            <PublicationComp
+              :title="publication.title"
+              :data="publication.data"
+              :linkPublication="publication"
+              :members="publication.members"
+            />
+          </li>
+        </ul>
+      </section>
+      <section v-if="filteredConferences.length > 0">
+        <h4>Conferências</h4>
+        <ul>
+          <li v-for="publication in filteredConferences" :key="publication.id">
+            <PublicationComp
+              :title="publication.title"
+              :data="publication.data"
+              :linkPublication="publication"
+              :members="publication.members"
+            />
+          </li>
+        </ul>
+      </section>
     </div>
   </section>
 </template>
 
 <style scoped>
-section .container {
+h4 {
+  color: var(--color-details-members);
+}
+section div {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.container .publication-format {
+div section {
   margin-top: 10px;
 }
 
-.container div h4 {
-  color: var(--color-details-members);
-}
-
-.container ul {
+ul {
   list-style-type: disc;
   padding: 20px;
 }
 
-.container ul li {
+ul li {
   margin-bottom: 10px;
 }
-
 </style>

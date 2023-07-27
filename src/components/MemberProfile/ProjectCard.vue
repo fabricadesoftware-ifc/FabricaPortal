@@ -1,5 +1,4 @@
 <script setup>
-
 defineProps({
   description: String,
   title: String,
@@ -14,34 +13,35 @@ defineProps({
 </script>
 
 <template>
-  <div class="card">
-    <router-link to="/">
-
-    </router-link>
-    <div class="container-details">
-      <div>
+  <router-link to="/">
+    <div class="card">
+      <header>
         <h4>{{ title }}</h4>
         <div class="status">
           <span>{{ status }}</span>
         </div>
-      </div>
+      </header>
       <p>{{ description }}</p>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style scoped>
-h3,
-p {
-  margin: 3px 0;
+
+a {
+  text-decoration: none;
+  width: 100%;
 }
-p{
+
+p {
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 3px 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
 h4 {
   font-weight: 500;
 }
@@ -53,16 +53,13 @@ h4 {
   background-color: var(--background-color-card-project);
   height: auto;
   display: flex;
-}
-
-.card .container-details {
-  width: 100%;
+  flex-direction: column;
   padding: 15px;
 }
 
-.card .container-details div {
+
+header {
   display: flex;
   justify-content: space-between;
 }
-
 </style>
