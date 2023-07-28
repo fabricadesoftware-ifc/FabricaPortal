@@ -8,7 +8,7 @@ const newsApi = new NewsApi()
 const news = ref([])
 
 async function fetchNews() {
-  news.value = newsApi.getNews()
+  news.value = newsApi.getSixNews()
 }
 
 onMounted(() => {
