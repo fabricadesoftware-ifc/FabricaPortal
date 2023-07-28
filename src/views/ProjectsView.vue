@@ -60,8 +60,9 @@ function getProjectMembers(project) {
 main {
   padding-top: 80px;
 }
-main .projects {
+.projects {
   background-color: var(--light-gray);
+  padding: 80px 145px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

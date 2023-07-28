@@ -78,22 +78,17 @@ onMounted(() => {
           {{ description }}
         </p>
         <footer>
-          <div class="col">
+          <div class="col" v-if="members.length > 0">
             <span>Equipe</span>
+            <!--             <span class="alert" v-if="members.length === 0">Não há membros cadastrados</span> -->
             <div class="members">
-              <img
-                v-for="member in members.slice(0, 3)"
-                :key="member"
-                :src="member.image"
-              />
-              <span v-if="members.length > 3">
-                +{{ members.length - 3 }}
-              </span>
+              <img v-for="member in members.slice(0, 3)" :key="member" :src="member.image" />
+              <span v-if="members.length > 3"> +{{ members.length - 3 }} </span>
             </div>
           </div>
           <div class="col" v-if="langsProject.length > 0">
             <span>Tecnologias</span>
-            <div>
+            <div :class="[{ langs: langsProject.length > 1 }]">
               <box-icon
                 v-for="langId in langsProject"
                 :key="langId"
@@ -116,7 +111,6 @@ h3 {
 }
 
 p {
-  margin: 10px 0;
   text-align: justify;
   -webkit-line-clamp: 4;
 }
@@ -152,9 +146,14 @@ a {
   margin-bottom: 70px;
   background-color: var(--white);
 }
-
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .container-img {
   width: 100%;
+  /*   filter: blur(1px); */
   filter: brightness(0.5);
   height: auto;
   display: flex;
@@ -164,16 +163,18 @@ a {
 }
 
 .card:hover .container-img {
+  /*   filter: blur(0); */
   filter: brightness(1);
 }
 
 .content {
-  padding: 10px;
+  padding: 1em;
   display: flex;
-  height: 40vh;
+  height: 20em;
+  gap: 1em;
   border-top: 5px solid var(--color-details-projects);
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 footer {
@@ -185,13 +186,20 @@ footer {
   display: flex;
   flex-direction: column;
 }
+.langs {
+  display: flex;
+  justify-content: space-evenly;
+}
+/* .alert {
+  font-weight: 600;
+  font-style: italic;
+} */
 .image {
   flex-shrink: 0;
-  height: 4rem;
-  margin: 10px;
+  height: auto;
   position: absolute;
   z-index: 1;
-  width: 4rem;
+  width: 8rem;
   opacity: 1;
   transition: opacity 0.3s;
 }
@@ -207,15 +215,15 @@ footer {
 span {
   font-weight: 500;
   color: var(--text-color);
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .members img,
 .members span {
-  width: 37px;
+  width: 2em;
   position: relative;
-  border-radius: 50px;
-  margin-right: -14px;
+  border-radius: 50%;
+  margin-right: -0.5em;
 }
 
 .members span {

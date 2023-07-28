@@ -11,16 +11,16 @@ const occupations = ref([''])
 const filterName = ref('')
 
 function removeAccents(name) {
-  return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
 const filteredMembers = computed(() =>
   members.value.filter((m) => {
-    const memberName = removeAccents(m.name.toLowerCase());
-    const filter = removeAccents(filterName.value.toLowerCase());
-    return memberName.includes(filter);
+    const memberName = removeAccents(m.name.toLowerCase())
+    const filter = removeAccents(filterName.value.toLowerCase())
+    return memberName.includes(filter)
   })
-);
+)
 
 function changeFilterName(name) {
   filterName.value = name
@@ -34,7 +34,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <FilterComp :members="members" @change="changeFilterName"/>
+    <FilterComp :members="members" @change="changeFilterName" />
     <section class="members">
       <MemberCard
         v-for="member of filteredMembers"
