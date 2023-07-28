@@ -89,10 +89,10 @@ async function filterPublications() {
 
 <style scoped>
 #publications {
-  background-color: var(--background-color-publications);
+  background-color: var(--bg-white);
   margin: 80px 0 0 0;
   padding: 80px 145px;
-  border-top: 5px solid var(--color-details-publications);
+  border-top: 5px solid var(--publications);
 }
 
 .container {
@@ -113,7 +113,7 @@ async function filterPublications() {
 }
 
 h3 {
-  color: var(--color-details-publications);
+  color: var(--publications);
 }
 
 ul {

@@ -20,7 +20,7 @@ import HardSkill from '../components/HomeView/HardSkill.vue'
 
 <style scoped>
 main {
-  background-color: var(--light-gray);
+  background-color: var(--bg-gray);
 }
 main section{
   padding: 80px 145px;

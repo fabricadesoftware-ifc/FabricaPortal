@@ -1,55 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-
 :root {
+  /*! palette fabrica */
+  --primary-color: #EA6D18;
+  --secondary-color: #267A7A;
+  --tertiary-color: #D94E4E;
+  --quaternary-color: #4B4BEB;
 
   /*! base */
-  --primary-color: #EA6D18;
   --text-color: #292929;
-  --background-color-black: #101215;
+  --bg-black: #101215;
+  --bg-white: var(--white);
+  --bg-gray: var(--light-gray);
+  --bg-status: #ea6d1814;
+  --bg-scroll: #d3d3d3;
   --white: #ffffff;
   --light-gray: #f3f3f3;
+  --dark-gray: #555;
+  --primary-color-hover: #ff6600;
   --light-shadow: #0000008c;
   --dark-shadow: #000000b4;
-
-  /*! HardSkills */
-  --color-hard-skill: #555;
-  --background-color-hard-skill: var(--light-gray);
-
-  /*! ButtonAll */
-  --background-color-btn-all: var(--primary-color);
-  --text-color-btn-all: var(--white);
-
-  /*! ButtonMore */
-  --color-details-btn-more: var(--primary-color);
-  --text-color-btn-more: var(--primary-color);
-
-  /*! Nav */
-  --background-color-nav: var(--background-color-black);
-  --color-links-nav: var(--white);
-  --color-icon-nav: var(--white);
-  
-  /*! Footer */
-  --background-color-footer: var(--background-color-black);
-  --color-links-footer: var(--white);
-  --type-links-footer: var(--primary-color);
-
-  /*! HeroSection */
-  --text-color-hero: var(--white);
-
-  /*! NewsCard and NewsSection*/
-  /*tem que arrumar o get*/
-
-  /*! ProjectsSection and ProjectCard*/
-  --color-details-projects: var(--primary-color);
-  
-  /*! MembersSection, MemberCard and MemberProfile*/
-  --background-color-card-member: var(--white);
-  --background-color-card-project: var(--light-gray);
-  --color-details-members: var(--primary-color);
-  
-  /*! PublicationSection, PublicationComp, */
-  --color-details-publications: var(--primary-color);
-  --background-color-publications: var(--white);
+  --btn: var(--primary-color);
+  --btn-hover: var(--primary-color-hover);
+  --projects: var(--primary-color);
+  --publications: var(--primary-color);
+  --hero-section: var(--primary-color);
+  --news: var(--primary-color);
+  --members: var(--primary-color);
+  --publications: var(--primary-color);
+  --footer: var(--primary-color);
+  --status: var(--primary-color);
 
 }

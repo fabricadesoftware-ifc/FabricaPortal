@@ -52,11 +52,11 @@ header {
 }
 
 .wrapper {
-  background-color: var(--white);
+  background-color: var(--bg-white);
   min-height: 60vh;
   position: relative;
   overflow: hidden;
-  border-bottom: 5px solid var(--primary-color);
+  border-bottom: 5px solid var(--news);
   background-position: center;
   background-size: cover;
 }

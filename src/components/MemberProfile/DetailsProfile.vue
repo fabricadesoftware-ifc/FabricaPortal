@@ -26,14 +26,14 @@ h2 {
   margin: 0;
 }
 
-h3 {
-  color: var(--color-details-members);
+header h3 {
+  color: var(--members);
   text-transform: uppercase;
   font-weight: 600;
 }
 
 header {
-  border-bottom: 5px solid var(--color-details-members);
+  border-bottom: 5px solid var(--members);
   margin-bottom: 14px;
   width: 100%;
 }

@@ -64,7 +64,7 @@ function getProjectMembers(project) {
 
 <style scoped>
 section {
-  background-color: var(--white);
+  background-color: var(--bg-white);
 }
 
 .container {

@@ -62,8 +62,8 @@ onMounted(() => {
 <style scoped>
 section {
   height: 20vh;
-  background-color: var(--white);
-  border-left: 5px solid var(--primary-color);
+  background-color: var(--bg-white);
+  border-left: 5px solid var(--members);
   padding: 0 25px;
   display: flex;
   margin: 48px 145px;
@@ -89,7 +89,7 @@ form #occupation {
 form button {
   width: 70px;
   height: 70px;
-  background-color: var(--primary-color);
+  background-color: var(--members);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +104,7 @@ button span {
   text-transform: uppercase;
   font-weight: 600;
   /* criar variavel para essa cor */
-  color: #343434;
+  color: var(--text-color);
   margin-bottom: 5px;
 }
 .input-group input,
@@ -112,9 +112,9 @@ button span {
   width: 100%;
   height: auto;
   font-weight: 500;
-  color: #484848;
+  color: var(--text-color);
   padding: 11px 8px;
-  background-color: var(--light-gray);
+  background-color: var(--bg-gray);
   border: 0;
   transition: 180ms border-bottom ease-in-out;
 }
@@ -126,6 +126,6 @@ button span {
 .input-group select:valid,
 .input-group select:hover {
   outline: 0;
-  border-bottom: 5px solid var(--primary-color);
+  border-bottom: 5px solid var(--members);
 }
 </style>

@@ -13,7 +13,7 @@ defineProps({
 
 <template>
   <button>
-    <box-icon type="solid" color="var(--color-details-btn-more)" name="right-arrow-square"></box-icon>
+    <box-icon type="solid" color="var(--btn)" name="right-arrow-square"></box-icon>
     <RouterLink :to="link" >{{ text }}</RouterLink>
   </button>
 </template>
@@ -26,7 +26,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-details-btn-more);
+  color: var(--btn);
   border: none;
   cursor: pointer;
 }
@@ -39,7 +39,7 @@ button box-icon {
 button a {
   font-size: 16px;
   font-weight: 700;
-  color: var(--text-color-btn-more);
+  color: var(--btn);
   text-decoration: none;
   text-transform: uppercase ;
 }

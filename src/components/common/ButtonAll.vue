@@ -21,8 +21,8 @@ defineProps({
 
 <style scoped>
 button {
-  background-color: var(--primary-color);
-  border: 3px solid var(--primary-color);
+  background-color: var(--btn);
+  border: 3px solid var(--btn);
   cursor: pointer;
   padding: 5px 7px;
   margin-top: 20px;
@@ -31,12 +31,12 @@ button {
   align-items: center;
   transition: all ease-in-out 0.2s;
   border-radius: 5px;
-  color: var(--text-color-btn-all);
+  color: var(--white);
   font-weight: 600;
   font-size: 15px;
 }
 button:hover {
-  background-color: #ff6600;
+  background-color: var(--btn-hover);
 }
 a {
   text-decoration: none;

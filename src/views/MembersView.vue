@@ -53,7 +53,7 @@ onMounted(() => {
 <style scoped>
 main {
   padding-top: 80px;
-  background-color: var(--light-gray);
+  background-color: var(--bg-gray);
 }
 main .members {
   display: flex;

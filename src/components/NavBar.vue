@@ -96,7 +96,7 @@ window.onscroll = () => {
       <RouterLink v-for="(socialNetwork, i) in socialNetworks" :key="i" :to="socialNetwork.to">
         <box-icon
           style="margin: 0 8px"
-          color="var(--color-icon-nav)"
+          color="var(--white)"
           size="2em"
           type="logo"
           :name="socialNetwork.icon"
@@ -115,7 +115,7 @@ window.onscroll = () => {
 }
 nav {
   overflow: hidden;
-  background-color: #101215;
+  background-color: var(--bg-black);
   height: 73px;
   padding: 40px 145px;
   position: fixed;
@@ -126,7 +126,7 @@ nav {
   z-index: 99;
   align-items: center;
   transition: 0.4s;
-  color: var(--color-links-nav);
+  color: var(--white);
 }
 
 nav img {
@@ -145,6 +145,6 @@ nav .links a {
   font-weight: 600;
   text-decoration: none;
   margin: 0 15px;
-  color: var(--color-links-nav);
+  color: var(--white);
 }
 </style>

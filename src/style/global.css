@@ -44,20 +44,18 @@ p {
     line-height: 1.5em;
 }
 
-.home-view section{
-}
 
 .status span {
     margin-right: 10px;
     padding: 5px;
     border: 2px solid;
-    background-color: #ea6d1814;
+    background-color: var(--bg-status);
     border-radius: 5px;
     font-weight: 500;
     align-items: center;
     text-align: center;
     font-size: 0.8em;
-    color: #ea6d18;
+    color: var(--status);
 }
 
 .status {
@@ -79,5 +77,5 @@ p {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #267a7a;
+    background: var(--secondary-color);
 }

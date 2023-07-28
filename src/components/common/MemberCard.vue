@@ -54,7 +54,7 @@ const UrlMember = (id) => {
 
 <style scoped>
 h5 {
-  color: var(--color-details-members);
+  color: var(--members);
   text-transform: uppercase;
 }
 
@@ -72,7 +72,7 @@ p {
 }
 
 .card {
-  background-color: var(--background-color-card-member);
+  background-color: var(--bg-white);
   height: 12em;
   margin-bottom: 30px;
   display: flex;
@@ -100,7 +100,7 @@ p {
 }
 
 .card .details {
-  border-left: 5px solid var(--color-details-members);
+  border-left: 5px solid var(--members);
   padding: 10px;
   width: 100%;
   height: inherit;

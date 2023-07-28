@@ -64,15 +64,15 @@ export default {}
 <style scoped>
 h4 {
   text-transform: uppercase;
-  color: var(--type-links-footer);
+  color: var(--primary-color);
 }
 
 footer {
   width: 100%;
   height: 48vh;
   padding: 56px 145px;
-  background-color: var(--background-color-footer);
-  color: var(--color-links-footer);
+  background-color: var(--bg-black);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,7 +99,7 @@ footer .links ul li {
 }
 footer .links ul li a {
   text-decoration: none;
-  color: var(--color-links-footer);
+  color: var(--white);
 }
 footer .links ul li a:hover {
   text-decoration: underline;

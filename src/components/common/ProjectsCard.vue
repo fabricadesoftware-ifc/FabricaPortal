@@ -92,7 +92,7 @@ onMounted(() => {
               <box-icon
                 v-for="langId in langsProject"
                 :key="langId"
-                color="var(--dark-shadow)"
+                color="var(--dark-gray)"
                 size="2em"
                 :type="langId.type"
                 :name="langId.icon"
@@ -144,7 +144,7 @@ a {
   width: 32%;
   border: 5px solid var(--light-gray);
   margin-bottom: 70px;
-  background-color: var(--white);
+  background-color: var(--bg-white);
 }
 header {
   display: flex;
@@ -172,7 +172,7 @@ header {
   display: flex;
   height: 20em;
   gap: 1em;
-  border-top: 5px solid var(--color-details-projects);
+  border-top: 5px solid var(--projects);
   flex-direction: column;
   justify-content: center;
 }
@@ -227,11 +227,12 @@ span {
 }
 
 .members span {
+  width: 35px;
   display: flex;
   justify-content: center;
   font-weight: 500;
   z-index: 1;
   align-items: center;
-  background-color: #fce8da;
+  background-color: var(--light-gray);
 }
 </style>

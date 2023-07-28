@@ -96,7 +96,7 @@ async function filterPublications() {
 
 <style scoped>
 h4 {
-  color: var(--color-details-members);
+  color: var(--members);
 }
 section div {
   display: flex;

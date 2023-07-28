@@ -34,7 +34,7 @@ section {
 section div {
   width: 100%;
   background-color: #000000b5;
-  color: var(--text-color-hero);
+  color: var(--white);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -57,7 +57,7 @@ section .effect::before {
   bottom: 2px;
   height: 18px;
   width: 0;
-  background-color: var(--primary-color);
+  background-color: var(--hero-section);
   transition: 0.8s ease;
 }
 

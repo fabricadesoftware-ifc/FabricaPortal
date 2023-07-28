@@ -95,7 +95,7 @@ main .col-1 {
 main .image {
   width: 235px;
   height: auto;
-  border-bottom: 5px solid var(--color-details-members);
+  border-bottom: 5px solid var(--members);
 }
 main .midias {
   display: flex;
