@@ -58,11 +58,11 @@ function getProjectMembers(project) {
 
 <style scoped>
 main {
-  padding-top: 80px;
+  padding: var(--pn-main);
+  background-color: var(--bg-gray);
+
 }
 .projects {
-  background-color: var(--light-gray);
-  padding: 80px 145px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

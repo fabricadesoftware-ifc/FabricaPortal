@@ -92,7 +92,7 @@ async function filterPublications() {
   background-color: var(--bg-white);
   margin: 80px 0 0 0;
   padding: 80px 145px;
-  border-top: 5px solid var(--publications);
+  border-top: var(--border) solid var(--publications);
 }
 
 .container {

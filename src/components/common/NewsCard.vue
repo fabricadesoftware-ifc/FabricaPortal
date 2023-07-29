@@ -56,7 +56,7 @@ header {
   min-height: 60vh;
   position: relative;
   overflow: hidden;
-  border-bottom: 5px solid var(--news);
+  border-bottom: var(--border) solid var(--news);
   background-position: center;
   background-size: cover;
 }

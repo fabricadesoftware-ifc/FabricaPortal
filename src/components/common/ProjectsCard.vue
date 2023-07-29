@@ -142,7 +142,7 @@ a {
 }
 .card {
   width: 32%;
-  border: 5px solid var(--light-gray);
+  border: var(--border) solid var(--light-gray);
   margin-bottom: 70px;
   background-color: var(--bg-white);
 }
@@ -159,7 +159,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter 0.6s;
+  transition: filter var(--effect); 
 }
 
 .card:hover .container-img {
@@ -172,7 +172,7 @@ header {
   display: flex;
   height: 20em;
   gap: 1em;
-  border-top: 5px solid var(--projects);
+  border-top: var(--border) solid var(--projects);
   flex-direction: column;
   justify-content: center;
 }
@@ -201,7 +201,7 @@ footer {
   z-index: 1;
   width: 8rem;
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity var(--effect-image);
 }
 
 .card:hover .image {

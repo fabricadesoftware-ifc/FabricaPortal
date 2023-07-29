@@ -33,7 +33,7 @@ button {
 
 button box-icon {
   margin-right: 15px;
-  transition: 0.2s;
+  transition: var(--effect-btn);
 }
 
 button a {

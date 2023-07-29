@@ -69,7 +69,7 @@ async function fetchMember() {
 <style scoped>
 main {
   display: flex;
-  padding: 150px 145px;
+  padding: var(--pn-main);
 
 }
 p {
@@ -95,7 +95,7 @@ main .col-1 {
 main .image {
   width: 235px;
   height: auto;
-  border-bottom: 5px solid var(--members);
+  border-bottom: var(--border) solid var(--members);
 }
 main .midias {
   display: flex;

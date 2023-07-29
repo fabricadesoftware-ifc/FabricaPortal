@@ -77,7 +77,7 @@ p {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
-  transition: transform 0.6s;
+  transition: transform var(--effect);
   transform: scale(97%);
 }
 
@@ -95,12 +95,12 @@ p {
   height: 12em;
   background-position: center;
   background-size: cover;
-  transition: filter 0.6s;
+  transition: filter var(--effect);
   filter: brightness(0.6);
 }
 
 .card .details {
-  border-left: 5px solid var(--members);
+  border-left: var(--border) solid var(--members);
   padding: 10px;
   width: 100%;
   height: inherit;

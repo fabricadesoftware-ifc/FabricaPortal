@@ -44,7 +44,7 @@ section div {
 }
 section .effect {
   position: relative;
-  transition: 0.5s ease;
+  transition: var(--effect) ease;
 }
 section .text {
   position: relative;
@@ -58,7 +58,7 @@ section .effect::before {
   height: 18px;
   width: 0;
   background-color: var(--hero-section);
-  transition: 0.8s ease;
+  transition: var(--effect) ease;
 }
 
 section:hover .effect::before {

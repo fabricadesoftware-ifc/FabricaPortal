@@ -29,7 +29,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out var(--effect-btn);
   border-radius: 5px;
   color: var(--white);
   font-weight: 600;

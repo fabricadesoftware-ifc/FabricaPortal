@@ -1,12 +1,14 @@
 <script setup>
-
 </script>
 
 <template>
-  a
+  <main>
+    a
+  </main>
 </template>
 
-
 <style>
-
+main {
+  padding-top: var(--pn-top);
+}
 </style>

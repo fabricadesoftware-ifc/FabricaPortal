@@ -23,7 +23,7 @@ main {
   background-color: var(--bg-gray);
 }
 main section{
-  padding: 80px 145px;
+  padding: 80px var(--pn-main);
 
 }
 </style>
