@@ -65,8 +65,68 @@ section:hover .effect::before {
   width: 100%;
 }
 p {
-  color: var(--text-color-hero);
+  color: var(--white);
   width: 500px;
   margin: 7px 0;
+}
+@media only screen and (max-width: 768px) {
+  section div {
+    padding: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  section {
+  background-attachment: local;
+
+  }
+  section .effect {
+    position: relative;
+    transition: var(--effect) ease;
+  }
+  section .text {
+    position: relative;
+    z-index: 1;
+  }
+  section .effect::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 18px;
+    width: 0;
+    background-color: var(--hero-section);
+    transition: var(--effect) ease;
+  }
+
+  section:hover .effect::before {
+    width: 100%;
+  }
+  p {
+    color: var(--white);
+    margin: 7px 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  p {
+    width: auto;
+  }
+  section div {
+  padding: 0 15px;
+}
+}
+@media only screen and (max-width: 425px) {
+  section div {
+    padding: 0 10px;
+  }
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }
 </style>

@@ -49,4 +49,19 @@ onMounted(() => {
   flex-wrap: wrap;
   align-content: space-between;
 }
+@media only screen and (max-width: 600px) {
+  .members {
+  }
+  .card {
+    flex-direction: column;
+  }
+  .card .details {
+    border-top: var(--border) solid var(--members);
+    padding: 15px;
+    gap: 9px;
+    height: inherit;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
 </style>

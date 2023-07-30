@@ -103,12 +103,11 @@ async function filterPublications() {
 
 .publications {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .publication-format {
-  width: 47%;
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -124,5 +123,14 @@ ul {
 ul li {
   margin-bottom: 10px;
 }
-
+@media only screen and (max-width: 768px) {
+  #publications {
+    padding: 20px 50px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  #publications {
+    padding: 20px 10px;
+  }
+}
 </style>

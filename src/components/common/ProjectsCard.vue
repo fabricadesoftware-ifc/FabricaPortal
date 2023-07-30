@@ -159,7 +159,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter var(--effect); 
+  transition: filter var(--effect);
 }
 
 .card:hover .container-img {
@@ -234,5 +234,25 @@ span {
   z-index: 1;
   align-items: center;
   background-color: var(--light-gray);
+}
+@media only screen and (max-width: 1024px) {
+  .card {
+    width: 48%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }
 </style>

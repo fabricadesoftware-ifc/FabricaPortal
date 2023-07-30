@@ -5,7 +5,7 @@ export default {}
 <template>
   <footer>
     <div class="links">
-      <div>
+      <div class="logo">
         <img src="/src/assets/images/logos/LogoFabricaVerticalCor.svg" alt="" />
       </div>
 
@@ -82,6 +82,7 @@ footer .links {
   justify-content: space-between;
   display: flex;
 }
+
 footer .links,
 .container {
   width: 100%;
@@ -106,5 +107,33 @@ footer .links ul li a:hover {
 }
 footer img {
   width: 200px;
+}
+@media only screen and (max-width: 768px) {
+  footer {
+    height: auto;
+    padding: 20px 10px;
+  }
+  footer .links {
+    flex-direction: column;
+  }
+  .links .logo {
+  margin: 40px auto;
+}
+  .links div {
+    margin: 30px 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }
 </style>

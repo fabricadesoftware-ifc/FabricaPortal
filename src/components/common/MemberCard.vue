@@ -109,4 +109,59 @@ p {
   justify-content: center;
   align-items: flex-start;
 }
+@media only screen and (max-width: 1280px) {
+  a {
+    width: 100%;
+  }
+
+}
+@media only screen and (max-width: 600px) {
+.card {
+  flex-direction: column;
+  height: auto;
+}
+.card .details {
+  border-left: 0;
+  border-top: var(--border) solid var(--members);
+  padding: 15px;
+  gap: 9px;
+  height: 40vh;
+  justify-content: center;
+  align-items: flex-start;
+}
+.card .image {
+  width: 100%;
+  height: 22em;
+  background-position: center;
+  background-size: cover;
+  transition: filter var(--effect);
+  filter: brightness(0.6);
+}
+
+}
+@media only screen and (max-width: 425px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+  }
+  .card .details {
+    border-left: 0;
+    border-top: var(--border) solid var(--members);
+    padding: 15px;
+    gap: 9px;
+    height: 40vh;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .card .image {
+    width: 100%;
+    height: 22em;
+    background-position: center;
+    background-size: cover;
+    transition: filter var(--effect);
+    filter: brightness(0.6);
+  }
+}
+@media only screen and (min-width: 600px) {
+}
 </style>

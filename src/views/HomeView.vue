@@ -22,8 +22,27 @@ import HardSkill from '../components/HomeView/HardSkill.vue'
 main {
   background-color: var(--bg-gray);
 }
-main section{
+main section {
   padding: 80px var(--pn-main);
+}
+@media only screen and (max-width: 768px) {
+  main section {
+    padding: 20px 50px;
+  }
+}
 
+@media only screen and (max-width: 425px) {
+  main section {
+    padding: 20px 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }
 </style>

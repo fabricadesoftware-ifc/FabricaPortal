@@ -1,7 +1,7 @@
 import {
   createRouter,
   createWebHistory,
-  RouterScrollBehavior,
+  type RouterScrollBehavior,
 } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MemberProfile from '../views/MemberProfile.vue'
