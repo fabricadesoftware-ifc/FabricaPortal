@@ -28,11 +28,17 @@ onUnmounted(() => {
 })
 
 function scrollFunction(): void {
-  if (window.location.pathname === '/' &&  window.innerWidth > 1280 && navbar.value && logoResponId.value && logoId.value) {
+  if (
+    window.location.pathname === '/' &&
+    window.innerWidth > 1280 &&
+    navbar.value &&
+    logoResponId.value &&
+    logoId.value
+  ) {
     const scrollTop =
       window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0
 
-    if (scrollTop > 100 ) {
+    if (scrollTop > 100) {
       navbar.value.style.padding = '45px 145px'
       logoResponId.value.style.opacity = '0'
       logoResponId.value.style.display = 'none'
@@ -72,6 +78,12 @@ window.onscroll = () => {
     }
   })
 }
+function closeNavMenu(): void {
+  const clickInput = document.getElementById('click') as HTMLInputElement
+  if (clickInput) {
+    clickInput.checked = false
+  }
+}
 </script>
 
 <template>
@@ -92,23 +104,40 @@ window.onscroll = () => {
       <label for="click" class="menu-btn">
         <i class="fas fa-bars"></i>
       </label>
-      <ul>
-        <li v-for="(link, i) in links" :class="link.class" :key="i">
-          <a :href="link.to">{{ link.text }}</a>
-        </li>
-      </ul>
+      <div class="nav-links">
+        <ul class="links">
+          <li v-for="(link, i) in links" :class="link.class" :key="i">
+            <a  @click="closeNavMenu" :href="link.to">{{ link.text }}</a>
+          </li>
+        </ul>
+        <ul class="redes-sociais-mobile">
+          <li v-for="(socialNetwork, i) in socialNetworks" :key="i">
+            <RouterLink :to="socialNetwork.to">
+              <box-icon
+                style="margin: 0 8px"
+                color="var(--white)"
+                size="2em"
+                type="logo"
+                :name="socialNetwork.icon"
+              ></box-icon>
+            </RouterLink>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="rede-sociais">
-      <RouterLink v-for="(socialNetwork, i) in socialNetworks" :key="i" :to="socialNetwork.to">
-        <box-icon
-          style="margin: 0 8px"
-          color="var(--white)"
-          size="2em"
-          type="logo"
-          :name="socialNetwork.icon"
-        ></box-icon>
-      </RouterLink>
-    </div>
+    <ul class="redes-sociais">
+      <li v-for="(socialNetwork, i) in socialNetworks" :key="i">
+        <RouterLink :to="socialNetwork.to">
+          <box-icon
+            style="margin: 0 8px"
+            color="var(--white)"
+            size="2em"
+            type="logo"
+            :name="socialNetwork.icon"
+          ></box-icon>
+        </RouterLink>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -130,23 +159,59 @@ nav {
   transition: 0.4s;
   color: var(--white);
 }
-nav img {
+img {
   width: 215px;
 }
-input[type="checkbox"] {
+input[type='checkbox'] {
   display: none;
 }
-i{
+i {
   font-size: 1.5em;
+  color: #fff;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+}
+.redes-sociais-mobile {
+  display: flex;
+}
+a {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--white);
+}
+@media only screen and (min-width: 1280px) {
+  .nav-links {
+    display: flex;
+    gap: 10vh;
+    align-items: center;
+    /* justify-content: space-between; */
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  .links li {
+    margin: 0 15px;
+  }
+
+  i {
+    display: none;
+  }
+
+  input[type='checkbox'] {
+    display: none;
+  }
+  .redes-sociais-mobile {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 1280px) {
   nav .menu-btn i {
     display: block;
-  }
-
-  .rede-sociais {
-    display: none;
   }
 
   #logo-respon-id {
@@ -155,93 +220,53 @@ i{
   #click:checked ~ .menu-btn i:before {
     content: '\f00d';
   }
-
-  nav ul {
+  .redes-sociais {
+  display: none;
+}
+  .nav-links {
     z-index: 5;
     position: absolute;
-    height: 100vh;
-    top: 73px;
+    height: 87vh;
+    display: flex;
+    text-align: center;
+    top: 80px;
+    padding: 20px;
     list-style: none;
+    width: 40%;
     left: 100%;
     background: #131518;
-    width: 30%;
-    text-align: center;
-    display: block;
     transition: all var(--effect) cubic-bezier(0, 0.29, 0.68, 0.94);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  #click:checked ~ ul {
-    left: 70%;
-    top: 12vh;
+  #click:checked ~ .nav-links {
+    left: 60%;
   }
-
-  nav ul li {
+  ul li {
     width: 100%;
-    margin: 40px 0;
+    margin: 30px 0;
   }
-
-  nav ul li a {
-    width: 100%;
-    display: block;
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--white);
-  }
-
 }
 
-@media only screen and (min-width: 1280px) {
-  nav .redes-sociais {
-    display: flex;
-  }
-  nav ul {
-    display: flex;
-    list-style: none;
-  }
-  nav ul a {
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-    margin: 0 15px;
-    color: var(--white);
-  }
-
-  i {
-    color: #fff;
-    font-size: 1.5em;
-    cursor: pointer;
-    display: none;
-  }
-
-  input[type='checkbox'] {
-    display: none;
-  }
-}
 @media only screen and (max-width: 768px) {
-  nav ul {
-    width: 100%;
-  }
-  #click:checked ~ ul {
-    left: 0;
-  }
-  nav {
-    padding: 0 50px;
-
-  }
 }
+
 @media only screen and (max-width: 600px) {
   nav {
     padding: 40px 25px;
     justify-content: space-between;
   }
   nav img {
-  width: 10em;
-}
-}
-
-
-@media only screen and (min-width: 600px) {
+    width: 10em;
+  }
+  nav .nav-links {
+    width: 100%;
+  }
+  #click:checked ~ .nav-links {
+    left: 0%;
+  }
 }
 
 @media only screen and (max-width: 425px) {
@@ -249,6 +274,4 @@ i{
     padding: 40px 10px;
   }
 }
-
-
 </style>
