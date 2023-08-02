@@ -7,81 +7,23 @@ import PublicationsApi from '@/api/publications'
 
 const publicationsApi = new PublicationsApi()
 const publications = ref([])
-const filteredBooks = ref([])
-const filteredArticles = ref([])
-const filteredConferences = ref([])
 
 onMounted(async () => {
-  publications.value = publicationsApi.getPublications()
-  filterPublications()
+  publications.value = publicationsApi.getThreePublications()
 })
 
-async function filterPublications() {
-  const formats = publicationsApi.getFormats()
-
-  const booksFormat = formats.find((format) => format.id === '1')
-  const articlesFormat = formats.find((format) => format.id === '2')
-  const conferencesFormat = formats.find((format) => format.id === '3')
-
-  if (booksFormat) {
-    filteredBooks.value = publicationsApi.getPublicationsByFormat(booksFormat.id)
-  }
-
-  if (articlesFormat) {
-    filteredArticles.value = publicationsApi.getPublicationsByFormat(articlesFormat.id)
-  }
-
-  if (conferencesFormat) {
-    filteredConferences.value = publicationsApi.getPublicationsByFormat(conferencesFormat.id)
-  }
-}
 </script>
 
 <template>
   <section id="publications">
     <h2>Publicações</h2>
     <div class="container">
-      <div class="publications">
-        <section class="publication-format">
-          <h3>Livros e capítulos de livros</h3>
-          <ul>
-            <li v-for="publication in filteredBooks" :key="publication.id">
-              <PublicationComp
-                :linkPublication="publication"
-                :title="publication.title"
-                :data="publication.data"
-                :members="publication.members"
-              />
-            </li>
-          </ul>
-        </section>
-        <section class="publication-format">
-          <h3>Artigos</h3>
-          <ul>
-            <li v-for="publication in filteredArticles" :key="publication.id">
-              <PublicationComp
-                :linkPublication="publication"
-                :title="publication.title"
-                :data="publication.data"
-                :members="publication.members"
-              />
-            </li>
-          </ul>
-        </section>
-        <section class="publication-format">
-          <h3>Conferências</h3>
-          <ul>
-            <li v-for="publication in filteredConferences" :key="publication.id">
-              <PublicationComp
-                :linkPublication="publication"
-                :title="publication.title"
-                :data="publication.data"
-                :members="publication.members"
-              />>
-            </li>
-          </ul>
-        </section>
-      </div>
+      <ul>
+        <li v-for="publication in publications" :key="publication.id">
+          <PublicationComp :linkPublication="publication" :title="publication.title" :data="publication.data"
+            :members="publication.members" />
+        </li>
+      </ul>
       <ButtonAll text="Ver todas as publicações" link="/publications" />
     </div>
   </section>
@@ -121,13 +63,15 @@ ul {
 }
 
 ul li {
-  margin-bottom: 10px;
+  margin-bottom: 28px;
 }
+
 @media only screen and (max-width: 768px) {
   #publications {
     padding: 20px 50px;
   }
 }
+
 @media only screen and (max-width: 425px) {
   #publications {
     padding: 20px 10px;

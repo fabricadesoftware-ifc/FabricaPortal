@@ -33,7 +33,8 @@ const publications: Array<IPublications> = [
     data: '28/07/2014',
     membersIds: ['2', '9', '5', '14', '11'],
     formatId: '2'
-  }
+  },
+  
 ]
 
 export { publications, type IPublications, type IFormats, formats}

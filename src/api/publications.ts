@@ -4,6 +4,10 @@ export default class PublicationsApi {
   getPublications(): IPublications[] {
     return publications
   }
+  
+  getThreePublications(): IPublications[] {
+    return publications.slice(0,3)
+  }
 
   getFormats(): IFormats[] {
     return formats
