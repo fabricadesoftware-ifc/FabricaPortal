@@ -40,7 +40,8 @@ const UrlMember = (id) => {
 <template>
   <router-link :to="UrlMember(linkMember.id)">
     <div class="card">
-      <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div>
+      <img class="image" :src="image" alt="">
+      <!--       <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div> -->
       <div class="details">
         <h5>{{ occupation.description }}</h5>
         <h3>{{ shortenName(name) }}</h3>
@@ -90,16 +91,14 @@ p {
   filter: brightness(1);
 }
 
-.card .image {
-  min-width: 12em;
-  height: 12em;
+.image {
   background-position: center;
   background-size: cover;
   transition: filter var(--effect);
   filter: brightness(0.6);
 }
 
-.card .details {
+.details {
   border-left: var(--border) solid var(--members);
   padding: 10px;
   width: 100%;
@@ -109,59 +108,93 @@ p {
   justify-content: center;
   align-items: flex-start;
 }
+
 @media only screen and (max-width: 1280px) {
   a {
     width: 100%;
   }
 
 }
-@media only screen and (max-width: 600px) {
-.card {
-  flex-direction: column;
-  height: auto;
-}
-.card .details {
-  border-left: 0;
-  border-top: var(--border) solid var(--members);
-  padding: 15px;
-  gap: 9px;
-  height: 40vh;
-  justify-content: center;
-  align-items: flex-start;
-}
-.card .image {
-  width: 100%;
-  height: 22em;
-  background-position: center;
-  background-size: cover;
-  transition: filter var(--effect);
-  filter: brightness(0.6);
+
+@media only screen and (min-width: 600px) {
+  .image {
+    min-width: 12em;
+    height: 12em;
+  }
 }
 
-}
-@media only screen and (max-width: 425px) {
+@media only screen and (min-width: 426px) and (max-width: 600px) {
+  a {
+    width: 49%;
+  }
+
   .card {
     flex-direction: column;
     height: auto;
   }
-  .card .details {
+
+  .details {
     border-left: 0;
     border-top: var(--border) solid var(--members);
     padding: 15px;
     gap: 9px;
-    height: 40vh;
+    height: 25vh;
     justify-content: center;
     align-items: flex-start;
   }
-  .card .image {
+
+  .image {
     width: 100%;
-    height: 22em;
-    background-position: center;
-    background-size: cover;
-    transition: filter var(--effect);
-    filter: brightness(0.6);
+    height: auto;
+  }
+
+  p {
+    display: none;
   }
 }
-@media only screen and (min-width: 600px) {
+
+@media only screen and (max-width: 425px) {
+  p {
+    display: none;
+  }
+
+  a {
+    width: 100%;
+  }
+
+  .card {
+    flex-direction: row;
+    height: 10em;
+  }
+
+  .image {
+    width: 10em;
+    min-height: 10em;
+  }
+
+  .card .details {
+    border-top: 0;
+    border-left: var(--border) solid var(--members);
+    height: 100%;
+  }
 }
-</style>
+
+@media only screen and (max-width: 375px) {
+  .card {
+    flex-direction: row;
+    height: 13em;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .card .details {
+    border-top: var(--border) solid var(--members);
+    border-left: 0;
+  }
+
+  p {
+    display: -webkit-box;
+  }
+}</style>

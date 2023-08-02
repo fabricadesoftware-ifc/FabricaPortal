@@ -27,7 +27,7 @@ main section {
 }
 @media only screen and (max-width: 768px) {
   main section {
-    padding: 20px 50px;
+    padding: 20px ;
   }
 }
 
