@@ -90,12 +90,7 @@ function closeNavMenu(): void {
   <nav id="navbar" ref="navbar">
     <div>
       <a href="http://localhost:5173/#hero-section" exact>
-        <img
-          ref="logoResponId"
-          id="logo-respon-id"
-          src="/src/assets/images/logos/LogoHorizontalCor.svg"
-          alt=""
-        />
+        <img ref="logoResponId" id="logo-respon-id" src="/src/assets/images/logos/LogoHorizontalCor.svg" alt="" />
         <img ref="logoId" id="logo-id" src="/src/assets/images/logos/LogoHorizontal.svg" alt="" />
       </a>
     </div>
@@ -107,19 +102,14 @@ function closeNavMenu(): void {
       <div class="nav-links">
         <ul class="links">
           <li v-for="(link, i) in links" :class="link.class" :key="i">
-            <a  @click="closeNavMenu" :href="link.to">{{ link.text }}</a>
+            <a @click="closeNavMenu" :href="link.to">{{ link.text }}</a>
           </li>
         </ul>
         <ul class="redes-sociais-mobile">
           <li v-for="(socialNetwork, i) in socialNetworks" :key="i">
             <RouterLink :to="socialNetwork.to">
-              <box-icon
-                style="margin: 0 8px"
-                color="var(--white)"
-                size="2em"
-                type="logo"
-                :name="socialNetwork.icon"
-              ></box-icon>
+              <box-icon style="margin: 0 8px" color="var(--white)" size="2em" type="logo"
+                :name="socialNetwork.icon"></box-icon>
             </RouterLink>
           </li>
         </ul>
@@ -128,13 +118,8 @@ function closeNavMenu(): void {
     <ul class="redes-sociais">
       <li v-for="(socialNetwork, i) in socialNetworks" :key="i">
         <RouterLink :to="socialNetwork.to">
-          <box-icon
-            style="margin: 0 8px"
-            color="var(--white)"
-            size="2em"
-            type="logo"
-            :name="socialNetwork.icon"
-          ></box-icon>
+          <box-icon style="margin: 0 8px" color="var(--white)" size="2em" type="logo"
+            :name="socialNetwork.icon"></box-icon>
         </RouterLink>
       </li>
     </ul>
@@ -145,6 +130,7 @@ function closeNavMenu(): void {
 .active {
   color: var(--primary-color);
 }
+
 nav {
   background-color: var(--bg-black);
   height: 73px;
@@ -159,29 +145,40 @@ nav {
   transition: 0.4s;
   color: var(--white);
 }
+
 img {
   width: 215px;
 }
+
+#logo-respon-id {
+  display: none;
+}
+
 input[type='checkbox'] {
   display: none;
 }
+
 i {
   font-size: 1.5em;
   color: #fff;
   cursor: pointer;
 }
+
 ul {
   list-style: none;
 }
+
 .redes-sociais-mobile {
   display: flex;
 }
+
 a {
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   color: var(--white);
 }
+
 @media only screen and (min-width: 1280px) {
   .nav-links {
     display: flex;
@@ -189,10 +186,12 @@ a {
     align-items: center;
     /* justify-content: space-between; */
   }
+
   nav ul {
     display: flex;
     list-style: none;
   }
+
   .links li {
     margin: 0 15px;
   }
@@ -204,6 +203,7 @@ a {
   input[type='checkbox'] {
     display: none;
   }
+
   .redes-sociais-mobile {
     display: none;
   }
@@ -217,12 +217,15 @@ a {
   #logo-respon-id {
     display: none;
   }
-  #click:checked ~ .menu-btn i:before {
+
+  #click:checked~.menu-btn i:before {
     content: '\f00d';
   }
+
   .redes-sociais {
-  display: none;
-}
+    display: none;
+  }
+
   .nav-links {
     z-index: 5;
     position: absolute;
@@ -241,30 +244,33 @@ a {
     align-items: center;
   }
 
-  #click:checked ~ .nav-links {
+  #click:checked~.nav-links {
     left: 60%;
   }
+
   ul li {
     width: 100%;
     margin: 30px 0;
   }
 }
 
-@media only screen and (max-width: 768px) {
-}
+@media only screen and (max-width: 768px) {}
 
 @media only screen and (max-width: 600px) {
   nav {
     padding: 40px 25px;
     justify-content: space-between;
   }
+
   nav img {
     width: 10em;
   }
+
   nav .nav-links {
     width: 100%;
   }
-  #click:checked ~ .nav-links {
+
+  #click:checked~.nav-links {
     left: 0%;
   }
 }
@@ -273,5 +279,4 @@ a {
   nav {
     padding: 40px 10px;
   }
-}
-</style>
+}</style>

@@ -5,17 +5,7 @@ import DetailsProfile from '@/components/MemberProfile/DetailsProfile.vue'
 import MembersApi from '@/api/members'
 import { ref, onMounted } from 'vue'
 
-defineProps({
-  image: String,
-  name: String,
-  description: String,
-  occupation: {
-    type: Object
-  },
-  socialLinks: {
-    type: Array
-  }
-})
+
 
 const membersApi = new MembersApi()
 
@@ -38,28 +28,14 @@ async function fetchMember() {
     <aside class="col-1">
       <img class="image" :src="member.image" alt="" />
       <div class="midias">
-        <a
-          v-for="socialLink in member.socialLinks"
-          :key="socialLink.icon"
-          target="_blank"
-          :href="socialLink.href"
-        >
-          <box-icon
-            size="2em"
-            color="var(--text-color)"
-            :type="socialLink.type"
-            :name="socialLink.icon"
-          ></box-icon>
+        <a v-for="socialLink in member.socialLinks" :key="socialLink.icon" target="_blank" :href="socialLink.href">
+          <box-icon size="2em" color="var(--text-color)" :type="socialLink.type" :name="socialLink.icon"></box-icon>
         </a>
       </div>
     </aside>
     <section class="col-2">
-      <DetailsProfile
-        :name="member.name"
-        :key="member.id"
-        :occupation="member.occupation"
-        :description="member.description"
-      />
+      <DetailsProfile :name="member.name" :key="member.id" :occupation="member.occupation"
+        :description="member.description" />
       <ProjectsComp />
       <PublicationsComp />
     </section>
@@ -72,31 +48,38 @@ main {
   padding: var(--pn-main);
 
 }
+
 p {
   text-align: justify;
 }
+
 .projects,
 .publications {
   padding: 0;
   display: flex;
   flex-direction: column;
 }
+
 main {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
+
 main .col-2 {
   width: 100%;
 }
+
 main .col-1 {
   margin-right: 45px;
 }
+
 main .image {
   width: 235px;
   height: auto;
   border-bottom: var(--border) solid var(--members);
 }
+
 main .midias {
   display: flex;
   width: 100%;

@@ -4,15 +4,6 @@ import { ref, onMounted } from 'vue'
 import MembersApi from '@/api/members'
 import ProjectsApi from '@/api/projects'
 
-defineProps({
-  image: String,
-  name: String,
-  description: String,
-  background: String,
-  occupation: {
-    type: Object
-  },
-})
 
 const membersApi = new MembersApi()
 const projectsApi = new ProjectsApi()
@@ -31,7 +22,7 @@ async function fetchMemberProjects() {
   if (member.value && member.value.projectIds) {
     const projectIds = member.value.projectIds
     for (const projectId of projectIds) {
-      const project = projectsApi.getProjectsById(projectId)
+      const project = projectsApi.getProjectById(projectId)
       if (project) {
         projects.value.push(project)
       }
