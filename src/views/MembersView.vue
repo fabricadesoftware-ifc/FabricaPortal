@@ -53,26 +53,31 @@ onMounted(() => {
 <style scoped>
 main {
   padding-top: var(--pn-main);
-  background-color: var(--bg-gray);
 }
 
 main .members {
+  background-color: var(--bg-gray);
   display: flex;
   flex-wrap: wrap;
+  padding: var(--pn-main);
   justify-content: space-between;
 }
+
 @media only screen and (max-width: 600px) {
-  
   main .members {
-  flex-direction: column;
+    flex-direction: column;
+  }
 }
+
+@media only screen and (min-width: 600px) {
 }
 
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 768px) {
+}
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 992px) {
+}
 
-@media only screen and (min-width: 992px) {}
-
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}
 </style>
