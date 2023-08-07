@@ -4,7 +4,7 @@ export default class ProjectsApi {
   getSixProjects(): IProjects[] {
     return projects.slice(-6).reverse()
   }
-  getProjectsById(id: string): IProjects | undefined {
+  getProjectById(id: string): IProjects | undefined {
     return projects.find((project) => project.id === id)
   }
   getProjects(): IProjects[] {
