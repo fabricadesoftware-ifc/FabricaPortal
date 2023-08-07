@@ -1,50 +1,59 @@
 <script setup>
 import { ref, defineEmits, defineProps, onMounted } from 'vue'
-
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const occupations = ref([])
 const filterName = ref('')
-const filterOccupation = ref('')
-
 const props = defineProps(['members'])
 defineEmits(['change'])
 
 onMounted(() => {
   occupations.value = membersApi.getOccupations()
-})
+});
+const removeAccents = (text) => {
+  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+};
+const updateDataList = () => {
+  if (filterName.value.length >= 2) {
+    const inputText = filterName.value.toLowerCase();
+    const filteredMembers = props.members.filter(member => member.name.toLowerCase().startsWith(inputText));
+    dataListMembers.value = filteredMembers;
+    showDataList.value = true;
+  } else {
+    showDataList.value = false;
+  }
+}
+
+const dataListMembers = ref([]);
+const showDataList = ref(false);
 </script>
 
 <template>
   <section>
     <h2>Membros</h2>
-    <form>
+    <form @submit.prevent="filterName">
       <div class="input-group" id="search">
         <label for="input-search">pesquise</label>
           <input
-            occupation="text"
+            type="text"
             name="member"
             list="members"
             id="input-search"
             required
             autocomplete="off"
             v-model="filterName"
+            @input="updateDataList"
             @keyup.enter="$emit('change', filterName)"
           />
-          <datalist id="members">
-            <option v-for="member of props.members" :key="member.id">
+          <datalist v-if="showDataList" id="members">
+            <option v-for="member of dataListMembers" :value="member.name" :key="member.id">
               {{ member.name }}
             </option>
           </datalist>
       </div>
       <div class="input-group" id="occupation">
         <label for="select-occupation">ocupação</label>
-        <select
-          id="select-occupation"
-          v-model="filterOccupation"
-          @select="$emit('change', filterOccupation)"
-          required
-        >
+        <select id="select-occupation" v-model="filterOccupation" @select="$emit('change', filterOccupation)">
           <option value="" disabled selected>Selecione uma opção</option>
           <option v-for="occupation of occupations" :key="occupation.id">
             {{ occupation.description }}
@@ -70,22 +79,27 @@ section {
   flex-direction: column;
   justify-content: center;
 }
+
 section form {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 form .input-group {
   display: flex;
   flex-direction: column;
   margin-right: 20px;
 }
+
 form #search {
   width: 50%;
 }
+
 form #occupation {
   width: 37%;
 }
+
 form button {
   width: 70px;
   height: 70px;
@@ -96,10 +110,12 @@ form button {
   flex-direction: column;
   border: 0;
 }
+
 button span {
   color: var(--white);
   font-weight: bold;
 }
+
 .input-group label {
   text-transform: uppercase;
   font-weight: 600;
@@ -107,6 +123,7 @@ button span {
   color: var(--text-color);
   margin-bottom: 5px;
 }
+
 .input-group input,
 .input-group select {
   width: 100%;
