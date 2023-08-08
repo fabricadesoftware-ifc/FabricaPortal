@@ -15,8 +15,12 @@ const members = ref([])
 onMounted(
   fetchProject(),
   members.value = membersApi.getMembers()
-  )
+)
+const modalHidden = ref(true);
 
+const toggleModal = () => {
+  modalHidden.value = !modalHidden.value;
+};
 async function fetchProject() {
   const path = window.location.pathname
   const projectIdFromUrl = path.substring(path.lastIndexOf('/') + 1)
@@ -45,14 +49,53 @@ function getProjectMembers(project) {
       <img class="lg" :src="project.images" alt="">
     </section>
     <section class="description">
-      <h3>Sobre esse projeto</h3>
+      <header>
+        <h3>Sobre esse projeto</h3>
+        <button @click="toggleModal">
+          <box-icon name='right-arrow-alt'></box-icon>
+        </button>
+      </header>
       <p>{{ project.description }}</p>
     </section>
+    <div :class="['modal', { hide: modalHidden }]" id="modal">
+      <header>
+        <button @click="toggleModal">Fechar</button>
+      </header>
+      <div>
+        bla
+      </div>
+    </div>
     <MembersProject :members=getProjectMembers(project) />
   </main>
 </template>
 
 <style scoped>
+#modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: var(--light-gray);
+  padding: 10px;
+  z-index: 10;
+}
+
+#modal {
+  transition: 0.2s;
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+#modal.hide,
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
 main {
   padding: var(--pn-main) 19em;
 
@@ -60,11 +103,35 @@ main {
 
 p {
   text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 
 main section {
   width: 100%;
   margin: 30px 0;
+}
+
+.description header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  border-radius: 50%;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  cursor: pointer;
+  background-color: transparent;
+  transition: var(--effect)
+}
+button:hover {
+  background-color: var(--light-gray);
 }
 
 .description p {
@@ -80,5 +147,4 @@ main .midias {
 
 .galeria .lg {
   width: 100%;
-}
-</style>
+}</style>
