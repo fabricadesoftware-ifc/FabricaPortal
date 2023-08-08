@@ -41,7 +41,7 @@ function getProjectMembers(project) {
   <main v-if="project">
     <ProjectHeader :title="project.title" :key="project.id" :logo="project.logo" />
     <ProjectGallery :images="project.images" />
-    <DescriptionProject :description="project.description" />
+    <DescriptionProject :logo="project.logo" :title="project.title" :description="project.description" />
     <MembersProject :members=getProjectMembers(project) />
   </main>
 </template>

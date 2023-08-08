@@ -2,12 +2,14 @@
 import { ref } from 'vue'
 
 defineProps({
-    description: String
+    description: String,
+    logo: String,
+    title: String
 })
 const modalHidden = ref(true);
 
 const toggleModal = () => {
-  modalHidden.value = !modalHidden.value;
+    modalHidden.value = !modalHidden.value;
 };
 </script>
 
@@ -21,13 +23,18 @@ const toggleModal = () => {
         </header>
         <p>{{ description }}</p>
     </section>
-    <div :class="['modal', { hide: modalHidden }]" id="modal">
-        <header>
-            <button @click="toggleModal">Fechar</button>
-        </header>
-        <div>
-            bla
-        </div>
+    <div class="modal">
+        <section id="modal-content" :class="[{ hide: modalHidden }]" >
+            <header>
+                <div>
+                    <img class="logo" :src="logo" />
+                    <h2>{{ title }}</h2>
+                </div>
+                <button @click="toggleModal"><box-icon name='x'></box-icon></button>
+            </header>
+            <div>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -42,10 +49,19 @@ p {
     -webkit-box-orient: vertical;
 }
 
-.description header {
+header {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+
+}
+#modal-content header {
+    justify-content: space-between;
+}
+
+#modal-content header div {
     display: flex;
     align-items: center;
-    gap: 15px;
 }
 
 button {
@@ -73,27 +89,31 @@ main .midias {
     padding: 4px;
 }
 
-#modal {
+#modal-content {
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: 50%;
     background-color: var(--light-gray);
     padding: 10px;
     z-index: 10;
 }
 
-#modal {
+#modal-content {
     transition: 0.2s;
     opacity: 1;
     pointer-events: all;
 }
 
 
-#modal.hide,
+#modal-content.hide,
 .hide {
     opacity: 0;
     pointer-events: none;
+}
+
+.logo {
+    width: 10em;
 }
 </style>
