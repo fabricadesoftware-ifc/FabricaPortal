@@ -1,17 +1,25 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 defineProps({
     description: String,
     logo: String,
     title: String
-})
-const modalHidden = ref(true);
+});
 
+const modalHidden = ref(true);
 const toggleModal = () => {
     modalHidden.value = !modalHidden.value;
+
+    if (modalHidden.value) {
+        enableBodyScroll(document.body);
+    } else {
+        disableBodyScroll(document.body);
+    }
 };
 </script>
+
 
 <template>
     <section class="description">
@@ -23,19 +31,16 @@ const toggleModal = () => {
         </header>
         <p>{{ description }}</p>
     </section>
-    <div class="modal">
-        <section id="modal-content" :class="[{ hide: modalHidden }]" >
-            <header>
-                <div>
-                    <img class="logo" :src="logo" />
-                    <h2>{{ title }}</h2>
-                </div>
-                <button @click="toggleModal"><box-icon name='x'></box-icon></button>
-            </header>
+    <div class="modal-overlay" v-body-scroll-lock="!modalHidden" :class="{ 'hide': modalHidden }" ></div>
+    <section id="modal-content" :class="[{ hide: modalHidden }]">
+        <header>
             <div>
+                <img class="logo" :src="logo" />
+                <h3>{{ title }}</h3>
             </div>
-        </section>
-    </div>
+            <button @click="toggleModal"><box-icon name='x'></box-icon></button>
+        </header>
+    </section>
 </template>
 
 
@@ -55,6 +60,10 @@ header {
     align-items: flex-start;
 
 }
+body.modal-open {
+    overflow: hidden;
+}
+
 #modal-content header {
     justify-content: space-between;
 }
@@ -89,6 +98,22 @@ main .midias {
     padding: 4px;
 }
 
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    transition: opacity 0.2s, pointer-events 0.2s;
+}
+
+.modal-overlay.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
 #modal-content {
     position: fixed;
     left: 50%;
@@ -98,7 +123,9 @@ main .midias {
     background-color: var(--light-gray);
     padding: 10px;
     z-index: 10;
+    transition: opacity 0.2s, pointer-events 0.2s;
 }
+
 
 #modal-content {
     transition: 0.2s;
