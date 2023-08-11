@@ -64,4 +64,12 @@ onMounted(() => {
     align-items: flex-start;
   }
 }
+@media only screen and (max-width: 425px) {
+.members {
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+}
 </style>

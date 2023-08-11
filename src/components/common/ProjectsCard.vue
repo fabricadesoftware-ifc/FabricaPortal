@@ -144,6 +144,7 @@ a {
   width: 32%;
   border: var(--border) solid var(--light-gray);
   margin-bottom: 70px;
+  flex-shrink: 0;
   background-color: var(--bg-white);
 }
 header {
@@ -243,6 +244,28 @@ span {
 @media only screen and (max-width: 600px) {
   .card {
     width: 100%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .card {
+    width: 85%;
+    margin-bottom: 15px;
+    margin-right: 20px;
+  }
+  footer {
+    display: none;
+  }
+  header {
+    position: sticky;
+  }
+  .content {
+    height: 14em;
+  }
+  .image {
+    width: 6rem;
+  }
+  h3 {
+    font-size: 1.5em;
   }
 }
 

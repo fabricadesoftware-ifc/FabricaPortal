@@ -97,7 +97,13 @@ section {
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 425px) {
+.projects {
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
 }
 
 @media only screen and (min-width: 768px) {

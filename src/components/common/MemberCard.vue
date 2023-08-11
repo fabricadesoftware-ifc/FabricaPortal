@@ -154,47 +154,29 @@ p {
 }
 
 @media only screen and (max-width: 425px) {
-  p {
-    display: none;
-  }
 
   a {
     width: 100%;
   }
 
   .card {
-    flex-direction: row;
-    height: 10em;
+    flex-direction: column;
+    margin-right: 20px;
+    height: 20em;
   }
-
+  p {
+    display: none;
+  }
   .image {
-    width: 10em;
-    min-height: 10em;
+    width: 12em;
+    min-height: 12em;
   }
 
   .card .details {
-    border-top: 0;
-    border-left: var(--border) solid var(--members);
+    border-left: 0;
+    border-top: var(--border) solid var(--members);
     height: 100%;
   }
 }
 
-@media only screen and (max-width: 375px) {
-  .card {
-    flex-direction: row;
-    height: 13em;
-  }
-
-  .image {
-    display: none;
-  }
-
-  .card .details {
-    border-top: var(--border) solid var(--members);
-    border-left: 0;
-  }
-
-  p {
-    display: -webkit-box;
-  }
-}</style>
+</style>
