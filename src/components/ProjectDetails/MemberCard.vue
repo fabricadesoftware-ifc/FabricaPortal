@@ -64,7 +64,6 @@ a {
 .card {
     margin: 10px 0;
     padding: 10px;
-    background-color: var(--light-gray);
     transition: transform var(--effect);
     transform: scale(100%);
 }

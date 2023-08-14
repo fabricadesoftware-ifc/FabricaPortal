@@ -39,4 +39,8 @@
   --effect: 0.5s;
   --effect-image: 0.3s;
   --effect-btn: 0.2s;
+
+  /*! others*/
+  --border-rd: 10px;
+  --box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
 }

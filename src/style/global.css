@@ -61,8 +61,14 @@ p {
 .status {
     display: flex;
 }
+.card, .card img {
+    border-radius: var(--border-rd);
+}
+.card {
+    box-shadow: var(--box-shadow);
+}
 
-/* width */
+
 ::-webkit-scrollbar {
     width: 8px;
 }

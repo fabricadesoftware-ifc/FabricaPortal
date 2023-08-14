@@ -15,9 +15,9 @@ defineProps({
     <div class="title-status">
       <h2>{{ title }}</h2>
       <div class="links">
-        <a href=""><box-icon color="var(--secondary-color)" type='logo' name='github'></box-icon> Ver o projeto </a>
-        <a href=""><box-icon color="var(--secondary-color)" name='windows'></box-icon> Repositório no github</a>
-        <a href=""><box-icon color="var(--secondary-color)" name='cloud-download' ></box-icon> Download</a>
+        <a href=""><box-icon color="var(--secondary-color)" name='windows'></box-icon> Ver o projeto </a>
+        <a href=""><box-icon color="var(--secondary-color)" type='logo' name='github'></box-icon> Repositório no github</a>
+        <a href=""><box-icon color="var(--secondary-color)" name='cloud-download'></box-icon> Download</a>
       </div>
     </div>
   </header>
@@ -42,7 +42,6 @@ header h3 {
 }
 
 header {
-  margin-bottom: 20px;
   width: 100%;
   display: flex;
 }
@@ -52,10 +51,12 @@ header {
   height: fit-content;
   margin-right: 15px;
 }
+
 .links {
   display: flex;
   gap: 15px;
 }
+
 a {
   color: var(--text-color);
   text-decoration: none;
@@ -63,10 +64,11 @@ a {
   align-items: center;
   gap: 5px;
 }
+
 a:hover {
   color: var(--secondary-color);
   text-decoration: underline;
-  
+
 }
 
 .details div {
@@ -76,5 +78,4 @@ a:hover {
 
 section {
   margin-bottom: 14px;
-}
-</style>
+}</style>

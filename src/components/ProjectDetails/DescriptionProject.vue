@@ -29,7 +29,7 @@ const toggleModal = () => {
                 <box-icon name='right-arrow-alt'></box-icon>
             </button>
         </header>
-        <p>{{ description }}</p>
+        <p class="short-bio">{{ description }}</p>
     </section>
     <div class="modal-overlay" v-body-scroll-lock="!modalHidden" :class="{ 'hide': modalHidden }" ></div>
     <section id="modal-content" :class="[{ hide: modalHidden }]">
@@ -40,6 +40,8 @@ const toggleModal = () => {
             </div>
             <button @click="toggleModal"><box-icon name='x'></box-icon></button>
         </header>
+        <div class="body">
+        </div>
     </section>
 </template>
 
@@ -47,11 +49,7 @@ const toggleModal = () => {
 <style scoped>
 p {
     text-align: justify;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
+
 }
 
 header {
@@ -69,6 +67,7 @@ body.modal-open {
 }
 
 #modal-content header div {
+    gap: 15px;
     display: flex;
     align-items: center;
 }
@@ -117,12 +116,13 @@ main .midias {
 #modal-content {
     position: fixed;
     left: 50%;
+    border-radius: var(--border-rd);
     top: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
     background-color: var(--light-gray);
     padding: 10px;
-    z-index: 10;
+    z-index: 100;
     transition: opacity 0.2s, pointer-events 0.2s;
 }
 
@@ -141,6 +141,6 @@ main .midias {
 }
 
 .logo {
-    width: 10em;
+    width: 5em;
 }
 </style>

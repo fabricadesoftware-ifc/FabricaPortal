@@ -80,6 +80,7 @@ section {
   justify-content: space-between;
   align-content: space-between;
 }
+
 @media only screen and (max-width: 600px) {
   .container {
     display: flex;
