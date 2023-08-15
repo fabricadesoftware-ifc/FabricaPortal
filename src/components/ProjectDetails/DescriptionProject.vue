@@ -116,7 +116,6 @@ main .midias {
 #modal-content {
     position: fixed;
     left: 50%;
-    border-radius: var(--border-rd);
     top: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
