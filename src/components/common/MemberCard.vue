@@ -75,6 +75,7 @@ p {
 .card {
   background-color: var(--bg-white);
   height: 12em;
+  padding: 10px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
@@ -99,7 +100,6 @@ p {
 }
 
 .details {
-  border-left: var(--border) solid var(--members);
   padding: 10px;
   width: 100%;
   height: inherit;
@@ -118,8 +118,8 @@ p {
 
 @media only screen and (min-width: 600px) {
   .image {
-    min-width: 12em;
-    height: 12em;
+    min-width: 11em;
+    height: 11em;
   }
 }
 
@@ -135,7 +135,6 @@ p {
 
   .details {
     border-left: 0;
-    border-top: var(--border) solid var(--members);
     padding: 15px;
     gap: 9px;
     height: 25vh;
@@ -174,7 +173,6 @@ p {
 
   .card .details {
     border-left: 0;
-    border-top: var(--border) solid var(--members);
     height: 100%;
   }
 }

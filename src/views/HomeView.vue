@@ -24,6 +24,7 @@ main {
 }
 main section {
   padding: 80px var(--pn-main);
+  border-radius: 0;
 }
 @media only screen and (max-width: 768px) {
   main section {

@@ -63,7 +63,6 @@ onMounted(() => {
 <template>
   <div class="card" @mouseenter="activateCarousel" @mouseleave="deactivateCarousel">
     <RouterLink :to="UrlProject(linkProject.id)">
-      <!-- sem certeza desse figure -->
       <header>
         <img :src="logo" class="image" />
         <div class="carousel" ref="carouselRef">
@@ -142,7 +141,6 @@ a {
 }
 .card {
   width: 32%;
-  border: var(--border) solid var(--light-gray);
   margin-bottom: 70px;
   flex-shrink: 0;
   background-color: var(--bg-white);
@@ -154,17 +152,17 @@ header {
 }
 .container-img {
   width: 100%;
-  /*   filter: blur(1px); */
-  filter: brightness(0.5);
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: filter var(--effect);
+    filter: brightness(0.5);
+    height: auto;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter var(--effect);
 }
 
 .card:hover .container-img {
-  /*   filter: blur(0); */
   filter: brightness(1);
 }
 
