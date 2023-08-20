@@ -66,7 +66,6 @@ a {
     padding: 10px;
     transition: transform var(--effect);
     transform: scale(100%);
-    background-color: var(--light-gray);
 }
 
 .card:hover {

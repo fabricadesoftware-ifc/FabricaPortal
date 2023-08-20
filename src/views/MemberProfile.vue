@@ -25,7 +25,7 @@ async function fetchMember() {
 
 <template>
   <main v-if="member">
-    <aside class="col-1">
+    <aside>
       <img class="image" :src="member.image" alt="" />
       <div class="midias">
         <a v-for="socialLink in member.socialLinks" :key="socialLink.icon" target="_blank" :href="socialLink.href">
@@ -70,14 +70,16 @@ main .col-2 {
   width: 100%;
 }
 
-main .col-1 {
+aside {
   margin-right: 45px;
+    border-radius: 10px;
+    height: fit-content;
+    box-shadow: var(--box-shadow);
 }
 
 main .image {
   width: 235px;
   height: auto;
-  border-bottom: var(--border) solid var(--members);
 }
 
 main .midias {

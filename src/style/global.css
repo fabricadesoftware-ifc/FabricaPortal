@@ -62,8 +62,12 @@ p {
     display: flex;
 }
 
-
-
+section, img, .card, .wrapper {
+    border-radius: var(--border-rd);
+}
+.card {
+    box-shadow: var(--box-shadow);
+}
 ::-webkit-scrollbar {
     width: 8px;
 }

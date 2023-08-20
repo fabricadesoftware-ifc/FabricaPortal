@@ -24,6 +24,7 @@ import ButtonMore from '../common/ButtonMore.vue'
 
 section {
   margin: 0;
+  border-radius: 0;
   background: url(../../assets/images/fabricaAmbiente.jpeg) no-repeat;
   background-size: cover;
   background-attachment: fixed;

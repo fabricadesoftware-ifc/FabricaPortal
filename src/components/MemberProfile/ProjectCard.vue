@@ -49,8 +49,6 @@ h4 {
 .card {
   width: 100%;
   margin: 10px 0;
-  border-left: 5px solid var(--members);
-  background-color: var(--bg-gray);
   height: auto;
   display: flex;
   flex-direction: column;
