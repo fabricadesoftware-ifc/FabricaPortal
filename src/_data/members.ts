@@ -2,7 +2,7 @@ interface IMembers {
   id: string
   name: string
   image: string
-  description: string
+  description?: string
   occupation: IOccupations
   projectIds?: string[]
   publicationIds?: string[]
@@ -20,28 +20,6 @@ interface ILink {
   type?: string
 }
 
-const redesSociais: Array<ILink> = [
-  {
-    icon: 'github',
-    href: '',
-    type: 'logo'
-  },
-  {
-    icon: 'linkedin',
-    href: '',
-    type: 'logo'
-  },
-  {
-    icon: 'twitter',
-    href: '',
-    type: 'logo'
-  },
-  {
-    icon: 'link',
-    href: '',
-    type: ''
-  }
-]
 const occupations: Array<IOccupations> = [
   {
     id: '1',
@@ -76,7 +54,7 @@ const members: Array<IMembers> = [
       id: '1',
       description: 'Professor'
     },
-    projectIds: ['7', '16', '10'],
+    projectIds: ['7', '16', '10', '11'],
     socialLinks: [
       {
         icon: 'github',
@@ -89,13 +67,13 @@ const members: Array<IMembers> = [
         type: 'logo'
       },
       {
-        icon: 'twitter',
-        href: 'https://twitter.com/ldmfabio',
-        type: 'logo'
+        icon: 'link',
+        href: 'https://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=861850B8C5D3CDD40E48946E9E30EF06.buscatextual_0',
+        type: ''
       },
       {
         icon: 'link',
-        href: 'https://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=861850B8C5D3CDD40E48946E9E30EF06.buscatextual_0',
+        href: 'https://about.me/ldmfabio',
         type: ''
       }
     ]
@@ -112,7 +90,7 @@ const members: Array<IMembers> = [
       description: 'Professor'
     },
     publicationIds: ['1'],
-    projectIds: ['7', '6', '1', '16','10'],
+    projectIds: ['7', '6', '1', '16', '10', '11'],
     socialLinks: [
       {
         icon: 'github',
@@ -201,7 +179,13 @@ const members: Array<IMembers> = [
     name: 'Geovana Sophia Horodeski',
     description: 'Gosto de filmes, ABBA e FrontEnd',
     projectIds: ['16'],
-
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/horodeski',
+        type: 'logo'
+      },
+    ],
     occupation: {
       id: '2',
       description: 'Aluna'
@@ -235,22 +219,9 @@ const members: Array<IMembers> = [
         href: 'https://github.com/dudubarbaro',
         type: 'logo'
       },
-    ]
-  },
-    {
-    id: '12',
-    image: 'https://avatars.githubusercontent.com/u/99221824?v=4',
-    name: 'Eduardo Barbaro',
-    description: '',
-    occupation: {
-      id: '2',
-      description: 'Aluno'
-    },
-    projectIds: ['10', '18'],
-    socialLinks: [
       {
-        icon: 'github',
-        href: 'https://github.com/dudubarbaro',
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/eduardo-barbaro/',
         type: 'logo'
       },
     ]
@@ -271,6 +242,11 @@ const members: Array<IMembers> = [
         href: 'https://github.com/LucasLutf',
         type: 'logo'
       },
+      {
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/lucas-lutf/',
+        type: 'logo'
+      },
     ]
   },
   {
@@ -289,22 +265,9 @@ const members: Array<IMembers> = [
         href: 'https://github.com/davigtomaz',
         type: 'logo'
       },
-    ]
-  },
-  {
-    id: '15',
-    image: 'https://avatars.githubusercontent.com/u/29065500?v=4',
-    name: 'Vinícius Acordi Soethe',
-    description: '',
-    occupation: {
-      id: '2',
-      description: 'Aluno'
-    },
-    projectIds: ['10'],
-    socialLinks: [
       {
-        icon: 'github',
-        href: 'https://github.com/ViniciusAcordiSoethe',
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/davi-gabriel-tomaz-0425a6242/',
         type: 'logo'
       },
     ]
@@ -325,6 +288,11 @@ const members: Array<IMembers> = [
         href: 'https://github.com/BrunnoDC',
         type: 'logo'
       },
+      {
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/brunno-duarte-da-cunha-094765268/',
+        type: 'logo'
+      },
     ]
   },
   {
@@ -343,8 +311,162 @@ const members: Array<IMembers> = [
         href: 'https://github.com/snow-sr',
         type: 'logo'
       },
+      {
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/jo%C3%A3o-felipi-cardoso-a1710522b/',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '19',
+    image: 'https://avatars.githubusercontent.com/u/102876502?v=4',
+    name: 'Gabriela Andrade',
+    description: 'Graduanda em Sistemas de Informação no Instituto Federal Catarinense.',
+    occupation: {
+      id: '4',
+      description: 'Graduação'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/andrade-gabriela',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '15',
+    image: 'https://avatars.githubusercontent.com/u/29065500?v=4',
+    name: 'Vinícius Acordi Soethe',
+    description: 'DevOps Developer.',
+    projectIds: ['10', '7'],
+    occupation: {
+      id: '4',
+      description: 'Graduação'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/ViniciusAcordiSoethe',
+        type: 'logo'
+      },
+      {
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/viniciusacordisoethe/',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '20',
+    image: 'https://avatars.githubusercontent.com/u/56761360?v=4',
+    name: 'Gabriel Lopes Pereira',
+    description: 'Student at IFC Campus Araquari.',
+    projectIds: ['10'],
+    occupation: {
+      id: '4',
+      description: 'Graduação'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/ogabrielpereira',
+        type: 'logo'
+      },
+      {
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/ogabrielpereiraa/',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '21',
+    image: 'https://avatars.githubusercontent.com/u/106831722?v=4',
+    name: 'Lucas Gabriel Antonete',
+    description: 'IFC - Araquari 2/3 Membro da Fábrica de Software.',
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/LucasGabrielAntonete',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '22',
+    image: 'https://media.licdn.com/dms/image/C4E03AQF8MNTXrbyv9A/profile-displayphoto-shrink_200_200/0/1570580140629?e=1698278400&v=beta&t=TTrEJ2ZD5LhpoDCvWUt70PnlulkVZDyN-C_9Gq7Z5qg',
+    name: 'Marco André Mendes',
+    description: 'Professor no IFC, desenvolvedor Python e Django.',
+    projectIds: ['7', '11'],
+    occupation: {
+      id: '1',
+      description: 'Professor'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/marrcandre',
+        type: 'logo'
+      },
+      {
+        icon: 'linkedin',
+        href: 'https://www.linkedin.com/in/marrcandre/',
+        type: 'logo'
+      },
+      {
+        icon: 'link',
+        href: 'https://marrcandre.blogspot.com/',
+        type: ''
+      },
+      {
+        icon: 'link',
+        href: 'https://buscatextual.cnpq.br/buscatextual/visualizacv.do/',
+        type: ''
+      }
+    ]
+  },
+  {
+    id: '23',
+    image: 'https://avatars.githubusercontent.com/u/106831397?v=4',
+    name: 'Vinícius Nilo Hiansdt',
+    description: 'Full time student, studying information technology and interested in self-improvement, coding and calisthenics',
+    projectIds: ['11'],
+    occupation: {
+      id: '2',
+      description: 'Aluno'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/Hiansdt',
+        type: 'logo'
+      },
+    ]
+  },
+  {
+    id: '24',
+    image: 'https://avatars.githubusercontent.com/u/50590861?v=4',
+    name: 'Mateus Lopes Albano',
+    description: 'Possui ensino-medio-segundo-graupelo Instituto Federal Catarinense(2021). Tem experiência na área de Ciência da Computação, com ênfase em Sistemas de Computação.',
+    projectIds: ['7'],
+    occupation: {
+      id: '4',
+      description: 'Graduação'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/mateus-lopes',
+        type: 'logo'
+      },
     ]
   },
 ]
 
-export { type IMembers, members, type IOccupations, occupations, type ILink, redesSociais }
+export { type IMembers, members, type IOccupations, occupations, type ILink }
