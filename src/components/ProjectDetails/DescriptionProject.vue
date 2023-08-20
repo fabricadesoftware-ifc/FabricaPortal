@@ -38,7 +38,7 @@ const toggleModal = () => {
                 <img class="logo" :src="logo" />
                 <h3>{{ title }}</h3>
             </div>
-            <button @click="toggleModal"><box-icon name='x'></box-icon></button>
+            <button class="btn-arrow" @click="toggleModal"><box-icon name='x'></box-icon></button>
         </header>
         <main>
             <section class="details">

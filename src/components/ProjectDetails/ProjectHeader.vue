@@ -18,11 +18,9 @@ defineProps({
 </template>
 <style scoped>
 h2 {
-  color: var(--text-color);
   margin: 0;
   text-align: center;
 }
-
 header {
   width: 100%;
   display: flex;

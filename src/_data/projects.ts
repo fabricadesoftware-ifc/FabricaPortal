@@ -4,15 +4,43 @@ interface IProjects {
   title: string
   status: string
   type: string
+  published?: string
+  updated?: string
   description: string
   images?: string[]
+  newsId?: string[]
+  publicationsId?: string[]
   langsProject?: string[]
-  membersProject?: string[]
+  projMembers?: string[]
+  coordMembers?: string[]
+  version?: string
+  tags?: string[]
+  access?: IAccess[]
+  newField?: IField[]
+  newDetail?: IDetails[]
 }
 interface ILangs {
   icon?: string
   type?: string
-  id?: string
+  id: string
+}
+
+interface IDetails {
+  title: string
+  desc: string[]
+}
+
+interface IField {
+  title?: string
+  desc?: string
+  markdown?: string
+}
+
+interface IAccess {
+  icon?: string
+  type?: string
+  desc: string
+  link: string
 }
 
 const langs: Array<ILangs> = [
@@ -89,7 +117,7 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/project/logo-eventos.jpg',
     title: 'Gestão de Eventos',
     status: 'finalizado',
-    type: 'extensão',
+    type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'O projeto tem por objetivo desenvolver um sistema web para a gestão de eventos do Instituto Federal Catarinense. O sistema deve permitir a criação e gestão de eventos, a submissão de artigos científicos para um evento específico, a autenticação dos usuários por meio da rede CAFe...'
@@ -99,7 +127,7 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/setting/%C3%ADndice_il3boLh.png',
     title: 'NODES',
     status: 'finalizado',
-    type: 'extensão',
+    type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description: 'Portal para Núcleo Operacionalização de Desenvolvimento de Sistemas'
   },
@@ -108,7 +136,7 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/project/index2.png',
     title: 'NR2',
     status: 'finalizado',
-    type: 'extensão',
+    type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description: 'Portal para o Núcleo de Redes Sem Fio e Redes Avançadas.'
   },
@@ -118,7 +146,7 @@ const projects: Array<IProjects> = [
     title: 'Goofy Educa',
     status: 'finalizado',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    type: 'extensão',
+    type: 'Extensão',
     description: 'O projeto tem o foco de gerar auxílio à aprendizagem para o ensino fundamental.'
   },
   {
@@ -126,7 +154,7 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/project/WhatsApp_Image_2018-09-17_at_13.14.21.jpeg',
     title: 'Readequação do Site Institucional',
     status: 'finalizado',
-    type: 'extensão',
+    type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'O presente projeto tem por objetivo dar continuidade às adequações na página do Instituto Federal Catarinense (IFC), de acordo com as normas previstas, atendendo assim, as exigências da Controladoria Geral da União (CGU).'
@@ -136,7 +164,7 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/project/issem.png',
     title: 'ISSEM',
     status: 'finalizado',
-    type: 'extensão',
+    type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description: 'O Instituto de Seguridade dos Servidores Municipais de Jaraguá do Sul (ISSEM)...'
   },
@@ -145,9 +173,10 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/setting/%C3%ADndice.png',
     title: 'Hackathon de Informática como princípio de aprendizagem ativa',
     status: 'em andamento',
+    newsId: ['1', '2'],
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    membersProject: ['8', '6', '1', '2', '5', '9'],
-    type: 'extensão',
+    projMembers: ['8', '6', '1', '2', '5', '9'],
+    type: 'Extensão',
     description:
       'O termo Hackathon é composto da união entre duas palavras da língua inglesa, hack (programar) e marathon (maratona), a sua ﬁnalidade é fomentar a criatividade e trabalho em equipe na busca de uma solução para um problema proposta (geralmente um problema real da comunidade), por meio da utilização de tecnologia, em nosso caso a tecnologia da informação. Assim, o projeto visa apresentar para os alunos um ou mais problemas a serem desenvolvidos em equipe, desta forma os discentes podem utilizar os conhecimentos adquiridos e em aquisição durante o curso para propor uma solução envolvendo a criação de um software e o desenvolvimento do respectivo protótipo (prova de conceito). Desta forma o Hackathon visa contribuir para a formação do discente tanto no aspecto pessoal como técnico, possibilitando que vivencie o trabalho em equipe, pratique a criatividade de forma sistematizada, controlada (métodos para condução da jornada) e acompanhada/suportada pelos docentes das disciplinas. O Hackathon contará com a mentoria dos professores do curso da área de informática, apresentando as principais ferramentas a serem utilizadas durante a competição, bem como efetuando o acompanhamento do desenvolvimento dos respectivos protótipos. As empresas parceiras serão responsáveis por auxiliar na avaliação ﬁnal das propostas apresentadas.'
   },
@@ -156,7 +185,7 @@ const projects: Array<IProjects> = [
     logo: 'https://fabricadesoftware.ifc.edu.br/static/media/image_upload/project/WhatsApp_Image_2018-09-17_at_13.14.27.jpeg',
     title: 'Controle de Acesso',
     status: 'finalizado',
-    type: 'extensão',
+    type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'Projeto coordenado por Eduardo da Silva, com os participantes Gueretz, Sebrão e João, tendo o intuito de fornecer controle de acesso utilizando a plataforma Arduino.'
@@ -177,9 +206,9 @@ const projects: Array<IProjects> = [
     title: 'FabricaNews',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
-    type: 'extensão',
-    membersProject: ['1', '2', '17', '15', '14', '13', '12', '18'],
-    langsProject: [ '12', '13' ],
+    type: 'Extensão',
+    projMembers: ['1', '2', '17', '15', '14', '13', '12', '18'],
+    langsProject: ['12', '13'],
     description: 'Portal de Notícias da Fábrica de Software.'
   },
   {
@@ -188,8 +217,8 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     title: 'FabricaNeeds',
     status: 'Em desenvolvimento',
-    langsProject: [ '13', '2' ],
-    type: 'extensão',
+    langsProject: ['13', '2'],
+    type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -198,8 +227,8 @@ const projects: Array<IProjects> = [
     logo: '/img/logos/projeto/fabrica faceID icon.svg',
     title: 'FabricaFaceID',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    status: 'Em desenvolvimento',
-    type: 'extensão',
+    status: 'Em andamento',
+    type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -208,10 +237,10 @@ const projects: Array<IProjects> = [
     logo: '/img/logos/projeto/fabrica auth v3 icon.svg',
     title: 'FabricaAuth',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    status: 'Em desenvolvimento',
-    membersProject: ['18'],
-    type: 'extensão',
-    langsProject: [ '9' ],
+    status: 'Em andamento',
+    projMembers: ['18'],
+    type: 'Extensão',
+    langsProject: ['9'],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -220,9 +249,9 @@ const projects: Array<IProjects> = [
     logo: '/img/logos/projeto/fabrica build icon.svg',
     title: 'FabricaBuild',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    membersProject: ['18'],
-    status: 'Em desenvolvimento',
-    type: 'extensão',
+    projMembers: ['18'],
+    status: 'Em andamento',
+    type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -230,10 +259,10 @@ const projects: Array<IProjects> = [
     id: '15',
     logo: '/img/logos/projeto/fabrica locker v2 icon.svg',
     title: 'FabricaLocker',
-    membersProject: ['18'],
-    status: 'Em desenvolvimento',
+    projMembers: ['18'],
+    status: 'Em andamento',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    type: 'extensão',
+    type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -241,10 +270,10 @@ const projects: Array<IProjects> = [
     id: '18',
     logo: '/img/logos/projeto/fabrica manager icon.svg',
     title: 'FabricaManager',
-    status: 'Em desenvolvimento',
-    type: 'extensão',
-    langsProject: [ '13', '2' ],
-    membersProject: ['12'],
+    status: 'Em andamento',
+    type: 'Extensão',
+    langsProject: ['13', '2'],
+    projMembers: ['12'],
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
@@ -253,10 +282,10 @@ const projects: Array<IProjects> = [
     id: '17',
     logo: '/img/logos/projeto/fabrica notes icon.svg',
     title: 'FabricaNotes',
-    status: 'Em desenvolvimento',
+    status: 'Em andamento',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    membersProject: ['18'],
-    type: 'extensão',
+    projMembers: ['18'],
+    type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
@@ -267,13 +296,31 @@ const projects: Array<IProjects> = [
       '/img/Projects/FabricaPortal/image1.png',
       '/img/Projects/FabricaPortal/image2.png',
       '/img/Projects/FabricaPortal/image3.png'
-  
     ],
     title: 'Portal da Fábrica de Software ',
-    status: 'Em desenvolvimento',
-    membersProject: ['1', '2', '16'],
-    langsProject: [ '12', '9' ],
-    type: 'extensão',
+    status: 'Em andamento',
+    projMembers: ['1', '2', '16'],
+    coordMembers: ['1', '2'],
+    langsProject: ['12', '9', '16'],
+    version: '1.0.0',
+    tags: ['notícias', 'publicações', 'informações', 'projetos'],
+    updated: '13 de ago. de 2023',
+    published: '13 de set. de 2023',
+    access: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/FabricaPortal'
+      }
+    ],
+    newField: [
+      {
+        title: 'novidades',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquid odit porro assumenda unde dolore eius minima, voluptas quis veniam, aperiam sint dolorum sed corporis vel impedit debitis odio dolores.'
+      }
+    ],
+    type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   }
