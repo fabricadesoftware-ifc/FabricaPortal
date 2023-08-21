@@ -28,8 +28,8 @@ function getProjectLangs(project) {
   }
 }
 function getProjectMembers(project) {
-  if (project.membersProject) {
-    return project.membersProject.map(memberId => {
+  if (project.projMembers) {
+    return project.projMembers.map(memberId => {
       const member = members.value.find(member => member.id === memberId)
       return member ? member : null
     }).filter(member => member !== null)

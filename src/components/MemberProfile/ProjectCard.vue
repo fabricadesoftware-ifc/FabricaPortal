@@ -5,15 +5,15 @@ defineProps({
   image: String,
   status: String,
   type: String,
-  style: {
-    type: Object,
-    default: () => ({})
-  }
+  linkProject: { type: Object },
 })
+const UrlProject = (id) => {
+  return `/project/${id}`
+}
 </script>
 
 <template>
-  <router-link to="/">
+  <router-link :to="UrlProject(linkProject.id)">
     <div class="card">
       <header>
         <h4>{{ title }}</h4>

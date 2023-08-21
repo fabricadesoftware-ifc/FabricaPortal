@@ -32,8 +32,8 @@ async function fetchProject() {
   return (project.value = projectsApi.getProjectById(projectId.value))
 }
 function getProjectMembers(project) {
-  if (project.membersProject) {
-    return project.membersProject
+  if (project.projMembers) {
+    return project.projMembers
       .map((memberId) => {
         const member = members.value.find((member) => member.id === memberId)
         return member ? member : null

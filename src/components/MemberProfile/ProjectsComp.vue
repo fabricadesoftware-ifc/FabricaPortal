@@ -40,6 +40,7 @@ async function fetchMemberProjects() {
         :title="project.title"
         :description="project.description"
         :image="project.image"
+        :linkProject="project"
         :type="project.type"
         :status="project.status"
       />

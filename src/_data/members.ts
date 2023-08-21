@@ -304,7 +304,7 @@ const members: Array<IMembers> = [
       id: '2',
       description: 'Aluno'
     },
-    projectIds: ['10', '13', '14', '15', '17', ''],
+    projectIds: ['15', '13'],
     socialLinks: [
       {
         icon: 'github',
