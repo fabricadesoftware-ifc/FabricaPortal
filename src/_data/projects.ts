@@ -7,6 +7,8 @@ interface IProjects {
   published?: string
   updated?: string
   description: string
+  schMember?: string[]
+  partners?: string[]
   images?: string[]
   newsId?: string[]
   publicationsId?: string[]
@@ -22,6 +24,7 @@ interface IProjects {
 interface ILangs {
   icon?: string
   type?: string
+  desc?: string
   id: string
 }
 
@@ -47,65 +50,72 @@ const langs: Array<ILangs> = [
   {
     id: '1',
     icon: 'java',
+    desc: 'java',
     type: 'logo'
   },
   {
     id: '2',
     icon: 'python',
+    desc: 'python',
     type: 'logo'
   },
   {
     id: '3',
+    desc: 'javascript',
     icon: 'javascript',
     type: 'logo'
   },
   {
     id: '7',
+    desc: 'c++',
     icon: 'c-plus-plus',
     type: 'logo'
   },
   {
     id: '8',
+    desc: 'php',
     icon: 'php',
     type: 'logo'
   },
   {
     id: '9',
+    desc: 'typescript',
     icon: 'typescript',
     type: 'logo'
   },
   {
-    id: '10',
-    icon: 'java',
-    type: 'logo'
-  },
-  {
     id: '11',
+    desc: 'tailwind',
     icon: 'tailwind-css',
     type: 'logo'
   },
   {
     id: '12',
+    desc: 'vue',
     icon: 'vuejs',
     type: 'logo'
   },
   {
     id: '13',
+    desc: 'django',
     icon: 'django',
     type: 'logo'
   },
   {
     id: '14',
+    desc: 'react',
     icon: 'react',
     type: 'logo'
   },
   {
     id: '15',
     icon: 'docker',
+    desc: 'docker',
     type: 'logo'
   },
   {
     id: '16',
+    desc: 'css',
     icon: 'css3',
     type: 'logo'
   }
@@ -316,9 +326,9 @@ const projects: Array<IProjects> = [
     ],
     newField: [
       {
-        title: 'novidades',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquid odit porro assumenda unde dolore eius minima, voluptas quis veniam, aperiam sint dolorum sed corporis vel impedit debitis odio dolores.'
-      }
+        title: 'Novidades',
+        desc: '🌟 Filtros Inovadores: Para tornar suas interações ainda mais envolventes e personalizadas, implementamos uma seleção de filtros impressionantes! Seja para fotos, vídeos ou qualquer tipo de conteúdo visual, esses filtros adicionam uma pitada de criatividade e estilo, permitindo que você expresse sua individualidade de maneira única'
+      },
     ],
     type: 'Extensão',
     description:

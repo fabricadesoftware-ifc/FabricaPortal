@@ -18,11 +18,14 @@ const projectId = ref(null)
 const project = ref(null)
 const members = ref([])
 const news = ref([])
+const langs = ref([])
+
 
 onMounted(
   fetchProject(),
   members.value = membersApi.getMembers(),
-  news.value = newsApi.getNews()
+  news.value = newsApi.getNews(),
+  langs.value = projectsApi.getLangs()
 )
 
 async function fetchProject() {
@@ -42,13 +45,24 @@ function getProjectMembers(project) {
   }
 }
 
+function getProjectLangs(project) {
+  if (project.langsProject) {
+    return project.langsProject.map(langId => {
+      const lang = langs.value.find(lang => lang.id === langId)
+      return lang ? lang : null
+    }).filter(lang => lang !== null)
+  } else {
+    return []
+  }
+}
+
 </script>
 
 <template>
   <main v-if="project">
     <ProjectHeader :title="project.title" :key="project.id" :logo="project.logo" />
     <ProjectGallery :images="project.images" />
-    <DescriptionProject :logo="project.logo" :title="project.title" :description="project.description" />
+    <DescriptionProject :logo="project.logo" :title="project.title" :langsProject="getProjectLangs(project)" :tags="project.tags" :published="project.published" :updated="project.updated" :version="project.version" :status="project.status" :type="project.type" :description="project.description" :access="project.access" :newField="project.newField" />
     <NewsProject :news="news" />
     <MembersProject :members=getProjectMembers(project) />
     <PublicationsProject />

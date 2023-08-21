@@ -5,18 +5,20 @@ defineProps({
     description: String,
     logo: String,
     title: String,
-    type: String
+    status: String,
+    published: String,
+    updated: String,
+    version: String,
+    type: String,
+    langsProject: { type: Array, default: () => [] },
+    tags: Array,
+    newField: Array,
+    access: { type: Array, default: () => [] },
 });
 
 const modalHidden = ref(true);
 const toggleModal = () => {
     modalHidden.value = !modalHidden.value;
-
-    if (modalHidden.value) {
-        enableBodyScroll(document.body);
-    } else {
-        disableBodyScroll(document.body);
-    }
 };
 </script>
 
@@ -48,19 +50,19 @@ const toggleModal = () => {
                 <ul>
                     <li>
                         <h5>Tipo:</h5>
-                        <span>Extensão</span>
+                        <span>{{ type }}</span>
                     </li>
                     <li>
                         <h5>Status:</h5>
-                        <span>Em andamento</span>
+                        <span>{{ status }}</span>
                     </li>
-                    <li>
+                    <li v-if="version">
                         <h5>Versão:</h5>
-                        <span>1.0.1</span>
+                        <span>{{ version }}</span>
                     </li>
-                    <li>
+                    <li v-if="updated">
                         <h5>Atualizado em:</h5>
-                        <span>13 de ago. de 2023</span>
+                        <span>{{ updated }}</span>
                     </li>
                     <li>
                         <h5>Cordenador(es):</h5>
@@ -70,65 +72,62 @@ const toggleModal = () => {
                         </div>
                     </li>
                     <li>
-                        <h5>Publicado em:</h5>
-                        <span>27 de jun. de 2023</span>
+                        <h5>Bolsista(s):</h5>
+                        <div>
+                            <button>Eduardo da Silva</button>
+                        </div>
                     </li>
                     <li>
+                        <h5>Parceiros(s):</h5>
+                        <div>
+                            <button>Eduardo da Silva</button>
+                        </div>
+                    </li>
+                    <li v-if="published">
+                        <h5>Publicado em:</h5>
+                        <span>{{ published }}</span>
+                    </li>
+                    <li v-if="langsProject.length > 0">
                         <h5>Tecnologias:</h5>
                         <ul id="content-lang">
-                            <li>
+                            <li v-for="langId in langsProject" :key="langId">
                                 <button>
-                                    vue
-                                </button>
-                            </li>
-                            <li>
-                                <button>
-                                    react
-                                </button>
-                            </li>
-                            <li>
-                                <button>
-                                    django
+                                    {{ langId.desc }}
                                 </button>
                             </li>
                         </ul>
                     </li>
+
                 </ul>
             </section>
-            <section class="access">
+            <section v-if="access.length > 0" class="access">
                 <h4>Acesso</h4>
                 <ul>
-                    <li>
-                        <button>
-                            <box-icon type='logo' name='github'></box-icon>
-                            Github
-                        </button>
-                    </li>
-                    <li>
-                        <button>
-                            <box-icon name='windows'></box-icon>
-                            Deploy
-                        </button>
+                    <li v-for="item in access" :key="item">
+                        <a :href="item.link">
+                            <button>
+                                <box-icon :type="item.type" :name="item.icon"></box-icon>
+                                {{ item.desc }}
+                            </button>
+                        </a>
                     </li>
                 </ul>
             </section>
             <section>
-                <h4>Novidades</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aliquid odit porro assumenda unde dolore
-                    eius minima, voluptas quis veniam, aperiam sint dolorum sed corporis vel impedit debitis odio dolores.
-                </p>
+                <div v-for="field in newField" :key="field">
+                    <h4>{{ field.title }}</h4>
+                    <p>{{ field.desc }}</p>
+                </div>
             </section>
-            <section class="tags">
+            <section v-if="tags" class="tags">
                 <h4>Tags</h4>
                 <ul>
-                    <li v-for="li in 13" :key="li">
-                        <button>hackathon</button>
+                    <li v-for="tag in tags" :key="tag">
+                        <button>{{ tag }}</button>
                     </li>
                 </ul>
             </section>
         </main>
-        <div class="body">
-        </div>
     </section>
 </template>
 
@@ -158,6 +157,8 @@ body.modal-open {
 
 ul {
     list-style-type: none;
+    gap: 12px;
+
 }
 
 li ul {
@@ -165,7 +166,6 @@ li ul {
 }
 .access ul{
     display: flex;
-    gap: 10px
 }
 #content-lang {
     justify-content: flex-start;
@@ -179,9 +179,9 @@ li ul {
 .details ul {
     padding: 10px;
     display: flex;
-    gap: 12px;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
 
 .details li {
@@ -234,7 +234,10 @@ button {
     background-color: transparent;
     transition: var(--effect)
 }
-
+a {
+    text-decoration: none;
+    color: var(--text-color)
+}
 button:hover {
     background-color: var(--light-gray);
 }
