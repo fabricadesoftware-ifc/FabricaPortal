@@ -84,8 +84,9 @@ main .image {
 
 main .midias {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 4px;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    padding: 4px;
 }
 </style>
