@@ -8,22 +8,22 @@ interface ILink {
 const links: Array<ILink> = [
   {
     text: 'NOTÍCIAS',
-    to: 'http://localhost:5173/#news',
+    to: '/#news',
     class: 'news active',
   },
   { 
     text: 'PROJETOS',
-    to: 'http://localhost:5173/#projects',
+    to: '/#projects',
     class: 'projects',
   },
   { 
     text: 'MEMBROS',
-    to: 'http://localhost:5173/#members',
+    to: '/#members',
     class: 'members',
   },
   { 
     text: 'PUBLICAÇÕES',
-    to: 'http://localhost:5173/#publications',
+    to: '/#publications',
     class: 'publications',
 
   }
@@ -40,7 +40,7 @@ const socialNetworks: Array<ILink> = [
   },
   {
     icon: 'twitter',
-    to: 'https://twitter.com/f_softwareifc'
+    to: 'https://twitter.com/FabSoftwareIFC'
   },
   {
     icon: 'instagram',

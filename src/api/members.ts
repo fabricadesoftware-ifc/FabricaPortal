@@ -1,4 +1,4 @@
-import { members, type IMembers, occupations, type IOccupations, type ILink, redesSociais } from '@/_data/members'
+import { members, type IMembers, occupations, type IOccupations } from '@/_data/members'
 
 export default class MembersApi {
   getMembers(): IMembers[] {

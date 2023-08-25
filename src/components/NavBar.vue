@@ -89,7 +89,7 @@ function closeNavMenu(): void {
 <template>
   <nav id="navbar" ref="navbar">
     <div>
-      <a href="http://localhost:5173/#hero-section" exact>
+      <a href="/#hero-section" exact>
         <img ref="logoResponId" id="logo-respon-id" src="/src/assets/images/logos/LogoHorizontalCor.svg" alt="" />
         <img ref="logoId" id="logo-id" src="/src/assets/images/logos/LogoHorizontal.svg" alt="" />
       </a>
@@ -117,10 +117,10 @@ function closeNavMenu(): void {
     </div>
     <ul class="redes-sociais">
       <li v-for="(socialNetwork, i) in socialNetworks" :key="i">
-        <RouterLink :to="socialNetwork.to">
+        <a :href="socialNetwork.to" target="_blank">
           <box-icon style="margin: 0 8px" color="var(--white)" size="2em" type="logo"
             :name="socialNetwork.icon"></box-icon>
-        </RouterLink>
+        </a>
       </li>
     </ul>
   </nav>

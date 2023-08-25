@@ -16,7 +16,9 @@ h3, h4, h5, p {
     color: var(--text-color);
 }
 
-
+nav img, footer img {
+    border-radius: 0;
+}
 
 h1 {
     font-size: 3.125rem;
