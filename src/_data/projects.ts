@@ -305,7 +305,9 @@ const projects: Array<IProjects> = [
     images: [
       '/img/Projects/FabricaPortal/image1.png',
       '/img/Projects/FabricaPortal/image2.png',
-      '/img/Projects/FabricaPortal/image3.png'
+      '/img/Projects/FabricaPortal/image3.png',
+      '/img/Projects/FabricaPortal/image4.png',
+      '/img/Projects/FabricaPortal/image5.png'
     ],
     title: 'Portal da Fábrica de Software ',
     status: 'Em andamento',
