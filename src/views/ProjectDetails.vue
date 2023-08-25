@@ -1,6 +1,6 @@
 <script setup>
 import ProjectHeader from '@/components/ProjectDetails/ProjectHeader.vue'
-import ProjectGallery from '@/components/ProjectDetails/ProjectGallery.vue'
+import CarouselComp from '@/components/ProjectDetails/CarouselComp.vue'
 import MembersProject from '@/components/ProjectDetails/MembersProject.vue'
 import NewsProject from '@/components/ProjectDetails/NewsProject.vue'
 import DescriptionProject from '@/components/ProjectDetails/DescriptionProject.vue'
@@ -61,7 +61,7 @@ function getProjectLangs(project) {
 <template>
   <main v-if="project">
     <ProjectHeader :title="project.title" :key="project.id" :logo="project.logo" />
-    <ProjectGallery :images="project.images" />
+    <CarouselComp :images="project.images" />
     <DescriptionProject :logo="project.logo" :title="project.title" :langsProject="getProjectLangs(project)" :tags="project.tags" :published="project.published" :updated="project.updated" :version="project.version" :status="project.status" :type="project.type" :description="project.description" :access="project.access" :newField="project.newField" />
     <NewsProject :news="news" />
     <MembersProject :members=getProjectMembers(project) />
