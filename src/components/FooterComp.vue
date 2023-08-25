@@ -1,5 +1,15 @@
-<script>
-export default {}
+<script setup>
+import { onMounted, ref } from 'vue'
+
+import FooterApi from '@/api/footer'
+
+const footerApi = new FooterApi()
+const footer = ref([])
+
+onMounted(async () => {
+  footer.value = footerApi.getFooter()
+})
+
 </script>
 
 <template>
@@ -8,50 +18,13 @@ export default {}
       <div class="logo">
         <img src="/src/assets/images/logos/LogoFabricaVerticalCor.svg" alt="" />
       </div>
-
-      <div>
-        <h4>LINKS RÁPIDOS</h4>
+      <div v-for="itens in footer" :key="itens">
+        <h4>{{ itens.title }}</h4>
         <ul>
-          <li>
-            <a href=""> Lorem ipsum </a>
+          <li v-for="i in itens.access" :key="i">
+            <a href=""> {{ i.link }} </a>
+            <span href=""> {{ i.desc }} </span>
           </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4>bla</h4>
-        <ul>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-          <li>
-            <a href=""> Lorem ipsum </a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4>contato</h4>
-        <ul>
-          <li>BR-280 - Colégio Agrícola, Araquari - SC, 89245-000</li>
-          <li>fabrica@ifc.edu.br</li>
-          <li>(47) 3803-7200</li>
         </ul>
       </div>
     </div>
