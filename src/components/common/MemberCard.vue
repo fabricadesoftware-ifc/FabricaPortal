@@ -162,6 +162,8 @@ p {
     flex-direction: column;
     margin-right: 20px;
     height: 20em;
+    padding: 10px;
+    width: 100%;
   }
   p {
     display: none;
@@ -172,8 +174,10 @@ p {
   }
 
   .card .details {
+    text-align: center;
     border-left: 0;
     height: 100%;
+    align-items: center;
   }
 }
 

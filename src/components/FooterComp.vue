@@ -9,15 +9,12 @@ const footer = ref([])
 onMounted(async () => {
   footer.value = footerApi.getFooter()
 })
-
 </script>
 
 <template>
   <footer>
+    <img src="/src/assets/images/logos/LogoFabricaVerticalCor.svg" alt="" />
     <div class="links">
-      <div class="logo">
-        <img src="/src/assets/images/logos/LogoFabricaVerticalCor.svg" alt="" />
-      </div>
       <div v-for="itens in footer" :key="itens">
         <h4>{{ itens.title }}</h4>
         <ul>
@@ -42,10 +39,10 @@ h4 {
 
 footer {
   width: 100%;
-  height: 48vh;
   padding: 56px 145px;
   background-color: var(--bg-black);
   color: var(--white);
+  gap: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,26 +83,26 @@ footer img {
     height: auto;
     padding: 20px 10px;
   }
-  footer .links {
-    flex-direction: column;
+  footer img {
+    margin: 40px auto;
   }
-  .links .logo {
-  margin: 40px auto;
 }
+
+@media only screen and (max-width: 992px) {
   .links div {
     margin: 30px 0;
     text-align: center;
   }
+  footer .links {
+    flex-direction: column;
+  }
 }
-
 @media only screen and (min-width: 600px) {
 }
 
 @media only screen and (min-width: 768px) {
 }
 
-@media only screen and (min-width: 992px) {
-}
 
 @media only screen and (min-width: 1200px) {
 }
