@@ -54,6 +54,7 @@ function showSlides(n) {
 </template>
 <style scoped>
 img {
+  box-shadow: var(--box-shadow);
   width: 100%;
 }
 .slideshow-container {
@@ -66,6 +67,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .prev,
@@ -104,14 +106,19 @@ section {
 }
 .dot {
   cursor: pointer;
-  height: 15px;
-  width: 15px;
+  height: 10px;
+  width: 10px;
   background-color: #bbb;
-  border-radius: 50%;
+  border-radius: 20px;
   transition: background-color var(--effect);
+  transition: width var(--effect);
 }
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: var(--secondary-color);
+  width: 20px;
+  border-radius: 20px;
+  height: 10px;
 }
 .dot:hover {
   background-color: var(--primary-color);
