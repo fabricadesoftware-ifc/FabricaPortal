@@ -123,7 +123,7 @@ p {
   }
 }
 
-@media only screen and (min-width: 426px) and (max-width: 600px) {
+@media only screen and (min-width: 555px) and (max-width: 600px) {
   a {
     width: 49%;
   }
@@ -135,9 +135,9 @@ p {
 
   .details {
     border-left: 0;
-    padding: 15px;
+    padding: 10px;
     gap: 9px;
-    height: 25vh;
+    height: 18vh;
     justify-content: center;
     align-items: flex-start;
   }
@@ -152,7 +152,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 555px) {
 
   a {
     width: 100%;
@@ -162,20 +162,19 @@ p {
     flex-direction: column;
     margin-right: 20px;
     height: 20em;
-    padding: 10px;
+    padding: 10px 0;
     width: 100%;
   }
   p {
     display: none;
   }
   .image {
-    width: 12em;
-    min-height: 12em;
+    width: 13em;
+    min-height: 13em;
   }
 
   .card .details {
     text-align: center;
-    border-left: 0;
     height: 100%;
     align-items: center;
   }

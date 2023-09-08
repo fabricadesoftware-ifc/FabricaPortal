@@ -36,11 +36,12 @@ onMounted(async () => {
   padding: 80px 145px;
   border-top: var(--border) solid var(--publications);
 }
-
+button {
+  margin: 0 auto
+}
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .publications {

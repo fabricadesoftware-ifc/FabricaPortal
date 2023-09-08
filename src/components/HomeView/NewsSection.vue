@@ -48,4 +48,26 @@ onMounted(() => {
   width: 100%;
   justify-content: space-between;
 }
+@media only screen and (max-width: 600px) {
+  .card {
+    flex-direction: column;
+  }
+  .card .details {
+    border-top: var(--border) solid var(--members);
+    padding: 15px;
+    gap: 9px;
+    height: inherit;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+@media only screen and (max-width: 1024px) {
+.news {
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 10px;
+}
+}
 </style>

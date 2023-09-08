@@ -15,8 +15,6 @@ defineProps({
           <time>{{ data }}</time>
         </header>
         <div class="info">
-          <!-- transformar esse status em componente -->
-          <div class="status"><span>evento</span></div>
           <h3>
             {{ title }}
           </h3>
@@ -42,15 +40,20 @@ h3 {
 }
 p {
   height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   margin: 0;
 }
 header {
   padding: 1em;
 }
+
 .card {
   width: 31%;
 }
-
 .wrapper {
   background-color: var(--bg-white);
   min-height: 60vh;
@@ -79,4 +82,19 @@ header {
   z-index: 1;
 }
 
+@media only screen and (max-width: 1024px) {
+  .wrapper {
+    width: 300px;
+  }
+  .card {
+    width: auto;
+    margin-bottom: 15px
+  }
+  p {
+    display: none
+  }
+  .info {
+    transform: translateY(0);
+  }
+}
 </style>

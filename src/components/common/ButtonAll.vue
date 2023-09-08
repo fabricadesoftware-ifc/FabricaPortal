@@ -12,11 +12,11 @@ defineProps({
 </script>
 
 <template>
-  <RouterLink :to="link">
-    <button>
+  <button>
+    <RouterLink :to="link">
       {{ text }}
-    </button>
-  </RouterLink>
+    </RouterLink>
+  </button>
 </template>
 
 <style scoped>
@@ -31,14 +31,13 @@ button {
   align-items: center;
   transition: all ease-in-out var(--effect-btn);
   border-radius: 5px;
-  color: var(--white);
   font-weight: 600;
-  font-size: 15px;
 }
 button:hover {
   background-color: var(--btn-hover);
 }
 a {
+  color: var(--white);
   text-decoration: none;
 }
 </style>

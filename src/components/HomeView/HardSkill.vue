@@ -15,22 +15,26 @@ section {
   width: 100%;
   background-color: var(--bg-gray);
   display: flex;
+  padding: 20px 0;
   justify-content: center;
   align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
   section {
-  flex-direction: column;
-  height: auto;
+    display: none;
+  }
 }
+
+@media only screen and (min-width: 600px) {
 }
 
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 768px) {
+}
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 992px) {
+}
 
-@media only screen and (min-width: 992px) {}
-
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}
 </style>

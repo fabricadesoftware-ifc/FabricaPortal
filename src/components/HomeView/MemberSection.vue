@@ -64,12 +64,13 @@ onMounted(() => {
     align-items: flex-start;
   }
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 555px) {
 .members {
   width: 100%;
   overflow-x: auto;
   flex-wrap: nowrap;
   flex-direction: row;
+  gap: 10px;
 }
 }
 </style>

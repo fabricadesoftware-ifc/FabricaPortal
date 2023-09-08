@@ -189,16 +189,13 @@ footer {
   display: flex;
   justify-content: space-evenly;
 }
-/* .alert {
-  font-weight: 600;
-  font-style: italic;
-} */
+
 .image {
   flex-shrink: 0;
   height: auto;
   position: absolute;
   z-index: 1;
-  width: 8rem;
+  width: 10%;
   opacity: 1;
   transition: opacity var(--effect-image);
 }
@@ -238,10 +235,21 @@ span {
   .card {
     width: 48%;
   }
+  .image{
+    width: 10%
+  }
+}
+@media only screen and (max-width: 800px) {
+  .image{
+    width: 15%
+  }
 }
 @media only screen and (max-width: 600px) {
   .card {
     width: 100%;
+  }
+  .image{
+    width: 30%
   }
 }
 @media only screen and (max-width: 425px) {

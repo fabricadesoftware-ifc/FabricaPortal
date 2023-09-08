@@ -46,6 +46,9 @@ p {
     line-height: 1.5em;
 }
 
+button a {
+    font-size: 1rem
+}
 
 .status span {
     margin-right: 10px;
@@ -67,9 +70,11 @@ p {
 section, img, .card, .wrapper {
     border-radius: var(--border-rd);
 }
+
 .card {
     box-shadow: var(--box-shadow);
 }
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -86,8 +91,42 @@ section, img, .card, .wrapper {
     background: var(--secondary-color);
 }
 
-/* @media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 2.125rem;
+    }
 
+    h2 {
+        font-size: 1.588rem;
+        margin: 40px 0;
+        font-weight: 700;
+    }
+    html {
+        scroll-padding-top: 3em;
+    }
+
+    h3 {
+        /* font-size: 1.6em; */
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: 0.85rem;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.2em;
+    }
+
+    button a {
+        font-size: 0.8rem;
+    }
+}
+
+/*
 @media only screen and (min-width: 600px) {}
 
 @media only screen and (min-width: 768px) {}

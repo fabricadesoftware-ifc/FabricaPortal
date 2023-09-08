@@ -37,7 +37,6 @@ button box-icon {
 }
 
 button a {
-  font-size: 16px;
   font-weight: 700;
   color: var(--btn);
   text-decoration: none;
