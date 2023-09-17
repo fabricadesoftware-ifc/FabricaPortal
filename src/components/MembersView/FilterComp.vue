@@ -247,6 +247,7 @@ form #search {
   border-color: var(--quaternary-color);
   box-shadow: 0 0 0 1px var(--quaternary-color), 0 0 0 4px #4b4beba1;
 }
+
 .expanded {
   max-height: 500px;
 }

@@ -8,8 +8,6 @@ import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const members = ref([])
 
-
-
 onMounted(() => {
   members.value = membersApi.getSixMembers()
 })
@@ -36,7 +34,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
 .container {
   display: flex;
   flex-direction: column;
@@ -49,21 +46,7 @@ onMounted(() => {
   flex-wrap: wrap;
   align-content: space-between;
 }
-@media only screen and (max-width: 600px) {
-  .members {
-  }
-  .card {
-    flex-direction: column;
-  }
-  .card .details {
-    border-top: var(--border) solid var(--members);
-    padding: 15px;
-    gap: 9px;
-    height: inherit;
-    justify-content: center;
-    align-items: flex-start;
-  }
-}
+
 @media only screen and (max-width: 555px) {
 .members {
   width: 100%;
@@ -71,6 +54,10 @@ onMounted(() => {
   flex-wrap: nowrap;
   flex-direction: row;
   gap: 10px;
+}
+.image {
+  min-width: 12em;
+    height: 12em;
 }
 }
 </style>

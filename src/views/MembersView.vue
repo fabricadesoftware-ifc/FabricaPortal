@@ -59,25 +59,50 @@ main .members {
   background-color: var(--bg-gray);
   display: flex;
   flex-wrap: wrap;
+  border-radius: 0;
   padding: 4em var(--pn-main);
   justify-content: space-between;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+  main {
+  padding-top: 4em;
+}
   main .members {
-    flex-direction: column;
+    padding: 1em;
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 555px) {
+  a {
+    width: 49%;
+  }
+  img {
+    width: 11em;
+    min-height: 11em;
+  }
+  .card {
+    height: 11em;
+  }
 }
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (max-width: 500px) {
+  a {
+    width: 100%
+  }
+  .card {
+    flex-direction: row;
+    margin-right: 0;
+    height: 10em;
+    padding: 10px;
+    width: 100%;
+  }
+  .image {
+    width: 9em;
+    min-height: 9em; 
+  }
 }
-
-@media only screen and (min-width: 992px) {
-}
-
+ */
 @media only screen and (min-width: 1200px) {
 }
 </style>

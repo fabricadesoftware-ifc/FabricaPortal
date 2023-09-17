@@ -40,7 +40,7 @@ const UrlMember = (id) => {
 <template>
   <router-link :to="UrlMember(linkMember.id)">
     <div class="card">
-      <img class="image" :src="image" alt="">
+      <img class="image" :src="image" alt="" />
       <!--       <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div> -->
       <div class="details">
         <h5>{{ occupation.description }}</h5>
@@ -77,6 +77,7 @@ p {
   height: 12em;
   padding: 10px;
   margin-bottom: 30px;
+  flex-direction: row;
   display: flex;
   align-items: center;
   transition: transform var(--effect);
@@ -97,6 +98,8 @@ p {
   background-size: cover;
   transition: filter var(--effect);
   filter: brightness(0.6);
+  min-width: 11em;
+  height: 11em;
 }
 
 .details {
@@ -113,71 +116,43 @@ p {
   a {
     width: 100%;
   }
-
 }
-
-@media only screen and (min-width: 600px) {
-  .image {
-    min-width: 11em;
-    height: 11em;
+@media only screen and (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    height: 18em;
   }
-}
+  p {
+    display: none;
+  }
+  .card {
+    height: 22em;
+  }
+  .image {
+    min-width: 15em;
+    height: 15em;
+  }
 
-@media only screen and (min-width: 555px) and (max-width: 600px) {
   a {
     width: 49%;
   }
-
-  .card {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .details {
-    border-left: 0;
-    padding: 10px;
-    gap: 9px;
-    height: 18vh;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .image {
-    width: 100%;
-    height: auto;
-  }
-
-  p {
-    display: none;
-  }
 }
-
 @media only screen and (max-width: 555px) {
-
-  a {
-    width: 100%;
-  }
-
-  .card {
-    flex-direction: column;
-    margin-right: 20px;
-    height: 20em;
-    padding: 10px 0;
-    width: 100%;
-  }
-  p {
-    display: none;
-  }
   .image {
-    width: 13em;
-    min-height: 13em;
+    min-width: 9em;
+    height: 9em;
   }
-
-  .card .details {
-    text-align: center;
-    height: 100%;
-    align-items: center;
+  .card {
+    height: 17em;
   }
 }
-
+@media only screen and (max-width: 320px) {
+  .image {
+    min-width: 7em;
+    height: 7em;
+  }
+  .card {
+    height: 15em;
+  }
+}
 </style>
