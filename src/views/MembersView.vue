@@ -59,7 +59,7 @@ main .members {
   background-color: var(--bg-gray);
   display: flex;
   flex-wrap: wrap;
-  padding: var(--pn-main);
+  padding: 4em var(--pn-main);
   justify-content: space-between;
 }
 
