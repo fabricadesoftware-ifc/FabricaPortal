@@ -36,12 +36,13 @@ h4 {
   text-transform: uppercase;
   color: var(--primary-color);
 }
-
+span {
+  color: var(--white)
+}
 footer {
   width: 100%;
   padding: 56px 145px;
   background-color: var(--bg-black);
-  color: var(--white);
   gap: 20px;
   display: flex;
   align-items: center;

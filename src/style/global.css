@@ -58,17 +58,18 @@ button a {
     background-color: var(--bg-status);
     border-radius: 5px;
     font-weight: 500;
+    height: fit-content;
     align-items: center;
     text-align: center;
     font-size: 0.8em;
-    color: var(--status);
+    color: var(--status); 
 }
 
 .status {
     display: flex;
 }
 
-section, img, .card, .wrapper {
+section, img, .card, .wrapper, .carousel {
     border-radius: var(--border-rd);
 }
 
@@ -113,7 +114,7 @@ section, img, .card, .wrapper {
     }
 
     h4 {
-        font-size: 0.85rem;
+        font-size: 1.15em;
     }
 
     p {

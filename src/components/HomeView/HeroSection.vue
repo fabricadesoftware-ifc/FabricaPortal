@@ -31,11 +31,13 @@ section {
   background-position: center;
   height: 100vh;
 }
+h1, span, p {
 
+  color: var(--white);
+}
 section div {
   width: 100%;
   background-color: #000000b5;
-  color: var(--white);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -66,7 +68,6 @@ section:hover .effect::before {
   width: 100%;
 }
 p {
-  color: var(--white);
   width: 500px;
   margin: 7px 0;
 }
