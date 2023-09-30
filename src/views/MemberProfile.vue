@@ -5,8 +5,6 @@ import DetailsProfile from '@/components/MemberProfile/DetailsProfile.vue'
 import MembersApi from '@/api/members'
 import { ref, onMounted } from 'vue'
 
-
-
 const membersApi = new MembersApi()
 
 const memberId = ref(null)
@@ -25,17 +23,31 @@ async function fetchMember() {
 
 <template>
   <main v-if="member">
-    <aside>
+    <header>
       <img class="image" :src="member.image" alt="" />
       <div class="midias">
-        <a v-for="socialLink in member.socialLinks" :key="socialLink.icon" target="_blank" :href="socialLink.href">
-          <box-icon size="2em" color="var(--text-color)" :type="socialLink.type" :name="socialLink.icon"></box-icon>
+        <a
+          v-for="socialLink in member.socialLinks"
+          :key="socialLink.icon"
+          target="_blank"
+          :href="socialLink.href"
+        >
+          <box-icon
+            size="2em"
+            color="var(--text-color)"
+            :type="socialLink.type"
+            :name="socialLink.icon"
+          ></box-icon>
         </a>
       </div>
-    </aside>
+    </header>
     <section class="col-2">
-      <DetailsProfile :name="member.name" :key="member.id" :occupation="member.occupation"
-        :description="member.description" />
+      <DetailsProfile
+        :name="member.name"
+        :key="member.id"
+        :occupation="member.occupation"
+        :description="member.description"
+      />
       <ProjectsComp />
       <PublicationsComp />
     </section>
@@ -45,13 +57,12 @@ async function fetchMember() {
 <style scoped>
 main {
   display: flex;
-  padding: var(--pn-main);
-
+  padding: var(--pn-main) 19em;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
-p {
-  text-align: justify;
-}
 
 .projects,
 .publications {
@@ -60,21 +71,14 @@ p {
   flex-direction: column;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-
 main .col-2 {
   width: 100%;
 }
 
-aside {
-  margin-right: 45px;
-    border-radius: 10px;
-    height: fit-content;
-    box-shadow: var(--box-shadow);
+header {
+  border-radius: 10px;
+  height: fit-content;
+  box-shadow: var(--box-shadow);
 }
 
 main .image {
@@ -84,9 +88,33 @@ main .image {
 
 main .midias {
   display: flex;
-    gap: 10px;
-    width: 100%;
-    justify-content: center;
-    padding: 4px;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  padding: 4px;
+}
+
+@media only screen and (max-width: 1224px) {
+  main {
+    padding: var(--pn-main) 10em;
+  }
+}
+@media only screen and (max-width: 768px) {
+  main {
+    padding: var(--pn-main) 6em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  main {
+    padding: var(--pn-main) 2em;
+  }
+  main .image {
+    width: 175px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  main {
+    padding: var(--pn-main) 1em;
+  }
 }
 </style>

@@ -39,7 +39,7 @@ async function fetchMemberProjects() {
         :key="project.id"
         :title="project.title"
         :description="project.description"
-        :image="project.image"
+        :logo="project.logo"
         :linkProject="project"
         :type="project.type"
         :status="project.status"

@@ -38,6 +38,10 @@ header {
   width: 100%;
 }
 
+p {
+  text-align: justify;
+}
+
 
 section {
   margin-bottom: 14px;

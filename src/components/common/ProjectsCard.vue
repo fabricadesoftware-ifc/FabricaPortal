@@ -128,6 +128,8 @@ a {
 
 .carousel {
   overflow: hidden;
+  border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .carousel-inner {

@@ -386,7 +386,7 @@ main .midias {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9;
+  z-index: 99;
   transition: opacity 0.2s, pointer-events 0.2s;
 }
 
