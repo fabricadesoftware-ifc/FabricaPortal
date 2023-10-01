@@ -26,7 +26,7 @@ defineProps({
 
 <style scoped>
 .card {
-    width: 32%;
+    width: 49%;
     padding: 10px;
 }
 
@@ -58,4 +58,14 @@ defineProps({
     line-height: 1.25rem;
 }
 
+@media only screen and (max-width: 725px) {
+  .image {
+    display: none
+  }
+}
+@media only screen and (max-width: 425px) {
+  .card {
+    width: 100%
+}
+}
 </style>

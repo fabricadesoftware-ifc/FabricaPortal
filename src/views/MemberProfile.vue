@@ -78,7 +78,7 @@ main .col-2 {
 header {
   border-radius: 10px;
   height: fit-content;
-  box-shadow: var(--box-shadow);
+  margin-bottom: 1em
 }
 
 main .image {

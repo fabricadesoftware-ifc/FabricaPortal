@@ -201,9 +201,12 @@ body.modal-open {
 }
 
 #modal-content main {
-  padding: 1em 1em 2em 1em;
+  padding: 0em 1em 2em 1em;
   overflow-y: scroll;
   height: 65vh;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
 }
 
 ul {
@@ -264,10 +267,6 @@ li ul {
   padding: 10px;
 }
 
-#modal-content section {
-  margin: 15px 0;
-}
-
 #modal-content header {
   justify-content: space-between;
   padding: 20px;
@@ -288,38 +287,6 @@ li ul {
   border: none;
   align-items: center;
 }
-
-/* .title:nth-child(3)::before {
-  background-color: var(--secondary-color);
-  top: 15px;
-  left: -23px;
-  width: 15px;
-  height: 15px;
-}
-
-.title:nth-child(3)::after {
-  background-color: var(--primary-color);
-  top: -10px;
-  left: -23px;
-  width: 20px;
-  height: 20px;
-}
-
-.title:nth-child(2)::after {
-  background-color: var(--tertiary-color);
-  top: -17px;
-  left: 0em;
-  width: 12px;
-  height: 12px;
-}
-
-.title:nth-child(2)::before {
-  top: -15px;
-  left: 1em;
-  width: 8px;
-  height: 8px;
-  background-color: var(--quaternary-color);
-} */
 
 a {
   text-decoration: none;
@@ -407,7 +374,7 @@ main .midias {
     left: 36px;
   }
   #modal-content {
-    width: 80%;
+    width: 90%;
   }
 }
 </style>

@@ -30,7 +30,11 @@ section .news {
   margin: 20px 0;
   gap: 1em;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 425px) {
+  .news {
+    flex-direction: column
+  }
 }
 </style>
