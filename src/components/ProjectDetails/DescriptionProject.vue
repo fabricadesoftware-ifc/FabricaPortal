@@ -6,16 +6,27 @@ defineProps({
   logo: String,
   title: String,
   status: String,
+  partnerCompanies: Array,
   published: String,
   updated: String,
   version: String,
   type: String,
   langsProject: { type: Array, default: () => [] },
   tags: Array,
+  scholarshipMembers: {
+    type: Array,
+    default: () => []
+  },
+  coordMembers: {
+    type: Array,
+    default: () => []
+  },
   newField: Array,
   access: { type: Array, default: () => [] }
 })
-
+const UrlMember = (id) => {
+  return `/member/${id}`
+}
 const modalHidden = ref(true)
 const toggleModal = () => {
   modalHidden.value = !modalHidden.value
@@ -39,54 +50,63 @@ const toggleModal = () => {
       <div>
         <img class="logo" :src="logo" />
         <h3 class="title">{{ title }}</h3>
-        <h3 class="title"></h3>
       </div>
       <button class="btn-close" @click="toggleModal"><box-icon name="x"></box-icon></button>
     </header>
     <main>
       <section class="details">
-        <h4>Detalhes</h4>
+        <!--         <h4>Detalhes</h4>
+ -->
         <ul>
-          <li>
+          <li v-if="type != ''">
             <h5>Tipo:</h5>
             <span>{{ type }}</span>
           </li>
-          <li>
+          <li v-if="status != ''">
             <h5>Status:</h5>
             <span>{{ status }}</span>
           </li>
-          <li v-if="version">
+          <li v-if="version != null">
             <h5>Versão:</h5>
             <span>{{ version }}</span>
           </li>
-          <li v-if="updated">
+          <li v-if="updated != null">
             <h5>Atualizado em:</h5>
             <span>{{ updated }}</span>
           </li>
-          <li>
+          <li v-if="coordMembers != ''">
             <h5>Cordenador(es):</h5>
             <div>
-              <button>Eduardo da Silva</button>
-              <button>Fábio longo de Moura</button>
+              <button v-for="memberId in coordMembers" :key="memberId">
+                <RouterLink :to="UrlMember(memberId.id)">
+                  {{ memberId.name }}
+                </RouterLink>
+              </button>
             </div>
           </li>
-          <li>
+          <li v-if="scholarshipMembers != ''">
             <h5>Bolsista(s):</h5>
             <div>
-              <button>Eduardo da Silva</button>
+              <button v-for="memberId in scholarshipMembers" :key="memberId">
+                <RouterLink :to="UrlMember(memberId.id)">
+                  {{ memberId.name }}
+                </RouterLink>
+              </button>
             </div>
           </li>
-          <li>
+          <li v-if="partnerCompanies != null">
             <h5>Parceiros(s):</h5>
             <div>
-              <button>Eduardo da Silva</button>
+              <button v-for="item in partnerCompanies" :key="item.partnerCompanies">
+                {{ item }}
+              </button>
             </div>
           </li>
-          <li v-if="published">
+          <li v-if="published != null">
             <h5>Publicado em:</h5>
             <span>{{ published }}</span>
           </li>
-          <li v-if="langsProject.length > 0">
+          <li v-if="langsProject != ''">
             <h5>Tecnologias:</h5>
             <ul id="content-lang">
               <li v-for="langId in langsProject" :key="langId">
@@ -98,7 +118,7 @@ const toggleModal = () => {
           </li>
         </ul>
       </section>
-      <section v-if="access.length > 0" class="access">
+      <section v-if="access != ''" class="access">
         <h4>Acesso</h4>
         <ul>
           <li v-for="item in access" :key="item">
@@ -111,13 +131,13 @@ const toggleModal = () => {
           </li>
         </ul>
       </section>
-      <section>
+      <section v-if="newField != ''">
         <div v-for="field in newField" :key="field">
           <h4>{{ field.title }}</h4>
           <p>{{ field.desc }}</p>
         </div>
       </section>
-      <section v-if="tags" class="tags">
+      <section v-if="tags != null" class="tags">
         <h4>Tags</h4>
         <ul>
           <li v-for="tag in tags" :key="tag">
@@ -149,7 +169,6 @@ p {
   content: '';
   position: absolute;
   border-radius: 50%;
-  transform: scale(0);
   transition: var(--effect) transform;
 }
 
@@ -177,20 +196,12 @@ p {
   background-color: var(--quaternary-color);
 }
 
-section:hover h3:before,
-section:hover h3:after,
-section:hover h3:nth-child(1)::before,
-section:hover h3:nth-child(1)::after,
-section:hover h3:nth-child(2)::before {
-  transform: scale(1);
-}
-
 body.modal-open {
   overflow: hidden;
 }
 
 #modal-content main {
-  padding: 10px 20px;
+  padding: 1em 1em 2em 1em;
   overflow-y: scroll;
   height: 65vh;
 }
@@ -232,7 +243,7 @@ li ul {
   cursor: pointer;
 }
 .btn-arrow {
-  background-color: var(--white);
+  background-color: var(--primary-color);
   padding: 4px;
   border-radius: 50em;
   border: 0;
@@ -240,13 +251,8 @@ li ul {
   outline: 0;
   display: flex;
   transition: transform var(--effect);
-  align-items: center;
-  transform: scale(0.8);
-}
-section:hover .btn-arrow {
-  background-color: var(--primary-color);
-  transform: scale(1);
   cursor: pointer;
+  align-items: center;
 }
 
 .tags ul {
@@ -283,48 +289,6 @@ section:hover .btn-arrow {
   align-items: center;
 }
 
-.title:before,
-.title:after,
-.title:nth-child(1)::before,
-.title:nth-child(1)::after,
-.title:nth-child(2)::before {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(1);
-  transition: var(--effect) transform;
-}
-.title:nth-child(3)::before {
-  background-color: var(--secondary-color);
-  top: 0.9vh;
-  right: 1em;
-  width: 15px;
-  height: 15px;
-}
-
-.title:nth-child(3)::after {
-  background-color: var(--primary-color);
-  top: 0.5vh;
-  right: 2em;
-  width: 20px;
-  height: 20px;
-}
-
-.title:nth-child(2)::after {
-  background-color: var(--tertiary-color);
-  top: 1.8vh;
-  right: 9px;
-  width: 12px;
-  height: 12px;
-}
-
-.title:nth-child(2)::before {
-  top: 4vh;
-  right: 6px;
-  width: 8px;
-  height: 8px;
-  background-color: var(--quaternary-color);
-}
 /* .title:nth-child(3)::before {
   background-color: var(--secondary-color);
   top: 15px;
@@ -406,6 +370,7 @@ main .midias {
   transition: opacity 0.2s, pointer-events 0.2s;
   opacity: 1;
   pointer-events: all;
+  overflow: hidden;
   height: 80vh;
 }
 

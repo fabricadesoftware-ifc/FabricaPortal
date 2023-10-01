@@ -1,15 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { defineProps } from 'vue'
 
-import PublicationsApi from '@/api/publications'
-
-const publicationsApi = new PublicationsApi()
-const publications = ref([])
-
-onMounted(async () => {
-  publications.value = publicationsApi.getThreePublications()
+defineProps({
+  publications: {
+    type: Array,
+    default: () => []
+  }
 })
-
 </script>
 
 <template>
@@ -17,8 +14,8 @@ onMounted(async () => {
     <h3>Publicações</h3>
     <div class="container">
       <ul>
-        <li v-for="publication in publications" :key="publication.id">
-          <RouterLink to="/">{{ publication.title }}</RouterLink>
+        <li v-for="publicationId in publications" :key="publicationId.id">
+          <RouterLink to="/">{{ publicationId.title }}</RouterLink>
         </li>
       </ul>
     </div>
@@ -26,23 +23,21 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-
 ul {
-    padding-left: 20px;
+  padding-left: 20px;
 }
-ul li{
-    margin: 10px 0;
+ul li {
+  margin: 10px 0;
 }
 a {
-    text-decoration: none;
-    color: var(--text-color)
+  text-decoration: none;
+  color: var(--text-color);
 }
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .publications {
   display: flex;
   flex-direction: column;
 }
-
 </style>
