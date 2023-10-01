@@ -55,8 +55,8 @@ const toggleModal = () => {
     </header>
     <main>
       <section class="details">
-        <!--         <h4>Detalhes</h4>
- -->
+        <h4>Detalhes</h4>
+
         <ul>
           <li v-if="type != ''">
             <h5>Tipo:</h5>
@@ -382,5 +382,32 @@ main .midias {
 
 .logo {
   width: 5em;
+}
+@media only screen and (max-width: 1024px) {
+  #modal-content {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 725px) {
+  .details li {
+    width: 100%;
+  }
+  .title {
+    display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container h3:nth-child(1)::after {
+    top: -10px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .container h3:nth-child(2)::before {
+    top: 27px;
+    left: 36px;
+  }
+  #modal-content {
+    width: 80%;
+  }
 }
 </style>

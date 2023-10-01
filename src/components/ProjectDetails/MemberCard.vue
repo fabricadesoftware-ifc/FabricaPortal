@@ -83,4 +83,9 @@ a {
     width: 3rem;
     object-fit: cover;
 }
+@media only screen and (max-width: 600px) {
+  a {
+    width: 100%
+  }
+}
 </style>

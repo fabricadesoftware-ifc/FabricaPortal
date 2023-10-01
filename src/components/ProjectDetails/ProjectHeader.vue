@@ -32,5 +32,4 @@ header {
 .logo {
   max-width: 100px;
   height: fit-content;
-  margin-right: 15px;
 }</style>
