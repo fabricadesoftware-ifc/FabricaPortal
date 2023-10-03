@@ -1,6 +1,6 @@
 interface IFooter {
   title: string
-  access?: ILink[]
+  accessDetails?: ILink[]
 }
 interface ILink {
   link?: string
@@ -11,7 +11,7 @@ interface ILink {
 const footer: Array<IFooter> = [
   {
     title: 'LINKS RÁPIDOS',
-    access: [
+    accessDetails: [
       {
         link: 'Lorem ipsum'
       },
@@ -28,7 +28,7 @@ const footer: Array<IFooter> = [
   },
   {
     title: 'BLA',
-    access: [
+    accessDetails: [
       {
         link: 'Lorem ipsum'
       },
@@ -48,7 +48,7 @@ const footer: Array<IFooter> = [
   },
   {
     title: 'CONTATO',
-    access: [
+    accessDetails: [
       {
         desc: 'BR-280 - Colégio Agrícola, Araquari - SC, 89245-000'
       },

@@ -67,11 +67,11 @@ function filterLangsByIds(langIds) {
 }
 
 function getProjectMembers(project) {
-  return project.projMembers ? filterMembersByIds(project.projMembers) : []
+  return project.projectMembers ? filterMembersByIds(project.projectMembers) : []
 }
 
 function getNewsProject(project) {
-  return project.projNews ? filterNewsByIds(project.projNews) : []
+  return project.projectNews ? filterNewsByIds(project.projectNews) : []
 }
 
 function getScholarshipMembers(project) {
@@ -83,11 +83,11 @@ function getCoordMembers(project) {
 }
 
 function getProjectPublication(project) {
-  return project.projPublication ? filterPublicationsByIds(project.projPublication) : []
+  return project.projectPublication ? filterPublicationsByIds(project.projectPublication) : []
 }
 
 function getProjectLangs(project) {
-  return project.langsProject ? filterLangsByIds(project.langsProject) : []
+  return project.languagesUsed ? filterLangsByIds(project.languagesUsed) : []
 }
 
 </script>
@@ -99,7 +99,7 @@ function getProjectLangs(project) {
     <DescriptionProject
       :logo="project.logo"
       :title="project.title"
-      :langsProject="getProjectLangs(project)"
+      :languagesUsed="getProjectLangs(project)"
       :tags="project.tags"
       :published="project.published"
       :updated="project.updated"
@@ -109,9 +109,9 @@ function getProjectLangs(project) {
       :scholarshipMembers="getScholarshipMembers(project)"
       :type="project.type"
       :description="project.description"
-      :access="project.access"
+      :accessDetails="project.accessDetails"
       :partnerCompanies="project.partnerCompanies"
-      :newField="project.newField"
+      :customFields="project.customFields"
     />
     <NewsProject v-if="getNewsProject(project) != ''" :news="getNewsProject(project)" />
     <MembersProject :members="getProjectMembers(project)" />

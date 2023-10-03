@@ -18,7 +18,7 @@ onMounted(async () => {
       <div v-for="itens in footer" :key="itens">
         <h4>{{ itens.title }}</h4>
         <ul>
-          <li v-for="i in itens.access" :key="i">
+          <li v-for="i in itens.accessDetails" :key="i">
             <a href=""> {{ i.link }} </a>
             <span href=""> {{ i.desc }} </span>
           </li>

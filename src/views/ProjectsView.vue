@@ -18,8 +18,8 @@ onMounted(() => {
 
 })
 function getProjectLangs(project) {
-  if (project.langsProject) {
-    return project.langsProject.map(langId => {
+  if (project.languagesUsed) {
+    return project.languagesUsed.map(langId => {
       const lang = langs.value.find(lang => lang.id === langId)
       return lang ? lang : null
     }).filter(lang => lang !== null)
@@ -28,8 +28,8 @@ function getProjectLangs(project) {
   }
 }
 function getProjectMembers(project) {
-  if (project.projMembers) {
-    return project.projMembers.map(memberId => {
+  if (project.projectMembers) {
+    return project.projectMembers.map(memberId => {
       const member = members.value.find(member => member.id === memberId)
       return member ? member : null
     }).filter(member => member !== null)
@@ -49,7 +49,7 @@ function getProjectMembers(project) {
         :type="project.type"
         :linkProject="project"
         :members="getProjectMembers(project)"
-        :langsProject="getProjectLangs(project)"
+        :languagesUsed="getProjectLangs(project)"
         :status="project.status"
       />
     </section>

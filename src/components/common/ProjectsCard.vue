@@ -7,7 +7,7 @@ const props = defineProps({
   logo: String,
   status: String,
   type: String,
-  langsProject: { type: Array, default: () => [] },
+  languagesUsed: { type: Array, default: () => [] },
   linkProject: { type: Object },
   images: {
     type: Array,
@@ -85,11 +85,11 @@ onMounted(() => {
               <span v-if="members.length > 3"> +{{ members.length - 3 }} </span>
             </div>
           </div>
-          <div class="col" v-if="langsProject.length > 0">
+          <div class="col" v-if="languagesUsed.length > 0">
             <span>Tecnologias</span>
-            <div :class="[{ langs: langsProject.length > 1 }]">
+            <div :class="[{ langs: languagesUsed.length > 1 }]">
               <box-icon
-                v-for="langId in langsProject"
+                v-for="langId in languagesUsed"
                 :key="langId"
                 color="var(--dark-gray)"
                 size="2em"

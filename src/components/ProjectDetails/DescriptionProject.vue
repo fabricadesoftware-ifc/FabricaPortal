@@ -11,7 +11,7 @@ defineProps({
   updated: String,
   version: String,
   type: String,
-  langsProject: { type: Array, default: () => [] },
+  languagesUsed: { type: Array, default: () => [] },
   tags: Array,
   scholarshipMembers: {
     type: Array,
@@ -21,8 +21,8 @@ defineProps({
     type: Array,
     default: () => []
   },
-  newField: Array,
-  access: { type: Array, default: () => [] }
+  customFields: Array,
+  accessDetails: { type: Array, default: () => [] }
 })
 const UrlMember = (id) => {
   return `/member/${id}`
@@ -106,10 +106,10 @@ const toggleModal = () => {
             <h5>Publicado em:</h5>
             <span>{{ published }}</span>
           </li>
-          <li v-if="langsProject != ''">
+          <li v-if="languagesUsed != ''">
             <h5>Tecnologias:</h5>
             <ul id="content-lang">
-              <li v-for="langId in langsProject" :key="langId">
+              <li v-for="langId in languagesUsed" :key="langId">
                 <button>
                   {{ langId.desc }}
                 </button>
@@ -118,10 +118,10 @@ const toggleModal = () => {
           </li>
         </ul>
       </section>
-      <section v-if="access != ''" class="access">
+      <section v-if="accessDetails != ''" class="accessDetails">
         <h4>Acesso</h4>
         <ul>
-          <li v-for="item in access" :key="item">
+          <li v-for="item in accessDetails" :key="item">
             <a :href="item.link">
               <button>
                 <box-icon :type="item.type" :name="item.icon"></box-icon>
@@ -131,8 +131,8 @@ const toggleModal = () => {
           </li>
         </ul>
       </section>
-      <section v-if="newField != ''">
-        <div v-for="field in newField" :key="field">
+      <section v-if="customFields != ''">
+        <div v-for="field in customFields" :key="field">
           <h4>{{ field.title }}</h4>
           <p>{{ field.desc }}</p>
         </div>
@@ -217,7 +217,7 @@ ul {
 li ul {
   display: flex;
 }
-.access ul {
+.accessDetails ul {
   display: flex;
 }
 #content-lang {
