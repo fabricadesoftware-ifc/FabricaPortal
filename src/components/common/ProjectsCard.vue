@@ -134,7 +134,7 @@ a {
 
 .carousel-inner {
   display: flex;
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 16 / 9;
   transition: transform 0.3s ease;
 }
 

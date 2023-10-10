@@ -75,7 +75,7 @@ section {
 
 .projects {
   display: flex;
-  width: -webkit-fill-available;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
@@ -89,12 +89,7 @@ section {
   }
 
   .projects {
-    display: flex;
-    width: -webkit-fill-available;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
   }
 }
 
