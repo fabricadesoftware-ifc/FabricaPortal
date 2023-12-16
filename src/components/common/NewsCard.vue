@@ -88,7 +88,7 @@ a {
   .wrapper {
     width: 300px;
   }
-  .card {
+  a {
     width: auto;
     margin-bottom: 15px;
   }
