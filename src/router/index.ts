@@ -62,6 +62,16 @@ const router = createRouter({
       path: '/publications',
       name: 'publications',
       component: DevView
+    },
+    {
+      path: '/all-news',
+      name: 'all-news',
+      component: DevView
+    },
+    {
+      path: '/news',
+      name: 'news',
+      component: DevView
     }
   ],
   scrollBehavior: routerScrollBehavior,

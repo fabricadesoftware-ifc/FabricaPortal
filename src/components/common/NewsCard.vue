@@ -8,24 +8,26 @@ defineProps({
 </script>
 
 <template>
-  <div class="card">
-    <div class="wrapper" :style="{ backgroundImage: `url(${background})` }">
-      <div class="content">
-        <header>
-          <time>{{ data }}</time>
-        </header>
-        <div class="info">
-          <h3>
-            {{ title }}
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt debitis nam tempore
-            modi nobis.
-          </p>
+  <RouterLink to="/news">
+    <div class="card">
+      <div class="wrapper" :style="{ backgroundImage: `url(${background})` }">
+        <div class="content">
+          <header>
+            <time>{{ data }}</time>
+          </header>
+          <div class="info">
+            <h3>
+              {{ title }}
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt debitis nam tempore
+              modi nobis.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 <style scoped>
@@ -51,7 +53,7 @@ header {
   padding: 1em;
 }
 
-.card {
+a {
   width: 31%;
 }
 .wrapper {
@@ -88,10 +90,10 @@ header {
   }
   .card {
     width: auto;
-    margin-bottom: 15px
+    margin-bottom: 15px;
   }
   p {
-    display: none
+    display: none;
   }
   .info {
     transform: translateY(0);

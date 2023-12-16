@@ -31,7 +31,7 @@ onMounted(() => {
           :background="newCard.background"
         />
       </div>
-      <ButtonAll link="/" text="Ver todas as notícias" />
+      <ButtonAll link="/all-news" text="Ver todas as notícias" />
     </div>
   </section>
 </template>

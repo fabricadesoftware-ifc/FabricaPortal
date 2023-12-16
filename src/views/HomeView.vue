@@ -1,6 +1,6 @@
 <script setup>
 import HeroComp from '../components/HomeView/HeroSection.vue'
-import NewsComp from '../components/HomeView/NewsSection.vue'
+import NewsSection from '../components/HomeView/NewsSection.vue'
 import ProjectsSection from '../components/HomeView/ProjectsSection.vue'
 import MemberSection from '../components/HomeView/MemberSection.vue'
 import PublicationsSection from '../components/HomeView/PublicationsSection.vue'
@@ -10,7 +10,7 @@ import HardSkill from '../components/HomeView/HardSkill.vue'
 <template>
   <HeroComp />
   <main>
-    <NewsComp />
+    <NewsSection />
     <ProjectsSection />
     <MemberSection />
     <PublicationsSection />
