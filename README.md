@@ -40,24 +40,6 @@ Para começar a utilizar o portal, certifique-se de ter o npm instalado em sua m
    ```
 ---
 
-## Desenvolvedores
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/99155494?v=4" width="100px;" alt="Foto da Geovana Horodeski no GitHub"/><br>
-        <sub>
-          <b>Geovana Horodeski</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
-
----
-
 ## Contribua
 
 -   Crie um _fork_ do projeto.
