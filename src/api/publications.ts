@@ -1,4 +1,4 @@
-import { publications, type IFormats, formats, type IPublications } from '@/_data/publications'
+import { publications, type IFormats, formats, type IPublications } from '@/data/mock/publications'
 
 export default class PublicationsApi {
   getPublications(): IPublications[] {

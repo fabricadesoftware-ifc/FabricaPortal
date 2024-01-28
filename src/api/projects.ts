@@ -1,4 +1,4 @@
-import { projects, type IProjects, langs, type ILangs } from '@/_data/projects'
+import { projects, type IProjects, langs, type ILangs } from '@/data/mock/projects'
 
 export default class ProjectsApi {
   getSixProjects(): IProjects[] {

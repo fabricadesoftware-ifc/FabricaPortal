@@ -1,4 +1,4 @@
-import { news, type INews } from '@/_data/news'
+import { news, type INews } from '@/data/mock/news'
 export default class NewsApi {
   getNews(): INews[] {
     return news

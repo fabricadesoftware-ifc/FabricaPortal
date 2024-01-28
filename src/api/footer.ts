@@ -1,4 +1,4 @@
-import { footer, type IFooter } from '@/_data/footer'
+import { footer, type IFooter } from '@/data/mock/footer'
 
 export default class FooterApi {
   getFooter(): IFooter [] {

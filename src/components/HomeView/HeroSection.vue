@@ -20,8 +20,6 @@ import ButtonMore from '../common/ButtonMore.vue'
 </script>
 
 <style scoped>
-@import '@/style/base.css';
-
 section {
   margin: 0;
   border-radius: 0;

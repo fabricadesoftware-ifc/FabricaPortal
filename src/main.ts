@@ -1,5 +1,5 @@
-import './style/global.css';
-import './style/base.css';
+import './assets/style/global.css';
+import './assets/style/base.css';
 import 'boxicons';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';

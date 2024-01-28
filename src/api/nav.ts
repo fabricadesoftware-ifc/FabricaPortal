@@ -1,4 +1,4 @@
-import { links, type ILink, socialNetworks } from '@/_data/nav'
+import { links, type ILink, socialNetworks } from '@/data/mock/nav'
 
 export default class NavApi {
   getLinks(): ILink [] {

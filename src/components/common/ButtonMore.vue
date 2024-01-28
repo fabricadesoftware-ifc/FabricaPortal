@@ -19,7 +19,6 @@ defineProps({
 </template>
 
 <style scoped>
-@import '@/style/base.css';
 
 button {
   background-color: transparent;
