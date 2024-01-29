@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 import { onMounted, ref, onUnmounted } from 'vue'
 
 import NavApi from '@/api/nav'
-import { type ILink } from '@/_data/nav'
+import { type ILink } from '@/data/mock/nav'
 
 const navApi = new NavApi()
 const links = ref<Array<ILink>>([])
@@ -127,9 +127,9 @@ function closeNavMenu(): void {
 </template>
 
 <style scoped>
-.active {
+/* .active {
   color: var(--primary-color);
-}
+} */
 
 nav {
   background-color: var(--bg-black);
@@ -177,6 +177,38 @@ a {
   font-weight: 600;
   text-decoration: none;
   color: var(--white);
+  position: relative;
+}
+
+a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+.nav-links ul li:nth-child(1) a::after {
+  background-color: var(--primary-color);
+}
+
+.nav-links ul li:nth-child(2) a::after {
+  background-color: var(--secondary-color);
+}
+
+.nav-links ul li:nth-child(3) a::after {
+  background-color: var(--tertiary-color);
+}
+
+.nav-links ul li:nth-child(4) a::after {
+  background-color: var(--quaternary-color);
 }
 
 @media only screen and (min-width: 1280px) {
