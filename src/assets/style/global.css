@@ -10,14 +10,18 @@
 }
 
 body {
-    scrollbar-width: thin;
+    scrollbar-width: thin;  
 }
 
-h3, h4, h5, p {
+h3,
+h4,
+h5,
+p {
     color: var(--text-color);
 }
 
-nav img, footer img {
+nav img,
+footer img {
     border-radius: 0;
 }
 
@@ -62,14 +66,18 @@ p {
     align-items: center;
     text-align: center;
     font-size: 0.8em;
-    color: var(--status); 
+    color: var(--status);
 }
 
 .status {
     display: flex;
 }
 
-section, img, .card, .wrapper, .carousel {
+section,
+img,
+.card,
+.wrapper,
+.carousel {
     border-radius: var(--border-rd);
 }
 
@@ -103,6 +111,7 @@ section, img, .card, .wrapper, .carousel {
         margin: 40px 0;
         font-weight: 700;
     }
+
     html {
         scroll-padding-top: 3em;
     }
