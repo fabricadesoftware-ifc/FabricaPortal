@@ -1,7 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import ProjectsApi from '@/api/projects'
 import ProjectsCard from "@/components/common/ProjectsCard.vue"
+import PaginationButtons from '@/components/Pagination/PaginationButtons.vue'
 import MembersApi from '@/api/members'
 
 const projectsApi = new ProjectsApi()
@@ -9,13 +10,21 @@ const membersApi = new MembersApi()
 const projects = ref([])
 const langs = ref([])
 const members = ref([])
-
+const itemsPerPage = 12;
+const currentPage = ref(1);
+const pages = computed(() => {
+  return Math.ceil(projects.value.length / itemsPerPage)
+});
+const displayedItems = computed(() => {
+  const startIndex = (currentPage.value -1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return projects.value.slice(startIndex, endIndex);
+});
 
 onMounted(() => {
   projects.value = projectsApi.getProjects()
   langs.value = projectsApi.getLangs()
   members.value = membersApi.getMembers()
-
 })
 function getProjectLangs(project) {
   if (project.languagesUsed) {
@@ -35,12 +44,17 @@ function getProjectMembers(project) {
     }).filter(member => member !== null)
   }
 }
+
+function changePage(page) {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 </script>
 <template>
   <main>
     <section class="projects">
       <ProjectsCard
-        v-for="project of projects"
+        v-for="project of displayedItems"
         :key="project.id"
         :title="project.title"
         :description="project.description"
@@ -53,6 +67,7 @@ function getProjectMembers(project) {
         :status="project.status"
       />
     </section>
+    <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage"/>
   </main>
 </template>
 
