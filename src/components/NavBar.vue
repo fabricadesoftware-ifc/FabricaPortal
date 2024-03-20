@@ -261,7 +261,7 @@ a:hover::after {
   .nav-links {
     z-index: 5;
     position: absolute;
-    height: 87vh;
+    height: 92vh;
     display: flex;
     text-align: center;
     top: 80px;
