@@ -58,13 +58,16 @@ function getProjectMembers(project) {
 
 <style scoped>
 main {
-  padding: var(--pn-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--bg-gray);
-
+  padding-top: var(--pn-main);
 }
 .projects {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 80%;
 }
 </style>
