@@ -146,6 +146,7 @@ a {
   margin-bottom: 70px;
   flex-shrink: 0;
   background-color: var(--bg-white);
+  min-width: 300px;
 }
 header {
   display: flex;

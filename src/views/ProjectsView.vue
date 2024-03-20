@@ -99,6 +99,10 @@ function changeFilter(f) {
 
 <style scoped>
 main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-gray);
   padding-top: var(--pn-main);
 }
 .projects {
@@ -108,5 +112,6 @@ main {
   border-radius: 0;
   padding: 4em var(--pn-main);
   justify-content: space-between;
+  width: 80%;
 }
 </style>
