@@ -2,7 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import ProjectsApi from '@/api/projects'
 import ProjectsCard from "@/components/common/ProjectsCard.vue"
-import PaginationButtons from '@/components/Pagination/PaginationButtons.vue'
+import PaginationButtons from '@/components/common/PaginationButtons.vue'
 import MembersApi from '@/api/members'
 
 const projectsApi = new ProjectsApi()

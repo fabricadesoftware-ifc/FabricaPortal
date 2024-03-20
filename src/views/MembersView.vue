@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 
 import FilterComp from '@/components/MembersView/FilterComp.vue'
 import MemberCard from '@/components/common/MemberCard.vue'
-import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
+import PaginationButtons from '@/components/common/PaginationButtons.vue';
 
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
