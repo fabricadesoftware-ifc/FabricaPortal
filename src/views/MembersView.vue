@@ -2,20 +2,31 @@
 import { ref, computed, onMounted } from 'vue'
 
 import FilterComp from '@/components/MembersView/FilterComp.vue'
-import MemberCard from '../components/common/MemberCard.vue'
+import MemberCard from '@/components/common/MemberCard.vue'
+import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const members = ref([])
 const occupations = ref([''])
 const filterName = ref('')
+const itemsPerPage = 10;
+const currentPage = ref(1);
+const pages = computed(() => {
+  return Math.ceil(members.value.length / itemsPerPage)
+});
+const displayedItems = computed(() => {
+  const startIndex = (currentPage.value -1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return members.value.slice(startIndex, endIndex);
+});
 
 function removeAccents(name) {
   return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
 const filteredMembers = computed(() =>
-  members.value.filter((m) => {
+  displayedItems.value.filter((m) => {
     const memberName = removeAccents(m.name.toLowerCase())
     const filter = removeAccents(filterName.value.toLowerCase())
     return memberName.includes(filter)
@@ -24,6 +35,11 @@ const filteredMembers = computed(() =>
 
 function changeFilterName(name) {
   filterName.value = name
+}
+
+function changePage(page) {
+  currentPage.value = page;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 onMounted(() => {
@@ -47,6 +63,7 @@ onMounted(() => {
         :occupation="member.occupation"
       />
     </section>
+    <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage"/>
   </main>
 </template>
 

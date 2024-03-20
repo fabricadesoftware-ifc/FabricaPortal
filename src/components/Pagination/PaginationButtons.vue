@@ -44,6 +44,8 @@ function changePage(page) {
         align-items: center;
         justify-content: center;
         gap: 20px;
+        background-color: transparent;
+        margin: 20px 0;
     }
 
     .pages {
