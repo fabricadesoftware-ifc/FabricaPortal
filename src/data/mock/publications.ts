@@ -34,7 +34,6 @@ const publications: Array<IPublications> = [
     membersIds: ['2', '9', '5', '14', '11'],
     formatId: '2'
   },
-  
 ]
 
 export { publications, type IPublications, type IFormats, formats}
