@@ -20,7 +20,7 @@ function changePage(page) {
 </script>
 
 <template>
-    <section>
+    <section v-if="pages > 1">
         <button class="btn-page previous-page" @click="previousPage" >
             <box-icon name='left-arrow-alt' id="icon"></box-icon>
         </button>
