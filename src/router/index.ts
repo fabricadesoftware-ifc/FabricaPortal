@@ -10,6 +10,7 @@ import MembersView from '../views/MembersView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import DevView from "@/views/DevView.vue"
 import PublicationsView from '@/views/PublicationsView.vue'
+import PublicationDetails from '@/views/PublicationDetails.vue'
 const routerScrollBehavior: RouterScrollBehavior = async (to, from, savedPosition) => {
   if (savedPosition) {
     return savedPosition;
@@ -57,7 +58,7 @@ const router = createRouter({
     {
       path: '/publication/:id',
       name: 'publication',
-      component: DevView
+      component: PublicationDetails
     },
     {
       path: '/publications',
