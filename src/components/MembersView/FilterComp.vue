@@ -1,12 +1,13 @@
 <script setup>
-import { ref, defineEmits, defineProps, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import ButtonAll from '../common/ButtonAll.vue'
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
 const occupations = ref([])
 const filterName = ref('')
+const selectedOccupation = ref('Todos')
 const props = defineProps(['members'])
-defineEmits(['change'])
+const emit = defineEmits(['change', 'occupation', ''])
 
 const showFilterContainer = ref(false)
 const toggleFilterContainer = () => {
@@ -32,6 +33,11 @@ const updateDataList = () => {
   }
 }
 
+const search = () => {
+  emit('change', filterName.value)
+  emit('occupation', selectedOccupation.value)
+}
+
 const dataListMembers = ref([])
 const showDataList = ref(false)
 </script>
@@ -50,7 +56,7 @@ const showDataList = ref(false)
           autocomplete="off"
           v-model="filterName"
           @input="updateDataList"
-          @keyup.enter="$emit('change', filterName)"
+          @keyup.enter="search"
         />
         <datalist v-if="showDataList" id="members">
           <option v-for="member of dataListMembers" :value="member.name" :key="member.id">
@@ -92,8 +98,8 @@ const showDataList = ref(false)
           <div class="filter-options">
             <div>
               <label for="">Ocupação</label>
-              <select class="select-occup" name="" id="">
-                <option value="">a</option>
+              <select class="select-occup" name="" id="" v-model="selectedOccupation">
+                <option v-for="occupation in occupations" :key="occupation.id" :value="occupation.description">{{ occupation.description }}</option>
               </select>
             </div>
             <div>
@@ -115,9 +121,8 @@ const showDataList = ref(false)
               </select>
             </div>
           </div>
-          <ButtonAll text="Buscar" link="" />
+          <ButtonAll text="Buscar" link="" @click="search"/>
         </div>
-
       </div>
     </form>
   </section>
