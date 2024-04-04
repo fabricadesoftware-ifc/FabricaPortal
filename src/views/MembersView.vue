@@ -21,9 +21,12 @@ const filteredMembers = computed(() =>
     const filter = removeAccents(filterName.value.toLowerCase())
     const filteredMembersByName = memberName.includes(filter)
     
-    if(members)
+    if (selectedOccupation.value == 'Todos')
+    return filteredMembersByName
+
     return filteredMembersByName && m.occupation.description == selectedOccupation.value
-  })
+})
+
 )
 
 function changeFilterName(name) {
