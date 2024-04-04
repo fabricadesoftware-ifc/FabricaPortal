@@ -99,25 +99,8 @@ const showDataList = ref(false)
             <div>
               <label for="">Ocupação</label>
               <select class="select-occup" name="" id="" v-model="selectedOccupation">
+                <option value="Todos">Todos</option>
                 <option v-for="occupation in occupations" :key="occupation.id" :value="occupation.description">{{ occupation.description }}</option>
-              </select>
-            </div>
-            <div>
-              <label for="">Atividade</label>
-              <select class="select-atv" name="" id="">
-                <option value=""></option>
-              </select>
-            </div>
-            <div>
-              <label for="">Bolsistas</label>
-              <select class="select-bols" name="" id="">
-                <option value=""></option>
-              </select>
-            </div>
-            <div>
-              <label for="">Ordenação</label>
-              <select class="select-order" name="" id="">
-                <option value=""></option>
               </select>
             </div>
           </div>
@@ -215,12 +198,13 @@ form #search {
 }
 .filter-options {
   display:flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .filter-options div {
   width: 24%;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .filter-options select {
   padding: 10px;
