@@ -10,6 +10,8 @@ import MembersView from '../views/MembersView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import DevView from "@/views/DevView.vue"
 import PublicationsView from '@/views/PublicationsView.vue'
+import NewsView from '@/views/NewsView.vue'
+import NewsDetails from '@/views/NewsDetails.vue'
 import PublicationDetails from '@/views/PublicationDetails.vue'
 import AboutUs from '@/views/AboutUs.vue'
 
@@ -70,12 +72,12 @@ const router = createRouter({
     {
       path: '/all-news',
       name: 'all-news',
-      component: DevView
+      component: NewsView
     },
     {
       path: '/news',
       name: 'news',
-      component: DevView
+      component: NewsDetails
     }
   ],
   scrollBehavior: routerScrollBehavior,
