@@ -29,6 +29,7 @@ onMounted(() => {
           :data="newCard.data"
           :user="newCard.user"
           :background="newCard.background"
+          :linkProject="newCard.id"
         />
       </div>
       <ButtonAll link="/all-news" text="Ver todas as notícias" />
