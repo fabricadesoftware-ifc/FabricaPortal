@@ -75,9 +75,10 @@ const router = createRouter({
       component: NewsView
     },
     {
-      path: '/news',
+      path: '/news/:id',
       name: 'news',
-      component: NewsDetails
+      component: NewsDetails,
+      props: true
     }
   ],
   scrollBehavior: routerScrollBehavior,
