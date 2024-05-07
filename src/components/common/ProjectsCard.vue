@@ -130,16 +130,19 @@ a {
   overflow: hidden;
   border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+  min-height: 200px;
 }
 
 .carousel-inner {
   display: flex;
   aspect-ratio: 16 / 9;
   transition: transform 0.3s ease;
+  min-height: 200px;
 }
 
 .carousel-inner img {
-  height: fit-content;
+  min-height: 200px;
+  min-width: 100%;
 }
 .card {
   width: 32%;
@@ -258,8 +261,6 @@ span {
 @media only screen and (max-width: 425px) {
   .card {
     width: 85%;
-    margin-bottom: 15px;
-    margin-right: 20px;
   }
   footer {
     display: none;

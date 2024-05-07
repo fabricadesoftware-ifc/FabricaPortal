@@ -109,9 +109,10 @@ main {
   background-color: var(--bg-gray);
   display: flex;
   flex-wrap: wrap;
-  border-radius: 0;
-  padding: 4em var(--pn-main);
-  justify-content: space-between;
-  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 20px;
+  width: 100%;
 }
 </style>

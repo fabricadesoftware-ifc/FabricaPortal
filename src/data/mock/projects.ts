@@ -190,6 +190,7 @@ const projects: Array<IProjects> = [
     images: [
       'https://noticias.memoria.araquari.ifc.edu.br/wp-content/uploads/sites/11/2022/07/IMG_0638.jpeg',
       'https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/IMG_0624.jpeg',
+      'https://noticias.memoria.araquari.ifc.edu.br/wp-content/uploads/sites/11/2022/07/IMG_0571.jpeg'
     ],
     projectMembers: ['8', '6', '1', '2', '5', '9'],
     type: 'Extensão',
