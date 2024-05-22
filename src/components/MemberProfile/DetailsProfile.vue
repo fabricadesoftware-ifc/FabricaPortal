@@ -19,8 +19,8 @@ defineProps({
     <p>{{ description }}</p>
   </section>
 </template>
+
 <style scoped>
-/*padronizar os h2*/
 h2 {
   color: var(--text-color);
   margin: 0;
