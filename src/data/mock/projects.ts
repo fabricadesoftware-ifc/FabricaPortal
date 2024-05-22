@@ -114,6 +114,12 @@ const langs: Array<ILangs> = [
     desc: 'css',
     icon: 'css3',
     type: 'logo'
+  },
+  {
+    id: '17',
+    desc: 'streamlit',
+    icon: 'streamlit',
+    type: 'logo'
   }
 ]
 
@@ -184,7 +190,6 @@ const projects: Array<IProjects> = [
     images: [
       'https://noticias.memoria.araquari.ifc.edu.br/wp-content/uploads/sites/11/2022/07/IMG_0638.jpeg',
       'https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/IMG_0624.jpeg',
-      'data:image/jpeg;base64,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'
     ],
     projectMembers: ['8', '6', '1', '2', '5', '9'],
     type: 'Extensão',
@@ -337,7 +342,360 @@ const projects: Array<IProjects> = [
     type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
-  }
+  },
+  {
+    id: '17',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica Empenhos',
+    status: 'Em andamento',
+    projectMembers: ['1', '24'],
+    coordMembers: ['1'],
+    scholarshipMembers: ['24'],
+    languagesUsed: ['2', '17'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'A transparência na Gestão Pública é um princípio fundamental. Embora tenhamos mecanismos de consulta disponibilizados pelo Governo Federal, este projeto visa demonstrar para a comunidade local de que forma o Campus está empenhando o recurso disponível e também acompanhar as despesas já liquidadas pela gestão do Campus. Este projeto foi desenvolvido com Python e streamlit.'
+  },
+  {
+    id: '18',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica Class',
+    status: 'Em andamento',
+    projectMembers: ['1', '46', '21', '35', '24', '48', '34', '41' ],
+    coordMembers: ['1'],
+    scholarshipMembers: ['46', '21', '35', '24', '48', '34', '41'],
+    languagesUsed: ['3', '11', '12', '13', '16'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'O processo de ensino-aprendizagem precisa constantemente ser aprimorado. Visando isso, a Fábrica de Software desenvolveu este projeto para auxiliar os docentes na obtenção de feedback sobre as suas aulas, no que respeita aos recursos utilizados, ao ambiente, cumprimento do tempo, didática, entre outros critérios que o docente deseja que os discentes avaliem. Também permitirá a visualização de gráficos que serão construídos baseando-se no feedback fornecido. Foi utilizado, para o desenvolvimento deste projeto, Python, Django REST e Vue3.'
+  },
+  {
+    id: '19',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica PI',
+    status: 'Em andamento',
+    projectMembers: ['1', '24'],
+    coordMembers: ['1'],
+    scholarshipMembers: ['24'],
+    languagesUsed: ['2', '17'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'A Pesquisa Institucional tem a função de alimentar indicadores da instituição. Alguns destes indicadores baseiam-se nos status das matrículas realizadas nos cursos dos campi do IFC. Porém este trabalho é um tanto demorado, pois demanda análise de diversos arquivos, tratamento de dados, construção de gráficos, demorando dias, sendo um funcionário responsável por cada campus. Esta solução desenvolvida pela Fábrica de Software unirá todos os arquivos e interpretará os dados, gerando os indicadores necessários para serem lançados na plataforma oficial do IFC. Esta aplicação foi desenvolvida usando Python e streamlit.'
+  },
+  {
+    id: '20',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica NewJob',
+    status: 'Em andamento',
+    projectMembers: ['2', '32', '40'],
+    coordMembers: ['2'],
+    scholarshipMembers: ['32', '40'],
+    languagesUsed: ['12', '9', '16'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      ''
+  },
+  {
+    id: '21',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabroku',
+    status: 'Em andamento',
+    projectMembers: ['2', '49', '21'],
+    coordMembers: ['2'],
+    scholarshipMembers: ['49', '21'],
+    languagesUsed: ['15'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'Este projeto foi desenvolvido em Python sob a plataforma doku. Será crucial para automatizar o processo de deploy das aplicações desenvolvidas na Fábrica de Software.'
+  },
+  {
+    id: '22',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica Hackathon',
+    status: 'Em andamento',
+    projectMembers: ['1', '2', '50', '46', '24', '39', '8', '22', '21', '23'],
+    coordMembers: ['1', '2', '50', '22', '8'],
+    scholarshipMembers: [],
+    languagesUsed: ['3', '11', '12', '13', '16'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'A aplicação para gerenciamento dos Hackathons realizados no campus do IFC Araquari, com o apoio da Fábrica de Software, permitirá que sejam mantidos históricos de todos os participantes, das equipes, dos temas e dos trabalhos finais apresentados. A própria avaliação dos trabalhos apresentados será realizada por meio desta aplicação, que também manterá histórico dos avaliadores presentes nos Hackathons e as empresas patrocinadoras das edições deste evento. Esta aplicação foi desenvolvida usando Python, Django REST e Vue3.'
+  },
+  {
+    id: '23',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica Iron',
+    status: 'Não iniciado',
+    projectMembers: ['1', '46', '2', '8', '50', '47', '51', '42'],
+    coordMembers: ['1', '2', '8', '50'],
+    scholarshipMembers: ['46', '47', '51', '42'],
+    languagesUsed: [],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'Este projeto está sendo desenvolvido em parceria com a iniciativa privada, para que possa otimizar a utilização dos blocos de aço utilizados na construção de moldes no setor metal-mecânico. O projeto está sendo desenvolvido com Python, Django REST e Vue3.'
+  },
+  {
+    id: '24',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'fabrica Node',
+    status: 'Em andamento',
+    projectMembers: ['1', '2', '35'],
+    coordMembers: ['1', '2', '35'],
+    scholarshipMembers: [],
+    languagesUsed: ['3', '11', '12', '13', '16'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'Melhorar a transparência sobre as publicações realizadas pelos docentes, técnicos e discentes do IFC Campus Araquari é o objetivo desta aplicação. As representações construídas usando o conceito de grafos pretendem definir os nós como as keywords das publicações e as arestas dos nós, que são as relações entre os nós, são construídas baseando-se na publicação em que encontram-se os nós. Dessa forma é suposto facilitar a visualização das pesquisas relacionadas ao campus, assim como também identificar de que forma que as diferentes áreas do conhecimento se relacionam na nossa instituição. Esta aplicação será desenvolvida usando Python, Django REST e Vue3.'
+  },
+  {
+    id: '25',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica Histologia',
+    status: 'Em andamento',
+    projectMembers: ['1', '2', '24', '42', '47'],
+    coordMembers: ['1', '2'],
+    scholarshipMembers: ['24', '42', '47'],
+    languagesUsed: ['3', '11', '12', '13', '16'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'O Atlas de Histologia é uma aplicação desenvolvida em conjunto com a área de Medicina Veterinária do IFC. O objetivo deste projeto é manter histórico de análises microbiológicas realizadas pelos discentes e docentes do curso, servindo como material didático nas aulas dos cursos Técnico em Agropecuária e o Bacharelado em Medicina Veterinária. Também ficará disponível para a comunidade externa ao campus, servindo de referencia para acadêmicos que estejam realizando estudos na área.'
+  },
+  {
+    id: '26',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica Painel',
+    status: 'Em andamento',
+    projectMembers: ['2', '24', '21'],
+    coordMembers: [],
+    scholarshipMembers: [],
+    languagesUsed: ['3', '11', '12', '13', '16'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'Anualmente ocorre o evento chamado Painel de Integração no Campus de Araquari. Este evento, voltado para o ensino médio, busca fomentar a iniciação científica entre os discentes e também a integração entre as disciplinas dos cursos técnicos integrados. Esta aplicação gerenciará as equipes que apresentam os trabalhos, as submissões de resumo, avaliações dos resumos, notas dadas pelos avaliadores e também a disponibilização dos resumos anualmente submetidos para o Painel de Integração. Esta aplicação será desenvolvida usando Python, Django REST e Vue3.'
+  },
+  {
+    id: '29',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/image1.png'],
+    title: 'Fabrica Markowitz',
+    status: 'Em andamento',
+    projectMembers: ['1', '24'],
+    coordMembers: ['1'],
+    scholarshipMembers: ['24'],
+    languagesUsed: ['2', '17'],
+    version: '1.0.0',
+    tags: ['informações', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'A Teoria de Markowitz data de 1952 e até hoje influencia o mercado financeiro. Ela é utilizada para dar suporte na tomada de decisão sobre quais ativos a pessoa pretende adquirir para investimento na bolsa de valores. Por meio desta teoria é possível apresentar um nível de risco sobre o ativo baseado no seu histórico, sendo um fator de grande relevância para o investidor. A aplicação será desenvolvida usando Python e streamlit.'
+  },
+
 ]
 
 export { projects, type IProjects, langs, type ILangs }
