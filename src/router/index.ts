@@ -3,13 +3,15 @@ import {
   createWebHistory,
   type RouterScrollBehavior,
 } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
 import MemberProfile from '../views/MemberProfile.vue'
 import ProjectDetails from '../views/ProjectDetails.vue'
 import MembersView from '../views/MembersView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
-import DevView from "@/views/DevView.vue"
 import PublicationsView from '@/views/PublicationsView.vue'
+import NewsView from '@/views/NewsView.vue'
+import NewsDetails from '@/views/NewsDetails.vue'
 import PublicationDetails from '@/views/PublicationDetails.vue'
 import AboutUs from '@/views/AboutUs.vue'
 
@@ -70,12 +72,13 @@ const router = createRouter({
     {
       path: '/all-news',
       name: 'all-news',
-      component: DevView
+      component: NewsView
     },
     {
-      path: '/news',
+      path: '/news/:id',
       name: 'news',
-      component: DevView
+      component: NewsDetails,
+      props: true
     }
   ],
   scrollBehavior: routerScrollBehavior,

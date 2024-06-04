@@ -3,12 +3,18 @@ defineProps({
   title: String,
   data: String,
   user: String,
-  background: String
+  background: String,
+  linkProject: Number,
 })
+
+const UrlProject = (id) => {
+  return `/news/${id}`
+}
+
 </script>
 
 <template>
-  <RouterLink to="/news">
+  <RouterLink :to="UrlProject(linkProject)">
     <div class="card">
       <div class="wrapper" :style="{ backgroundImage: `url(${background})` }">
         <div class="content">

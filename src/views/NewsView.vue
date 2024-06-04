@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import ButtonAll from '../common/ButtonAll.vue'
-import NewsCard from '../common/NewsCard.vue'
+import NewsCard from '@/components/common/NewsCard.vue';
 
 import NewsApi from '@/api/news'
 const newsApi = new NewsApi()
@@ -18,7 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="news">
+  <main id="news">
     <h2>Notícias</h2>
     <div class="container">
       <div class="news">
@@ -32,9 +31,8 @@ onMounted(() => {
           :linkProject="newCard.id"
         />
       </div>
-      <ButtonAll link="/all-news" text="Ver todas as notícias" />
     </div>
-  </section>
+  </main>
 </template>
 
 <style scoped>
@@ -71,4 +69,15 @@ onMounted(() => {
   gap: 10px;
 }
 }
+
+main {
+    padding: var(--pn-main);
+    background-color: var(--bg-gray);
+
+  }
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 </style>
