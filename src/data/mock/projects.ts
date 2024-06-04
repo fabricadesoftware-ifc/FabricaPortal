@@ -233,7 +233,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     title: 'FabricaNeeds',
     status: 'Em desenvolvimento',
-    languagesUsed: ['13', '2'],
+    languagesUsed: ['13', '2', '11'],
     type: 'Extensão',
     description:
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
@@ -317,7 +317,7 @@ const projects: Array<IProjects> = [
     ],
     title: 'Portal da Fábrica de Software ',
     status: 'Em andamento',
-    projectMembers: ['1', '2', '16'],
+    projectMembers: ['1', '2', '16', '23', '46'],
     coordMembers: ['1', '2'],
     scholarshipMembers: ['16'],
     languagesUsed: ['12', '9', '16'],
