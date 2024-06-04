@@ -16,10 +16,8 @@ const toggleFilterContainer = () => {
 
 onMounted(() => {
   occupations.value = membersApi.getOccupations()
+  search()
 })
-const removeAccents = (text) => {
-  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-}
 const updateDataList = () => {
   if (filterName.value.length >= 2) {
     const inputText = filterName.value.toLowerCase()
@@ -46,67 +44,48 @@ const showDataList = ref(false)
   <section>
     <h2>Membros</h2>
     <form @submit.prevent="filterName">
-      <div class="search-container" id="search">
-        <input
-          type="text"
-          name="member"
-          list="members"
-          id="input-search"
-          placeholder="Geovana Sophia Horodeski, aluna, Portal da Fábrica..."
-          autocomplete="off"
-          v-model="filterName"
-          @input="updateDataList"
-          @keyup.enter="search"
-        />
-        <datalist v-if="showDataList" id="members">
-          <option v-for="member of dataListMembers" :value="member.name" :key="member.id">
-            {{ member.name }}
+      <div class="filter-container">
+        <div class="search-container" id="search">
+          <input
+            type="text"
+            name="member"
+            list="members"
+            id="input-search"
+            placeholder="Nome do(a) membro"
+            autocomplete="off"
+            v-model="filterName"
+            @input="updateDataList"
+            @keyup.enter="search"
+          />
+        </div>
+        <select class="select-occup" name="" id="" v-model="selectedOccupation">
+          <option value="Todos">Todos</option>
+          <option
+            v-for="occupation in occupations"
+            :key="occupation.id"
+            :value="occupation.description"
+          >
+            {{ occupation.description }}
           </option>
-        </datalist>
+        </select>
         <div class="filter-toggle">
-          <button>
+          <button class="filter-btn" @click="search">
             <box-icon name="search-alt" size="1.5em" color="var(--white)"></box-icon>
-          </button>
-          <button class="filter-btn" @click="toggleFilterContainer">
-            <span>FILTRAR</span>
-            <box-icon name='filter-alt' size="1.5em" class="icon-filter" color="var(--white)"></box-icon>
+            <span>BUSCAR</span>
             <box-icon
-              name="chevron-down"
-              size="1.2em"
+              name="filter-alt"
+              size="1.5em"
+              class="icon-filter"
               color="var(--white)"
-              type="solid"
-              class="icon"
-              v-if="showFilterContainer != true"
-            ></box-icon>
-            <box-icon
-              v-if="showFilterContainer"
-              name="chevron-up"
-              size="1.2em"
-              color="var(--white)"
-              class="icon"
-              type="solid"
             ></box-icon>
           </button>
         </div>
       </div>
-      <!--
-        filtrar por ocupação(ex: professor, aluno, graduação. obs: Se ficar com poucos campos dá pra separar os bolsistas),
-        atividade(inativo ou ativo), ordenação (a-z, z-a, quantos membros por página)                                   
-      -->
-      <div class="filter-container" :class="{ expanded: showFilterContainer }">
-        <div class="container">
-          <div class="filter-options">
-            <div>
-              <label for="">Ocupação</label>
-              <select class="select-occup" name="" id="" v-model="selectedOccupation">
-                <option value="Todos">Todos</option>
-                <option v-for="occupation in occupations" :key="occupation.id" :value="occupation.description">{{ occupation.description }}</option>
-              </select>
-            </div>
-          </div>
-          <ButtonAll text="Buscar" link="" @click="search"/>
-        </div>
-      </div>
+      <datalist v-if="showDataList" id="members">
+        <option v-for="member of dataListMembers" :value="member.name" :key="member.id">
+          {{ member.name }}
+        </option>
+      </datalist>
     </form>
   </section>
 </template>
@@ -127,7 +106,7 @@ section form {
   display: flex;
   flex-direction: column;
 }
-button{
+button {
   margin: 1em auto;
 }
 form .search-container {
@@ -138,7 +117,7 @@ form .search-container {
   box-shadow: var(--light-shadow);
 }
 .icon-filter {
-  display: none
+  display: none;
 }
 .expanded {
   max-height: 500px;
@@ -168,7 +147,6 @@ form #search {
 .filter-btn {
   display: flex;
   align-items: center;
-  padding-left: 0.6em;
   border-left: 1px solid var(--white);
 }
 .filter-toggle span {
@@ -178,8 +156,7 @@ form #search {
 }
 
 .filter-container {
-  max-height: 0;
-  overflow: hidden;
+  display: flex;
   width: 100%;
   transition: max-height var(--effect) ease-in-out;
 }
@@ -197,7 +174,7 @@ form #search {
   display: flex;
 }
 .filter-options {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 .filter-options div {
@@ -206,12 +183,14 @@ form #search {
   flex-direction: column;
   text-align: center;
 }
-.filter-options select {
+
+select {
+  margin-left: 2%;
+  margin-right: 2%;
   padding: 10px;
   border-radius: var(--border-rd);
   border: none;
   background-color: rgb(0 0 0 / 6%);
-  margin-top: 1em;
 }
 
 .select-occup:focus {
@@ -256,7 +235,7 @@ form #search {
 }
 @media only screen and (max-width: 768px) {
   section {
-    margin: 0px ;
+    margin: 0px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -264,18 +243,17 @@ form #search {
     flex-direction: column;
   }
   .filter-btn span {
-  display: none
-}
-.icon-filter {
-  display: flex
-}
+    display: none;
+  }
+  .icon-filter {
+    display: flex;
+  }
   .filter-options div {
     width: 100%;
     margin-bottom: 10px;
   }
-  .filter-btn .icon{
-    display:none
+  .filter-btn .icon {
+    display: none;
   }
 }
-
 </style>
