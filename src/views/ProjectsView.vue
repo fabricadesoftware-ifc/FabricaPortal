@@ -24,7 +24,7 @@ function getProjectLangs(project) {
       return lang ? lang : null
     }).filter(lang => lang !== null)
   } else {
-    return []
+    return [] 
   }
 }
 function getProjectMembers(project) {
