@@ -15,7 +15,6 @@ onMounted(async () => {
   const newsIdFromUrl = path.substring(path.lastIndexOf('/') + 1)
   newsId.value = newsIdFromUrl
   news.value = newsApi.getNewsById(newsId.value)
-  console.log(news.value);
 })
 
 </script>

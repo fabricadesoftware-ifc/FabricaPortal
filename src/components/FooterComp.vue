@@ -19,8 +19,12 @@ onMounted(async () => {
         <h4>{{ itens.title }}</h4>
         <ul>
           <li v-for="i in itens.accessDetails" :key="i">
-            <a href=""> {{ i.link }} </a>
-            <span href=""> {{ i.desc }} </span>
+            <a :href="i.to" v-if="i.desc !== ''"> {{ i.link }} </a>
+            <a :href="i.to" target="_blank" v-else>
+              <box-icon style="margin: 0 8px" color="var(--white)" size="2em" type="logo"
+                :name="i.link"></box-icon>
+            </a>
+            <span v-if="i.desc!==''"> {{ i.desc }} </span>
           </li>
         </ul>
       </div>

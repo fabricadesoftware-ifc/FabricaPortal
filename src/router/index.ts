@@ -3,12 +3,12 @@ import {
   createWebHistory,
   type RouterScrollBehavior,
 } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
 import MemberProfile from '../views/MemberProfile.vue'
 import ProjectDetails from '../views/ProjectDetails.vue'
 import MembersView from '../views/MembersView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
-import DevView from "@/views/DevView.vue"
 import PublicationsView from '@/views/PublicationsView.vue'
 import NewsView from '@/views/NewsView.vue'
 import NewsDetails from '@/views/NewsDetails.vue'
