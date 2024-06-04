@@ -277,7 +277,7 @@ const members: Array<IMembers> = [
     id: '21',
     image: 'https://avatars.githubusercontent.com/u/106831722?v=4',
     name: 'Lucas Gabriel Antonete',
-    description: 'IFC - Araquari, Membro da Fábrica de Software.',
+    description: 'Terminando o técnico em informática para internet, membro da fábrica de software há dois anos, onde foram adquiridas habilidades mais aprofundadas com Django DRF, Vue.js, React, processamento de dados com Pandas, Data Warehouse, sistema de mensageria e microsserviços. O aluno também lidera um projeto onde exerce habilidades relacionadas à gestão e SCRUM, além de ser um dos alunos responsáveis por tutoriar e ajudar novos integrantes do projeto.',
     projectIds: ['18', '22', '26'],
     occupation: {
       id: '2',
