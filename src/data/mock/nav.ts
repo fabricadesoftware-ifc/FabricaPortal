@@ -40,7 +40,7 @@ const socialNetworks: Array<ILink> = [
   },
   {
     icon: 'twitter',
-    to: 'https://twitter.com/FabSoftwareIFC'
+    to: 'https://x.com/FabSoftwareIFC'
   },
   {
     icon: 'instagram',

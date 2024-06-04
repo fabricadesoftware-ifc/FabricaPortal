@@ -40,7 +40,7 @@ const footer: Array<IFooter> = [
       },
       {
         link: 'instagram',
-        to: 'https://www.instagram.com/f_softwareifc/',
+        to: 'https://instagram.com/fabricadesoftware.ifc/',
         desc: ''
       },
       {
