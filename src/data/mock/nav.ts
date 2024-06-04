@@ -44,7 +44,7 @@ const socialNetworks: Array<ILink> = [
   },
   {
     icon: 'instagram',
-    to: 'https://www.instagram.com/f_softwareifc/'
+    to: 'https://instagram.com/fabricadesoftware.ifc/'
   },
 ]
 
