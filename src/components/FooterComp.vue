@@ -15,7 +15,7 @@ onMounted(async () => {
   <footer>
     <div class="links">
       <div v-for="itens in footer" :key="itens">
-        <h4 :class="itens.title == 'Redes Sociais' ? 'socialTitle' : ''">{{ itens.title }}</h4>
+        <h4>{{ itens.title }}</h4>
         <ul :class="itens.title == 'Redes Sociais' ? 'social' : ''">
           <li v-for="i in itens.accessDetails" :key="i">
             <a :href="i.to" v-if="i.desc !== ''"> {{ i.link }} </a>
@@ -60,11 +60,6 @@ footer .links {
 .social {
   display: flex;
   gap: 10px;
-  justify-content: center;
-}
-
-.socialTitle {
-  display: flex;
   justify-content: center;
 }
 
