@@ -3,47 +3,25 @@ import { ref, onMounted } from 'vue'
 import ButtonAll from '../common/ButtonAll.vue'
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
-const occupations = ref([])
 const filterName = ref('')
 const selectedOccupation = ref('Todos')
-const props = defineProps(['members'])
+const props = defineProps(['members', 'occupations'])
 const emit = defineEmits(['change', 'occupation', ''])
 
-const showFilterContainer = ref(false)
-const toggleFilterContainer = () => {
-  showFilterContainer.value = !showFilterContainer.value
-}
-
 onMounted(() => {
-  occupations.value = membersApi.getOccupations()
   search()
 })
-const updateDataList = () => {
-  if (filterName.value.length >= 2) {
-    const inputText = filterName.value.toLowerCase()
-    const filteredMembers = props.members.filter((member) =>
-      member.name.toLowerCase().startsWith(inputText)
-    )
-    dataListMembers.value = filteredMembers
-    showDataList.value = true
-  } else {
-    showDataList.value = false
-  }
-}
 
 const search = () => {
   emit('change', filterName.value)
   emit('occupation', selectedOccupation.value)
 }
-
-const dataListMembers = ref([])
-const showDataList = ref(false)
 </script>
 
 <template>
   <section>
     <h2>Membros</h2>
-    <form @submit.prevent="filterName">
+    <form @submit.prevent="search">
       <div class="filter-container">
         <div class="search-container" id="search">
           <input
@@ -54,14 +32,13 @@ const showDataList = ref(false)
             placeholder="Nome do(a) membro"
             autocomplete="off"
             v-model="filterName"
-            @input="updateDataList"
             @keyup.enter="search"
           />
         </div>
         <select class="select-occup" name="" id="" v-model="selectedOccupation">
           <option value="Todos">Todos</option>
           <option
-            v-for="occupation in occupations"
+            v-for="occupation in props.occupations"
             :key="occupation.id"
             :value="occupation.description"
           >
@@ -81,11 +58,6 @@ const showDataList = ref(false)
           </button>
         </div>
       </div>
-      <datalist v-if="showDataList" id="members">
-        <option v-for="member of dataListMembers" :value="member.name" :key="member.id">
-          {{ member.name }}
-        </option>
-      </datalist>
     </form>
   </section>
 </template>
@@ -188,6 +160,7 @@ select {
   margin-left: 2%;
   margin-right: 2%;
   padding: 10px;
+  height: 50px;
   border-radius: var(--border-rd);
   border: none;
   background-color: rgb(0 0 0 / 6%);
