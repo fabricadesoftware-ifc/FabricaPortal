@@ -20,13 +20,11 @@ const filteredMembers = computed(() =>
     const memberName = removeAccents(m.name.toLowerCase())
     const filter = removeAccents(filterName.value.toLowerCase())
     const filteredMembersByName = memberName.includes(filter)
-    
-    if (selectedOccupation.value == 'Todos')
-    return filteredMembersByName
+
+    if (selectedOccupation.value == 'Todos') return filteredMembersByName
 
     return filteredMembersByName && m.occupation.description == selectedOccupation.value
-})
-
+  })
 )
 
 function changeFilterName(name) {
@@ -45,11 +43,23 @@ onMounted(() => {
 
 <template>
   <main>
-    <FilterComp :members="members" :occupations="occupations" @change="changeFilterName" @occupation="changeOccupation"/>
+    <FilterComp
+      :members="members"
+      :occupations="occupations"
+      @change="changeFilterName"
+      @occupation="changeOccupation"
+    />
     <section class="members">
-      <MemberCard v-for="member of filteredMembers" :key="member.id" :image="member.image" :name="member.name"
-        :description="member.description" :linkMember="member" :background="member.background"
-        :occupation="member.occupation" />
+      <MemberCard
+        v-for="member of filteredMembers"
+        :key="member.id"
+        :image="member.image"
+        :name="member.name"
+        :description="member.description"
+        :linkMember="member"
+        :background="member.background"
+        :occupation="member.occupation"
+      />
     </section>
   </main>
 </template>
@@ -110,5 +120,6 @@ main .members {
   }
 }
  */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}
 </style>

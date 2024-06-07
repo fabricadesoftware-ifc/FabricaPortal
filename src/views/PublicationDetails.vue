@@ -25,7 +25,6 @@ onMounted(async () => {
   members.value = membersApi.getMembersbyId(publication.value.membersIds)
   format.value = publicationsApi.getFormatById(publication.value.formatId)
   format.value.description = format.value.description.substring(0, format.value.description.length - 1);
-  console.log(members.value)
 });
 
 async function fetchPublication() {

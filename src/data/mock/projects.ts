@@ -118,7 +118,7 @@ const langs: Array<ILangs> = [
   {
     id: '17',
     desc: 'streamlit',
-    icon: 'streamlit',
+    icon: 'css3',
     type: 'logo'
   }
 ]
@@ -283,7 +283,7 @@ const projects: Array<IProjects> = [
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
-    id: '18',
+    id: '16',
     logo: '/img/logos/projeto/fabrica manager icon.svg',
     title: 'FabricaManager',
     status: 'Em andamento',
@@ -306,7 +306,7 @@ const projects: Array<IProjects> = [
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
-    id: '16',
+    id: '18',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: [
       '/img/Projects/FabricaPortal/image1.png',
@@ -344,7 +344,7 @@ const projects: Array<IProjects> = [
       'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
   },
   {
-    id: '17',
+    id: '19',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica Empenhos',
@@ -376,7 +376,7 @@ const projects: Array<IProjects> = [
       'A transparência na Gestão Pública é um princípio fundamental. Embora tenhamos mecanismos de consulta disponibilizados pelo Governo Federal, este projeto visa demonstrar para a comunidade local de que forma o Campus está empenhando o recurso disponível e também acompanhar as despesas já liquidadas pela gestão do Campus. Este projeto foi desenvolvido com Python e streamlit.'
   },
   {
-    id: '18',
+    id: '20',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica Class',
@@ -408,7 +408,7 @@ const projects: Array<IProjects> = [
       'O processo de ensino-aprendizagem precisa constantemente ser aprimorado. Visando isso, a Fábrica de Software desenvolveu este projeto para auxiliar os docentes na obtenção de feedback sobre as suas aulas, no que respeita aos recursos utilizados, ao ambiente, cumprimento do tempo, didática, entre outros critérios que o docente deseja que os discentes avaliem. Também permitirá a visualização de gráficos que serão construídos baseando-se no feedback fornecido. Foi utilizado, para o desenvolvimento deste projeto, Python, Django REST e Vue3.'
   },
   {
-    id: '19',
+    id: '21',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica PI',
@@ -440,7 +440,7 @@ const projects: Array<IProjects> = [
       'A Pesquisa Institucional tem a função de alimentar indicadores da instituição. Alguns destes indicadores baseiam-se nos status das matrículas realizadas nos cursos dos campi do IFC. Porém este trabalho é um tanto demorado, pois demanda análise de diversos arquivos, tratamento de dados, construção de gráficos, demorando dias, sendo um funcionário responsável por cada campus. Esta solução desenvolvida pela Fábrica de Software unirá todos os arquivos e interpretará os dados, gerando os indicadores necessários para serem lançados na plataforma oficial do IFC. Esta aplicação foi desenvolvida usando Python e streamlit.'
   },
   {
-    id: '20',
+    id: '22',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica NewJob',
@@ -472,7 +472,7 @@ const projects: Array<IProjects> = [
       ''
   },
   {
-    id: '21',
+    id: '23',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabroku',
@@ -504,7 +504,7 @@ const projects: Array<IProjects> = [
       'Este projeto foi desenvolvido em Python sob a plataforma doku. Será crucial para automatizar o processo de deploy das aplicações desenvolvidas na Fábrica de Software.'
   },
   {
-    id: '22',
+    id: '24',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica Hackathon',
@@ -536,7 +536,7 @@ const projects: Array<IProjects> = [
       'A aplicação para gerenciamento dos Hackathons realizados no campus do IFC Araquari, com o apoio da Fábrica de Software, permitirá que sejam mantidos históricos de todos os participantes, das equipes, dos temas e dos trabalhos finais apresentados. A própria avaliação dos trabalhos apresentados será realizada por meio desta aplicação, que também manterá histórico dos avaliadores presentes nos Hackathons e as empresas patrocinadoras das edições deste evento. Esta aplicação foi desenvolvida usando Python, Django REST e Vue3.'
   },
   {
-    id: '23',
+    id: '25',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica Iron',
@@ -568,7 +568,7 @@ const projects: Array<IProjects> = [
       'Este projeto está sendo desenvolvido em parceria com a iniciativa privada, para que possa otimizar a utilização dos blocos de aço utilizados na construção de moldes no setor metal-mecânico. O projeto está sendo desenvolvido com Python, Django REST e Vue3.'
   },
   {
-    id: '24',
+    id: '26',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'fabrica Node',
@@ -600,7 +600,7 @@ const projects: Array<IProjects> = [
       'Melhorar a transparência sobre as publicações realizadas pelos docentes, técnicos e discentes do IFC Campus Araquari é o objetivo desta aplicação. As representações construídas usando o conceito de grafos pretendem definir os nós como as keywords das publicações e as arestas dos nós, que são as relações entre os nós, são construídas baseando-se na publicação em que encontram-se os nós. Dessa forma é suposto facilitar a visualização das pesquisas relacionadas ao campus, assim como também identificar de que forma que as diferentes áreas do conhecimento se relacionam na nossa instituição. Esta aplicação será desenvolvida usando Python, Django REST e Vue3.'
   },
   {
-    id: '25',
+    id: '27',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica Histologia',
@@ -632,7 +632,7 @@ const projects: Array<IProjects> = [
       'O Atlas de Histologia é uma aplicação desenvolvida em conjunto com a área de Medicina Veterinária do IFC. O objetivo deste projeto é manter histórico de análises microbiológicas realizadas pelos discentes e docentes do curso, servindo como material didático nas aulas dos cursos Técnico em Agropecuária e o Bacharelado em Medicina Veterinária. Também ficará disponível para a comunidade externa ao campus, servindo de referencia para acadêmicos que estejam realizando estudos na área.'
   },
   {
-    id: '26',
+    id: '28',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
     title: 'Fabrica Painel',

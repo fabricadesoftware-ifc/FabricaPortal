@@ -1,26 +1,29 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import ButtonAll from '../common/ButtonAll.vue'
-import MembersApi from '@/api/members'
-const membersApi = new MembersApi()
-const filterName = ref('')
-const selectedOccupation = ref('Todos')
-const props = defineProps(['members', 'occupations'])
-const emit = defineEmits(['change', 'occupation', ''])
+import Multiselect from 'vue-multiselect'
+import { ref, onMounted, watch} from 'vue'
+
+const props = defineProps(['languages'])
+const emit = defineEmits(['languages', 'filter'])
+
+const selectedLanguages = ref([])
+const filterProject = ref('')
 
 onMounted(() => {
   search()
 })
 
 const search = () => {
-  emit('change', filterName.value)
-  emit('occupation', selectedOccupation.value)
+  emit('filter', filterProject.value)
+  emit('languages', selectedLanguages.value)
 }
+
+watch(selectedLanguages, () => search())
+
 </script>
 
 <template>
   <section>
-    <h2>Membros</h2>
+    <h2>Projetos</h2>
     <form @submit.prevent="search">
       <div class="filter-container">
         <div class="search-container" id="search">
@@ -29,22 +32,12 @@ const search = () => {
             name="member"
             list="members"
             id="input-search"
-            placeholder="Nome do(a) membro"
+            placeholder="Nome do projeto"
             autocomplete="off"
-            v-model="filterName"
+            v-model="filterProject"
             @keyup.enter="search"
           />
         </div>
-        <select class="select-occup" name="" id="" v-model="selectedOccupation">
-          <option value="Todos">Todos</option>
-          <option
-            v-for="occupation in props.occupations"
-            :key="occupation.id"
-            :value="occupation.description"
-          >
-            {{ occupation.description }}
-          </option>
-        </select>
         <div class="filter-toggle">
           <button class="filter-btn" @click="search">
             <box-icon name="search-alt" size="1.5em" color="var(--white)"></box-icon>
@@ -58,9 +51,19 @@ const search = () => {
           </button>
         </div>
       </div>
+      <multiselect
+      v-model="selectedLanguages"
+      placeholder="Search or add a tag"
+      label="desc"
+      track-by="id"
+      :options="props.languages"
+      :multiple="true"
+    ></multiselect>
     </form>
   </section>
 </template>
+
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
 
 <style scoped>
 section {
@@ -95,6 +98,7 @@ form .search-container {
   max-height: 500px;
   transform: max-height 1s;
 }
+
 form #search {
   width: 100%;
 }
@@ -129,7 +133,6 @@ form #search {
 
 .filter-container {
   display: flex;
-  width: 100%;
   transition: max-height var(--effect) ease-in-out;
 }
 .filter-container .container {
@@ -159,14 +162,27 @@ form #search {
 select {
   margin-left: 2%;
   margin-right: 2%;
-  padding: 10px;
+  width: 10%;
   height: 50px;
+  text-align: center;
+  padding: 10px;
   border-radius: var(--border-rd);
   border: none;
   background-color: rgb(0 0 0 / 6%);
 }
 
-.select-occup:focus {
+option {
+  margin: 5%;
+  padding: 3%;
+  border-radius: var(--border-rd);
+}
+
+option:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.select-lang:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 1px var(--primary-color), 0 0 0 4px #ea6c1890;
