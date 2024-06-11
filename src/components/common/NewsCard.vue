@@ -26,8 +26,7 @@ const UrlProject = (id) => {
               {{ title }}
             </h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt debitis nam tempore
-              modi nobis.
+              Clique aqui para ler a notícia na íntegra.
             </p>
           </div>
         </div>

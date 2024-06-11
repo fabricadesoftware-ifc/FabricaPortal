@@ -18,8 +18,7 @@ defineProps({
             <img :src="background" class="image" />
         </div>
         <p class="description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum
-            provident a, ipsa maiores deleniti consectetur nobis et eaque.
+            Clique para ler a notícia na íntegra.
         </p>
     </div>
 </template>

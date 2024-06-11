@@ -309,7 +309,7 @@ const projects: Array<IProjects> = [
     id: '18',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: [
-      '/img/Projects/FabricaPortal/image1.png',
+      '/img/Projects/FabricaPortal/PortalFabrica.png',
       '/img/Projects/FabricaPortal/image2.png',
       '/img/Projects/FabricaPortal/image3.png',
       '/img/Projects/FabricaPortal/image4.png',
@@ -346,7 +346,7 @@ const projects: Array<IProjects> = [
   {
     id: '19',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Empenhos',
     status: 'Em andamento',
     projectMembers: ['1', '24'],
@@ -378,7 +378,7 @@ const projects: Array<IProjects> = [
   {
     id: '20',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Class',
     status: 'Em andamento',
     projectMembers: ['1', '46', '21', '35', '24', '48', '34', '41' ],
@@ -410,7 +410,7 @@ const projects: Array<IProjects> = [
   {
     id: '21',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica PI',
     status: 'Em andamento',
     projectMembers: ['1', '24'],
@@ -442,7 +442,7 @@ const projects: Array<IProjects> = [
   {
     id: '22',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica NewJob',
     status: 'Em andamento',
     projectMembers: ['2', '32', '40'],
@@ -474,7 +474,7 @@ const projects: Array<IProjects> = [
   {
     id: '23',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fabroku',
     status: 'Em andamento',
     projectMembers: ['2', '49', '21'],
@@ -506,7 +506,7 @@ const projects: Array<IProjects> = [
   {
     id: '24',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Hackathon',
     status: 'Em andamento',
     projectMembers: ['1', '2', '50', '46', '24', '39', '8', '22', '21', '23'],
@@ -538,7 +538,7 @@ const projects: Array<IProjects> = [
   {
     id: '25',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Iron',
     status: 'Não iniciado',
     projectMembers: ['1', '46', '2', '8', '50', '47', '51', '42'],
@@ -570,7 +570,7 @@ const projects: Array<IProjects> = [
   {
     id: '26',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Node',
     status: 'Em andamento',
     projectMembers: ['1', '2', '35'],
@@ -602,7 +602,7 @@ const projects: Array<IProjects> = [
   {
     id: '27',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Histologia',
     status: 'Em andamento',
     projectMembers: ['1', '2', '24', '42', '47'],
@@ -634,7 +634,7 @@ const projects: Array<IProjects> = [
   {
     id: '28',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Painel',
     status: 'Em andamento',
     projectMembers: ['2', '24', '21'],
@@ -666,7 +666,7 @@ const projects: Array<IProjects> = [
   {
     id: '29',
     logo: '/img/logos/projeto/site fabrica icon.svg',
-    images: ['/img/Projects/FabricaPortal/image1.png'],
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Markowitz',
     status: 'Em andamento',
     projectMembers: ['1', '24'],
