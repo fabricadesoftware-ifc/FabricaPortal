@@ -9,6 +9,10 @@ export default class MembersApi {
     return members.find((member) => member.id === id)
   }
 
+  getMembersbyId(membersId: string[]): IMembers[] | null {
+    return members.filter((member: IMembers) => membersId.includes(member.id))
+  }
+
   getOccupations(): IOccupations[] {
     return occupations
   }

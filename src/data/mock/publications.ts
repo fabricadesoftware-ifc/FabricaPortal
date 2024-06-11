@@ -34,7 +34,24 @@ const publications: Array<IPublications> = [
     membersIds: ['2', '9', '5', '14', '11'],
     formatId: '2'
   },
-  
+  {
+    id: '2',
+    title:
+      'IT-CMF and BPM Critical Capability: Improving Software Development Lab on academic context',
+    members: 'KUBIS, Heloisa M.; DE MOURA, Fábio L.; MOTA, Joice; DE SÁ-SOARES, Filipe; KAWASHITA, Ilka; TAKAGI; Nilton.',
+    data: '15/01/2021',
+    membersIds: ['1', '52'],
+    formatId: '2'
+  },
+  {
+    id: '3',
+    title:
+      'Devising Information Systems and Technology Evolutionary Paths with IT-CMF',
+    members: 'DE MOURA, Fábio L; DE SÁ-SOARES, Filipe.',
+    data: '16/01/2021',
+    membersIds: ['1'],
+    formatId: '2'
+  },
 ]
 
 export { publications, type IPublications, type IFormats, formats}

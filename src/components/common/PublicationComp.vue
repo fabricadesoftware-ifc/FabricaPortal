@@ -12,6 +12,7 @@ const UrlPublication = (id) => {
   return `/publication/${id}`
 }
 </script>
+
 <template>
   <div>
     <span class="title">{{ title }} ({{ data }})</span>
@@ -19,7 +20,8 @@ const UrlPublication = (id) => {
     <ButtonMore :link="UrlPublication(linkPublication.id)" text="ver mais" />
   </div>
 </template>
-<style>
+
+<style scoped>
 div .title {
   font-weight: 500;
   display: block;

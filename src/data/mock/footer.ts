@@ -13,37 +13,46 @@ const footer: Array<IFooter> = [
     title: 'LINKS RÁPIDOS',
     accessDetails: [
       {
-        link: 'Lorem ipsum'
+        link: 'Notícias',
+        to: '/#news',
       },
       {
-        link: 'Lorem ipsum'
+        link: 'Projetos',
+        to: '/#projects',
       },
       {
-        link: 'Lorem ipsum'
+        link: 'Membros',
+        to: '/#members',
       },
       {
-        link: 'Lorem ipsum'
+        link: 'Publicações',
+        to: '/#publications',
       },
     ]
   },
   {
-    title: 'BLA',
+    title: 'Redes Sociais',
     accessDetails: [
       {
-        link: 'Lorem ipsum'
+        link: 'github',
+        to: 'https://github.com/fabricadesoftware-ifc',
+        desc: ''
       },
       {
-        link: 'Lorem ipsum'
+        link: 'instagram',
+        to: 'https://instagram.com/fabricadesoftware.ifc/',
+        desc: ''
       },
       {
-        link: 'Lorem ipsum'
+        link: 'twitter',
+        to: 'https://x.com/FabSoftwareIFC',
+        desc: ''
       },
       {
-        link: 'Lorem ipsum'
+        link: 'linkedin-square',
+        to: 'https://br.linkedin.com/company/nodes-fabrica-de-software',
+        desc: ''
       },
-      {
-        link: 'Lorem ipsum'
-      }
     ]
   },
   {

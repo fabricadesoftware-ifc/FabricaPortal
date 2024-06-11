@@ -13,14 +13,17 @@ onMounted(async () => {
 
 <template>
   <footer>
-    <img src="/src/assets/images/logos/LogoFabricaVerticalCor.svg" alt="" />
     <div class="links">
       <div v-for="itens in footer" :key="itens">
         <h4>{{ itens.title }}</h4>
-        <ul>
+        <ul :class="itens.title == 'Redes Sociais' ? 'social' : ''">
           <li v-for="i in itens.accessDetails" :key="i">
-            <a href=""> {{ i.link }} </a>
-            <span href=""> {{ i.desc }} </span>
+            <a :href="i.to" v-if="i.desc !== ''"> {{ i.link }} </a>
+            <a :href="i.to" target="_blank" v-else>
+              <box-icon style="margin: 0 8px" color="var(--white)" size="2em" type="logo"
+                :name="i.link"></box-icon>
+            </a>
+            <span v-if="i.desc!==''"> {{ i.desc }} </span>
           </li>
         </ul>
       </div>
@@ -41,7 +44,7 @@ span {
 }
 footer {
   width: 100%;
-  padding: 56px 145px;
+  padding: 30px 145px;
   background-color: var(--bg-black);
   gap: 20px;
   display: flex;
@@ -52,6 +55,12 @@ footer {
 footer .links {
   justify-content: space-between;
   display: flex;
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 footer .links,

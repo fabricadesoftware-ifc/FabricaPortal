@@ -1,8 +1,9 @@
 import './assets/style/global.css';
 import './assets/style/base.css';
-import 'boxicons';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+
+import 'boxicons'
 
 import App from './App.vue';
 import router from './router';

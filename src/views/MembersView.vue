@@ -9,6 +9,7 @@ const membersApi = new MembersApi()
 const members = ref([])
 const occupations = ref([''])
 const filterName = ref('')
+const selectedOccupation = ref('')
 
 function removeAccents(name) {
   return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -18,12 +19,20 @@ const filteredMembers = computed(() =>
   members.value.filter((m) => {
     const memberName = removeAccents(m.name.toLowerCase())
     const filter = removeAccents(filterName.value.toLowerCase())
-    return memberName.includes(filter)
+    const filteredMembersByName = memberName.includes(filter)
+
+    if (selectedOccupation.value == 'Todos') return filteredMembersByName
+
+    return filteredMembersByName && m.occupation.description == selectedOccupation.value
   })
 )
 
 function changeFilterName(name) {
   filterName.value = name
+}
+
+function changeOccupation(occup) {
+  selectedOccupation.value = occup
 }
 
 onMounted(() => {
@@ -34,7 +43,12 @@ onMounted(() => {
 
 <template>
   <main>
-    <FilterComp :members="members" @change="changeFilterName" />
+    <FilterComp
+      :members="members"
+      :occupations="occupations"
+      @change="changeFilterName"
+      @occupation="changeOccupation"
+    />
     <section class="members">
       <MemberCard
         v-for="member of filteredMembers"
@@ -66,8 +80,9 @@ main .members {
 
 @media only screen and (max-width: 768px) {
   main {
-  padding-top: 4em;
-}
+    padding-top: 4em;
+  }
+
   main .members {
     padding: 1em;
   }
@@ -77,10 +92,12 @@ main .members {
   a {
     width: 49%;
   }
+
   img {
     width: 11em;
     min-height: 11em;
   }
+
   .card {
     height: 11em;
   }
