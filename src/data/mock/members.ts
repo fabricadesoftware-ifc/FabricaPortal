@@ -36,6 +36,10 @@ const occupations: Array<IOccupations> = [
   {
     id: '4',
     description: 'Técnico Administrativo'
+  },
+  {
+    id: '5',
+    description: 'Egresso - Graduação'
   }
 ]
 
@@ -835,6 +839,25 @@ const members: Array<IMembers> = [
       {
         icon: 'github',
         href: 'https://github.com/gianlucastarke',
+        type: 'logo'
+      }
+    ]
+  },
+  {
+    id: '52',
+    image: 'https://avatars.githubusercontent.com/u/23744279?v=4',
+    name: 'Heloisa Marcella Kubis',
+    description:
+      'Bacharel em Sistemas de Informação pelo Instituto Federal Catarinense (IFC) - Campus Araquari (2020).',
+    projectIds: ['2', '6'],
+    occupation: {
+      id: '5',
+      description: 'Egresso - Graduação'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/heloisakubis',
         type: 'logo'
       }
     ]
