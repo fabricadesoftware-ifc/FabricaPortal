@@ -219,7 +219,7 @@ const projects: Array<IProjects> = [
   {
     id: '10',
     logo: '/img/logos/projeto/fabrica news icon.svg',
-    title: 'FabricaNews',
+    title: 'Fábrica News',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'Extensão',
@@ -231,79 +231,79 @@ const projects: Array<IProjects> = [
     id: '11',
     logo: '/img/logos/projeto/fabrica needs icon.svg',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    title: 'FabricaNeeds',
+    title: 'Fábrica Needs',
     status: 'Em desenvolvimento',
     languagesUsed: ['13', '2', '11'],
     type: 'Extensão',
     description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+      'O projeto Fábrica Needs tem por objetivo gerenciar as necessidades de consumo da cozinha da Fábrica de Software. O projeto será desenvolvido em Python, Django REST e Vue3.'
   },
   {
     id: '12',
     logo: '/img/logos/projeto/fabrica faceID icon.svg',
-    title: 'FabricaFaceID',
+    title: 'Fábrica FaceID',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em andamento',
     type: 'Extensão',
     description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+      'Visando elevar o nível de segurança para acesso na Fábrica de Software, este projeto tem por objetivo implementar um sistema de reconhecimento facial para controle de acesso na sala B6, que é a atual sala da Fábrica. O projeto será desenvolvido em Python, Django REST e Vue3.'
   },
   {
     id: '13',
     logo: '/img/logos/projeto/fabrica auth v3 icon.svg',
-    title: 'FabricaAuth',
+    title: 'Fábrica Auth',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em andamento',
     projectMembers: ['18'],
     type: 'Extensão',
     languagesUsed: ['9'],
     description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+      'O projeto Auth tem por objetivo unificar o acesso dos usuários no ecossistema da Fábrica de Software. Este projeto permitirá melhorar a eficiência no controle de acesso de usuários nas diversas soluções desenvolvidas pela Fábrica de Software.'
   },
-  {
-    id: '14',
-    logo: '/img/logos/projeto/fabrica build icon.svg',
-    title: 'FabricaBuild',
-    images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    projectMembers: ['18'],
-    status: 'Em andamento',
-    type: 'Extensão',
-    description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
-  },
+  // {
+  //   id: '14',
+  //   logo: '/img/logos/projeto/fabrica build icon.svg',
+  //   title: 'Fábrica Build',
+  //   images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+  //   projectMembers: ['18'],
+  //   status: 'Em andamento',
+  //   type: 'Extensão',
+  //   description:
+  //     'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+  // },
   {
     id: '15',
     logo: '/img/logos/projeto/fabrica locker v2 icon.svg',
-    title: 'FabricaLocker',
+    title: 'Fábrica Locker',
     projectMembers: ['18'],
     status: 'Em andamento',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     type: 'Extensão',
     description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+      'O Fábrica Locker é uma aplicação desenvolvida em C para gerenciar o acesso à sala da Fábrica de Software. O projeto tem por objetivo elevar o nível de segurança para acesso na Fábrica, não dependendo mais do uso da chave física.'
   },
   {
     id: '16',
     logo: '/img/logos/projeto/fabrica manager icon.svg',
-    title: 'FabricaManager',
+    title: 'Fábrica Manager',
     status: 'Em andamento',
     type: 'Extensão',
     languagesUsed: ['13', '2'],
     projectMembers: ['12'],
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+      'Atualmente fazem parte da Fábrica de Software aproximadamente 30 alunos, entre bolsistas e voluntários dos cursos técnico e superior do IFC Campus Araquari. O projeto Fábrica Manager tem por objetivo gerenciar as atividades dos membros da Fábrica de Software, bem como a gestão dos projetos desenvolvidos. O projeto será desenvolvido em Python, Django REST e Vue3.'
   },
   {
     id: '17',
     logo: '/img/logos/projeto/fabrica notes icon.svg',
-    title: 'FabricaNotes',
+    title: 'Fábrica Notes',
     status: 'Em andamento',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     projectMembers: ['18'],
     type: 'Extensão',
     description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+      'Após autenticação no ecossistema de soluções desenvolvidas pela Fábrica de Software, o usuário terá acesso ao Notes, que são algumas notas deixadas pelos demais membros da Fábrica de Software, com o intuito de compartilhar informações relevantes para o dia a dia da Fábrica. O projeto será desenvolvido em Python, Django REST e Vue3.'
   },
   {
     id: '18',
@@ -315,7 +315,7 @@ const projects: Array<IProjects> = [
       '/img/Projects/FabricaPortal/image4.png',
       '/img/Projects/FabricaPortal/image5.png'
     ],
-    title: 'Portal da Fábrica de Software ',
+    title: 'Fábrica Portal',
     status: 'Em andamento',
     projectMembers: ['1', '2', '16', '23', '46'],
     coordMembers: ['1', '2'],
@@ -341,13 +341,13 @@ const projects: Array<IProjects> = [
     ],
     type: 'Extensão',
     description:
-      'Lorem ipsum dolor sit amet. Ut doloribus rerum vel aspernatur recusandae id officia beatae aut galisum eius et voluptas debitis ut itaque fugiat et quas porro. Aut modi suscipit qui expedita consectetur non perspiciatis illo At enim perferendis aut mollitia accusamus et corporis saepe id autem placeat.'
+      'O Portal da Fábrica de Software é uma aplicação web que tem por objetivo centralizar as informações sobre os projetos desenvolvidos pela Fábrica de Software, bem como as publicações realizadas pelos membros da Fábrica. Também tem o propósito de apresentar os membros que fazem parte da Fábrica de Software, assim como as notícias relacionadas ao dia-a-dia d Fábrica. O projeto foi desenvolvido em Python, Django REST e Vue3.'
   },
   {
     id: '19',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica Empenhos',
+    title: 'Fábrica Empenhos',
     status: 'Em andamento',
     projectMembers: ['1', '24'],
     coordMembers: ['1'],
@@ -379,7 +379,7 @@ const projects: Array<IProjects> = [
     id: '20',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica Class',
+    title: 'Fábrica Class',
     status: 'Em andamento',
     projectMembers: ['1', '46', '21', '35', '24', '48', '34', '41' ],
     coordMembers: ['1'],
@@ -411,7 +411,7 @@ const projects: Array<IProjects> = [
     id: '21',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica PI',
+    title: 'Fábrica PI',
     status: 'Em andamento',
     projectMembers: ['1', '24'],
     coordMembers: ['1'],
@@ -443,7 +443,7 @@ const projects: Array<IProjects> = [
     id: '22',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica NewJob',
+    title: 'Fábrica NewJob',
     status: 'Em andamento',
     projectMembers: ['2', '32', '40'],
     coordMembers: ['2'],
@@ -469,7 +469,7 @@ const projects: Array<IProjects> = [
     ],
     type: 'Extensão',
     description:
-      ''
+      'O projeto NewJob tem por objetivo auxiliar os discentes do IFC Campus Araquari a encontrarem vagas de emprego. A aplicação será desenvolvida em Python, Django REST e Vue3.'
   },
   {
     id: '23',
@@ -507,7 +507,7 @@ const projects: Array<IProjects> = [
     id: '24',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica Hackathon',
+    title: 'Fábrica Hackathon',
     status: 'Em andamento',
     projectMembers: ['1', '2', '50', '46', '24', '39', '8', '22', '21', '23'],
     coordMembers: ['1', '2', '50', '22', '8'],
@@ -539,7 +539,7 @@ const projects: Array<IProjects> = [
     id: '25',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica Iron',
+    title: 'Fábrica Iron',
     status: 'Não iniciado',
     projectMembers: ['1', '46', '2', '8', '50', '47', '51', '42'],
     coordMembers: ['1', '2', '8', '50'],
@@ -571,7 +571,7 @@ const projects: Array<IProjects> = [
     id: '26',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'fabrica Node',
+    title: 'Fábrica Node',
     status: 'Em andamento',
     projectMembers: ['1', '2', '35'],
     coordMembers: ['1', '2', '35'],
@@ -603,7 +603,7 @@ const projects: Array<IProjects> = [
     id: '27',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica Histologia',
+    title: 'Fábrica Histologia',
     status: 'Em andamento',
     projectMembers: ['1', '2', '24', '42', '47'],
     coordMembers: ['1', '2'],
@@ -635,7 +635,7 @@ const projects: Array<IProjects> = [
     id: '28',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica Painel',
+    title: 'Fábrica Painel',
     status: 'Em andamento',
     projectMembers: ['2', '24', '21'],
     coordMembers: [],
@@ -667,7 +667,7 @@ const projects: Array<IProjects> = [
     id: '29',
     logo: '/img/logos/projeto/site fabrica icon.svg',
     images: ['/img/Projects/FabricaPortal/image1.png'],
-    title: 'Fabrica Markowitz',
+    title: 'Fábrica Markowitz',
     status: 'Em andamento',
     projectMembers: ['1', '24'],
     coordMembers: ['1'],
