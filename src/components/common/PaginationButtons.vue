@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from "vue";
+
 const props = defineProps({
     currentPage: Number,
     pages: Number
@@ -6,15 +8,21 @@ const props = defineProps({
 
 const emits = defineEmits(['change-page']);
 
+const pagesRef = ref(null);
+
 function previousPage() {
     if (props.currentPage == 1) return;
+    pagesRef.value[props.currentPage].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
     emits('change-page', props.currentPage - 1);
 }
+
 function nextPage() {
     if (props.currentPage == props.pages) return;
+    pagesRef.value[props.currentPage].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
     emits('change-page', props.currentPage + 1);
 }
 function changePage(page) {
+    pagesRef.value[props.currentPage].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center'});
     emits('change-page', page);
 }
 </script>
@@ -26,7 +34,7 @@ function changePage(page) {
         </button>
 
         <div class="pages">
-            <div class="page" v-for="page in pages" :key="page" :class="currentPage == page ? 'current-page' : null" @click="changePage(page)">
+            <div class="page" ref="pagesRef" v-for="page in pages" :key="page" :class="currentPage == page ? 'current-page' : null" @click="changePage(page)">
                 {{ page }}
             </div>
         </div>
@@ -52,7 +60,11 @@ function changePage(page) {
         display: flex;
         gap: 10px;
         align-items: center;
-        justify-content: center;
+        overflow-x: auto;
+    }
+
+    .pages::-webkit-scrollbar {
+        display: none;
     }
 
     .page {
@@ -68,6 +80,8 @@ function changePage(page) {
         border-radius: var(--border);
         font-weight: bolder;
         transition: 0.5s all;
+        min-width: 40px;
+        min-height: 40px;
     }
 
     .page:hover {
