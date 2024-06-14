@@ -109,4 +109,11 @@ main {
   padding: 4em var(--pn-main);
   justify-content: space-between;
 }
+
+@media only screen and (max-width: 600px) {
+  .projects {
+    align-items: center;
+    justify-content: center;
+  }
+}
 </style>

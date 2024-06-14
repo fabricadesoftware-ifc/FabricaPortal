@@ -45,9 +45,11 @@ async function fetchPublication() {
 
 <style scoped>
 main {
-  padding: var(--pn-main) 19em;
+  padding: var(--pn-main) 50px;
   display: flex;
   gap: 33px;
   flex-direction: column;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 </style>

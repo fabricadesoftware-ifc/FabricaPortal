@@ -60,10 +60,12 @@ header {
 
 a {
   width: 31%;
+  min-width: 300px;
 }
 .wrapper {
   background-color: var(--bg-white);
-  min-height: 60vh;
+  min-height: 300px;
+  max-height: 500px;
   position: relative;
   overflow: hidden;
   border-bottom: var(--border) solid var(--news);
@@ -89,7 +91,12 @@ a {
   z-index: 1;
 }
 
-@media only screen and (max-width: 1024px) {
+
+.card {
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 1300px) {
   .wrapper {
     width: 300px;
   }

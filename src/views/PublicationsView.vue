@@ -26,6 +26,7 @@ onMounted(() => {
 
 <style scoped>
 main {
+  padding: 0 20px;
   padding-top: var(--pn-main);
   display: flex;
   flex-wrap: wrap;
