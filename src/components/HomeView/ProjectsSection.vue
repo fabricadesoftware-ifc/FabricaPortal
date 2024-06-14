@@ -77,8 +77,10 @@ section {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -99,6 +101,8 @@ section {
     overflow-x: auto;
     flex-wrap: nowrap;
     flex-direction: row;
+    gap: 20px;
+    justify-content: space-between
   }
 }
 

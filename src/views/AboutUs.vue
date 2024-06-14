@@ -42,7 +42,7 @@
   background-size: cover;
   background-attachment: fixed;
   background-position: bottom;
-  height: 44vh;
+  height: 60vh;
 }
 
 h1,
@@ -59,8 +59,7 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 0 145px;
-  align-items: flex-start;
+  padding: 0 10%;
 }
 
 section:hover .effect::before {
@@ -89,14 +88,16 @@ section:hover .effect::before {
 .content {
   background-color: white;
   border-radius: 0;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .content div {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 145px;
-  margin-bottom: 5vh;
+  padding: 0 20px;
+  padding-bottom: 40px;
 }
 
 h2 {

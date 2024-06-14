@@ -14,6 +14,7 @@ onMounted(() => {
 <template>
   <main>
     <section class="publications"> 
+      <h2>Projetos</h2>
       <ul>
         <li v-for="publication in publications" :key="publication.id">
           <PublicationComp :linkPublication="publication" :title="publication.title" :data="publication.data"
@@ -27,7 +28,7 @@ onMounted(() => {
 <style scoped>
 main {
   padding: 0 20px;
-  padding-top: var(--pn-main);
+  padding-top: 100px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

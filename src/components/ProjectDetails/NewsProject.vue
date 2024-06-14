@@ -20,6 +20,7 @@ defineProps({
         :data="newCard.data"
         :user="newCard.user"
         :background="newCard.background"
+        :linkProject="newCard.id"
       />
     </div>
   </section>
@@ -30,7 +31,7 @@ section .news {
   margin: 20px 0;
   gap: 1em;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
 }
 @media only screen and (max-width: 425px) {
   .news {
