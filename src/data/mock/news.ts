@@ -21,15 +21,15 @@ const news: Array<INews> = [
     data: '13/08/2023',
     user: 'fabrica',
     status: 'finalizado',
-    images: ['https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/IMG_0632-667x500.jpeg'],
+    images: ['/img/Projects/FabricaPortal/hackathonTeam2022.png'],
     version: '1.0.0',
     tags: ['notícias', 'publicações', 'informações', 'projetos'],
     updated: '13 de ago. de 2023',
     published: '13 de set. de 2023',
     background:
-      'https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/IMG_0632-667x500.jpeg',
+      '/img/Projects/FabricaPortal/hackathonTeam2022.png',
       description: 'O Hackathon é uma maratona de programação que tem como objetivo desenvolver soluções tecnológicas para problemas reais. O evento foi realizado no mês de Outubro de 2022, no Instituto Federal Catarinense – Campus Araquari, e contou com a participação de 6 equipes formadas por estudantes do curso técnico em Informática Integrado ao Ensino Médio. A equipe vencedora foi a Bits and Bytes, formada pelos estudantes Gabriel, Gustavo, João, Lucas, Yasmin e Mariana, que desenvolveram um aplicativo para auxiliar no controle dos pets comunitários, que residem no nosso campus. O aplicativo foi desenvolvido em React e utiliza o Mongo como banco de dados',
-      logo: 'https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/IMG_0632-667x500.jpeg',
+      logo: '/img/Projects/FabricaPortal/hackathonTeam2022.png',
   },
   {
     id: '2',
