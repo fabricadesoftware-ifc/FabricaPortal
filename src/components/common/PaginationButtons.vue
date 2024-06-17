@@ -13,8 +13,10 @@ const pagesRef = ref(null)
 function previousPage() {
   if (props.currentPage == 1) return
   pagesRef.value[props.currentPage - 2].scrollIntoView({
+    top: 0,
     behavior: 'smooth',
-    inline: 'center'
+    inline: 'center',
+    block: 'nearest'
   })
   emits('change-page', props.currentPage - 1)
 }
@@ -24,13 +26,15 @@ function nextPage() {
   pagesRef.value[props.currentPage].scrollIntoView({
     behavior: 'smooth',
     inline: 'center',
+    block: 'nearest'
   })
   emits('change-page', props.currentPage + 1)
 }
 function changePage(page) {
   pagesRef.value[page - 1].scrollIntoView({
     behavior: 'smooth',
-    inline: 'center'
+    inline: 'center',
+    block: 'nearest'
   })
   emits('change-page', page)
 }
@@ -79,6 +83,7 @@ section {
   overflow-x: auto;
   overflow-y: none;
   max-width: 220px;
+  min-width: 100px;
   height: 50px;
 }
 
