@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 
 import FilterComp from '@/components/MembersView/FilterComp.vue'
 import MemberCard from '../components/common/MemberCard.vue'
+import PaginationButtons from '@/components/common/PaginationButtons.vue'
 
 import MembersApi from '@/api/members'
 const membersApi = new MembersApi()
@@ -35,6 +36,23 @@ function changeOccupation(occup) {
   selectedOccupation.value = occup
 }
 
+const itemsPerPage = 12;
+const currentPage = ref(1);
+const pages = computed(() => {
+  return Math.ceil(filteredMembers.value.length / itemsPerPage)
+});
+
+const displayedItems = computed(() => {
+  const startIndex = (currentPage.value -1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return filteredMembers.value.slice(startIndex, endIndex);
+});
+
+function changePage(page) {
+  currentPage.value = page;
+  // window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 onMounted(() => {
   members.value = membersApi.getMembers()
   occupations.value = membersApi.getOccupations()
@@ -51,7 +69,7 @@ onMounted(() => {
     />
     <section class="members">
       <MemberCard
-        v-for="member of filteredMembers"
+        v-for="member of displayedItems"
         :key="member.id"
         :image="member.image"
         :name="member.name"
@@ -60,6 +78,7 @@ onMounted(() => {
         :background="member.background"
         :occupation="member.occupation"
       />
+      <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage"/>
     </section>
   </main>
 </template>

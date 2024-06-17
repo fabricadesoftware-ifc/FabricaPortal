@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import NewsCard from '@/components/common/NewsCard.vue';
+import NewsCard from '@/components/common/NewsCard.vue'
 
 import NewsApi from '@/api/news'
 const newsApi = new NewsApi()
@@ -13,7 +13,6 @@ async function fetchNews() {
 onMounted(() => {
   fetchNews()
 })
-
 </script>
 
 <template>
@@ -45,7 +44,10 @@ onMounted(() => {
 .news {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  justify-content: center;
 }
 @media only screen and (max-width: 600px) {
   .card {
@@ -61,23 +63,24 @@ onMounted(() => {
   }
 }
 @media only screen and (max-width: 1024px) {
-.news {
-  width: 100%;
-  overflow-x: auto;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  gap: 10px;
-}
+  .news {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 main {
-    padding: var(--pn-main);
-    background-color: var(--bg-gray);
+  padding: 100px 0px;
+  background-color: var(--bg-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  }
-  .projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
 </style>

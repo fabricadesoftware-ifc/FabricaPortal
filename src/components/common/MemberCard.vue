@@ -54,6 +54,10 @@ const UrlMember = (id) => {
 </template>
 
 <style scoped>
+h3 {
+  text-overflow: ellipsis;
+}
+
 h5 {
   color: var(--members);
   text-transform: uppercase;
@@ -110,6 +114,8 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  overflow: hidden;
+  min-height: 100px;
 }
 
 @media only screen and (max-width: 1280px) {

@@ -4,6 +4,7 @@ import ProjectsApi from '@/api/projects'
 import ProjectsCard from '@/components/common/ProjectsCard.vue'
 import MembersApi from '@/api/members'
 import ProjectFilterComp from '@/components/ProjectsView/ProjectFilterComp.vue'
+import PaginationButtons from '@/components/common/PaginationButtons.vue'
 
 const projectsApi = new ProjectsApi()
 const membersApi = new MembersApi()
@@ -52,7 +53,7 @@ function getProjectLangs(project) {
       })
       .filter((lang) => lang !== null)
   } else {
-    return []
+    return [] 
   }
 }
 
@@ -74,13 +75,30 @@ function changeLangs(l) {
 function changeFilter(f) {
   filter.value = f
 }
+
+const itemsPerPage = 12;
+const currentPage = ref(1);
+const pages = computed(() => {
+  return Math.ceil(filteredProjects.value.length / itemsPerPage)
+});
+
+const displayedItems = computed(() => {
+  const startIndex = (currentPage.value -1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  return filteredProjects.value.slice(startIndex, endIndex);
+});
+
+function changePage(page) {
+  currentPage.value = page;
+  // window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 </script>
 <template>
   <main>
     <ProjectFilterComp :languages="langs" @filter="changeFilter" @languages="changeLangs" />
     <section class="projects">
       <ProjectsCard
-        v-for="project of filteredProjects"
+        v-for="project of displayedItems"
         :key="project.id"
         :title="project.title"
         :description="project.description"
@@ -93,6 +111,7 @@ function changeFilter(f) {
         :status="project.status"
       >
       </ProjectsCard>
+      <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage"/>
     </section>
   </main>
 </template>
@@ -108,5 +127,12 @@ main {
   border-radius: 0;
   padding: 4em var(--pn-main);
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) {
+  .projects {
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>
