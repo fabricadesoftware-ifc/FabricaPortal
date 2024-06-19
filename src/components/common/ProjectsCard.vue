@@ -146,6 +146,7 @@ a {
   margin-bottom: 70px;
   flex-shrink: 0;
   background-color: var(--bg-white);
+  min-width: 300px;
 }
 header {
   display: flex;
@@ -258,7 +259,6 @@ span {
   .card {
     width: 85%;
     margin-bottom: 15px;
-    margin-right: 20px;
   }
   footer {
     display: none;
