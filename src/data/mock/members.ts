@@ -250,7 +250,7 @@ const members: Array<IMembers> = [
     description: 'Graduanda em Sistemas de Informação no Instituto Federal Catarinense.',
     occupation: {
       id: '7',
-      description: 'Inativa'
+      description: 'Inativo'
     },
     socialLinks: [
       {
@@ -418,7 +418,7 @@ const members: Array<IMembers> = [
     name: 'Laíssa Mendes',
     description:
       'Me chamo Laíssa Mendes e estou no meu último ano no IFC. Tenho alguns hobbies, e gosto de passar o tempo livre praticando, sendo eles cantar e atuar, você pode pensar “mas não tem nada haver com informática”, sim é verdade, porém gosto muito do técnico, da maneira como me desenvolvi, não apenas em conhecimento, mas como pessoa, gosto de utilizar o figma, fazer os designs e logos para as minhas aplicações… Tenho interesse em seguir na área da tecnologia, mas meu desejo é me especializar no frontend, e se possível, me tornar professora, esse é o meu maior sonho. Com a fábrica de software tenho o desejo de aprimorar o meu desempenho nas operações assim como o melhor aproveito dos trabalhos realizados em grupo e por fim ter uma base para seguir minha carreira profissional.',
-    occupation: { id: '2', description: 'Aluna - Técnico' },
+    occupation: { id: '2', description: 'Aluno - Técnico' },
     projectIds: ['11', '27'],
     publicationIds: [],
     socialLinks: [
@@ -536,7 +536,7 @@ const members: Array<IMembers> = [
     image: 'https://avatars.githubusercontent.com/u/106554467?v=4',
     name: 'Giulia Raphaela Nobre',
     description: '',
-    occupation: { id: '2', description: 'Aluna - Técnico' },
+    occupation: { id: '2', description: 'Aluno - Técnico' },
     projectIds: ['24', '26', '28', '20'],
     publicationIds: [],
     socialLinks: [
@@ -586,7 +586,7 @@ const members: Array<IMembers> = [
     name: 'Isabelli Luísa Rosa',
     description:
       'Eu sou a isabelli, mas normalmente me chamam de belli. No meu tempo livre amo assistir a filmes e ler livros. Resolvi participar da fábrica de software para desenvolver novas habilidades na criação de sites e me habituar a trabalhar em equipe, pois, acredito que futuramente isso trará muitos benefícios.',
-    occupation: { id: '2', description: 'Aluna - Técnico' },
+    occupation: { id: '2', description: 'Aluno - Técnico' },
     projectIds: ['11', '26'],
     publicationIds: [],
     socialLinks: [
@@ -619,7 +619,7 @@ const members: Array<IMembers> = [
     name: 'Isadora Alcântara Xavier da Silva',
     description:
       'Estudo no Instituto Federal Catarinense. Estou no último ano do curso técnico de informática para internet. Costumo atuar no frontend.',
-    occupation: { id: '2', description: 'Aluna - Técnico' },
+    occupation: { id: '2', description: 'Aluno - Técnico' },
     projectIds: ['22'],
     publicationIds: [],
     socialLinks: [
@@ -721,7 +721,7 @@ const members: Array<IMembers> = [
     name: 'Júlia Fuck',
     description:
       'Me chamo Júlia, tenho 16 anos e no meu tempo livre gosto de ler livros e assistir minhas séries favoritas. Também gosto de escrever, desenhar e amo pintar paisagens. Me inscrevi para a fábrica porque tenho interesse na área e gosto de desenvolver sites. Acredito que a fábrica irá me proporcionar grandes avanços e experiências.',
-    occupation: { id: '2', description: 'Aluna - Técnico' },
+    occupation: { id: '2', description: 'Aluno - Técnico' },
     projectIds: ['26', '11'],
     publicationIds: [],
     socialLinks: [
@@ -805,7 +805,7 @@ const members: Array<IMembers> = [
     projectIds: ['11', '20'],
     occupation: {
       id: '2',
-      description: 'Aluna - Técnico'
+      description: 'Aluno - Técnico'
     },
     socialLinks: [
       {
@@ -881,12 +881,50 @@ const members: Array<IMembers> = [
     projectIds: ['1', '2', '6'],
     occupation: {
       id: '5',
-      description: 'Egressa - Graduação'
+      description: 'Egresso - Graduação'
     },
     socialLinks: [
       {
         icon: 'github',
         href: 'https://github.com/heloisakubis',
+        type: 'logo'
+      }
+    ]
+  },
+  {
+    id: '53',
+    image: 'https://avatars.githubusercontent.com/u/131203244?v=4',
+    name: 'João Victor Portela Rocha',
+    description:
+      'Estudante do Curso Técnico em Informática para Internet no Instituto Federal Catarinense - Campus Araquari.',
+    projectIds: ['24'],
+    occupation: {
+      id: '2',
+      description: 'Aluno - Técnico'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/Joaovictor23t4',
+        type: 'logo'
+      }
+    ]
+  },
+  {
+    id: '54',
+    image: 'https://avatars.githubusercontent.com/u/125659214?v=4',
+    name: 'Kauã Martins Barros',
+    description:
+      'Estudante do Curso Técnico em Informática para Internet no Instituto Federal Catarinense - Campus Araquari.',
+    projectIds: ['15'],
+    occupation: {
+      id: '2',
+      description: 'Aluno - Técnico'
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        href: 'https://github.com/kauabarros-24',
         type: 'logo'
       }
     ]
