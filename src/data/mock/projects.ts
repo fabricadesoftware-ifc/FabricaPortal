@@ -131,6 +131,7 @@ const projects: Array<IProjects> = [
     status: 'finalizado',
     type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: ['5', '52'],
     description:
       'O projeto tem por objetivo desenvolver um sistema web para a gestão de eventos do Instituto Federal Catarinense. O sistema deve permitir a criação e gestão de eventos, a submissão de artigos científicos para um evento específico, a autenticação dos usuários por meio da rede CAFe...'
   },
@@ -141,6 +142,7 @@ const projects: Array<IProjects> = [
     status: 'finalizado',
     type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: ['2', '52'],
     description: 'Portal para Núcleo Operacionalização de Desenvolvimento de Sistemas'
   },
   {
@@ -151,6 +153,7 @@ const projects: Array<IProjects> = [
     type: 'Extensão',
     partnerCompanies: ['NR2'],
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: ['2'],
     description: 'Portal para o Núcleo de Redes Sem Fio e Redes Avançadas.'
   },
   {
@@ -159,6 +162,7 @@ const projects: Array<IProjects> = [
     title: 'Goofy Educa',
     status: 'finalizado',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: ['4'],
     type: 'Extensão',
     description: 'O projeto tem o foco de gerar auxílio à aprendizagem para o ensino fundamental.'
   },
@@ -169,6 +173,7 @@ const projects: Array<IProjects> = [
     status: 'finalizado',
     type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: ['5'],
     description:
       'O presente projeto tem por objetivo dar continuidade às adequações na página do Instituto Federal Catarinense (IFC), de acordo com as normas previstas, atendendo assim, as exigências da Controladoria Geral da União (CGU).'
   },
@@ -179,6 +184,7 @@ const projects: Array<IProjects> = [
     status: 'finalizado',
     type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: ['6', '5', '52'],
     description: 'O Instituto de Seguridade dos Servidores Municipais de Jaraguá do Sul (ISSEM)...'
   },
   {
@@ -191,7 +197,7 @@ const projects: Array<IProjects> = [
       'https://noticias.memoria.araquari.ifc.edu.br/wp-content/uploads/sites/11/2022/07/IMG_0638.jpeg',
       'https://araquari.ifc.edu.br/wp-content/blogs.dir/4/files/sites/4/2023/02/IMG_0624.jpeg',
     ],
-    projectMembers: ['8', '6', '1', '2', '5', '9'],
+    projectMembers: ['1', '2', '5', '8', '9', '15', '7', '22', '24', '50'],
     type: 'Extensão',
     description:
       'O termo Hackathon é composto da união entre duas palavras da língua inglesa, hack (programar) e marathon (maratona), a sua ﬁnalidade é fomentar a criatividade e trabalho em equipe na busca de uma solução para um problema proposta (geralmente um problema real da comunidade), por meio da utilização de tecnologia, em nosso caso a tecnologia da informação. Assim, o projeto visa apresentar para os alunos um ou mais problemas a serem desenvolvidos em equipe, desta forma os discentes podem utilizar os conhecimentos adquiridos e em aquisição durante o curso para propor uma solução envolvendo a criação de um software e o desenvolvimento do respectivo protótipo (prova de conceito). Desta forma o Hackathon visa contribuir para a formação do discente tanto no aspecto pessoal como técnico, possibilitando que vivencie o trabalho em equipe, pratique a criatividade de forma sistematizada, controlada (métodos para condução da jornada) e acompanhada/suportada pelos docentes das disciplinas. O Hackathon contará com a mentoria dos professores do curso da área de informática, apresentando as principais ferramentas a serem utilizadas durante a competição, bem como efetuando o acompanhamento do desenvolvimento dos respectivos protótipos. As empresas parceiras serão responsáveis por auxiliar na avaliação ﬁnal das propostas apresentadas.'
@@ -203,6 +209,7 @@ const projects: Array<IProjects> = [
     status: 'finalizado',
     type: 'Extensão',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: ['5'],
     description:
       'Projeto coordenado por Eduardo da Silva, com os participantes Gueretz, Sebrão e João, tendo o intuito de fornecer controle de acesso utilizando a plataforma Arduino.'
   },
@@ -213,6 +220,7 @@ const projects: Array<IProjects> = [
     status: 'finalizado',
     type: 'ensino',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: [],
     description:
       'Núcleo de Aprendizagem Interativo virtual, é um sistema onde usuários terão acesso a conteúdo disponibilizados por professores, com intuito de estudar para concurso público.'
   },
@@ -223,7 +231,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     status: 'Em desenvolvimento',
     type: 'Extensão',
-    projectMembers: ['1', '2', '17', '15', '14', '13', '12', '18'],
+    projectMembers: ['1', '2', '10', '15', '20', '22'],
     languagesUsed: ['12', '13'],
     description: 'Portal de Notícias da Fábrica de Software.'
   },
@@ -234,6 +242,7 @@ const projects: Array<IProjects> = [
     title: 'Fábrica Needs',
     status: 'Em desenvolvimento',
     languagesUsed: ['13', '2', '11'],
+    projectMembers: ['1', '2', '21', '22', '23', '25', '26', '27', '28', '29', '30', '31', '34', '36', '37', '42', '43', '44', '45', '46', '47', '48', '51'],
     type: 'Extensão',
     description:
       'O projeto Fábrica Needs tem por objetivo gerenciar as necessidades de consumo da cozinha da Fábrica de Software. O projeto será desenvolvido em Python, Django REST e Vue3.'
@@ -243,6 +252,7 @@ const projects: Array<IProjects> = [
     logo: '/img/logos/projeto/fabrica faceID icon.svg',
     title: 'Fábrica FaceID',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
+    projectMembers: [],
     status: 'Em andamento',
     type: 'Extensão',
     description:
@@ -275,7 +285,7 @@ const projects: Array<IProjects> = [
     id: '15',
     logo: '/img/logos/projeto/fabrica locker v2 icon.svg',
     title: 'Fábrica Locker',
-    projectMembers: ['18'],
+    projectMembers: ['18', '21', '54'],
     status: 'Em andamento',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     type: 'Extensão',
@@ -289,7 +299,7 @@ const projects: Array<IProjects> = [
     status: 'Em andamento',
     type: 'Extensão',
     languagesUsed: ['13', '2'],
-    projectMembers: ['12'],
+    projectMembers: ['1', '2', '21', '23'],
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
     description:
       'Atualmente fazem parte da Fábrica de Software aproximadamente 30 alunos, entre bolsistas e voluntários dos cursos técnico e superior do IFC Campus Araquari. O projeto Fábrica Manager tem por objetivo gerenciar as atividades dos membros da Fábrica de Software, bem como a gestão dos projetos desenvolvidos. O projeto será desenvolvido em Python, Django REST e Vue3.'
@@ -300,7 +310,7 @@ const projects: Array<IProjects> = [
     title: 'Fábrica Notes',
     status: 'Em andamento',
     images: ['/img/Projects/FabricaPortal/FabricaDeSoftwarePortal.png'],
-    projectMembers: ['18'],
+    projectMembers: ['1'],
     type: 'Extensão',
     description:
       'Após autenticação no ecossistema de soluções desenvolvidas pela Fábrica de Software, o usuário terá acesso ao Notes, que são algumas notas deixadas pelos demais membros da Fábrica de Software, com o intuito de compartilhar informações relevantes para o dia a dia da Fábrica. O projeto será desenvolvido em Python, Django REST e Vue3.'
@@ -317,7 +327,7 @@ const projects: Array<IProjects> = [
     ],
     title: 'Fábrica Portal',
     status: 'Em andamento',
-    projectMembers: ['1', '2', '16', '23', '46'],
+    projectMembers: ['1', '2', '16', '23', '39', '46'],
     coordMembers: ['1', '2'],
     scholarshipMembers: ['16'],
     languagesUsed: ['12', '9', '16'],
@@ -381,7 +391,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Class',
     status: 'Em andamento',
-    projectMembers: ['1', '46', '21', '35', '24', '48', '34', '41' ],
+    projectMembers: ['1', '2', '21', '23', '25', '32', '33', '34', '35', '39', '41', '46', '48'],
     coordMembers: ['1'],
     scholarshipMembers: ['46', '21', '35', '24', '48', '34', '41'],
     languagesUsed: ['3', '11', '12', '13', '16'],
@@ -445,7 +455,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica NewJob',
     status: 'Em andamento',
-    projectMembers: ['2', '32', '40'],
+    projectMembers: ['2', '32', '37', '38', '40'],
     coordMembers: ['2'],
     scholarshipMembers: ['32', '40'],
     languagesUsed: ['12', '9', '16'],
@@ -477,7 +487,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fabroku',
     status: 'Em andamento',
-    projectMembers: ['2', '49', '21'],
+    projectMembers: ['2', '49', '18'],
     coordMembers: ['2'],
     scholarshipMembers: ['49', '21'],
     languagesUsed: ['15'],
@@ -509,7 +519,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Hackathon',
     status: 'Em andamento',
-    projectMembers: ['1', '2', '50', '46', '24', '39', '8', '22', '21', '23'],
+    projectMembers: ['1', '2', '8', '9', '23', '33', '39', '46', '50', '53'],
     coordMembers: ['1', '2', '50', '22', '8'],
     scholarshipMembers: [],
     languagesUsed: ['3', '11', '12', '13', '16'],
@@ -541,7 +551,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Iron',
     status: 'Não iniciado',
-    projectMembers: ['1', '46', '2', '8', '50', '47', '51', '42'],
+    projectMembers: ['1', '2', '8', '9', '47'],
     coordMembers: ['1', '2', '8', '50'],
     scholarshipMembers: ['46', '47', '51', '42'],
     languagesUsed: [],
@@ -573,7 +583,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Node',
     status: 'Em andamento',
-    projectMembers: ['1', '2', '35'],
+    projectMembers: ['1', '21', '24', '33', '35', '36', '39', '44', '46'],
     coordMembers: ['1', '2', '35'],
     scholarshipMembers: [],
     languagesUsed: ['3', '11', '12', '13', '16'],
@@ -605,7 +615,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Histologia',
     status: 'Em andamento',
-    projectMembers: ['1', '2', '24', '42', '47'],
+    projectMembers: ['1', '26', '27', '28', '31'],
     coordMembers: ['1', '2'],
     scholarshipMembers: ['24', '42', '47'],
     languagesUsed: ['3', '11', '12', '13', '16'],
@@ -637,7 +647,7 @@ const projects: Array<IProjects> = [
     images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
     title: 'Fábrica Painel',
     status: 'Em andamento',
-    projectMembers: ['2', '24', '21'],
+    projectMembers: ['1', '21', '33', '39', '42', '43', '51'],
     coordMembers: [],
     scholarshipMembers: [],
     languagesUsed: ['3', '11', '12', '13', '16'],
@@ -695,7 +705,38 @@ const projects: Array<IProjects> = [
     description:
       'A Teoria de Markowitz data de 1952 e até hoje influencia o mercado financeiro. Ela é utilizada para dar suporte na tomada de decisão sobre quais ativos a pessoa pretende adquirir para investimento na bolsa de valores. Por meio desta teoria é possível apresentar um nível de risco sobre o ativo baseado no seu histórico, sendo um fator de grande relevância para o investidor. A aplicação será desenvolvida usando Python e streamlit.'
   },
-
+  {
+    id: '30',
+    logo: '/img/logos/projeto/site fabrica icon.svg',
+    images: ['/img/Projects/FabricaPortal/PortalFabrica.png'],
+    title: 'Fábrica Ovinocultura',
+    status: 'Em andamento',
+    projectMembers: ['1', '24'],
+    coordMembers: ['1'],
+    scholarshipMembers: ['24'],
+    languagesUsed: ['2', '3', '9', '11', '13', '16'],
+    version: '1.0.0',
+    tags: ['ovinocultura', 'projetos'],
+    updated: '20 de mai. de 2024',
+    published: '20 de mai. de 2024',
+    accessDetails: [
+      {
+        icon: 'github',
+        type: 'logo',
+        desc: 'Código',
+        link: 'https://github.com/fabricadesoftware-ifc/'
+      }
+    ],
+    customFields: [
+      {
+        title: 'Novidades',
+        desc: ''
+      }
+    ],
+    type: 'Extensão',
+    description:
+      'Ovinocultura.'
+  },
 ]
 
 export { projects, type IProjects, langs, type ILangs }
