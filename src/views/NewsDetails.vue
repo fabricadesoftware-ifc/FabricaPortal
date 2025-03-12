@@ -1,29 +1,34 @@
 <script setup>
-import { ref, onMounted} from 'vue'
+import { ref, onMounted } from 'vue'
 import NewsHeader from '@/components/NewsDetails/NewsHeader.vue';
 import CarouselComp from '@/components/ProjectDetails/CarouselComp.vue'
 import DescriptionNews from '@/components/NewsDetails/DescripitionNews.vue';
-import NewsApi from '@/api/news'
+import { useNewsStore } from '@/stores'
+import router from '@/router';
 
-const newsApi = new NewsApi()
-
-const newsId = ref(null)
-const news = ref(false)
+const newsStore = useNewsStore()
+const imagesNew = ref([])
 
 onMounted(async () => {
-  const path = window.location.pathname
-  const newsIdFromUrl = path.substring(path.lastIndexOf('/') + 1)
-  newsId.value = newsIdFromUrl
-  news.value = newsApi.getNewsById(newsId.value)
+  await newsStore.getNewById(router.currentRoute.value.params.id)
+  for (const i of newsStore.state.selectedNew.images) {
+    imagesNew.value.push(i.file)
+  }
 })
+
+const formatDate = (date) => {
+  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  return new Date(date).toLocaleDateString('pt-BR', options);
+}
 
 </script>
 
 <template>
-  <main v-if="news">
-    <NewsHeader :title="news.title" />
-    <CarouselComp :images="news.images" />
-<DescriptionNews :description="news.description" :logo="news.logo" :tags="news.tags" :published="news.published" :status="news.status" :updated="news.updated" :title="news.title" />
+  <main v-if="newsStore.state.news.length > 0">
+    <NewsHeader :title="newsStore.state.selectedNew?.title" />
+    <CarouselComp :images="newsStore.state.selectedNew?.images" />
+    <DescriptionNews :description="newsStore.state.selectedNew?.description" :published="formatDate(newsStore.state.selectedNew?.post_date)"
+     :title="newsStore.state.selectedNew?.title" />
   </main>
 </template>
 
@@ -38,22 +43,26 @@ main {
 main section {
   width: 100%;
 }
+
 @media only screen and (max-width: 1224px) {
   main {
     padding: var(--pn-main) 10em;
   }
 }
+
 @media only screen and (max-width: 768px) {
   main {
     padding: var(--pn-main) 6em;
   }
 }
+
 @media only screen and (max-width: 600px) {
   main {
     padding: var(--pn-main) 2em;
   }
 
 }
+
 @media only screen and (max-width: 375px) {
   main {
     padding: var(--pn-main) 1em;

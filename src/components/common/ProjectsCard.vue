@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, defineProps } from 'vue'
+import { ref, defineProps } from 'vue'
 
 const props = defineProps({
   description: String,
@@ -9,9 +9,8 @@ const props = defineProps({
   type: String,
   languagesUsed: { type: Array, default: () => [] },
   linkProject: { type: Object },
-  images: {
-    type: Array,
-    default: () => []
+  image: { // Changed from images array to single image
+    type: String
   },
   members: {
     type: Array,
@@ -22,53 +21,15 @@ const props = defineProps({
 const UrlProject = (id) => {
   return `/project/${id}`
 }
-
-const carouselRef = ref(null)
-const carouselInnerRef = ref(null)
-const imageElements = ref([])
-
-let currentIndex = 0
-let intervalId = null
-
-const showImage = (index) => {
-  const offset = index * -100
-  carouselInnerRef.value.style.transform = `translateX(${offset}%)`
-}
-
-const nextImage = () => {
-  currentIndex = (currentIndex + 1) % imageElements.value.length
-  showImage(currentIndex)
-}
-
-const activateCarousel = () => {
-  intervalId = setInterval(nextImage, 1500)
-}
-
-const deactivateCarousel = () => {
-  clearInterval(intervalId)
-  carouselInnerRef.value.style.transform = `translateX(${0}%)`
-}
-
-onMounted(() => {
-  imageElements.value = props.images.map((src) => {
-    const img = new Image()
-    img.src = src
-    img.classList.add('container-img')
-    carouselInnerRef.value.appendChild(img)
-    return img
-  })
-})
 </script>
 
 <template>
-  <div class="card" @mouseenter="activateCarousel" @mouseleave="deactivateCarousel">
+  <div class="card">
     <RouterLink :to="UrlProject(linkProject.id)">
       <header>
-        <img :src="logo" class="image" />
-        <div class="carousel" ref="carouselRef">
-          <div class="carousel-inner" ref="carouselInnerRef">
-            <img v-for="(img, index) in images" :key="index" class="container-img" :src="img" />
-          </div>
+        <img src="@/assets/images/logos/projeto/site_fabrica_icon.svg" class="image" />
+        <div class="image-container">
+          <img class="container-img" src="@/assets/images/Projects/FabricaPortal/PortalFabrica.png" />
         </div>
       </header>
       <div class="content">
@@ -79,23 +40,9 @@ onMounted(() => {
         <footer>
           <div class="col" v-if="members.length > 0">
             <span>Equipe</span>
-            <!--             <span class="alert" v-if="members.length === 0">Não há membros cadastrados</span> -->
             <div class="members">
-              <img v-for="member in members.slice(0, 3)" :key="member" :src="member.image" />
+              <img v-for="member in members.slice(0, 3)" :key="member" :src="member.image.file" />
               <span v-if="members.length > 3"> +{{ members.length - 3 }} </span>
-            </div>
-          </div>
-          <div class="col" v-if="languagesUsed.length > 0">
-            <span>Tecnologias</span>
-            <div :class="[{ langs: languagesUsed.length > 1 }]">
-              <box-icon
-                v-for="langId in languagesUsed"
-                :key="langId"
-                color="var(--dark-gray)"
-                size="2em"
-                :type="langId.type"
-                :name="langId.icon"
-              ></box-icon>
             </div>
           </div>
         </footer>
@@ -126,21 +73,11 @@ a {
   text-decoration: none;
 }
 
-.carousel {
+.image-container {
+  width: 100%;
   overflow: hidden;
-  border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
 }
 
-.carousel-inner {
-  display: flex;
-  aspect-ratio: 16 / 9;
-  transition: transform 0.3s ease;
-}
-
-.carousel-inner img {
-  height: fit-content;
-}
 .card {
   width: 32%;
   margin-bottom: 70px;
@@ -148,21 +85,23 @@ a {
   background-color: var(--bg-white);
   min-width: 300px;
 }
+
 header {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .container-img {
   width: 100%;
-    filter: brightness(0.5);
-    height: auto;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter var(--effect);
+  filter: brightness(0.5);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  display: block;
+  transition: filter var(--effect);
 }
 
 .card:hover .container-img {
@@ -183,14 +122,11 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+
 .col {
   gap: 5px;
   display: flex;
   flex-direction: column;
-}
-.langs {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .image {
@@ -220,6 +156,7 @@ span {
 .members img,
 .members span {
   width: 2em;
+  height: 2em;
   position: relative;
   border-radius: 50%;
   margin-right: -0.5em;
@@ -234,6 +171,7 @@ span {
   align-items: center;
   background-color: var(--light-gray);
 }
+
 @media only screen and (max-width: 1024px) {
   .card {
     width: 48%;
@@ -242,11 +180,13 @@ span {
     width: 10%
   }
 }
+
 @media only screen and (max-width: 800px) {
   .image{
     width: 15%
   }
 }
+
 @media only screen and (max-width: 600px) {
   .card {
     width: 100%;
@@ -255,6 +195,7 @@ span {
     width: 30%
   }
 }
+
 @media only screen and (max-width: 425px) {
   .card {
     width: 85%;
@@ -275,15 +216,5 @@ span {
   h3 {
     font-size: 1.5em;
   }
-}
-
-@media only screen and (min-width: 600px) {
-}
-
-
-@media only screen and (min-width: 992px) {
-}
-
-@media only screen and (min-width: 1200px) {
 }
 </style>

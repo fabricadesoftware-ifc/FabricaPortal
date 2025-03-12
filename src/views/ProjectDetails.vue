@@ -11,6 +11,11 @@ import NewsApi from '@/api/news'
 import MembersApi from '@/api/members'
 import PublicationsApi from '@/api/publications'
 
+import { useProjectsStore } from '@/stores'
+import router from '@/router'
+
+const projectsStore = useProjectsStore()
+
 const publicationsApi = new PublicationsApi()
 const projectsApi = new ProjectsApi()
 const newsApi = new NewsApi()
@@ -29,6 +34,9 @@ onMounted(async () => {
   news.value = newsApi.getNews()
   langs.value = projectsApi.getLangs()
   publications.value = publicationsApi.getThreePublications()
+
+  await projectsStore.getProjectById(router.currentRoute.value.params.id)
+  console.log(projectsStore.state.selectedProject)
 })
 
 async function fetchProject() {
@@ -94,8 +102,10 @@ function getProjectLangs(project) {
 
 <template>
   <main v-if="project">
-    <ProjectHeader :title="project.title" :key="project.id" :logo="project.logo" />
-    <CarouselComp :images="project.images" />
+    <!-- {{ projectsStore.state.selectedProject }} -->
+    <!-- <ProjectHeader :title="project.title" :key="project.id" :logo="project.logo" /> -->
+    <ProjectHeader :title="projectsStore.state.selectedProject?.name" :key="project.id" :logo="project.logo" />
+    <CarouselComp :images="[projectsStore.state.selectedProject?.image]" />
     <DescriptionProject
       :logo="project.logo"
       :title="project.title"
@@ -108,13 +118,14 @@ function getProjectLangs(project) {
       :coordMembers="getCoordMembers(project)"
       :scholarshipMembers="getScholarshipMembers(project)"
       :type="project.type"
-      :description="project.description"
+      :description="projectsStore.state.selectedProject?.about"
       :accessDetails="project.accessDetails"
       :partnerCompanies="project.partnerCompanies"
       :customFields="project.customFields"
     />
     <NewsProject v-if="getNewsProject(project) != ''" :news="getNewsProject(project)" />
-    <MembersProject :members="getProjectMembers(project)" />
+    <MembersProject :members="projectsStore.state.selectedProject?.members" />
+    <!-- <MembersProject :members="projectsStore.state.selectedProject?.members" /> -->
     <PublicationsProject v-if="getProjectPublication(project) != ''" :publications="getProjectPublication(project)"/>
   </main>
 </template>

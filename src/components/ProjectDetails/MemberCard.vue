@@ -44,7 +44,7 @@ const UrlMember = (id) => {
                 <img :src="image" class="image" />
                 <div>
                     <h5>
-                        {{ occupation.description }}
+                        {{ occupation }}
                     </h5>
                     <h4>
                         {{ shortenName(name) }}
@@ -82,6 +82,10 @@ a {
     height: 3rem;
     width: 3rem;
     object-fit: cover;
+}
+
+h5{
+    color: var(--members);
 }
 @media only screen and (max-width: 600px) {
   a {

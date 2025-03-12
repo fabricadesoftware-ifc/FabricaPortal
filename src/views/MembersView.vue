@@ -1,84 +1,37 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { onMounted } from 'vue'
 
 import FilterComp from '@/components/MembersView/FilterComp.vue'
 import MemberCard from '../components/common/MemberCard.vue'
 import PaginationButtons from '@/components/common/PaginationButtons.vue'
 
-import MembersApi from '@/api/members'
-const membersApi = new MembersApi()
-const members = ref([])
-const occupations = ref([''])
-const filterName = ref('')
-const selectedOccupation = ref('')
+import { useMembersStore } from '@/stores'
 
-function removeAccents(name) {
-  return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-}
+const membersStore = useMembersStore()
+const filters = [
+  'Docente',
+  'Discente',
+  'TAE',
+  'Externo'
+]
 
-const filteredMembers = computed(() =>
-  members.value.filter((m) => {
-    const memberName = removeAccents(m.name.toLowerCase())
-    const filter = removeAccents(filterName.value.toLowerCase())
-    const filteredMembersByName = memberName.includes(filter)
-
-    if (selectedOccupation.value == 'Todos') return filteredMembersByName
-
-    return filteredMembersByName && m.occupation.description == selectedOccupation.value
-  })
-)
-
-function changeFilterName(name) {
-  filterName.value = name
-}
-
-function changeOccupation(occup) {
-  selectedOccupation.value = occup
-}
-
-const itemsPerPage = 12;
-const currentPage = ref(1);
-const pages = computed(() => {
-  return Math.ceil(filteredMembers.value.length / itemsPerPage)
-});
-
-const displayedItems = computed(() => {
-  const startIndex = (currentPage.value -1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  return filteredMembers.value.slice(startIndex, endIndex);
-});
-
-function changePage(page) {
-  currentPage.value = page;
-  // window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-onMounted(() => {
-  members.value = membersApi.getMembers()
-  occupations.value = membersApi.getOccupations()
+onMounted(async () => {
+  await membersStore.getMembers()
 })
 </script>
 
 <template>
   <main>
-    <FilterComp
-      :members="members"
-      :occupations="occupations"
-      @change="changeFilterName"
-      @occupation="changeOccupation"
-    />
-    <section class="members">
-      <MemberCard
-        v-for="member of displayedItems"
-        :key="member.id"
-        :image="member.image"
-        :name="member.name"
-        :description="member.description"
-        :linkMember="member"
-        :background="member.background"
-        :occupation="member.occupation"
-      />
-      <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage"/>
+    <FilterComp :members="members" :occupations="filters" @change="changeFilterName"
+      @occupation="changeOccupation" />
+    <section class="members" v-if="membersStore.state.members.length">
+      <MemberCard v-for="member of membersStore.state.members" :key="member.id" :image="member.image.file"
+        :name="member.name" :description="'lorem sit amet'" :linkMember="member"
+        :occupation="{ description: `${member.status + ' - ' + member.type}` }" />
+      <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage" />
+    </section>
+    <section v-else class="notFound">
+      <p>Nenhum membro encontrado</p>
     </section>
   </main>
 </template>
@@ -95,6 +48,14 @@ main .members {
   border-radius: 0;
   padding: 4em var(--pn-main);
   justify-content: space-between;
+  min-height: 50vh;
+}
+
+.notFound{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
 
 @media only screen and (max-width: 768px) {
@@ -139,6 +100,5 @@ main .members {
   }
 }
  */
-@media only screen and (min-width: 1200px) {
-}
+@media only screen and (min-width: 1200px) {}
 </style>

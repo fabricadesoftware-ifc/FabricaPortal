@@ -1,15 +1,16 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 
 import MemberCard from '../common/MemberCard.vue'
 import ButtonAll from '../common/ButtonAll.vue'
 
-import MembersApi from '@/api/members'
-const membersApi = new MembersApi()
-const members = ref([])
+import { useMembersStore } from '@/stores'
 
-onMounted(() => {
-  members.value = membersApi.getSixMembers()
+const membersStore = useMembersStore()
+
+
+onMounted(async () => {
+  membersStore.getMembers()
 })
 </script>
 
@@ -18,16 +19,15 @@ onMounted(() => {
     <h2>Membros</h2>
     <div class="container">
       <div class="members">
-        <MemberCard
-          v-for="member of members"
-          :key="member.id"
-          :image="member.image"
-          :name="member.name"
-          :description="member.description"
-          :linkMember="member"
-          :occupation="member.occupation"
-        />
+        <MemberCard v-for="member of membersStore.state.members.slice(0, 6)" 
+        :key="member.id" 
+        :image="member.image.file"
+        :name="member.name" 
+        :description="member.biography" 
+        :linkMember="member"
+        :occupation="{ description: `${member.status} - ${member.type}` }" />
       </div>
+      
       <ButtonAll link="/members" text="Ver todos os membros" />
     </div>
   </section>
@@ -39,6 +39,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
 }
+
 .members {
   display: flex;
   width: 100%;
@@ -48,16 +49,17 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 555px) {
-.members {
-  width: 100%;
-  overflow-x: auto;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  gap: 10px;
-}
-.image {
-  min-width: 12em;
+  .members {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .image {
+    min-width: 12em;
     height: 12em;
-}
+  }
 }
 </style>
