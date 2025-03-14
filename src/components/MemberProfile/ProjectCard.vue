@@ -15,7 +15,7 @@ const UrlProject = (id) => {
 <template>
   <router-link :to="UrlProject(linkProject.id)">
     <div class="card">
-      <img :src="logo" alt="" />
+      <img src="@/assets/images/logos/projeto/site_fabrica_icon.svg" alt="" />
       <div class="content">
         <header>
           <h4>{{ title }}</h4>

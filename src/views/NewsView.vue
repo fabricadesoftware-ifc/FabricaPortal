@@ -1,18 +1,18 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import NewsCard from '@/components/common/NewsCard.vue'
+import { onMounted } from 'vue'
+import NewCardAll from '@/components/common/NewCardAll.vue'
+import { useNewsStore } from '@/stores'
 
-import NewsApi from '@/api/news'
-const newsApi = new NewsApi()
-const news = ref([])
+const newsStore = useNewsStore()
 
-async function fetchNews() {
-  news.value = newsApi.getSixNews()
-}
-
-onMounted(() => {
-  fetchNews()
+onMounted(async() => {
+  await newsStore.getNews()
 })
+
+const formatDate = (date) => {
+  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  return new Date(date).toLocaleDateString('pt-BR', options);
+}
 </script>
 
 <template>
@@ -20,13 +20,13 @@ onMounted(() => {
     <h2>Notícias</h2>
     <div class="container">
       <div class="news">
-        <NewsCard
-          v-for="newCard in news"
+        <NewCardAll
+          v-for="newCard in newsStore.state.news"
           :key="newCard.id"
-          :title="newCard.title"
-          :data="newCard.data"
+          :title="newCard?.title"
+          :data="formatDate(newCard.post_date)"
           :user="newCard.user"
-          :background="newCard.background"
+          :background="newCard.images[0].file"
           :linkProject="newCard.id"
         />
       </div>
@@ -40,10 +40,13 @@ onMounted(() => {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 60%;
+  margin: 0 auto;
 }
 .news {
-  display: flex;
+  display: grid;
   width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   flex-wrap: wrap;
   padding: 0 20px;

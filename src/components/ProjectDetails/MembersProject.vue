@@ -15,14 +15,15 @@ defineProps({
   <section v-if="members.length > 0">
     <h3>Membros</h3>
     <div class="members">
+      <!-- {{ members }} -->
       <MemberCard 
         v-for="member in members" 
         :key="member.id" 
-        :image="member.image" 
+        :image="member.image.file" 
         :name="member.name"
-        :description="member.description" 
+        :description="member.biography" 
         :linkMember="member" 
-        :occupation="member.occupation" />
+        :occupation="`${member.type} - ${member.status}`" />
     </div>
   </section>
 </template>

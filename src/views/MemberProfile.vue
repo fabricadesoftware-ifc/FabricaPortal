@@ -4,13 +4,16 @@ import PublicationsComp from '@/components/MemberProfile/PublicationsComp.vue'
 import DetailsProfile from '@/components/MemberProfile/DetailsProfile.vue'
 import MembersApi from '@/api/members'
 import { ref, onMounted } from 'vue'
+import {useMembersStore, useProjectsStore} from '@/stores'
+import router from '@/router'
 
 const membersApi = new MembersApi()
+const membersStore = useMembersStore()
+const projectsStore = useProjectsStore()
 
 const memberId = ref(null)
 const member = ref(null)
 
-onMounted(fetchMember)
 
 async function fetchMember() {
   const path = window.location.pathname
@@ -19,37 +22,34 @@ async function fetchMember() {
 
   return (member.value = membersApi.getMemberById(memberId.value))
 }
+
+onMounted(async () => {
+  await fetchMember()
+  console.log(router.currentRoute.value.params.id)
+  await membersStore.getMemberById(router.currentRoute.value.params.id)
+  await projectsStore.filterProjectsByMemberId(router.currentRoute.value.params.id)
+  console.log(projectsStore.state.filteredProjects)
+  console.log(membersStore.state.selectedMember)
+})
 </script>
 
 <template>
   <main v-if="member">
+    <!-- {{ membersStore.state.selectedMember }} -->
     <header>
-      <img class="image" :src="member.image" alt="" />
+      <img class="image" :src="membersStore.state.selectedMember?.image.file" alt="" />
       <div class="midias">
-        <a
-          v-for="socialLink in member.socialLinks"
-          :key="socialLink.icon"
-          target="_blank"
-          :href="socialLink.href"
-        >
-          <box-icon
-            size="2em"
-            color="var(--text-color)"
-            :type="socialLink.type"
-            :name="socialLink.icon"
-          ></box-icon>
+        <a v-for="socialLink in member.socialLinks" :key="socialLink.icon" target="_blank" :href="socialLink.href">
+          <box-icon size="2em" color="var(--text-color)" :type="socialLink.type" :name="socialLink.icon"></box-icon>
         </a>
       </div>
     </header>
     <section class="col-2">
-      <DetailsProfile
-        :name="member.name"
-        :key="member.id"
-        :occupation="member.occupation"
-        :description="member.description"
-      />
+      <DetailsProfile :name="membersStore.state.selectedMember?.name" :key="member.id" 
+      :occupation="`${membersStore.state.selectedMember?.status} - ${membersStore.state.selectedMember?.type}`"
+        :description="membersStore.state.selectedMember?.biography" />
       <ProjectsComp />
-      <PublicationsComp />
+      <!-- <PublicationsComp /> -->
     </section>
   </main>
 </template>
@@ -83,7 +83,7 @@ header {
 
 main .image {
   width: 235px;
-  height: auto;
+  height: 225px;
 }
 
 main .midias {
@@ -99,19 +99,23 @@ main .midias {
     padding: var(--pn-main) 10em;
   }
 }
+
 @media only screen and (max-width: 768px) {
   main {
     padding: var(--pn-main) 6em;
   }
 }
+
 @media only screen and (max-width: 600px) {
   main {
     padding: var(--pn-main) 2em;
   }
+
   main .image {
     width: 175px;
   }
 }
+
 @media only screen and (max-width: 375px) {
   main {
     padding: var(--pn-main) 1em;
