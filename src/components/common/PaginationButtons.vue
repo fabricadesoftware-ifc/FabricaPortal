@@ -11,7 +11,7 @@ const emits = defineEmits(['change-page'])
 const pagesRef = ref(null)
 
 function previousPage() {
-  if (props.currentPage == 1) return
+  if (props.currentPage === 1) return
   pagesRef.value[props.currentPage - 2].scrollIntoView({
     behavior: 'smooth',
     inline: 'center'
@@ -20,13 +20,14 @@ function previousPage() {
 }
 
 function nextPage() {
-  if (props.currentPage == props.pages) return
+  if (props.currentPage === props.pages) return
   pagesRef.value[props.currentPage].scrollIntoView({
     behavior: 'smooth',
     inline: 'center',
   })
   emits('change-page', props.currentPage + 1)
 }
+
 function changePage(page) {
   pagesRef.value[page - 1].scrollIntoView({
     behavior: 'smooth',
@@ -48,7 +49,7 @@ function changePage(page) {
         ref="pagesRef"
         v-for="page in pages"
         :key="page"
-        :class="currentPage == page ? 'current-page' : null"
+        :class="currentPage === page ? 'current-page' : null"
         @click="changePage(page)"
       >
         {{ page }}

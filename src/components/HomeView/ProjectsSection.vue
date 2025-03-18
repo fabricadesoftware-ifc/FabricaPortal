@@ -39,7 +39,7 @@ function getProjectLangs(project) {
     <div class="container">
       <div class="projects">
         <ProjectsCard
-          v-for="project of projectsStore.state.projects"
+          v-for="project of (projectsStore.state.projects).slice(0, 6)"
           :key="project.id"
           :title="project.name"
           :description="project.about"

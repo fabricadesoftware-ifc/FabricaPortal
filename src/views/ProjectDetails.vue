@@ -10,6 +10,7 @@ import ProjectsApi from '@/api/projects'
 import NewsApi from '@/api/news'
 import MembersApi from '@/api/members'
 import PublicationsApi from '@/api/publications'
+import AreasComp from '@/components/ProjectDetails/AreasComp.vue'
 
 import { useProjectsStore } from '@/stores'
 import router from '@/router'
@@ -103,6 +104,7 @@ function getProjectLangs(project) {
 <template>
   <main v-if="project">
     <!-- {{ projectsStore.state.selectedProject }} -->
+    <!-- {{ projectsStore.state.selectedProject }} -->
     <!-- <ProjectHeader :title="project.title" :key="project.id" :logo="project.logo" /> -->
     <ProjectHeader :title="projectsStore.state.selectedProject?.name" :key="project.id" :logo="project.logo" />
     <CarouselComp :images="[projectsStore.state.selectedProject?.image]" />
@@ -124,6 +126,7 @@ function getProjectLangs(project) {
       :customFields="project.customFields"
     />
     <NewsProject v-if="getNewsProject(project) != ''" :news="getNewsProject(project)" />
+    <AreasComp />
     <MembersProject :members="projectsStore.state.selectedProject?.members" />
     <!-- <MembersProject :members="projectsStore.state.selectedProject?.members" /> -->
     <PublicationsProject v-if="getProjectPublication(project) != ''" :publications="getProjectPublication(project)"/>

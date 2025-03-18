@@ -30,7 +30,6 @@ defineProps({
 
 <style scoped>
 section .members {
-  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

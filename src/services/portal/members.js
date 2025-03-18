@@ -26,11 +26,15 @@ class MembersService {
       if (type && name) {
         const response = await api.get(`/members/?type=${type}&name=${name}`)
         return response.data
-      } else if (type) {
+      } else if (type != 'Todos' && type) {
         const response = await api.get(`/members/?type=${type}`)
         return response.data
       } else if (name) {
         const response = await api.get(`/members/?name=${name}`)
+        return response.data
+      }
+      else if(type == 'Todos') {
+        const response = await api.get(`/members/`)
         return response.data
       }
     } catch (error) {

@@ -31,7 +31,27 @@ class ProjectsService {
     }
   }
 
+  async searchProject(name, areas) {
+    const areasJoin = areas.join(',')
+    console.log(areasJoin)
+    let url = ``
 
+    if (name && areas) {
+      url = `/projects/?name=${name}&areas=${areasJoin}`
+    } else if (name) {
+      url = `/projects/?name=${name}`
+    } else if (areas) {
+      url = `/projects/?areas=${areasJoin}`
+    }
+
+    try {
+      const response = await api.get(url)
+      return response.data
+    } catch (error) {
+      console.error(error)
+      return null
+    }
+  }
 }
 
 export default new ProjectsService()

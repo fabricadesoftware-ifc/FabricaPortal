@@ -80,7 +80,7 @@ function changeFilter(f) {
   filter.value = f
 }
 
-const itemsPerPage = 12
+const itemsPerPage = 9
 const currentPage = ref(1)
 const pages = computed(() => {
   return Math.ceil(filteredProjects.value.length / itemsPerPage)

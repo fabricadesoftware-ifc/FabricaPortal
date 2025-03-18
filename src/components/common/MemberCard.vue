@@ -64,7 +64,7 @@ h5 {
 }
 
 a {
-  width: 49%;
+  width: 100%;
   text-decoration: none;
 }
 
