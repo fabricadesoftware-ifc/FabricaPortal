@@ -39,8 +39,16 @@ onMounted(async () => {
     <header>
       <img class="image" :src="membersStore.state.selectedMember?.image.file" alt="" />
       <div class="midias">
-        <a v-for="socialLink in member.socialLinks" :key="socialLink.icon" target="_blank" :href="socialLink.href">
-          <box-icon size="2em" color="var(--text-color)" :type="socialLink.type" :name="socialLink.icon"></box-icon>
+        <a v-for="socialLink in membersStore.state.selectedMember?.socialLinks" 
+           :key="socialLink.icon" 
+           target="_blank" 
+           :href="socialLink.href">
+          <box-icon 
+            size="2em" 
+            color="var(--text-color)" 
+            :type="socialLink.type" 
+            :name="socialLink.icon">
+          </box-icon>
         </a>
       </div>
     </header>
@@ -92,6 +100,14 @@ main .midias {
   width: 100%;
   justify-content: center;
   padding: 4px;
+}
+
+.midias a {
+  transition: transform 0.2s;
+}
+
+.midias a:hover {
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 1224px) {

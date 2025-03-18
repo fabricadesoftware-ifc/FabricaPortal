@@ -17,6 +17,7 @@
   "dependencies": {
     "axios": "^1.8.2",
     "boxicons": "^2.1.4",
+    "fabrica-de-software": "file:",
     "pinia": "^2.0.36",
     "surge": "^0.23.1",
     "v-body-scroll-lock": "^1.1.3",

@@ -13,13 +13,15 @@ const membersApi = new MembersApi()
 const langs = ref([])
 const selectedLangs = ref([])
 const members = ref([])
-const filter = ref('')
+const filter = ref({
+  name: '',
+  status: '',
+  type: ''
+})
 
 onMounted(async () => {
   langs.value = projectsApi.getLangs()
   members.value = membersApi.getMembers()
-  
-  // Use the store to get projects
   await projectsStore.getProjects()
 })
 
@@ -28,21 +30,23 @@ function removeAccents(name) {
 }
 
 const filteredProjects = computed(() => {
-  const filterAccentless = removeAccents(filter.value.toLowerCase())
+  const filterNameAccentless = removeAccents(filter.value.name.toLowerCase())
   
   return projectsStore.state.projects.filter((project) => {
     const projectTitle = removeAccents(project.name.toLowerCase())
-    const filteredByName = projectTitle.includes(filterAccentless)
+    const filteredByName = projectTitle.includes(filterNameAccentless)
+    const filteredByStatus = !filter.value.status || project.status === filter.value.status
+    const filteredByType = !filter.value.type || project.type === filter.value.type
     
     if (!selectedLangs.value.length) {
-      return filteredByName
+      return filteredByName && filteredByStatus && filteredByType
     }
     
     const filteredByLanguage = selectedLangs.value.some((lang) =>
       project.languagesUsed?.includes(lang.id)
     )
     
-    return filteredByName && filteredByLanguage
+    return filteredByName && filteredByStatus && filteredByType && filteredByLanguage
   })
 })
 
@@ -94,29 +98,50 @@ const displayedItems = computed(() => {
 
 function changePage(page) {
   currentPage.value = page
-  // window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+watch(filter, () => {
+  currentPage.value = 1
+})
+
+watch(selectedLangs, () => {
+  currentPage.value = 1
+})
 </script>
 
 <template>
   <main>
-    <ProjectFilterComp :languages="langs" @filter="changeFilter" @languages="changeLangs" />
+    <ProjectFilterComp 
+      :languages="langs" 
+      @filter="changeFilter" 
+      @languages="changeLangs" 
+    />
     <section class="projects">
-      <ProjectsCard
-        v-for="project of displayedItems"
-        :key="project.id"
-        :title="project.name"
-        :description="project.about"
-        :logo="project.logo"
-        :image="project.images && project.images.length > 0 ? project.images[0] : ''"
-        :type="project.type"
-        :linkProject="project"
-        :members="getProjectMembers(project)"
-        :languagesUsed="getProjectLangs(project)"
-        :status="project.status"
-      >
-      </ProjectsCard>
-      <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage"/>
+      <div v-if="displayedItems.length === 0" class="no-results">
+        <h3>Nenhum projeto encontrado</h3>
+        <p>Tente ajustar os filtros de busca</p>
+      </div>
+      <template v-else>
+        <ProjectsCard
+          v-for="project of displayedItems"
+          :key="project.id"
+          :title="project.name"
+          :description="project.about"
+          :logo="project.logo"
+          :image="project.images && project.images.length > 0 ? project.images[0] : ''"
+          :type="project.type"
+          :linkProject="project"
+          :members="getProjectMembers(project)"
+          :languagesUsed="getProjectLangs(project)"
+          :status="project.status"
+        />
+      </template>
+      <PaginationButtons 
+        v-if="displayedItems.length > 0"
+        :pages="pages" 
+        :currentPage="currentPage" 
+        @change-page="changePage"
+      />
     </section>
   </main>
 </template>
@@ -134,7 +159,23 @@ main {
   padding: 4em var(--pn-main);
   justify-content: space-between;
   gap: 20px;
-  align-items: stretch; /* Ensure equal height cards */
+  align-items: stretch;
+  min-height: 400px;
+}
+
+.no-results {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.no-results h3 {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.no-results p {
+  color: var(--text-color-light);
 }
 
 @media screen and (max-width: 1024px) {
@@ -142,8 +183,14 @@ main {
     width: 100%;
     flex-direction: column;
     gap: 20px;
-    padding: 0;
+    padding: 2rem;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects {
+    padding: 1rem;
   }
 }
 </style>
