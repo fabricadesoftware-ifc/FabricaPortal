@@ -34,4 +34,12 @@ section .members {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 1024px) {
+  section {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+  }
+}
 </style>

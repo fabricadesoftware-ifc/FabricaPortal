@@ -49,12 +49,13 @@ function changePage(page) {
   <main>
     <FilterComp :members="membersStore.state.members" :occupations="filters" @change="changeFilterName" @occupation="changeOccupation" />
     <section class="members" v-if="filteredMembers.length">
+      
       <MemberCard 
         v-for="member in displayedMembers" 
         :key="member.id" 
         :image="member.image.file"
         :name="member.name" 
-        :description="'lorem sit amet'" 
+        :description="member?.biography" 
         :linkMember="member"
         :occupation="{ description: `${member.status + ' - ' + member.type}` }" 
       />
@@ -89,14 +90,18 @@ main {
   height: 50vh;
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   main {
     padding-top: 4em;
   }
 
-  main .members {
+   .members {
     padding: 1em;
     grid-template-columns: 1fr;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>
