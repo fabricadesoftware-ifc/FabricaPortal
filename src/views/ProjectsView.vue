@@ -137,22 +137,13 @@ main {
   align-items: stretch; /* Ensure equal height cards */
 }
 
-@media only screen and (max-width: 600px) {
-  .projects {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-}
-
-@media only screen and (max-width: 425px) {
+@media screen and (max-width: 1024px) {
   .projects {
     width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    flex-direction: column;
     gap: 20px;
-    justify-content: space-between;
+    padding: 0;
+    align-items: center;
   }
 }
 </style>
