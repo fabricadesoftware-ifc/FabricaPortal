@@ -1,51 +1,29 @@
 <script setup>
-import Multiselect from 'vue-multiselect'
-import { ref, onMounted, watch } from 'vue'
-import { useAreasStore } from '@/stores'
+import { ref } from 'vue'
 
-const props = defineProps(['languages'])
-const emit = defineEmits(['languages', 'filter'])
+const emit = defineEmits(['filter'])
 
-const areasStore = useAreasStore()
-
-const selectedLanguages = ref([])
 const filterProject = ref('')
 const selectedStatus = ref('')
-const selectedType = ref('')
 
 const statusOptions = [
-  { id: 1, desc: 'Em desenvolvimento' },
-  { id: 2, desc: 'Finalizado' },
-  { id: 3, desc: 'Em andamento' }
+  { id: 1, desc: 'Em Desenvolvimento', color: '#2196F3' },
+  { id: 2, desc: 'Concluído', color: '#4CAF50' },
+  { id: 3, desc: 'Cancelado', color: '#F44336' }
 ]
-
-const typeOptions = [
-  { id: 1, desc: 'Extensão' },
-  { id: 2, desc: 'Ensino' },
-  { id: 3, desc: 'Pesquisa' }
-]
-
-onMounted(async () => {
-  await areasStore.getAreas()
-})
 
 const search = () => {
   emit('filter', {
     name: filterProject.value,
     status: selectedStatus.value,
-    type: selectedType.value
   })
-  emit('languages', selectedLanguages.value)
 }
 
 const clearFilters = () => {
   filterProject.value = ''
-  selectedLanguages.value = []
   selectedStatus.value = ''
-  selectedType.value = ''
   search()
 }
-
 </script>
 
 <template>
@@ -58,58 +36,40 @@ const clearFilters = () => {
             type="text" 
             name="project" 
             id="input-search" 
-            placeholder="Nome do projeto"
+            placeholder="Buscar projeto por nome..."
             autocomplete="off" 
             v-model="filterProject" 
             @keyup.enter="search" 
           />
+          <div class="search-icon"></div>
         </div>
         
         <div class="filters">
           <div class="filter-group">
-            <label>Status:</label>
+            <label>Status do Projeto:</label>
             <select v-model="selectedStatus" @change="search">
-              <option value="">Todos</option>
-              <option v-for="status in statusOptions" :key="status.id" :value="status.desc">
+              <option value="">Todos os Status</option>
+              <option v-for="status in statusOptions" 
+                      :key="status.id" 
+                      :value="status.desc"
+                      :style="{ borderLeft: `4px solid ${status.color}` }"
+              >
                 {{ status.desc }}
-              </option>
-            </select>
-          </div>
-
-          <div class="filter-group">
-            <label>Tipo:</label>
-            <select v-model="selectedType" @change="search">
-              <option value="">Todos</option>
-              <option v-for="type in typeOptions" :key="type.id" :value="type.desc">
-                {{ type.desc }}
               </option>
             </select>
           </div>
         </div>
 
         <div class="filter-actions">
-          <button type="button" class="clear-btn" @click="clearFilters">
+          <button type="button" class="clear-btn" @click="clearFilters" :disabled="!filterProject && !selectedStatus">
             <box-icon name="x" size="1.2em" color="var(--text-color)"></box-icon>
-            Limpar filtros
+            Limpar Filtros
           </button>
           <button type="submit" class="search-btn">
             <box-icon name="search-alt" size="1.5em" color="var(--white)"></box-icon>
-            <span>BUSCAR</span>
+            <span>Buscar Projetos</span>
           </button>
         </div>
-      </div>
-
-      <div class="technologies-filter">
-        <label>Tecnologias:</label>
-        <multiselect 
-          v-model="selectedLanguages" 
-          placeholder="Selecione as tecnologias"
-          label="desc" 
-          track-by="id"
-          :options="areasStore.state.areas" 
-          :multiple="true"
-          @input="search"
-        ></multiselect>
       </div>
     </form>
   </section>
@@ -121,9 +81,20 @@ const clearFilters = () => {
 section {
   background-color: var(--bg-white);
   padding: 2rem;
-  margin: 0 8rem;
+  margin: 2rem 8rem;
   border-radius: var(--border-rd);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+h2 {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
 form {
@@ -145,14 +116,24 @@ form {
   width: 100%;
   padding: 1rem;
   padding-left: 3rem;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-rd);
   font-size: 1rem;
   transition: all 0.3s ease;
+  background-color: var(--bg-white);
 }
 
-.search-container::before {
-  content: '';
+.search-container input:hover {
+  border-color: var(--primary-color);
+}
+
+.search-container input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+  outline: none;
+}
+
+.search-icon {
   position: absolute;
   left: 1rem;
   top: 50%;
@@ -163,17 +144,16 @@ form {
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 
-.search-container input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
-  outline: none;
+.search-container input:focus + .search-icon {
+  opacity: 1;
 }
 
 .filters {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
@@ -191,12 +171,18 @@ form {
 
 .filter-group select {
   padding: 0.8rem;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-rd);
   font-size: 1rem;
   background-color: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1.5rem;
+  padding-right: 2.5rem;
 }
 
 .filter-group select:hover {
@@ -209,11 +195,17 @@ form {
   outline: none;
 }
 
+.filter-group option {
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
 .filter-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .clear-btn {
@@ -221,7 +213,7 @@ form {
   align-items: center;
   gap: 0.5rem;
   padding: 0.8rem 1.2rem;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-rd);
   background-color: white;
   cursor: pointer;
@@ -229,9 +221,14 @@ form {
   font-weight: 500;
 }
 
-.clear-btn:hover {
+.clear-btn:hover:not(:disabled) {
   background-color: var(--bg-gray);
   border-color: var(--text-color);
+}
+
+.clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .search-btn {
@@ -253,68 +250,30 @@ form {
   transform: translateY(-1px);
 }
 
-.technologies-filter {
-  margin-top: 1.5rem;
+.search-btn:active {
+  transform: translateY(0);
 }
 
-.technologies-filter label {
-  display: block;
-  margin-bottom: 0.8rem;
-  font-weight: 500;
-  color: var(--text-color);
-  font-size: 0.9rem;
-}
-
-/* Estilização do multiselect */
-:deep(.multiselect) {
-  min-height: 44px;
-}
-
-:deep(.multiselect__tags) {
-  border-radius: var(--border-rd);
-  border-color: var(--border-color);
-  padding: 0.8rem;
-  min-height: 44px;
-}
-
-:deep(.multiselect__tag) {
-  background: var(--primary-color);
-  border-radius: 4px;
-}
-
-:deep(.multiselect__tag-icon:after) {
-  color: white;
-}
-
-:deep(.multiselect__tag-icon:hover) {
-  background: var(--primary-color-dark);
-}
-
-/* Responsividade */
 @media screen and (max-width: 1200px) {
   section {
-    margin: 0 4rem;
+    margin: 2rem 4rem;
   }
 }
 
 @media screen and (max-width: 1024px) {
   section {
-    margin: 0 2rem;
+    margin: 1.5rem 2rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   section {
-    margin: 0 1rem;
+    margin: 1rem;
     padding: 1.5rem;
   }
 
-  .filters {
-    grid-template-columns: 1fr;
-  }
-
   .filter-actions {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 1rem;
   }
 
@@ -322,21 +281,22 @@ form {
     width: 100%;
     justify-content: center;
   }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
   section {
     padding: 1rem;
+    margin: 0.5rem;
   }
 
   .search-container input,
   .filter-group select {
     font-size: 0.9rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
   }
 }
 </style>
