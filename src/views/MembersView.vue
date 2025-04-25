@@ -1,85 +1,69 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-
+import { onMounted, computed, ref } from 'vue'
 import FilterComp from '@/components/MembersView/FilterComp.vue'
-import MemberCard from '../components/common/MemberCard.vue'
+import MemberCard from '@/components/common/MemberCard.vue'
 import PaginationButtons from '@/components/common/PaginationButtons.vue'
+import { useMembersStore } from '@/stores'
 
-import MembersApi from '@/api/members'
-const membersApi = new MembersApi()
-const members = ref([])
-const occupations = ref([''])
-const filterName = ref('')
-const selectedOccupation = ref('')
+const membersStore = useMembersStore()
+const filters = [
+  'Docente',
+  'Discente',
+  'TAE',
+  'Externo'
+]
 
-function removeAccents(name) {
-  return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-}
+const currentPage = ref(1)
+const itemsPerPage = 8
 
-const filteredMembers = computed(() =>
-  members.value.filter((m) => {
-    const memberName = removeAccents(m.name.toLowerCase())
-    const filter = removeAccents(filterName.value.toLowerCase())
-    const filteredMembersByName = memberName.includes(filter)
+onMounted(async () => {
+  await membersStore.getMembers()
+})
 
-    if (selectedOccupation.value == 'Todos') return filteredMembersByName
+// Computed para calcular as páginas com base nos membros filtrados
+const filteredMembers = computed(() => {
+  // Aqui você pode adicionar mais lógica de filtragem se necessário
+  return membersStore.state.members
+})
 
-    return filteredMembersByName && m.occupation.description == selectedOccupation.value
-  })
-)
-
-function changeFilterName(name) {
-  filterName.value = name
-}
-
-function changeOccupation(occup) {
-  selectedOccupation.value = occup
-}
-
-const itemsPerPage = 12;
-const currentPage = ref(1);
+// Número de páginas, dependendo do número total de membros e itens por página
 const pages = computed(() => {
   return Math.ceil(filteredMembers.value.length / itemsPerPage)
-});
+})
 
-const displayedItems = computed(() => {
-  const startIndex = (currentPage.value -1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  return filteredMembers.value.slice(startIndex, endIndex);
-});
+// Membros a serem exibidos na página atual
+const displayedMembers = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  return filteredMembers.value.slice(startIndex, endIndex)
+})
 
 function changePage(page) {
-  currentPage.value = page;
-  // window.scrollTo({ top: 0, behavior: 'smooth' });
+  currentPage.value = page
+  // Pode ser interessante adicionar um scroll suave para o topo
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
-
-onMounted(() => {
-  members.value = membersApi.getMembers()
-  occupations.value = membersApi.getOccupations()
-})
 </script>
 
 <template>
   <main>
-    <FilterComp
-      :members="members"
-      :occupations="occupations"
-      @change="changeFilterName"
-      @occupation="changeOccupation"
-    />
-    <section class="members">
-      <MemberCard
-        v-for="member of displayedItems"
-        :key="member.id"
-        :image="member.image"
-        :name="member.name"
-        :description="member.description"
+    <FilterComp :members="membersStore.state.members" :occupations="filters" @change="changeFilterName" @occupation="changeOccupation" />
+    <section class="members" v-if="filteredMembers.length">
+      
+      <MemberCard 
+        v-for="member in displayedMembers" 
+        :key="member.id" 
+        :image="member.image.file"
+        :name="member.name" 
+        :description="member?.biography" 
         :linkMember="member"
-        :background="member.background"
-        :occupation="member.occupation"
+        :occupation="{ description: `${member.status + ' - ' + member.type}` }" 
       />
-      <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage"/>
     </section>
+    <section v-else class="notFound">
+      <p>Nenhum membro encontrado</p>
+    </section>
+    <PaginationButtons :pages="pages" :currentPage="currentPage" @change-page="changePage" />
   </main>
 </template>
 
@@ -88,57 +72,36 @@ main {
   padding-top: var(--pn-main);
 }
 
-main .members {
+ .members {
   background-color: var(--bg-gray);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 1em;
   border-radius: 0;
   padding: 4em var(--pn-main);
   justify-content: space-between;
+  min-height: 50vh;
 }
 
-@media only screen and (max-width: 768px) {
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+@media screen and (max-width: 1024px) {
   main {
     padding-top: 4em;
   }
 
-  main .members {
+   .members {
     padding: 1em;
+    grid-template-columns: 1fr;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-}
-
-@media only screen and (max-width: 555px) {
-  a {
-    width: 49%;
-  }
-
-  img {
-    width: 11em;
-    min-height: 11em;
-  }
-
-  .card {
-    height: 11em;
-  }
-}
-
-/* @media only screen and (max-width: 500px) {
-  a {
-    width: 100%
-  }
-  .card {
-    flex-direction: row;
-    margin-right: 0;
-    height: 10em;
-    padding: 10px;
-    width: 100%;
-  }
-  .image {
-    width: 9em;
-    min-height: 9em; 
-  }
-}
- */
-@media only screen and (min-width: 1200px) {
 }
 </style>

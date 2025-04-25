@@ -1,60 +1,44 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 import ButtonAll from '../common/ButtonAll.vue'
-import MembersApi from '@/api/members'
-const membersApi = new MembersApi()
-const filterName = ref('')
-const selectedOccupation = ref('Todos')
-const props = defineProps(['members', 'occupations'])
-const emit = defineEmits(['change', 'occupation', ''])
+import { useMembersStore } from '@/stores'
 
-onMounted(() => {
-  search()
+const props = defineProps(['members', 'occupations'])
+const membersStore = useMembersStore()
+
+const toSearch = reactive({
+  filterName: '',
+  selectedOccupation: ''
 })
 
 const search = () => {
-  emit('change', filterName.value)
-  emit('occupation', selectedOccupation.value)
+  console.log(toSearch)
+  membersStore.searchMembers(toSearch.selectedOccupation, toSearch.filterName)
 }
+
 </script>
 
 <template>
+
   <section>
     <h2>Membros</h2>
-    <form @submit.prevent="search">
+    <form @submit.prevent>
       <div class="filter-container">
         <div class="search-container" id="search">
-          <input
-            type="text"
-            name="member"
-            list="members"
-            id="input-search"
-            placeholder="Nome do(a) membro"
-            autocomplete="off"
-            v-model="filterName"
-            @keyup.enter="search"
-          />
+          <input type="text" name="member" list="members" id="input-search" placeholder="Nome do(a) membro"
+            autocomplete="off" v-model="toSearch.filterName" @keyup.enter="search" />
         </div>
-        <select class="select-occup" name="" id="" v-model="selectedOccupation">
+        <select class="select-occup" name="" id="" v-model="toSearch.selectedOccupation">
           <option value="Todos">Todos</option>
-          <option
-            v-for="occupation in props.occupations"
-            :key="occupation.id"
-            :value="occupation.description"
-          >
-            {{ occupation.description }}
+          <option v-for="occupation in props.occupations" :key="occupation.id" :value="occupation">
+            {{ occupation }}
           </option>
         </select>
         <div class="filter-toggle">
           <button class="filter-btn" @click="search">
             <box-icon name="search-alt" size="1.5em" color="var(--white)"></box-icon>
             <span>BUSCAR</span>
-            <box-icon
-              name="filter-alt"
-              size="1.5em"
-              class="icon-filter"
-              color="var(--white)"
-            ></box-icon>
+            <box-icon name="filter-alt" size="1.5em" class="icon-filter" color="var(--white)"></box-icon>
           </button>
         </div>
       </div>
@@ -78,9 +62,11 @@ section form {
   display: flex;
   flex-direction: column;
 }
+
 button {
   margin: 1em auto;
 }
+
 form .search-container {
   display: flex;
   align-items: center;
@@ -88,13 +74,16 @@ form .search-container {
   background-color: var(--bg-gray);
   box-shadow: var(--light-shadow);
 }
+
 .icon-filter {
   display: none;
 }
+
 .expanded {
   max-height: 500px;
   transform: max-height 1s;
 }
+
 form #search {
   width: 100%;
 }
@@ -116,11 +105,13 @@ form #search {
   gap: 10px;
   justify-content: center;
 }
+
 .filter-btn {
   display: flex;
   align-items: center;
   border-left: 1px solid var(--white);
 }
+
 .filter-toggle span {
   font-size: 0.9em;
   font-weight: 600;
@@ -132,6 +123,7 @@ form #search {
   width: 100%;
   transition: max-height var(--effect) ease-in-out;
 }
+
 .filter-container .container {
   padding: 10px;
   border-top: 0;
@@ -145,10 +137,12 @@ form #search {
   flex-direction: column;
   display: flex;
 }
+
 .filter-options {
   display: flex;
   justify-content: center;
 }
+
 .filter-options div {
   width: 24%;
   display: flex;
@@ -183,6 +177,7 @@ select {
   border-color: var(--secondary-color);
   box-shadow: 0 0 0 1px var(--secondary-color), 0 0 0 4px #267a7a8f;
 }
+
 .select-order:focus {
   outline: none;
   border-color: var(--quaternary-color);
@@ -192,6 +187,7 @@ select {
 .expanded {
   max-height: 500px;
 }
+
 .search-container input {
   width: 100%;
   padding: 14px;
@@ -206,25 +202,31 @@ select {
 .search-container input:focus {
   outline: 0;
 }
+
 @media only screen and (max-width: 768px) {
   section {
     margin: 0px;
   }
 }
+
 @media only screen and (max-width: 600px) {
   .filter-options {
     flex-direction: column;
   }
+
   .filter-btn span {
     display: none;
   }
+
   .icon-filter {
     display: flex;
   }
+
   .filter-options div {
     width: 100%;
     margin-bottom: 10px;
   }
+
   .filter-btn .icon {
     display: none;
   }

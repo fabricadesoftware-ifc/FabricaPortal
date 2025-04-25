@@ -20,12 +20,9 @@ const toggleModal = () => {
 
 <template>
   <section class="description">
-    <header class="container" @click="toggleModal">
+    <header class="container">
       <h3>Sobre essa noticia</h3>
       <h3></h3>
-      <button class="btn-arrow">
-        <box-icon name="right-arrow-alt" color="white"></box-icon>
-      </button>
     </header>
     <p class="short-bio">{{ description }}</p>
   </section>

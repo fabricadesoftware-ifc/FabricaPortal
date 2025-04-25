@@ -35,12 +35,10 @@ const toggleModal = () => {
 
 <template>
   <section class="description">
-    <header class="container" @click="toggleModal">
+    <header class="container">
       <h3>Sobre esse projeto</h3>
       <h3></h3>
-      <button class="btn-arrow">
-        <box-icon name="right-arrow-alt" color="white"></box-icon>
-      </button>
+    
     </header>
     <p class="short-bio">{{ description }}</p>
   </section>
@@ -145,6 +143,7 @@ const toggleModal = () => {
           </li>
         </ul>
       </section>
+      
     </main>
   </section>
 </template>

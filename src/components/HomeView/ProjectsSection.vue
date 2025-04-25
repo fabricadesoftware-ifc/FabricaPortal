@@ -4,6 +4,9 @@ import ButtonAll from '../common/ButtonAll.vue'
 import ProjectsCard from '../common/ProjectsCard.vue'
 import ProjectsApi from '@/api/projects'
 import MembersApi from '@/api/members'
+import {useProjectsStore} from '@/stores'
+
+const projectsStore = useProjectsStore()
 
 const projectsApi = new ProjectsApi()
 const membersApi = new MembersApi()
@@ -15,6 +18,8 @@ onMounted(async () => {
   projects.value = projectsApi.getSixProjects()
   langs.value = projectsApi.getLangs()
   members.value = membersApi.getMembers()
+
+  await projectsStore.getProjects()
 })
 function getProjectLangs(project) {
   if (project.languagesUsed) {
@@ -26,16 +31,6 @@ function getProjectLangs(project) {
       .filter((lang) => lang !== null)
   }
 }
-function getProjectMembers(project) {
-  if (project.projectMembers) {
-    return project.projectMembers
-      .map((memberId) => {
-        const member = members.value.find((member) => member.id === memberId)
-        return member ? member : null
-      })
-      .filter((member) => member !== null)
-  }
-}
 </script>
 
 <template>
@@ -44,15 +39,15 @@ function getProjectMembers(project) {
     <div class="container">
       <div class="projects">
         <ProjectsCard
-          v-for="project of projects"
+          v-for="project of (projectsStore.state.projects).slice(0, 6)"
           :key="project.id"
-          :title="project.title"
-          :description="project.description"
+          :title="project.name"
+          :description="project.about"
           :logo="project.logo"
           :images="project.images"
           :type="project.type"
           :linkProject="project"
-          :members="getProjectMembers(project)"
+          :members="project.members"
           :languagesUsed="getProjectLangs(project)"
           :status="project.status"
         />

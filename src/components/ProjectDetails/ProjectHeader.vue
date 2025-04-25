@@ -11,9 +11,7 @@ defineProps({
 </script>
 <template>
   <header>
-    <img class="logo" :src="logo" alt="" />
       <h2>{{ title }}</h2>
-
   </header>
 </template>
 <style scoped>

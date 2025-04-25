@@ -64,7 +64,7 @@ h5 {
 }
 
 a {
-  width: 49%;
+  width: 100%;
   text-decoration: none;
 }
 
@@ -118,47 +118,17 @@ p {
   min-height: 100px;
 }
 
-@media only screen and (max-width: 1280px) {
-  a {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
   .card {
+    height: 100%;
+    display: flex;
     flex-direction: column;
-    height: 18em;
-  }
-  p {
-    display: none;
-  }
-  .card {
-    height: 22em;
-  }
-  .image {
-    min-width: 15em;
-    height: 15em;
   }
 
-  a {
-    width: 49%;
-  }
-}
-@media only screen and (max-width: 555px) {
   .image {
-    min-width: 9em;
-    height: 9em;
+    width: 100%;
+    height: 100%;
   }
-  .card {
-    height: 17em;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .image {
-    min-width: 7em;
-    height: 7em;
-  }
-  .card {
-    height: 15em;
-  }
+  
 }
 </style>

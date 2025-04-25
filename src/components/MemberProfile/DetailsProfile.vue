@@ -2,19 +2,17 @@
 defineProps({
   name: String,
   description: String,
-  occupation: {
-    type: Object
-  }
+  occupation: String
 })
 </script>
 <template>
   <header>
-    <h3>{{ occupation.description }}</h3>
+    <h3>{{ occupation }}</h3>
     <div>
       <h2>{{ name }}</h2>
     </div>
   </header>
-  <section v-if="description.length > 0">
+  <section v-if="description?.length > 0">
     <h3>Descrição</h3>
     <p>{{ description }}</p>
   </section>
