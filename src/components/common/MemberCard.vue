@@ -40,52 +40,31 @@ const UrlMember = (id) => {
 <template>
   <router-link :to="UrlMember(linkMember.id)">
     <div class="card">
-      <img class="image" :src="image" alt="" />
-      <!--       <div class="image" :style="{ backgroundImage: `url(${image})` }"><span></span></div> -->
+      <div class="image">
+        <img :src="image" alt="Member Image" />
+      </div>
       <div class="details">
         <h5>{{ occupation.description }}</h5>
         <h3>{{ shortenName(name) }}</h3>
-        <p>
-          {{ description }}
-        </p>
+        <p>{{ description }}</p>
       </div>
     </div>
   </router-link>
 </template>
 
 <style scoped>
-h3 {
-  text-overflow: ellipsis;
-}
-
-h5 {
-  color: var(--members);
-  text-transform: uppercase;
-}
-
-a {
-  width: 100%;
-  text-decoration: none;
-}
-
-p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
 .card {
   background-color: var(--bg-white);
-  height: 12em;
+  height: 200px; /* altura fixa */
   padding: 10px;
   margin-bottom: 30px;
-  flex-direction: row;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   align-items: center;
   transition: transform var(--effect);
   transform: scale(97%);
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .card:hover {
@@ -93,42 +72,84 @@ p {
   transform: scale(100%);
 }
 
-.card:hover .image {
+.card:hover .image img {
   filter: brightness(1);
 }
 
 .image {
-  background-position: center;
-  background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   transition: filter var(--effect);
   filter: brightness(0.6);
-  min-width: 11em;
-  height: 11em;
+  border-radius: 10px;
 }
 
 .details {
   padding: 10px;
   width: 100%;
-  height: inherit;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
-  min-height: 100px;
+}
+
+h3 {
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+h5 {
+  color: var(--members);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+a {
+  width: 100%;
+  text-decoration: none;
+  display: block;
+}
+
+p {
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: 1024px) {
   .card {
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
   }
 
   .image {
     width: 100%;
-    height: 100%;
+    height: 200px; 
   }
-  
+
+  .details {
+    align-items: center;
+    text-align: center;
+  }
 }
 </style>

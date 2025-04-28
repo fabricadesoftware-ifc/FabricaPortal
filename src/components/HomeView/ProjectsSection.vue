@@ -76,6 +76,7 @@ section {
   align-content: space-between;
   align-items: center;
   gap: 20px;
+  min-height: 100%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -90,16 +91,6 @@ section {
   }
 }
 
-@media only screen and (max-width: 425px) {
-  .projects {
-    width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: space-between
-  }
-}
 
 @media only screen and (min-width: 768px) {
 }

@@ -133,6 +133,7 @@ function closeNavMenu(): void {
 
 nav {
   background-color: var(--bg-black);
+  width: 100%;
   height: 73px;
   padding: 40px 145px;
   position: fixed;
