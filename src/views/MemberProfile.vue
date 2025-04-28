@@ -34,7 +34,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main v-if="member">
+  <main>
     <!-- {{ membersStore.state.selectedMember }} -->
     <header>
       <img class="image" :src="membersStore.state.selectedMember?.image.file" alt="" />
@@ -53,7 +53,7 @@ onMounted(async () => {
       </div> -->
     </header>
     <section class="col-2"> 
-      <DetailsProfile :name="membersStore.state.selectedMember?.name" :key="member.id" 
+      <DetailsProfile :name="membersStore.state.selectedMember?.name" :key="member?.id" 
       :occupation="`${membersStore.state.selectedMember?.status} - ${membersStore.state.selectedMember?.type}`"
         :description="membersStore.state.selectedMember?.biography" />
       <ProjectsComp />
