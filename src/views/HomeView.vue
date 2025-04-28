@@ -13,7 +13,7 @@ import HardSkill from '../components/HomeView/HardSkill.vue'
     <NewsSection />
     <ProjectsSection />
     <MemberSection />
-    <PublicationsSection />
+    <!-- <PublicationsSection /> -->
   </main>
   <HardSkill />
 </template>
