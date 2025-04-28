@@ -38,7 +38,7 @@ onMounted(async () => {
     <!-- {{ membersStore.state.selectedMember }} -->
     <header>
       <img class="image" :src="membersStore.state.selectedMember?.image.file" alt="" />
-      <div class="midias">
+      <!-- <div class="midias">
         <a v-for="socialLink in membersStore.state.selectedMember?.socialLinks" 
            :key="socialLink.icon" 
            target="_blank" 
@@ -50,9 +50,9 @@ onMounted(async () => {
             :name="socialLink.icon">
           </box-icon>
         </a>
-      </div>
+      </div> -->
     </header>
-    <section class="col-2">
+    <section class="col-2"> 
       <DetailsProfile :name="membersStore.state.selectedMember?.name" :key="member.id" 
       :occupation="`${membersStore.state.selectedMember?.status} - ${membersStore.state.selectedMember?.type}`"
         :description="membersStore.state.selectedMember?.biography" />
