@@ -13,12 +13,11 @@ const getRandomColor = () => {
 <template>
     <section>
         <div class="container">
-            <h3>Areas:
-            </h3>
+            <h3>Tecnologias:</h3>
             <div class="areas">
-                <div class="tag" v-for="item in projectsStore.state.selectedProject?.areas?.areas" :key="item"
+                <div class="tag" v-for="item in projectsStore.state.selectedProject?.technologies" :key="item"
                     :style="{ backgroundColor: getRandomColor() }">
-                    {{ item }}
+                    {{ item.name }}
                 </div>
             </div>
         </div>

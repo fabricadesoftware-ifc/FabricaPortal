@@ -52,7 +52,7 @@ async function fetchProject() {
     <!-- {{ projectsStore.state.selectedProject }} -->
     <!-- <ProjectHeader :title="project.title" :key="project.id" :logo="project.logo" /> -->
     <ProjectHeader :title="projectsStore.state.selectedProject?.name" :key="project?.id" />
-    <CarouselComp :images="[projectsStore.state.selectedProject?.image]" />
+    <CarouselComp :images="projectsStore.state.selectedProject?.images" />
     <DescriptionProject
       :logo="project?.image?.file"
       :title="projectsStore.state.selectedProject?.name"
