@@ -24,6 +24,9 @@ const toggleModal = () => {
       <h3>Sobre essa noticia</h3>
       <h3></h3>
     </header>
+    <header class="container">
+      <h5>Data de Publicação: {{ published }}</h5>
+    </header>
     <p class="short-bio">{{ description }}</p>
   </section>
   <div class="modal-overlay" @click="toggleModal" :class="{ hide: modalHidden }"></div>
