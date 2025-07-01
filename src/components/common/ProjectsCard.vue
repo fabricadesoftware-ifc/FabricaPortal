@@ -24,7 +24,8 @@ const statusColors = {
   'Em Desenvolvimento': '#2196F3',
   'Concluído': '#4CAF50',
   'Cancelado': '#F44336',
-  'Em Andamento': '#FF9800'
+  'Em Andamento': '#FF9800',
+  "Não Iniciado": '#9E9E9E',
 }
 
 const getStatusColor = (status) => {
@@ -47,7 +48,7 @@ const UrlProject = (id) => {
         <div class="image-container">
           <img 
             class="container-img" 
-            :src="image || '/img/Projects/FabricaPortal/PortalFabrica.png'"
+            :src="image?.file || '/img/Projects/FabricaPortal/PortalFabrica.png'"
             :alt="title"
           />
           <div class="image-overlay"></div>

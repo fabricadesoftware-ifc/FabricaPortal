@@ -20,14 +20,41 @@ const getRandomColor = () => {
                     {{ item.name }}
                 </div>
             </div>
+            <h3>Links:</h3>
+            <div class="links">
+                    <span v-for="(value, key) in projectsStore.state.selectedProject?.links" :key="key" class="link-item">  
+                        <a :href="value" target="_blank" :style="{ backgroundColor: getRandomColor() }">{{ key }}</a>
+                    </span>
+                
+            </div>
         </div>
     </section>
 </template>
 <style scoped>
 section {
     width: 100%;
-    height: 5vw;
+    height: 10vw;
     text-align: left;
+}
+
+.links {
+    display: flex;
+    gap: .5rem;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.link-item > a {
+    padding: .5rem;
+    border-radius: 10px;
+    font-size: 10pt;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .container {
@@ -48,7 +75,7 @@ section {
     justify-content: flex-start;
 }
 
-.tag {
+.tag, li {
     padding: .5rem;
     border-radius: 20px;
     color: var(--white);
@@ -56,11 +83,24 @@ section {
     font-weight: bold;
 }
 
+a {
+    color: blue;
+    transition: .5s;
+}
+
+a:hover {
+    transform: scale(1.02);
+}
+
 @media screen and (max-width: 1024px) {
-    
+
     section {
-        height: 10vw;
+        height: 35vw;
     }
-    
+
+    .links{
+        flex-wrap: wrap;
+    }
+
 }
 </style>

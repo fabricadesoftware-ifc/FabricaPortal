@@ -49,7 +49,7 @@ function getProjectLangs(project) {
           :linkProject="project"
           :members="project.members"
           :languagesUsed="getProjectLangs(project)"
-          :status="project.status"
+          :status="project.state"
         />
       </div>
       <ButtonAll link="/projects" text="Ver todos os projetos" />
