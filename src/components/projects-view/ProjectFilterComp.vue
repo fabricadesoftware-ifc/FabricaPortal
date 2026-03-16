@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 interface FilterPayload {
   name: string
@@ -16,7 +16,7 @@ const selectedStatus = ref('')
 const statusOptions = [
   { id: 1, desc: 'Em Desenvolvimento', color: '#2196F3' },
   { id: 2, desc: 'Concluído', color: '#4CAF50' },
-  { id: 3, desc: 'Não iniciado', color: '#F44336' },
+  { id: 3, desc: 'Cancelado', color: '#F44336' },
 ]
 
 const search = () => {
@@ -26,13 +26,10 @@ const search = () => {
   })
 }
 
-watch([filterProject, selectedStatus], () => {
-  search()
-})
-
 const clearFilters = () => {
   filterProject.value = ''
   selectedStatus.value = ''
+  search()
 }
 </script>
 

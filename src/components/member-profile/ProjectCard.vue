@@ -2,7 +2,7 @@
 interface Props {
   description?: string
   title?: string
-  images?: { file: string }
+  logo?: string
   status?: string
   type?: string
   linkProject: { id: string | number }
@@ -30,7 +30,11 @@ const getUrlProject = (id: string | number) => `/project/${id}`
     <div
       class="w-full my-2.5 h-auto gap-4 flex flex-row p-[15px] items-center transition-transform duration-300 ease-in-out group-hover:-translate-y-1"
     >
-      <img src="/logos/fabrica.svg" :alt="title" class="w-20 h-20 flex-shrink-0 object-contain" />
+      <img
+        src="/logos/fabrica.svg"
+        alt="Logo do Projeto"
+        class="w-20 h-20 flex-shrink-0 object-contain"
+      />
 
       <div class="w-full min-w-0">
         <header class="flex justify-between items-start gap-2">

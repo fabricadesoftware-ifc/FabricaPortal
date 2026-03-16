@@ -3,7 +3,6 @@ import { onMounted } from 'vue'
 import { ButtonAll, ProjectsCard } from '@/components'
 import { useProjectsStore } from '@/stores/projects'
 import { useMembersStore } from '@/stores/members'
-import { sortProjectsByStatus } from '@/utils/project'
 
 const projectsStore = useProjectsStore()
 const membersStore = useMembersStore()
@@ -21,7 +20,7 @@ onMounted(async () => {
     <div class="flex flex-col items-center gap-12">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center">
         <ProjectsCard
-          v-for="project of sortProjectsByStatus(projectsStore.state.projects).slice(0, 6)"
+          v-for="project of projectsStore.state.projects.slice(0, 6)"
           :description="project.about"
           :key="project.id"
           :images="project?.images[0]"

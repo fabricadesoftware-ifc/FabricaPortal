@@ -22,8 +22,10 @@ withDefaults(defineProps<Props>(), {
 })
 
 const statusColors: Record<string, string> = {
-  Concluído: '#4CAF50',
   'Em Desenvolvimento': '#2196F3',
+  Concluído: '#4CAF50',
+  Cancelado: '#F44336',
+  'Em Andamento': '#FF9800',
   'Não Iniciado': '#9E9E9E',
 }
 

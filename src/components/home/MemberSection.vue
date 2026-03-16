@@ -2,7 +2,6 @@
 import { onMounted } from 'vue'
 import { MemberCard, ButtonAll } from '@/components'
 import { useMembersStore } from '@/stores/members'
-import { sortMembersByStatus } from '@/utils/member'
 
 const membersStore = useMembersStore()
 
@@ -20,7 +19,7 @@ onMounted(async () => {
         class="overflow-x-auto pb-4 gap-4 w-full flex md:grid sm:flex-wrap sm:justify-center sm:gap-8"
       >
         <MemberCard
-          v-for="member in sortMembersByStatus(membersStore.state.members).slice(0, 6)"
+          v-for="member in membersStore.state.members.slice(0, 6)"
           :key="member.id"
           :image="member.image?.file"
           :name="member.name"

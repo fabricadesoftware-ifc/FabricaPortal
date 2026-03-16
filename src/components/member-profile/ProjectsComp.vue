@@ -3,7 +3,6 @@ import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { ProjectCard } from '@/components'
 import { useProjectsStore } from '@/stores/projects'
-import { sortProjectsByStatus } from '@/utils/project'
 
 const route = useRoute()
 const projectsStore = useProjectsStore()
@@ -20,11 +19,11 @@ onMounted(async () => {
   <section v-if="projectsStore.state.filteredProjects.length > 0" class="mb-5">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <ProjectCard
-        v-for="project in sortProjectsByStatus(projectsStore.state.filteredProjects)"
+        v-for="project in projectsStore.state.filteredProjects"
         :key="project.id"
         :title="project.name"
         :description="project.about"
-        :images="project.images[0]"
+        :logo="project.logo"
         :linkProject="project"
         :type="project.type"
         :status="project.state"
