@@ -3,6 +3,7 @@ import { onMounted, computed, ref } from 'vue'
 import { MemberCard, PaginationButtons, FilterComp } from '@/components'
 import { useMembersStore } from '@/stores/members'
 import { useLoadingStore } from '@/stores/loading'
+import { sortMembersByStatus } from '@/utils/member'
 
 const membersStore = useMembersStore()
 const loadingStore = useLoadingStore()
@@ -17,7 +18,7 @@ onMounted(async () => {
   loadingStore.stopLoading()
 })
 
-const filteredMembers = computed(() => membersStore.state.members)
+const filteredMembers = computed(() => sortMembersByStatus(membersStore.state.members))
 
 const pages = computed<number>(() => {
   return Math.ceil(filteredMembers.value.length / itemsPerPage)

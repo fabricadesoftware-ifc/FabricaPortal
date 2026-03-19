@@ -10,6 +10,7 @@ import {
 } from '@/components'
 import { useProjectsStore } from '@/stores/projects'
 import { useLoadingStore } from '@/stores/loading'
+import { sortMembersByStatus } from '@/utils/member'
 
 const route = useRoute()
 const projectsStore = useProjectsStore()
@@ -43,7 +44,7 @@ onMounted(async () => {
 
     <AreasComp />
 
-    <MembersProject :members="projectsStore.state.selectedProject?.members" />
+    <MembersProject :members="sortMembersByStatus(projectsStore.state.selectedProject?.members)" />
   </main>
 
   <div v-else class="flex justify-center items-center h-[60vh]">
