@@ -5,6 +5,7 @@ import { useProjectsStore } from '@/stores/projects'
 import { useMembersStore } from '@/stores/members'
 import { useLoadingStore } from '@/stores/loading'
 import type { IMember } from '@/types/member'
+import { sortProjectsByStatus } from '@/utils/project'
 
 interface IFilter {
   name: string
@@ -42,7 +43,7 @@ const removeAccents = (str: string) => str.normalize('NFD').replace(/[\u0300-\u0
 const filteredProjects = computed(() => {
   const nameSearch = removeAccents(filter.value.name.toLowerCase())
 
-  return projectsStore.state.projects.filter((project) => {
+  return sortProjectsByStatus(projectsStore.state.projects).filter((project) => {
     const projectTitle = removeAccents(project.name.toLowerCase())
     const matchesName = projectTitle.includes(nameSearch)
     const matchesStatus = !filter.value.status || project.state === filter.value.status
