@@ -32,25 +32,20 @@ onMounted(async () => {
         :alt="membersStore.state.selectedMember?.name"
       />
 
-      <div class="flex gap-4 w-full justify-center pt-2">
+      <div class="flex justify-center gap-5 mt-5">
         <a
           v-if="membersStore.state.selectedMember?.linkedin"
           :href="membersStore.state.selectedMember?.linkedin"
-          target="_blank"
-          aria-label="LinkedIn"
-          class="transition-transform duration-200 hover:scale-110 flex items-center cursor-pointer"
+          class="transition-all duration-300 hover:scale-110 flex cursor-pointer"
         >
-          <i class="fa-brands fa-linkedin"></i>
+          <img src="/technologies/linkedin.svg" alt="LinkedIn" class="w-10 object-cover h-auto" />
         </a>
-
         <a
           v-if="membersStore.state.selectedMember?.github"
           :href="membersStore.state.selectedMember?.github"
-          target="_blank"
-          aria-label="GitHub"
-          class="transition-transform duration-200 hover:scale-110 flex items-center cursor-pointer"
+          class="transition-all duration-300 hover:scale-110 flex cursor-pointer"
         >
-          <i class="fa-brands fa-github"></i>
+          <img src="/technologies/github.svg" alt="" class="w-10 object-cover h-auto" />
         </a>
       </div>
     </header>
