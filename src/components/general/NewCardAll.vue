@@ -18,7 +18,7 @@ const urlProject = (id: number) => `/news/${id}`
     <div
       :class="[
         isNews ? 'border-b-[length:var(--border)] border-solid border-[var(--news)]' : '',
-        'rounded-xl relative min-h-[300px] max-h-[500px] overflow-hidden bg-center bg-cover bg-[var(--bg-white)] border-b-[var(--border)] border-b-[var(--news)] transition-all w-full',
+        'rounded-xl relative min-h-[300px] max-h-[400px] lg:max-h-[500px] overflow-hidden bg-center bg-cover bg-[var(--bg-white)] border-b-[var(--border)] border-b-[var(--news)] transition-all w-full',
       ]"
       :style="{ backgroundImage: `url(${background})` }"
     >

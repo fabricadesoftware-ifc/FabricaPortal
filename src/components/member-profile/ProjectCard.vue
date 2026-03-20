@@ -38,7 +38,7 @@ const getUrlProject = (id: string | number) => `/project/${id}`
             {{ title }}
           </h4>
 
-          <div class="hidden min-[475px]:block flex-shrink-0">
+          <div class="flex-shrink-0">
             <span
               class="text-xs font-semibold px-2 py-1 rounded uppercase"
               :style="{ backgroundColor: getStatusColor(status) }"
