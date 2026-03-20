@@ -1,0 +1,5 @@
+export { default as CarouselComp } from './CarouselComp.vue'
+export { default as ProjectHeader } from './ProjectHeader.vue'
+export { default as DescriptionProject } from './DescriptionProject.vue'
+export { default as AreasComp } from './AreasComp.vue'
+export { default as MembersProject } from './MembersProject.vue'

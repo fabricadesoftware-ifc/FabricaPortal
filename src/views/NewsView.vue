@@ -1,89 +1,49 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted } from 'vue'
-import NewCardAll from '@/components/common/NewCardAll.vue'
-import { useNewsStore } from '@/stores'
+import { NewCardAll } from '@/components'
+import { useNewsStore } from '@/stores/news'
+import { useLoadingStore } from '@/stores/loading'
 
 const newsStore = useNewsStore()
+const loadingStore = useLoadingStore()
 
-onMounted(async() => {
+onMounted(async () => {
+  loadingStore.startLoading()
   await newsStore.getNews()
+  loadingStore.stopLoading()
 })
 
-const formatDate = (date) => {
-  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  return new Date(date).toLocaleDateString('pt-BR', options);
+const formatDate = (date: string | Date | undefined): string => {
+  if (!date) return ''
+  return new Date(date).toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })
 }
 </script>
 
 <template>
-  <main id="news">
-    <h2>Notícias</h2>
-    <div class="container">
-      <div class="news">
+  <main id="news" class="flex flex-col items-center pt-40 bg-[var(--bg-gray)] min-h-screen">
+    <h2 class="text-3xl font-bold text-gray-800 mb-12">Notícias</h2>
+
+    <div class="w-[90%] md:w-[80%] lg:w-[60%] mx-auto flex flex-col items-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full px-5">
         <NewCardAll
           v-for="newCard in newsStore.state.news"
           :key="newCard.id"
           :title="newCard?.title"
           :data="formatDate(newCard.post_date)"
           :user="newCard.user"
-          :background="newCard.images[0].file"
+          :background="newCard.images?.[0]?.file"
           :linkProject="newCard.id"
+          :is-news="true"
         />
+      </div>
+
+      <div v-if="newsStore.state.news.length === 0" class="mt-10 text-gray-500 italic">
+        Nenhuma notícia publicada no momento.
       </div>
     </div>
   </main>
 </template>
-
-<style scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 60%;
-  margin: 0 auto;
-}
-.news {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 0 20px;
-  justify-content: center;
-}
-@media only screen and (max-width: 600px) {
-  .card {
-    flex-direction: column;
-  }
-  .card .details {
-    border-top: var(--border) solid var(--members);
-    padding: 15px;
-    gap: 9px;
-    height: inherit;
-    justify-content: center;
-    align-items: flex-start;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .news {
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-main {
-  padding: 100px 0px;
-  background-color: var(--bg-gray);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-</style>

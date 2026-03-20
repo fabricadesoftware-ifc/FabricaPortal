@@ -1,28 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-  type RouterScrollBehavior,
-} from 'vue-router'
-
-import HomeView from '../views/HomeView.vue'
-import MemberProfile from '../views/MemberProfile.vue'
-import ProjectDetails from '../views/ProjectDetails.vue'
-import MembersView from '../views/MembersView.vue'
-import ProjectsView from '../views/ProjectsView.vue'
-import PublicationsView from '@/views/PublicationsView.vue'
-import NewsView from '@/views/NewsView.vue'
-import NewsDetails from '@/views/NewsDetails.vue'
-import PublicationDetails from '@/views/PublicationDetails.vue'
-import AboutUs from '@/views/AboutUs.vue'
-
-const routerScrollBehavior: RouterScrollBehavior = async (to, from, savedPosition) => {
-  if (savedPosition) {
-    return savedPosition;
-  } else {
-    return { left: 0, top: 0 };
-  }
-};
-
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,58 +6,50 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: () => import('../views/HomeView.vue'),
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/members',
       name: 'members',
-      component: MembersView
+      component: () => import('../views/MembersView.vue'),
     },
     {
       path: '/member/:id',
       name: 'member',
-      component: MemberProfile,
-      props: true
-    },
-    {
-      path: '/project/:id',
-      name: 'project',
-      component: ProjectDetails,
-      props: true
-    },
-    {
-      path: '/projects',
-      name: 'projects',
-      component: ProjectsView
-    },
-    {
-      path: '/about-us',
-      name: 'about-us',
-      component: AboutUs
-    },
-    {
-      path: '/publication/:id',
-      name: 'publication',
-      component: PublicationDetails
-    },
-    {
-      path: '/publications',
-      name: 'publications',
-      component: PublicationsView
+      component: () => import('../views/MemberProfileView.vue'),
+      props: true,
     },
     {
       path: '/all-news',
       name: 'all-news',
-      component: NewsView
+      component: () => import('../views/NewsView.vue'),
     },
     {
       path: '/news/:id',
       name: 'news',
-      component: NewsDetails,
-      props: true
-    }
+      component: () => import('../views/NewsDetailsView.vue'),
+      props: true,
+    },
+    {
+      path: '/projects',
+      name: 'projects',
+      component: () => import('../views/ProjectsView.vue'),
+    },
+    {
+      path: '/project/:id',
+      name: 'project',
+      component: () => import('../views/ProjectDetailsView.vue'),
+      props: true,
+    },
   ],
-  scrollBehavior: routerScrollBehavior,
+  scrollBehavior() {
+    return { top: 0 }
+  },
 })
 
 export default router
