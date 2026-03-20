@@ -18,7 +18,8 @@ const statusColors: Record<string, string> = {
   'Não Iniciado': '#9E9E9E',
 }
 
-const getStatusColor = (status: string) => {
+const getStatusColor = (status?: string) => {
+  if (!status) return statusColors['Em Desenvolvimento']
   return statusColors[status] || statusColors['Em Desenvolvimento']
 }
 

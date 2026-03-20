@@ -5,7 +5,7 @@ const projectsStore = useProjectsStore()
 
 const getRandomColor = (): string => {
   const colors = ['#5058F2', '#26736B', '#F26A1B', '#D95252']
-  return colors[Math.floor(Math.random() * colors.length)]
+  return colors[Math.floor(Math.random() * colors.length)] ?? '#5058F2'
 }
 </script>
 

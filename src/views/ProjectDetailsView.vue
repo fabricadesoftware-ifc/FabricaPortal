@@ -44,7 +44,7 @@ onMounted(async () => {
 
     <AreasComp />
 
-    <MembersProject :members="sortMembersByStatus(projectsStore.state.selectedProject?.members)" />
+    <MembersProject :members="sortMembersByStatus(projectsStore.state.selectedProject?.members ?? [])" />
   </main>
 
   <div v-else class="flex justify-center items-center h-[60vh]">

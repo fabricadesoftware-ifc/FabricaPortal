@@ -1,3 +1,5 @@
+import type { IMember } from '@/types/member'
+
 export interface IProject {
   id: number | string
   name: string
@@ -6,8 +8,8 @@ export interface IProject {
   images: { file: string }[]
   type: string
   state: string
-  members: unknown[]
-  areas?: unknown[]
+  members: IMember[]
+  areas?: string[]
   technologies?: { id: number; name: string }[]
   links?: Record<string, string>
 }
