@@ -65,19 +65,19 @@ const toggleMenu = () => {
   <nav
     :class="[
       'fixed top-0 w-full z-15 transition-all duration-400 flex items-center justify-between px-6 xl:px-36',
-      isScrolled || !haveBanner ? 'py-5 bg-[#101215]' : 'py-10 bg-transparent',
+      isScrolled || !haveBanner || isMenuOpen ? 'py-5 bg-[#101215]' : 'py-10 bg-transparent',
     ]"
   >
     <div class="shrink-0">
       <RouterLink to="/">
         <img
-          v-show="!isScrolled && haveBanner"
+          v-show="!isScrolled && haveBanner && !isMenuOpen"
           src="/logos/fabrica-horizontalColorido.svg"
           alt="Logo Colorido"
           class="w-40 md:w-53.75"
         />
         <img
-          v-show="isScrolled || !haveBanner"
+          v-show="isScrolled || !haveBanner || isMenuOpen"
           src="/logos/fabrica-horizontal.svg"
           alt="Logo Branco"
           class="w-40 md:w-53.75"
@@ -91,7 +91,7 @@ const toggleMenu = () => {
 
     <div
       :class="[
-        'fixed xl:static top-20 xl:top-0 left-0 w-full xl:w-auto h-[87vh] xl:h-auto bg-[#131518] xl:bg-transparent flex flex-col xl:flex-row items-center justify-between xl:justify-center p-10 xl:p-0 transition-all duration-500 ease-in-out gap-10',
+        'fixed xl:static top-18 xl:top-0 left-0 w-full xl:w-auto h-[95vh] xl:h-auto bg-[#101215] xl:bg-transparent flex flex-col xl:flex-row items-center justify-between xl:justify-center p-10 xl:p-0 transition-all duration-500 ease-in-out gap-10',
         isMenuOpen ? 'left-0' : 'left-full xl:left-0',
         'xl:flex',
       ]"

@@ -29,7 +29,9 @@ const showSlides = (n: number) => {
 
 <template>
   <section class="flex flex-col items-center mb-4 w-full">
-    <div class="relative flex items-center w-300 mx-auto overflow-hidden rounded-lg group">
+    <div
+      class="relative flex items-center w-[62.5vw] min-w-80 mx-auto overflow-hidden rounded-lg group"
+    >
       <div
         v-for="(image, currentIndex) in images"
         :key="currentIndex"
