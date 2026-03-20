@@ -4,13 +4,13 @@ interface Props {
   data?: string
   user?: string
   background?: string
-  linkProject: number
+  linkProject: number | string
   isNews?: boolean
 }
 
 defineProps<Props>()
 
-const urlProject = (id: number) => `/news/${id}`
+const urlProject = (id: number | string) => `/news/${id}`
 </script>
 
 <template>

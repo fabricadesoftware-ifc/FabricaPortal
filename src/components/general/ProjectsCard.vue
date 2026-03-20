@@ -1,9 +1,5 @@
 <script setup lang="ts">
-interface Member {
-  id: number | string
-  name: string
-  image: { file: string }
-}
+import type { IMember } from '@/types/member'
 
 interface Props {
   description?: string
@@ -12,7 +8,7 @@ interface Props {
   type?: string
   linkProject: { id: number | string }
   images?: { file: string }
-  members?: Member[]
+  members?: IMember[]
   status?: string
 }
 
@@ -95,7 +91,7 @@ const urlProject = (id: number | string) => `/project/${id}`
                 :title="member.name"
               >
                 <img
-                  :src="member.image.file"
+                  :src="member.image?.file || '/logos/fabrica.svg'"
                   :alt="member.name"
                   class="w-full h-full object-cover"
                 />

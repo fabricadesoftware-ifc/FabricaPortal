@@ -15,7 +15,7 @@ defineProps<Props>()
 
 <template>
   <section class="mb-10">
-    <header class="relative flex items-center gap-2 mb-4 group cursor-pointer" @click="toggleModal">
+    <header class="relative flex items-center gap-2 mb-4 group">
       <div
         class="absolute -top-4 left-0 w-4 h-4 rounded-full bg-[var(--secondary-color)] transition-transform group-hover:scale-110"
       ></div>

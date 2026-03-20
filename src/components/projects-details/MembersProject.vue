@@ -1,16 +1,6 @@
 <script setup lang="ts">
 import { MemberCard } from '@/components'
-
-interface IMember {
-  id: string | number
-  name: string
-  biography?: string
-  type?: string
-  status?: string
-  image: {
-    file: string
-  }
-}
+import type { IMember } from '@/types/member'
 
 defineProps<{
   members: IMember[]
