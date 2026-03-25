@@ -5,7 +5,7 @@ import { ButtonMore } from '@/components'
 <template>
   <section
     id="hero-section"
-    class="group bg-[url(/fabrica-ambiente.jpeg)] bg-no-repeat bg-cover bg-center h-screen bg-fixed max-[600px]:bg-local"
+    class="group bg-[url(/fabrica-ambiente.jpg)] bg-no-repeat bg-cover bg-center h-screen bg-fixed max-[600px]:bg-local"
   >
     <div
       class="w-full h-screen flex flex-col justify-center items-start px-[145px] bg-[linear-gradient(268deg,rgb(0_0_0/31%)_0%,#000000d9_99.54%)] bg-blend-multiply max-[768px]:px-[50px] max-[600px]:px-[15px] max-[425px]:px-[10px]"
