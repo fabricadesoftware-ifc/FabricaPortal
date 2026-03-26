@@ -30,7 +30,7 @@ const showSlides = (n: number) => {
 <template>
   <section class="flex flex-col items-center mb-4 w-full">
     <div
-      class="relative flex items-center w-[62.5vw] min-w-80 mx-auto overflow-hidden rounded-lg group"
+      class="relative flex items-center max-w-[70vw] w-auto min-w-80 mx-auto overflow-hidden rounded-lg group"
     >
       <div
         v-for="(image, currentIndex) in images"
@@ -46,7 +46,10 @@ const showSlides = (n: number) => {
 
         <img
           :src="image?.file"
-          class="w-full object-cover shadow-lg aspect-video md:aspect-auto"
+          :class="[
+            'w-full object-cover shadow-lg aspect-video md:aspect-auto',
+            props.images.length > 1 ? 'h-125 md:h-150' : '',
+          ]"
           alt="Slide Image"
         />
       </div>
