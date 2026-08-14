@@ -26,9 +26,10 @@ onMounted(async () => {
     class="w-full flex flex-col items-center py-[var(--pn-main)] px-4 sm:px-8 md:px-24 lg:px-48 xl:px-[19em]"
   >
     <header class="mb-4 h-fit rounded-xl">
+      <!-- Foto do membro anonimizada (silhueta) para atender a legislação do ECA -->
       <img
         class="w-43.75 h-43.75 md:w-50 md:h-50 xl:w-58.75 xl:h-56.25 block mx-auto object-cover rounded-lg shadow-md"
-        :src="membersStore.state.selectedMember?.image?.file"
+        src="/logos/member-silhouette.svg"
         :alt="membersStore.state.selectedMember?.name"
       />
 

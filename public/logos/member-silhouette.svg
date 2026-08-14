@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Foto do membro oculta">
+  <rect width="200" height="200" fill="#9CA3AF" />
+  <circle cx="100" cy="82" r="38" fill="#6B7280" />
+  <path d="M100 128c-46 0-76 24-76 54v18h152v-18c0-30-30-54-76-54z" fill="#6B7280" />
+</svg>
