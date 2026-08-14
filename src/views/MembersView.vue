@@ -47,7 +47,6 @@ const changePage = (page: number): void => {
       <MemberCard
         v-for="member in displayedMembers"
         :key="member.id"
-        :image="member.image?.file"
         :name="member.name"
         :description="member?.biography"
         :linkMember="member"
