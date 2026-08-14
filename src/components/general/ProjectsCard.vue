@@ -90,8 +90,9 @@ const urlProject = (id: number | string) => `/project/${id}`
                 class="w-8 h-8 rounded-full overflow-hidden -mr-2 border-2 border-white transition-transform duration-300 hover:-translate-y-0.5 hover:z-10"
                 :title="member.name"
               >
+                <!-- Foto do membro anonimizada (silhueta) para atender a legislação do ECA -->
                 <img
-                  :src="member.image?.file || '/logos/fabrica.svg'"
+                  src="/logos/member-silhouette.svg"
                   :alt="member.name"
                   class="w-full h-full object-cover"
                 />

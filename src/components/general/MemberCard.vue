@@ -50,9 +50,10 @@ const urlMember = (id: string | number) => `/member/${id}`
       class="bg-[var(--bg-white)] sm:max-h-50 p-[10px] mb-[30px] grid grid-cols-[1fr_5fr] items-center overflow-hidden rounded-[10px] scale-[97%] transition-[transform,var(--effect)] hover:scale-100 hover:cursor-pointer lg:max-w-full max-lg:h-auto max-lg:flex max-lg:flex-col"
     >
       <div class="w-full h-full overflow-hidden flex justify-center items-center rounded-[10px]">
+        <!-- Foto do membro anonimizada (silhueta) para atender a legislação do ECA -->
         <img
-          :src="image"
-          alt="Member Image"
+          src="/logos/member-silhouette.svg"
+          alt="Foto do membro oculta"
           class="w-full h-full object-cover object-center rounded-[10px] brightness-[0.6] transition-[filter,var(--effect)] group-hover:brightness-100"
         />
       </div>
