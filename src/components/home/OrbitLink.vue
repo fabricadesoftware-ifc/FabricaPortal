@@ -22,9 +22,7 @@ defineProps<{
     <span class="node grid place-items-center rounded-full text-white">
       <AppIcon :name="icon" class="size-1/2" />
     </span>
-    <span
-      class="absolute top-full mt-3 font-mono text-[11px] font-bold tracking-widest whitespace-nowrap uppercase"
-    >
+    <span class="absolute top-full type-label mt-3 whitespace-nowrap">
       {{ label }}
     </span>
   </a>

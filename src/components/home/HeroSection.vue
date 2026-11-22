@@ -13,10 +13,8 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
     <div class="frame relative isolate overflow-hidden">
       <div class="dots absolute inset-0 -z-10" aria-hidden="true" />
 
-      <div class="heading relative z-10 px-6 text-center">
-        <p class="eyebrow font-mono tracking-[0.2em] text-white/60 uppercase">
-          Projetos reais, alunos reais
-        </p>
+      <div class="heading relative z-10 px-4 text-center">
+        <p class="type-eyebrow text-muted">Projetos reais, alunos reais</p>
         <h1 class="title font-mono font-bold">
           Conectando ideias
           <span class="block text-brand-orange">
@@ -32,7 +30,7 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
         <OrbitLink v-for="project in projects" :key="project.label" v-bind="project" />
       </div>
 
-      <p class="description font-light text-white/75">
+      <p class="description type-body text-muted">
         Um ambiente exclusivo projetado para os alunos da área da Informática (Superior e Técnico)
         que desejam mergulhar nas práticas de uma verdadeira softwarehouse.
       </p>
@@ -55,17 +53,12 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
 }
 
 .dots {
-  background: radial-gradient(circle, rgb(255 255 255 / 0.08) 1px, transparent 1.5px) 0 0 / 36px
-    36px;
-}
-
-.eyebrow {
-  font-size: clamp(10px, calc(8 * var(--u)), 14px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='1.2' fill='%23fff' fill-opacity='.08'/%3E%3C/svg%3E");
 }
 
 .title {
   margin-top: 1rem;
-  font-size: clamp(20px, 6.2vw, 40px);
+  font-size: clamp(1.25rem, 6.7vw, 2.75rem);
   line-height: 1.08;
 }
 
@@ -88,7 +81,6 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
 
 .description {
   padding: 0 var(--page-padding);
-  line-height: 1.6;
 }
 
 .last-commit {
@@ -112,7 +104,8 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
 
   .title {
     margin-top: calc(18 * var(--u));
-    font-size: calc(35.5 * var(--u));
+    /* Tall screens have room for more than the reference layout. */
+    font-size: max(35.5 * var(--u), min(5.4vw, 4.6svh));
   }
 
   .orbit {
@@ -126,19 +119,26 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
 
   .description {
     position: absolute;
-    bottom: 1.25rem;
+    bottom: 1rem;
     left: var(--page-padding);
     max-width: 25em;
     padding: 0;
-    font-size: clamp(13px, calc(11 * var(--u)), 17px);
+    font-size: clamp(0.875rem, 12.5 * var(--u), 1.125rem);
+    line-height: 1.6;
   }
 
   .last-commit {
     position: absolute;
     right: var(--page-padding);
-    bottom: 1.25rem;
+    bottom: 1rem;
     margin: 0;
     padding: 0;
+  }
+}
+
+@media (width >= 80rem) {
+  .hero {
+    --type-scale: 1.15;
   }
 }
 

@@ -33,7 +33,7 @@ onBeforeUnmount(() => world?.dispose())
     <p
       v-show="isReady"
       ref="label"
-      class="label pointer-events-none absolute font-mono text-[10px] leading-tight text-white/60"
+      class="label pointer-events-none absolute font-mono text-[0.6875rem] leading-tight text-muted"
     >
       Fábrica <br class="hidden lg:block" />de Software
     </p>

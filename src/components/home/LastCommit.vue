@@ -5,7 +5,7 @@ const lastCommit = useLastCommit()
 </script>
 
 <template>
-  <p v-if="lastCommit" class="flex items-center gap-2 font-mono text-xs text-white/70">
+  <p v-if="lastCommit" class="type-code flex items-center gap-2 text-xs text-muted">
     <span class="size-2 rounded-full bg-emerald-400" aria-hidden="true" />
     <span>
       último commit {{ lastCommit.ago }} ·
