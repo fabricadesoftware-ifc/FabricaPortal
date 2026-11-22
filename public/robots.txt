@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fabricadesoftware.ifc.edu.br/sitemap.xml
