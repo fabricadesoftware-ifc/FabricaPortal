@@ -14,7 +14,6 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       'Equipes, resumos, avaliações e notas reunidos para organizar o evento anual de iniciação científica do ensino médio, com os trabalhos de cada edição disponíveis para consulta.',
     technologies: ['Vue', 'Django REST', 'Python'],
-    href: 'https://painel.fabricadesoftware.ifc.edu.br',
     cover: painelCover,
   },
   {
@@ -25,7 +24,6 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       'Criado com a Medicina Veterinária do IFC, reúne análises microbiológicas feitas por alunos e docentes: material didático para as aulas e referência aberta à comunidade.',
     technologies: ['Vue', 'Django', 'Python'],
-    href: 'https://histologia.fabricadesoftware.ifc.edu.br',
     cover: histologiaCover,
   },
   {
@@ -36,7 +34,6 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       'Um dinamômetro com Arduino envia os dados por Bluetooth para um aplicativo, que guarda o histórico de exames de cada paciente para médicos e técnicos.',
     technologies: ['Arduino', 'Vuetify', 'Django'],
-    href: 'https://github.com/fabricadesoftware-ifc/fabricaGPTER_frontEnd',
     cover: gpterCover,
   },
   {
@@ -47,7 +44,6 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       'Cartões RFID, ESP32 e um painel web se unem no controle de ambientes restritos, com gestão de usuários, permissões, horários e registros de entrada.',
     technologies: ['ESP32', 'Vue', 'Node'],
-    href: 'https://door.fabricadesoftware.ifc.edu.br',
     cover: doorCover,
   },
 ]

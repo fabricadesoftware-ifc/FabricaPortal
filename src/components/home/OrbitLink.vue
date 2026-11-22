@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import AppIcon, { type IconName } from '@/components/global/AppIcon.vue'
+import { slugify } from '@/utils/slugify'
 
 defineProps<{
   label: string
-  href: string
   icon: IconName
   color: string
   /** Position on the orbit, in degrees, clockwise from the right. */
@@ -12,10 +13,8 @@ defineProps<{
 </script>
 
 <template>
-  <a
-    :href="href"
-    target="_blank"
-    rel="noopener"
+  <RouterLink
+    :to="`/projects/${slugify(label)}`"
     class="orbit-link absolute flex flex-col items-center"
     :style="{ '--angle': `${angle}deg`, '--node-color': color }"
   >
@@ -25,7 +24,7 @@ defineProps<{
     <span class="absolute top-full type-label mt-3 whitespace-nowrap">
       {{ label }}
     </span>
-  </a>
+  </RouterLink>
 </template>
 
 <style scoped>

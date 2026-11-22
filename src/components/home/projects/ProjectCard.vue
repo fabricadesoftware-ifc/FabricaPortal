@@ -2,6 +2,7 @@
 import BaseButton from '@/components/global/BaseButton.vue'
 import BaseTag from '@/components/global/BaseTag.vue'
 import type { FeaturedProject } from '@/types/project'
+import { getProjectSlug } from '@/utils/getProjectSlug'
 
 defineProps<{
   project: FeaturedProject
@@ -34,6 +35,8 @@ defineProps<{
       </li>
     </ul>
 
-    <BaseButton :href="project.href" class="mt-auto">Ver projeto</BaseButton>
+    <BaseButton :to="`/projects/${getProjectSlug(project)}`" class="mt-auto"
+      >Ver projeto</BaseButton
+    >
   </article>
 </template>
