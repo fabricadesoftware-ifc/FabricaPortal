@@ -30,7 +30,7 @@ const summary = computed(() => {
 
 <template>
   <div
-    class="relative isolate flex min-h-44 flex-col justify-end overflow-hidden rounded-3xl bg-brand-orange p-7 text-on-orange md:p-10"
+    class="relative isolate flex min-h-44 flex-col justify-end overflow-hidden rounded-3xl bg-brand-orange p-7 text-white md:p-10"
   >
     <span class="code" aria-hidden="true">&lt;/&gt;</span>
 

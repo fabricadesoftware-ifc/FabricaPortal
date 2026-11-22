@@ -163,7 +163,7 @@ const sparks = [
 }
 
 .pressed-glyph {
-  fill: #3d1800;
+  fill: #fff;
 }
 
 .piston {

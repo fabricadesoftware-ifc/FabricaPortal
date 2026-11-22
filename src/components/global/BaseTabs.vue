@@ -26,7 +26,7 @@ const variants = {
     highlight: 'inset-y-1 rounded-lg bg-brand-orange',
     // As tall as a button, counting the padding of the list.
     tab: 'rounded-lg px-4 py-2.5 md:px-5 lg:py-[calc(0.625rem*var(--type-scale,1)-0.25rem)]',
-    active: 'text-on-orange',
+    active: 'text-white',
   },
   underline: {
     root: 'mx-auto w-full max-w-3xl border-b border-white/8',

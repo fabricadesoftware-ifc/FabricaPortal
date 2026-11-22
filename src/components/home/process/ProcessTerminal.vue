@@ -44,7 +44,7 @@ const { commands, end } = scheduleCommands(props.step.commands)
       class="flex flex-col gap-4 border-t border-white/8 px-4 py-5 font-sans md:flex-row md:items-center md:justify-between md:px-8"
     >
       <h3 class="type-h4 flex items-center gap-3">
-        <span class="type-label rounded-md bg-brand-orange px-2.5 py-1 text-on-orange">{{
+        <span class="type-label rounded-md bg-brand-orange px-2.5 py-1 text-white">{{
           String(position).padStart(2, '0')
         }}</span>
         {{ step.summary }}

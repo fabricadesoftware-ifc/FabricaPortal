@@ -16,7 +16,7 @@ defineProps<{
   >
     <p class="type-eyebrow flex items-center gap-3 text-brand-orange">
       <span
-        class="grid size-8 shrink-0 place-items-center rounded-lg bg-brand-orange font-bold xl:size-10 tracking-normal text-on-orange"
+        class="grid size-8 shrink-0 place-items-center rounded-lg bg-brand-orange font-bold xl:size-10 tracking-normal text-white"
         aria-hidden="true"
         >{{ project.name.charAt(0) }}</span
       >
