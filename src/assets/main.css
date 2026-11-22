@@ -25,7 +25,8 @@
 
 @layer base {
   html {
-    --announcement-height: 2.75rem;
+    /* Size of every text of the pages. */
+    --text-scale: 0.95;
     /* Side padding shared by the navbar, the pages and the footer. */
     --page-padding: clamp(2rem, 9.5vw, 2.5rem);
     /* Avoids a layout shift when the loading screen locks the scroll. */

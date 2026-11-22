@@ -13,50 +13,51 @@
  *   type-label    mono tags, counters and captions
  *   type-code     terminals
  *
- * Wide screens enlarge the texts of every section together, with --type-scale.
+ * Wide screens enlarge the texts of every section together, with --type-scale, which also sizes
+ * what is around them. --text-scale changes only the texts, on every screen.
  */
 
 @utility type-h2 {
-  font-size: var(--h2-size, clamp(1.125rem, 5.6vw, 2rem));
+  font-size: calc(var(--h2-size, clamp(1.125rem, 5.6vw, 2rem)) * var(--text-scale));
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.025em;
 }
 
 @utility type-h3 {
-  font-size: calc(clamp(1.0625rem, 4.6vw, 1.5rem) * var(--type-scale, 1));
+  font-size: calc(clamp(1.0625rem, 4.6vw, 1.5rem) * var(--type-scale, 1) * var(--text-scale));
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 @utility type-h4 {
-  font-size: calc(clamp(1rem, 4.1vw, 1.125rem) * var(--type-scale, 1));
+  font-size: calc(clamp(1rem, 4.1vw, 1.125rem) * var(--type-scale, 1) * var(--text-scale));
   font-weight: 600;
   line-height: 1.4;
 }
 
 @utility type-body {
-  font-size: calc(1rem * var(--type-scale, 1));
+  font-size: calc(1rem * var(--type-scale, 1) * var(--text-scale));
   font-weight: 400;
   line-height: 1.65;
 }
 
 @utility type-small {
-  font-size: 0.875rem;
+  font-size: calc(0.875rem * var(--text-scale));
   font-weight: 400;
   line-height: 1.6;
 }
 
 @utility type-ui {
-  font-size: calc(0.875rem * var(--type-scale, 1));
+  font-size: calc(0.875rem * var(--type-scale, 1) * var(--text-scale));
   font-weight: 500;
   line-height: calc(1.25rem * var(--type-scale, 1));
 }
 
 @utility type-eyebrow {
   font-family: var(--font-mono);
-  font-size: calc(0.75rem * var(--type-scale, 1));
+  font-size: calc(0.75rem * var(--type-scale, 1) * var(--text-scale));
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.2em;
@@ -65,7 +66,7 @@
 
 @utility type-label {
   font-family: var(--font-mono);
-  font-size: calc(0.6875rem * var(--type-scale, 1));
+  font-size: calc(0.6875rem * var(--type-scale, 1) * var(--text-scale));
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.12em;
@@ -74,7 +75,7 @@
 
 @utility type-code {
   font-family: var(--font-mono);
-  font-size: calc(0.875rem * var(--type-scale, 1));
+  font-size: calc(0.875rem * var(--type-scale, 1) * var(--text-scale));
   font-weight: 400;
   line-height: 1.65;
 }

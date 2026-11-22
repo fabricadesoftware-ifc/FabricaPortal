@@ -67,7 +67,7 @@ const { select, onKeydown } = useTabList(list, active, () => props.steps.length)
             >{{ String(index + 1).padStart(2, '0') }}</span
           >
           <span
-            class="type-h4 mt-1 transition-colors max-md:sr-only max-lg:text-base"
+            class="type-h4 mt-1 transition-colors max-md:sr-only max-lg:text-[length:calc(1rem*var(--text-scale))]/6"
             :class="index === active ? 'text-white' : 'text-subtle group-hover:text-white'"
             >{{ step }}</span
           >

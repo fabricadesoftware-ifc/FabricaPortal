@@ -8,7 +8,9 @@ defineProps<{ title: string }>()
       <span class="size-2.5 shrink-0 rounded-full bg-[#e5534b]" />
       <span class="size-2.5 shrink-0 rounded-full bg-[#e0a32e]" />
       <span class="size-2.5 shrink-0 rounded-full bg-[#3fb950]" />
-      <span class="ml-1.5 truncate text-[0.6875rem] text-subtle">{{ title }}</span>
+      <span class="ml-1.5 truncate text-[length:calc(0.6875rem*var(--text-scale))] text-subtle">{{
+        title
+      }}</span>
     </div>
     <slot />
   </div>

@@ -43,12 +43,12 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
 <style scoped>
 /* --u is one pixel of the 923x678 reference layout, scaled to fit the viewport. */
 .hero {
-  --hero-height: max(100svh - var(--announcement-height), 680px);
+  --hero-height: max(100svh, 680px);
   --u: calc(100vw / 390);
 }
 
 .frame {
-  min-height: calc(100svh - var(--announcement-height));
+  min-height: 100svh;
   padding: 7rem 0 2rem;
 }
 
@@ -58,7 +58,7 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
 
 .title {
   margin-top: 1rem;
-  font-size: clamp(1.25rem, 6.7vw, 2.75rem);
+  font-size: calc(clamp(1.25rem, 6.7vw, 2.75rem) * var(--text-scale));
   line-height: 1.08;
 }
 
@@ -105,7 +105,7 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
   .title {
     margin-top: calc(18 * var(--u));
     /* Tall screens have room for more than the reference layout. */
-    font-size: max(35.5 * var(--u), min(5.4vw, 4.6svh));
+    font-size: calc(max(35.5 * var(--u), min(5.4vw, 4.6svh)) * var(--text-scale));
   }
 
   .orbit {
@@ -123,7 +123,7 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
     left: var(--page-padding);
     max-width: 25em;
     padding: 0;
-    font-size: clamp(0.875rem, 12.5 * var(--u), 1.125rem);
+    font-size: calc(clamp(0.875rem, 12.5 * var(--u), 1.125rem) * var(--text-scale));
     line-height: 1.6;
   }
 
