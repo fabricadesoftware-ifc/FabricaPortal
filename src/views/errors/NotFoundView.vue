@@ -5,8 +5,11 @@ import { definePage } from 'vue-router/experimental'
 import ErrorTerminal from '@/components/errors/ErrorTerminal.vue'
 import LostBall from '@/components/errors/LostBall.vue'
 import BaseButton from '@/components/global/BaseButton.vue'
+import { usePageTitle } from '@/composables/usePageTitle'
 
 definePage({ name: 'not-found', path: '/:path(.*)*' })
+
+usePageTitle('Página não encontrada')
 
 const route = useRoute()
 

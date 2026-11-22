@@ -7,8 +7,11 @@ import NoticesSection from '@/components/home/notices/NoticesSection.vue'
 import ProcessSection from '@/components/home/process/ProcessSection.vue'
 import ProjectsSection from '@/components/home/projects/ProjectsSection.vue'
 import TechnologiesSection from '@/components/home/technologies/TechnologiesSection.vue'
+import { usePageTitle } from '@/composables/usePageTitle'
 
 definePage({ name: 'home', path: '/' })
+
+usePageTitle()
 </script>
 
 <template>
