@@ -1,36 +1,46 @@
 @import 'tailwindcss';
-@import './base.css';
+@import '@fontsource/poppins/latin-300.css';
+@import '@fontsource/poppins/latin-400.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-800.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  --color-ink: #0b0b0d;
+  --color-surface: #141417;
+  --color-brand-orange: #ff6600;
+  --color-brand-teal: #12b0ae;
+  --color-brand-red: #ff2020;
+  --color-brand-blue: #2a2aff;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+@layer base {
+  html {
+    --announcement-height: 2.75rem;
+    /* Side padding shared by the navbar, the pages and the footer. */
+    --page-padding: 2rem;
+    /* Avoids a layout shift when the loading screen locks the scroll. */
+    scrollbar-gutter: stable;
   }
-}
 
-@media (min-width: 1024px) {
+  @media (width >= 48rem) {
+    html {
+      --page-padding: 8.5vw;
+    }
+  }
+
   body {
-    display: flex;
-    place-items: center;
+    background: var(--color-ink);
+    color: #fff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  :focus-visible {
+    outline: 2px solid var(--color-brand-orange);
+    outline-offset: 3px;
   }
 }
