@@ -3,6 +3,13 @@ const blocks = ['( )', '=>', '{ }', '</>', '[ ]']
 const lamps = [471, 486, 500, 515]
 const vents = [546, 553, 560, 567]
 const legs = [343, 506, 669]
+// The four balls of the institutional logo.
+const puffs = [
+  'var(--color-brand-orange)',
+  'var(--color-brand-teal)',
+  'var(--color-brand-red)',
+  'var(--color-brand-blue)',
+]
 const sparks = [
   { x: -27, y: -6 },
   { x: -30, y: 2 },
@@ -15,13 +22,14 @@ const sparks = [
   <svg viewBox="296 168 424 210" class="scene" aria-hidden="true">
     <g class="smoke-group">
       <circle
-        v-for="puff in 4"
-        :key="puff"
+        v-for="(color, index) in puffs"
+        :key="color"
         class="smoke"
         cx="548"
         cy="208"
         r="4"
-        :style="{ '--i': puff - 1 }"
+        :fill="color"
+        :style="{ '--i': index }"
       />
     </g>
 
@@ -79,7 +87,6 @@ const sparks = [
       <line v-for="x in vents" :key="x" class="vent" :x1="x" y1="244" :x2="x" y2="262" />
 
       <rect class="panel" x="456" y="269" width="78" height="13" rx="4" />
-      <text class="name" x="496" y="278.2">PRENSA</text>
       <circle class="led" cx="549" cy="275.5" r="2" />
     </g>
   </svg>
@@ -113,13 +120,6 @@ const sparks = [
 .vent {
   stroke: #2e2e34;
   stroke-width: 1.5;
-}
-
-.name {
-  font: 500 7px var(--font-mono);
-  letter-spacing: 3px;
-  text-anchor: middle;
-  fill: #85858c;
 }
 
 /* 89 is the distance between stations: six dash periods. */
@@ -192,7 +192,6 @@ const sparks = [
 }
 
 .smoke {
-  fill: #2a2a30;
   transform-box: fill-box;
   transform-origin: center;
   animation: smoke calc(var(--cycle) * 2) calc(var(--cycle) * var(--i) * -0.5) infinite linear both;
