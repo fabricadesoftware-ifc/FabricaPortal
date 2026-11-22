@@ -1,27 +1,25 @@
-export interface IMember {
+export type MemberRole = 'teacher' | 'student' | 'alumnus'
+
+/** The part of the portal API response that the site uses. */
+export interface ApiMember {
   id: number
   name: string
-  image?: Iimage
+  type: 'Docente' | 'Discente'
+  status: 'Ativo' | 'Egresso' | 'Inativo'
+  biography: string | null
+  github: string | null
+  linkedin: string | null
+}
+
+export interface Member {
+  /** Id in the portal API. */
+  id?: number
+  name: string
+  role: MemberRole
+  /** Only of teachers: the ones of students and alumni tell ages and other personal data. */
   biography?: string
-  status?: string
-  role?: string
-  type?: string
+  /** User name on GitHub. */
   github?: string
+  /** Address of the profile. */
   linkedin?: string
-}
-
-export interface IMembersState {
-  members: IMember[]
-  selectedMember: IMember | null
-  searchedMembers: IMember[]
-  error: boolean
-  isLoading: boolean
-}
-
-export interface Iimage {
-  id: number
-  file: string
-  description?: string
-  folder?: string
-  uploaded_on: string
 }

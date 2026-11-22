@@ -1,85 +1,66 @@
-@import './base.css';
 @import 'tailwindcss';
+@import './typography.css';
+@import '@fontsource/poppins/latin-300.css';
+@import '@fontsource/poppins/latin-400.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-800.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
 
-* {
-  font-family: 'Inter', sans-serif;
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  --color-ink: #0b0b0d;
+  --color-surface: #141417;
+  --color-muted: rgb(255 255 255 / 0.65);
+  --color-subtle: rgb(255 255 255 / 0.5);
+  --color-accent: #ff8533;
+  --color-on-orange: #1f0b00;
+  --color-brand-orange: #ff6600;
+  --color-brand-teal: #12b0ae;
+  --color-brand-red: #ff2020;
+  --color-brand-blue: #2a2aff;
 }
 
-body {
-  scrollbar-width: thin;
-}
-
-h1 {
-  font-size: 3.125rem;
-}
-
-h2 {
-  font-size: 2.188rem;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.563rem;
-  font-weight: 600;
-}
-
-h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-p {
-  font-size: 1.063rem;
-  font-weight: 400;
-  line-height: 1.5em;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #d3d3d3;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary-color);
-}
-
-@media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 2.125rem;
-  }
-
-  h2 {
-    font-size: 1.588rem;
-    font-weight: 700;
-  }
-
+@layer base {
   html {
-    scroll-padding-top: 3em;
+    /* Size of every text of the pages. */
+    --text-scale: 0.95;
+    /* Side padding shared by the navbar, the pages and the footer. */
+    --page-padding: clamp(2rem, 9.5vw, 2.5rem);
+    /* Avoids a layout shift when the loading screen locks the scroll. */
+    scrollbar-gutter: stable;
   }
 
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
+  @media (width >= 48rem) {
+    html {
+      /* The logo and the centered navbar need this room. */
+      --page-padding: 8.5vw;
+    }
   }
 
-  h4 {
-    font-size: 1.15em;
+  @media (width >= 64rem) {
+    html {
+      --page-padding: 10vw;
+    }
   }
 
-  p {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.2em;
+  @media (width >= 80rem) {
+    html {
+      --page-padding: 11vw;
+    }
   }
 
-  a {
-    font-size: 0.8rem;
+  body {
+    background: var(--color-ink);
+    color: #fff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-orange);
+    outline-offset: 3px;
   }
 }
