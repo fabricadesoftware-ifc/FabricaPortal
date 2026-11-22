@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref, useTemplateRef, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import AppIcon from '@/components/global/AppIcon.vue'
 import logo from '@/assets/logo.svg'
 import { useSlidingHighlight } from '@/composables/useSlidingHighlight'
 import { navLinks } from '@/constants/links'
 import GithubButton from './GithubButton.vue'
+import MobileMenu from './MobileMenu.vue'
 
 const props = defineProps<{
   /** Whether a loading screen hides the navbar. */
@@ -26,17 +27,33 @@ const highlight = useSlidingHighlight(desktopNav, {
 const isActive = (to: string) =>
   to === '/' ? route.path === '/' : route.path === to || route.path.startsWith(`${to}/`)
 
+const menuButton = useTemplateRef('menuButton')
+
+async function closeMenu() {
+  isMenuOpen.value = false
+  await nextTick()
+  menuButton.value?.focus({ preventScroll: true })
+}
+
 watch(
   () => route.path,
   () => (isMenuOpen.value = false),
 )
+
+// Larger screens have the whole navbar.
+const largeScreen = window.matchMedia('(width >= 48rem)')
+const onResize = () => {
+  if (largeScreen.matches) isMenuOpen.value = false
+}
+
+onMounted(() => largeScreen.addEventListener('change', onResize))
+onBeforeUnmount(() => largeScreen.removeEventListener('change', onResize))
 </script>
 
 <template>
-  <!-- Covers the whole page, so the sticky navs follow the scroll below the announcement bar. -->
+  <!-- Covers the whole page, so the sticky navs follow the scroll. -->
   <header
     class="pointer-events-none absolute inset-0 z-50 px-(--page-padding) pt-8 md:pt-10 *:pointer-events-auto"
-    @keydown.esc="isMenuOpen = false"
   >
     <RouterLink to="/" aria-label="Fábrica de Software" class="absolute">
       <img :src="logo" alt="" class="h-11 w-auto" />
@@ -68,34 +85,24 @@ watch(
 
     <div class="pointer-events-none sticky top-8 *:pointer-events-auto md:hidden">
       <button
+        ref="menuButton"
         type="button"
         class="ml-auto grid size-11 cursor-pointer place-items-center rounded-lg border border-white/8 bg-surface"
-        :aria-label="isMenuOpen ? 'Fechar menu' : 'Abrir menu'"
+        aria-label="Abrir menu"
+        aria-haspopup="dialog"
         :aria-expanded="isMenuOpen"
         aria-controls="mobile-menu"
-        @click="isMenuOpen = !isMenuOpen"
+        @click="isMenuOpen = true"
       >
-        <AppIcon :name="isMenuOpen ? 'close' : 'menu'" class="size-5" />
+        <AppIcon name="menu" class="size-5" />
       </button>
-
-      <nav
-        v-if="isMenuOpen"
-        id="mobile-menu"
-        aria-label="Principal"
-        class="absolute inset-x-0 top-full mt-3 flex flex-col gap-1 rounded-xl border border-white/8 bg-surface p-2"
-      >
-        <RouterLink
-          v-for="link in navLinks"
-          :key="link.to"
-          :to="link.to"
-          :aria-current="isActive(link.to) ? 'page' : undefined"
-          class="type-ui rounded-lg px-4 py-3.5"
-          :class="isActive(link.to) ? 'bg-white/10' : 'text-white/90'"
-        >
-          {{ link.label }}
-        </RouterLink>
-        <GithubButton />
-      </nav>
     </div>
+
+    <!-- Out of the page, which cannot be used while the menu is open. -->
+    <Teleport to="body">
+      <Transition name="menu">
+        <MobileMenu v-if="isMenuOpen" :is-active="isActive" @close="closeMenu" />
+      </Transition>
+    </Teleport>
   </header>
 </template>
