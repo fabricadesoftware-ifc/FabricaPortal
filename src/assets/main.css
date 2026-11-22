@@ -1,7 +1,9 @@
 @import 'tailwindcss';
+@import './typography.css';
 @import '@fontsource/poppins/latin-300.css';
 @import '@fontsource/poppins/latin-400.css';
 @import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
 @import '@fontsource/poppins/latin-800.css';
 @import '@fontsource-variable/jetbrains-mono/wght.css';
 
@@ -11,6 +13,10 @@
 
   --color-ink: #0b0b0d;
   --color-surface: #141417;
+  --color-muted: rgb(255 255 255 / 0.65);
+  --color-subtle: rgb(255 255 255 / 0.5);
+  --color-accent: #ff8533;
+  --color-on-orange: #1f0b00;
   --color-brand-orange: #ff6600;
   --color-brand-teal: #12b0ae;
   --color-brand-red: #ff2020;
@@ -21,14 +27,27 @@
   html {
     --announcement-height: 2.75rem;
     /* Side padding shared by the navbar, the pages and the footer. */
-    --page-padding: 2rem;
+    --page-padding: clamp(2rem, 9.5vw, 2.5rem);
     /* Avoids a layout shift when the loading screen locks the scroll. */
     scrollbar-gutter: stable;
   }
 
   @media (width >= 48rem) {
     html {
+      /* The logo and the centered navbar need this room. */
       --page-padding: 8.5vw;
+    }
+  }
+
+  @media (width >= 64rem) {
+    html {
+      --page-padding: 10vw;
+    }
+  }
+
+  @media (width >= 80rem) {
+    html {
+      --page-padding: 11vw;
     }
   }
 
