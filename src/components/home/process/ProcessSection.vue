@@ -40,10 +40,10 @@ function advance() {
   <section class="section">
     <div
       ref="card"
-      class="card rounded-3xl border border-white/8 bg-surface/60 px-3 py-16 md:px-12 md:py-24"
+      class="card rounded-3xl border border-white/8 bg-surface/60 px-2 py-16 max-md:-mx-4 md:px-12 md:py-24"
       :class="{ 'is-paused': !isInView }"
     >
-      <header class="flex flex-col items-center text-center">
+      <header class="flex flex-col items-center px-3 text-center">
         <SectionHeading eyebrow="Como funciona">
           Da ideia ao <span class="text-brand-orange">código em produção</span>
         </SectionHeading>

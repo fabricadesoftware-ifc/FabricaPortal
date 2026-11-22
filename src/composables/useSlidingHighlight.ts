@@ -32,6 +32,7 @@ export function useSlidingHighlight(
     if (!container.value) return
     resizeObserver = new ResizeObserver(move)
     resizeObserver.observe(container.value)
+    for (const item of container.value.children) resizeObserver.observe(item)
   })
 
   onBeforeUnmount(() => resizeObserver?.disconnect())

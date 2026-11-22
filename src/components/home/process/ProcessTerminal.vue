@@ -17,7 +17,7 @@ const { commands, end } = scheduleCommands(props.step.commands)
 <template>
   <TerminalWindow title="fabrica — zsh — 100×28">
     <div
-      class="min-h-105 space-y-2 bg-[#0e0e10] p-4 text-[clamp(8px,2.6vw,11px)] leading-relaxed sm:text-xs md:p-8 md:text-[calc(0.875rem*var(--type-scale,1))]"
+      class="min-h-105 space-y-2 bg-[#0e0e10] p-3 text-[length:calc(clamp(10.5px,3.3vw,12px)*var(--text-scale))] sm:p-4 leading-relaxed sm:text-[length:calc(0.75rem*var(--text-scale))] md:p-8 md:text-[length:calc(0.875rem*var(--type-scale,1)*var(--text-scale))]"
       aria-hidden="true"
     >
       <template v-for="command in commands" :key="command.input">
