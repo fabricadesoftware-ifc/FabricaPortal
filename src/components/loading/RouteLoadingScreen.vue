@@ -25,13 +25,25 @@ const texts: Record<keyof RouteNamedMap, Texts> = {
     title: 'Indo para Projetos',
     messages: ['Abrindo a oficina…', 'Separando os repositórios…'],
   },
+  project: {
+    title: 'Abrindo o projeto',
+    messages: ['Destrancando a oficina…', 'Lendo a documentação…'],
+  },
   members: {
     title: 'Indo para Membros',
     messages: ['Chamando a equipe…', 'Passando o café…'],
   },
+  member: {
+    title: 'Abrindo o perfil',
+    messages: ['Procurando o crachá…', 'Reunindo os projetos…'],
+  },
   notices: {
     title: 'Indo para Notícias',
     messages: ['Ligando a impressora…', 'Revisando as manchetes…'],
+  },
+  notice: {
+    title: 'Abrindo a notícia',
+    messages: ['Tirando do forno…', 'Revisando o texto…'],
   },
   'not-found': {
     title: 'Procurando a página',

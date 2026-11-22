@@ -45,6 +45,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'member': RouteRecordInfo<
+      'member',
+      '/members/:slug',
+      { slug: ParamValue<true> },
+      { slug: ParamValue<false> },
+      | never
+    >,
     'notices': RouteRecordInfo<
       'notices',
       '/notices',
@@ -52,11 +59,25 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'notice': RouteRecordInfo<
+      'notice',
+      '/notices/:id',
+      { id: ParamValue<true> },
+      { id: ParamValue<false> },
+      | never
+    >,
     'projects': RouteRecordInfo<
       'projects',
       '/projects',
       Record<never, never>,
       Record<never, never>,
+      | never
+    >,
+    'project': RouteRecordInfo<
+      'project',
+      '/projects/:slug',
+      { slug: ParamValue<true> },
+      { slug: ParamValue<false> },
       | never
     >,
     'not-found': RouteRecordInfo<
@@ -95,6 +116,14 @@ declare module 'vue-router/auto-routes' {
       pathParamNames:
         | never
     }
+    'src/views/core/MemberView.vue': {
+      routes:
+        | 'member'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
     'src/views/core/NoticesView.vue': {
       routes:
         | 'notices'
@@ -103,9 +132,25 @@ declare module 'vue-router/auto-routes' {
       pathParamNames:
         | never
     }
+    'src/views/core/NoticeView.vue': {
+      routes:
+        | 'notice'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
     'src/views/core/ProjectsView.vue': {
       routes:
         | 'projects'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/views/core/ProjectView.vue': {
+      routes:
+        | 'project'
       views:
         | never
       pathParamNames:
