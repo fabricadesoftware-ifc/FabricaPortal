@@ -59,6 +59,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'not-found': RouteRecordInfo<
+      'not-found',
+      '/:path(.*)*',
+      { path?: ParamValueZeroOrMore<true> },
+      { path?: ParamValueZeroOrMore<false> },
+      | never
+    >,
   }
 
   /**
@@ -99,6 +106,14 @@ declare module 'vue-router/auto-routes' {
     'src/views/core/ProjectsView.vue': {
       routes:
         | 'projects'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/views/errors/NotFoundView.vue': {
+      routes:
+        | 'not-found'
       views:
         | never
       pathParamNames:
