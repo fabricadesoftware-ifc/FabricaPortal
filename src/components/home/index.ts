@@ -1,5 +1,0 @@
-export { default as HeroSection } from './HeroSection.vue'
-export { default as NewsSection } from './NewsSection.vue'
-export { default as ProjectsSection } from './ProjectsSection.vue'
-export { default as MemberSection } from './MemberSection.vue'
-export { default as HardSkill } from './HardSkill.vue'

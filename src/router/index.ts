@@ -1,55 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { routes } from 'vue-router/auto-routes'
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: () => import('../views/HomeView.vue'),
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
-    },
-    {
-      path: '/members',
-      name: 'members',
-      component: () => import('../views/MembersView.vue'),
-    },
-    {
-      path: '/member/:id',
-      name: 'member',
-      component: () => import('../views/MemberProfileView.vue'),
-      props: true,
-    },
-    {
-      path: '/all-news',
-      name: 'all-news',
-      component: () => import('../views/NewsView.vue'),
-    },
-    {
-      path: '/news/:id',
-      name: 'news',
-      component: () => import('../views/NewsDetailsView.vue'),
-      props: true,
-    },
-    {
-      path: '/projects',
-      name: 'projects',
-      component: () => import('../views/ProjectsView.vue'),
-    },
-    {
-      path: '/project/:id',
-      name: 'project',
-      component: () => import('../views/ProjectDetailsView.vue'),
-      props: true,
-    },
-  ],
-  scrollBehavior() {
+  routes,
+  scrollBehavior: (to, _from, savedPosition) => {
+    if (savedPosition) return savedPosition
+    // Leaves room for the navbar.
+    if (to.hash) return { el: to.hash, top: 112, behavior: 'smooth' }
     return { top: 0 }
   },
 })
-
-export default router

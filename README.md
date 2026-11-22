@@ -1,52 +1,48 @@
-# Portal da Fábrica de Software
+# .
 
-Um ambiente exclusivo projetado para os alunos da área da Informática (Superior e Técnico) que desejam mergulhar nas práticas de uma verdadeira softwarehouse.
+This template should help get you started developing with Vue 3 in Vite.
 
-## Sobre o projeto
+## Recommended IDE Setup
 
-Este projeto visa proporcionar informações abrangentes sobre a Fábrica de Software, oferecendo uma experiência imersiva e colaborativa para os estudantes interessados. O portal serve como uma central de informações, facilitando o acesso a diversas funcionalidades:
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-- Notícias em tempo real: Mantenha-se atualizado com as últimas novidades, eventos e anúncios relevantes para a comunidade da Fábrica de Software.
+## Recommended Browser Setup
 
-- Projetos: Explore os diversos projetos em andamento, obtenha detalhes sobre suas metas, participantes e progresso. Isso proporciona uma visão abrangente das atividades desenvolvidas no ambiente da Fábrica.
+- Chromium-based browsers (Chrome, Edge, Brave, etc.):
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+- Firefox:
+  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-- Perfis de membros: Conheça a equipe por trás dos projetos. Os perfis de membros oferecem informações sobre as habilidades, experiências e contribuições individuais, promovendo uma maior colaboração e networking.
+## Type Support for `.vue` Imports in TS
 
-- Publicações técnicas: Acesse artigos, tutoriais e outras publicações técnicas elaboradas pelos membros da Fábrica. Isso não apenas compartilha conhecimento, mas também promove o desenvolvimento técnico contínuo.
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
----
+## Customize configuration
 
-## Bora começar
+See [Vite Configuration Reference](https://vite.dev/config/).
 
-### Pré requisitos
+## Project Setup
 
-Para começar a utilizar o portal, certifique-se de ter o npm instalado em sua máquina.
+```sh
+npm install
+```
 
-- npm
+### Compile and Hot-Reload for Development
 
-### Instalação
+```sh
+npm run dev
+```
 
-1. Clone o repositório
-   ```sh
-   git clone https://github.com/fabricadesoftware-ifc/FabricaPortal
-   ```
-2. Instale o NPM package
-   ```sh
-   npm install
-   ```
-3. Compile e recarregue dinamicamente para desenvolvimento
-   ```sh
-   npm start
-   ```
+### Type-Check, Compile and Minify for Production
 
----
+```sh
+npm run build
+```
 
-## Contribua
+### Lint with [ESLint](https://eslint.org/)
 
-- Crie um _fork_ do projeto.
-- Clone o _fork_
-- Crie uma _branch_ para a sua contribuição.
-- Faça as alterações no sua _branch_.
-- Envie um _pull request_ para o projeto original.
-
----
+```sh
+npm run lint
+```
