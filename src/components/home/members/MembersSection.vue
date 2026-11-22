@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import SplitSection from '@/components/global/SplitSection.vue'
-import { featuredMembers, MEMBER_COUNT } from '@/constants/members'
+import { useFeaturedMembers } from '@/composables/useFeaturedMembers'
 import MemberPill from './MemberPill.vue'
 import MembersLegend from './MembersLegend.vue'
 
-const hiddenCount = MEMBER_COUNT - featuredMembers.length
+const { members, hiddenCount } = useFeaturedMembers()
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const hiddenCount = MEMBER_COUNT - featuredMembers.length
     <template #title>Quem faz a <span class="text-brand-orange">Fábrica</span></template>
 
     <ul class="flex flex-wrap gap-2.5 2xl:gap-3">
-      <li v-for="member in featuredMembers" :key="member.name">
+      <li v-for="member in members" :key="member.name">
         <MemberPill :member="member" />
       </li>
       <li

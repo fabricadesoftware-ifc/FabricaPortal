@@ -1,13 +1,17 @@
-import type { FeaturedMember, MemberRole } from '@/types/member'
+import type { Member, MemberRole } from '@/types/member'
 
-export const memberRoles: Record<MemberRole, { label: string; color: string }> = {
-  teacher: { label: 'Docentes', color: 'var(--color-brand-orange)' },
-  student: { label: 'Discentes', color: '#8080ff' },
-  alumnus: { label: 'Egressos', color: 'var(--color-brand-teal)' },
+export const memberRoles: Record<MemberRole, { label: string; singular: string; color: string }> = {
+  teacher: { label: 'Docentes', singular: 'Docente', color: 'var(--color-brand-orange)' },
+  student: { label: 'Discentes', singular: 'Discente', color: '#8080ff' },
+  alumnus: { label: 'Egressos', singular: 'Egresso', color: 'var(--color-brand-teal)' },
 }
 
-/** Names only, no photos. Add only people who agreed to appear: some students are underage (ECA). */
-export const featuredMembers: FeaturedMember[] = [
+/**
+ * Shown on the home page, and on the members page when the API is unavailable.
+ * Names only, no photos. Add only people who agreed to appear: some students are underage (ECA).
+ * People with the same role stay together.
+ */
+export const featuredMembers: Member[] = [
   { name: 'Fábio Longo de Moura', role: 'teacher' },
   { name: 'Eduardo Da Silva', role: 'teacher' },
   { name: 'Marco A. Rojas', role: 'teacher' },
@@ -16,4 +20,4 @@ export const featuredMembers: FeaturedMember[] = [
 ]
 
 /** Active teachers and students, plus alumni. */
-export const MEMBER_COUNT = 33
+export const MEMBER_COUNT = 32

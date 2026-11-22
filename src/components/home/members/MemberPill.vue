@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { memberRoles } from '@/constants/members'
-import type { FeaturedMember } from '@/types/member'
+import type { Member } from '@/types/member'
 
-defineProps<{ member: FeaturedMember }>()
+defineProps<{ member: Member }>()
 </script>
 
 <template>
