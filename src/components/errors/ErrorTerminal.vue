@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import TerminalWindow from '@/components/global/TerminalWindow.vue'
+import TypedText from '@/components/global/TypedText.vue'
 
 const props = defineProps<{
   /** Address that was not found. */
@@ -17,25 +19,15 @@ const command = computed(() => {
 </script>
 
 <template>
-  <div
-    class="overflow-hidden rounded-xl border border-white/10 bg-surface font-mono text-xs xl:text-[13px]"
-    aria-hidden="true"
-  >
-    <div class="flex items-center gap-2 border-b border-white/8 px-4 py-3">
-      <span class="size-2.5 rounded-full bg-[#e5534b]" />
-      <span class="size-2.5 rounded-full bg-[#e0a32e]" />
-      <span class="size-2.5 rounded-full bg-[#3fb950]" />
-      <span class="ml-1.5 text-[11px] text-white/50">terminal</span>
-    </div>
-
+  <TerminalWindow title="terminal" class="terminal text-xs xl:text-[13px]" aria-hidden="true">
     <!-- The key restarts the typing when another address is not found. -->
     <div :key="command" class="space-y-2.5 p-5">
       <p>
-        <span class="prompt">fabrica ~ $</span>&nbsp;<span
-          class="typed"
-          :style="{ '--length': command.length }"
-          >{{ command }}</span
-        >
+        <span class="prompt">fabrica ~ $</span>&nbsp;<TypedText
+          :text="command"
+          :delay="0.4"
+          :duration="0.9"
+        />
       </p>
       <p class="output text-[#ff6b61] [--delay:1.5s]">
         <span class="text-brand-red">✗</span> erro 404: rota não encontrada
@@ -45,7 +37,7 @@ const command = computed(() => {
         <span class="prompt">fabrica ~ $</span>&nbsp;<span class="cursor" />
       </p>
     </div>
-  </div>
+  </TerminalWindow>
 </template>
 
 <style scoped>
@@ -54,18 +46,9 @@ const command = computed(() => {
   color: var(--color-brand-orange);
 }
 
-.typed {
-  display: inline-block;
-  overflow: hidden;
-  width: calc(var(--length) * 1ch);
-  max-width: 100%;
-  white-space: nowrap;
-  vertical-align: bottom;
-  animation: type 0.9s 0.4s steps(var(--length)) backwards;
-}
-
 .output {
   animation: appear 0.01s var(--delay) backwards;
+  animation-play-state: var(--play-state, running);
 }
 
 .cursor {
@@ -78,15 +61,8 @@ const command = computed(() => {
 }
 
 /* Waits for the loading screen to leave. */
-[inert] .typed,
-[inert] .output {
-  animation-play-state: paused;
-}
-
-@keyframes type {
-  from {
-    width: 0;
-  }
+[inert] .terminal {
+  --play-state: paused;
 }
 
 @keyframes appear {
@@ -102,7 +78,6 @@ const command = computed(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .typed,
   .output,
   .cursor {
     animation: none;

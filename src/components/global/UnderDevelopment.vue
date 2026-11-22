@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import BaseButton from '@/components/global/BaseButton.vue'
 
 defineProps<{ title: string }>()
 </script>
@@ -16,12 +16,7 @@ defineProps<{ title: string }>()
       <p class="mx-auto mt-6 max-w-md leading-relaxed font-light text-white/70">
         Esta página ainda está sendo construída. Em breve você poderá acessá-la por aqui.
       </p>
-      <RouterLink
-        to="/"
-        class="mt-10 inline-block rounded-lg bg-[#fafaf5] px-5 py-2.5 text-sm font-medium text-[#15151a] transition-colors hover:bg-white/85"
-      >
-        Voltar ao início
-      </RouterLink>
+      <BaseButton to="/" :arrow="false" class="mt-10">Voltar ao início</BaseButton>
     </div>
   </main>
 </template>

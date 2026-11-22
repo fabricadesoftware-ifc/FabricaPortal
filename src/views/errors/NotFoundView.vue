@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { definePage } from 'vue-router/experimental'
 import ErrorTerminal from '@/components/errors/ErrorTerminal.vue'
 import LostBall from '@/components/errors/LostBall.vue'
+import BaseButton from '@/components/global/BaseButton.vue'
 
 definePage({ name: 'not-found', path: '/:path(.*)*' })
 
@@ -36,19 +37,9 @@ const path = computed(() => {
         A página que você procurou não existe, mudou de lugar ou ainda está no primeiro deploy.
       </p>
 
-      <div class="mt-7 flex flex-wrap gap-3 text-sm font-medium">
-        <RouterLink
-          to="/"
-          class="rounded-lg bg-brand-orange px-6 py-3 text-white transition-colors hover:bg-[#e65c00]"
-        >
-          Voltar pro morro
-        </RouterLink>
-        <RouterLink
-          to="/projects"
-          class="rounded-lg border border-white/15 px-6 py-3 transition-colors hover:bg-white/8"
-        >
-          Ver projetos
-        </RouterLink>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <BaseButton to="/" variant="primary" :arrow="false">Voltar pro morro</BaseButton>
+        <BaseButton to="/projects" variant="outline" :arrow="false">Ver projetos</BaseButton>
       </div>
 
       <ErrorTerminal :path="path" class="mt-9" />
@@ -65,7 +56,7 @@ const path = computed(() => {
 
 @media (width >= 64rem) {
   .title {
-    font-size: min(3.5vw, 3.8rem);
+    font-size: min(3.2vw, 3.8rem);
   }
 }
 
