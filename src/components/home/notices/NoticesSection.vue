@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import SplitSection from '@/components/global/SplitSection.vue'
-import { latestNotices } from '@/constants/notices'
+import { useLatestNotices } from '@/composables/useLatestNotices'
 import NoticeItem from './NoticeItem.vue'
+
+const notices = useLatestNotices()
 </script>
 
 <template>
@@ -15,7 +17,7 @@ import NoticeItem from './NoticeItem.vue'
 
     <ol>
       <NoticeItem
-        v-for="(notice, index) in latestNotices"
+        v-for="(notice, index) in notices"
         :key="notice.title"
         :notice="notice"
         :is-featured="index === 0"

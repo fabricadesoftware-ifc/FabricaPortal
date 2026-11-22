@@ -22,17 +22,20 @@ const formattedDate = computed(() => props.notice.date.split('-').reverse().join
 
     <p class="type-label flex flex-wrap gap-x-4 gap-y-1">
       <time :datetime="notice.date" class="text-muted">{{ formattedDate }}</time>
-      <span class="category">{{ notice.category }}</span>
+      <span v-if="notice.category" class="category">{{ notice.category }}</span>
     </p>
     <h3 class="mt-2" :class="isFeatured ? 'type-h3' : 'type-h4'">
-      <RouterLink to="/notices" class="transition-colors hover:text-accent">
+      <RouterLink :to="`/notices/${notice.id}`" class="transition-colors hover:text-accent">
         {{ notice.title }}
       </RouterLink>
     </h3>
 
     <template v-if="isFeatured">
       <p v-if="notice.summary" class="type-body mt-3 max-w-xl text-muted">{{ notice.summary }}</p>
-      <RouterLink to="/notices" class="group type-ui mt-4 inline-flex gap-2.5 text-accent">
+      <RouterLink
+        :to="`/notices/${notice.id}`"
+        class="group type-ui mt-1 -mb-3 inline-flex gap-2.5 py-3 text-accent"
+      >
         <span class="underline-offset-4 group-hover:underline">Ler notícia</span>
         <span
           class="transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
@@ -63,7 +66,7 @@ const formattedDate = computed(() => props.notice.date.split('-').reverse().join
 .marker {
   position: absolute;
   /* Centered on the line of the date. */
-  top: calc((0.6875rem * var(--type-scale, 1) * 1.5 - var(--marker)) / 2);
+  top: calc((0.6875rem * var(--type-scale, 1) * var(--text-scale) * 1.5 - var(--marker)) / 2);
   left: 0;
   width: var(--marker);
   height: var(--marker);
