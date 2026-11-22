@@ -21,4 +21,5 @@ export const socials: { label: string; href: string; icon: IconName }[] = [
     href: 'https://instagram.com/fabricadesoftware.ifc/',
     icon: 'instagram',
   },
+  { label: 'Linktree', href: 'https://linktr.ee/fabricadesoftware', icon: 'linktree' },
 ]

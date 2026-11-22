@@ -43,7 +43,10 @@ function scrollToTop() {
         <h2 id="footer-navigation" class="type-eyebrow text-brand-orange">Navegação</h2>
         <ul class="mt-6 space-y-4">
           <li v-for="link in navLinks" :key="link.to">
-            <RouterLink :to="link.to" class="text-white transition-colors hover:text-brand-orange">
+            <RouterLink
+              :to="link.to"
+              class="-my-2 inline-block py-2 text-white transition-colors hover:text-brand-orange"
+            >
               {{ link.label }}
             </RouterLink>
           </li>
@@ -78,7 +81,7 @@ function scrollToTop() {
       <p class="text-muted">{{ year }} © Fábrica de Software · IFC Campus Araquari</p>
       <button
         type="button"
-        class="cursor-pointer text-white transition-colors hover:text-brand-orange"
+        class="-my-3 cursor-pointer py-3 text-white transition-colors hover:text-brand-orange"
         @click="scrollToTop"
       >
         Voltar ao topo ↑
@@ -105,5 +108,7 @@ function scrollToTop() {
   line-height: 0.83;
   color: rgb(255 255 255 / 0.04);
   white-space: nowrap;
+  /* Fades in, instead of a straight cut at the top of the letters. */
+  mask-image: linear-gradient(to bottom, transparent, #000 75%);
 }
 </style>
