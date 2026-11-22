@@ -1,7 +1,6 @@
 import { onMounted, ref } from 'vue'
 
-const REPOS_URL =
-  'https://api.github.com/orgs/fabricadesoftware-ifc/repos?sort=pushed&direction=desc&per_page=1'
+const REPOS_URL = `${import.meta.env.VITE_GITHUB_API_URL}/orgs/fabricadesoftware-ifc/repos?sort=pushed&direction=desc&per_page=1`
 
 interface Repo {
   name: string
