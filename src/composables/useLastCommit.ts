@@ -1,4 +1,5 @@
 import { onMounted, ref } from 'vue'
+import { cachedRequest } from '@/utils/cachedRequest'
 
 const REPOS_URL = `${import.meta.env.VITE_GITHUB_API_URL}/orgs/fabricadesoftware-ifc/repos?sort=pushed&direction=desc&per_page=1`
 
@@ -29,10 +30,11 @@ export function useLastCommit() {
 
   onMounted(async () => {
     try {
-      const response = await fetch(REPOS_URL)
-      if (!response.ok) return
-
-      const [repo] = (await response.json()) as Repo[]
+      const [repo] = await cachedRequest('last-repo', async () => {
+        const response = await fetch(REPOS_URL)
+        if (!response.ok) throw new Error(`Falha ao buscar repositórios (${response.status})`)
+        return (await response.json()) as Repo[]
+      })
       if (repo) lastCommit.value = { ago: timeAgo(repo.pushed_at), project: projectName(repo.name) }
     } catch {
       // Decorative information: the hero works without it.

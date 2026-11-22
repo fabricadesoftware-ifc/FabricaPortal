@@ -1,4 +1,5 @@
 import type { ApiCommitSearch, ApiIssue, ApiPullRequestSearch } from '@/types/github'
+import { cachedRequest } from '@/utils/cachedRequest'
 
 const ORGANIZATION = 'fabricadesoftware-ifc'
 const PAGE_SIZE = 100
@@ -21,20 +22,9 @@ async function sendIssues(repository: string) {
   return issues
 }
 
-const requests = new Map<string, Promise<ApiIssue[]>>()
-
-/** Issues and pull requests of a repository. Asks only once: GitHub limits the requests per hour. */
+/** Issues and pull requests of a repository. Cached: GitHub limits the requests per hour. */
 export function fetchIssues(repository: string) {
-  let request = requests.get(repository)
-
-  if (!request) {
-    request = sendIssues(repository).catch((error) => {
-      requests.delete(repository)
-      throw error
-    })
-    requests.set(repository, request)
-  }
-  return request
+  return cachedRequest(`issues:${repository}`, () => sendIssues(repository))
 }
 
 async function search<T>(path: string): Promise<T> {
@@ -56,18 +46,9 @@ async function sendActivity(user: string, pullRequestCount: number) {
   return { commits, pullRequests }
 }
 
-const activities = new Map<string, ReturnType<typeof sendActivity>>()
-
-/** Commits and latest pull requests of someone in the organization. Asks only once. */
+/** Commits and latest pull requests of someone in the organization. Cached. */
 export function fetchActivity(user: string, pullRequestCount: number) {
-  let request = activities.get(user)
-
-  if (!request) {
-    request = sendActivity(user, pullRequestCount).catch((error) => {
-      activities.delete(user)
-      throw error
-    })
-    activities.set(user, request)
-  }
-  return request
+  return cachedRequest(`activity:${user}:${pullRequestCount}`, () =>
+    sendActivity(user, pullRequestCount),
+  )
 }
