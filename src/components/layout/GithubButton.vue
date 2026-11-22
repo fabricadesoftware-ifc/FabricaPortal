@@ -7,7 +7,7 @@ import { GITHUB_URL } from '@/constants/links'
     :href="GITHUB_URL"
     target="_blank"
     rel="noopener"
-    class="flex items-center justify-center gap-2 rounded-lg bg-[#fafaf5] px-4 py-2 text-sm font-medium text-[#15151a] transition-colors hover:bg-white/85"
+    class="flex items-center justify-center gap-2 rounded-lg bg-[#fafaf5] type-ui px-4 py-2 text-[#15151a] transition-colors hover:bg-white/85"
   >
     <svg viewBox="0 0 16 16" fill="currentColor" class="size-4.5" aria-hidden="true">
       <path

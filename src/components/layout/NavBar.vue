@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
+import { ref, useTemplateRef, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import AppIcon from '@/components/global/AppIcon.vue'
 import logo from '@/assets/logo.svg'
+import { useSlidingHighlight } from '@/composables/useSlidingHighlight'
 import { navLinks } from '@/constants/links'
 import GithubButton from './GithubButton.vue'
 
@@ -15,36 +16,20 @@ const route = useRoute()
 const isMenuOpen = ref(false)
 
 const desktopNav = useTemplateRef('desktopNav')
-/** Box of the highlight behind the active link. Null while the nav is hidden. */
-const highlight = ref<{ left: number; width: number } | null>(null)
+const highlight = useSlidingHighlight(desktopNav, {
+  selector: '[aria-current="page"]',
+  source: () => [route.path, props.isCovered],
+  // Waits for the screen to leave, so the slide is seen.
+  isPaused: () => props.isCovered,
+})
 
 const isActive = (to: string) =>
   to === '/' ? route.path === '/' : route.path === to || route.path.startsWith(`${to}/`)
-
-function moveHighlight() {
-  // Waits for the screen to leave, so the slide is seen.
-  if (props.isCovered) return
-
-  const link = desktopNav.value?.querySelector<HTMLElement>('[aria-current="page"]')
-  highlight.value = link?.offsetWidth ? { left: link.offsetLeft, width: link.offsetWidth } : null
-}
 
 watch(
   () => route.path,
   () => (isMenuOpen.value = false),
 )
-watch(() => [route.path, props.isCovered], moveHighlight, { flush: 'post' })
-
-// The links change size when the fonts load and when the nav leaves the mobile layout.
-let resizeObserver: ResizeObserver | undefined
-
-onMounted(() => {
-  if (!desktopNav.value) return
-  resizeObserver = new ResizeObserver(moveHighlight)
-  resizeObserver.observe(desktopNav.value)
-})
-
-onBeforeUnmount(() => resizeObserver?.disconnect())
 </script>
 
 <template>
@@ -60,7 +45,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
     <nav
       ref="desktopNav"
       aria-label="Principal"
-      class="sticky top-10 mx-auto hidden w-fit items-center gap-1 rounded-xl border border-white/8 bg-surface/90 p-1.5 shadow-lg shadow-black/40 backdrop-blur md:flex"
+      class="sticky top-10 mx-auto hidden w-fit items-center gap-1 rounded-xl border border-white/8 bg-surface p-1.5 md:flex"
     >
       <span
         v-if="highlight"
@@ -73,7 +58,7 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
         :key="link.to"
         :to="link.to"
         :aria-current="isActive(link.to) ? 'page' : undefined"
-        class="relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors"
+        class="type-ui relative rounded-lg px-3.5 py-2 transition-colors"
         :class="isActive(link.to) ? 'text-white' : 'text-white/90 hover:bg-white/5'"
       >
         {{ link.label }}
@@ -97,14 +82,14 @@ onBeforeUnmount(() => resizeObserver?.disconnect())
         v-if="isMenuOpen"
         id="mobile-menu"
         aria-label="Principal"
-        class="absolute inset-x-0 top-full mt-3 flex flex-col gap-1 rounded-xl border border-white/8 bg-surface p-2 shadow-xl shadow-black/60"
+        class="absolute inset-x-0 top-full mt-3 flex flex-col gap-1 rounded-xl border border-white/8 bg-surface p-2"
       >
         <RouterLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
           :aria-current="isActive(link.to) ? 'page' : undefined"
-          class="rounded-lg px-4 py-3 font-medium"
+          class="type-ui rounded-lg px-4 py-3.5"
           :class="isActive(link.to) ? 'bg-white/10' : 'text-white/90'"
         >
           {{ link.label }}

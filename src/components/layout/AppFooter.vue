@@ -13,7 +13,7 @@ function scrollToTop() {
 </script>
 
 <template>
-  <footer class="overflow-hidden px-(--page-padding) pt-16 text-[15px]">
+  <footer class="overflow-hidden px-(--page-padding) type-small pt-16">
     <div
       class="grid gap-12 border-t border-white/8 pt-16 pb-14 md:grid-cols-[1fr_1fr_minmax(max-content,1fr)] md:gap-4"
     >
@@ -21,7 +21,7 @@ function scrollToTop() {
         <RouterLink to="/" aria-label="Fábrica de Software" class="inline-block">
           <img :src="logo" alt="" class="h-11 w-auto" />
         </RouterLink>
-        <p class="mt-6 max-w-72 leading-[1.75] text-white/55">
+        <p class="mt-6 max-w-72 text-muted">
           Um ambiente exclusivo onde alunos constroem software de verdade.
         </p>
         <ul class="mt-5 flex gap-2.5">
@@ -40,13 +40,10 @@ function scrollToTop() {
       </div>
 
       <nav aria-labelledby="footer-navigation">
-        <h2 id="footer-navigation" class="footer-title">Navegação</h2>
+        <h2 id="footer-navigation" class="type-eyebrow text-brand-orange">Navegação</h2>
         <ul class="mt-6 space-y-4">
           <li v-for="link in footerLinks" :key="link.to">
-            <RouterLink
-              :to="link.to"
-              class="text-white/85 transition-colors hover:text-brand-orange"
-            >
+            <RouterLink :to="link.to" class="text-white transition-colors hover:text-brand-orange">
               {{ link.label }}
             </RouterLink>
           </li>
@@ -54,8 +51,8 @@ function scrollToTop() {
       </nav>
 
       <div>
-        <h2 class="footer-title">Contato</h2>
-        <address class="mt-6 space-y-4 text-white/65 not-italic">
+        <h2 class="type-eyebrow text-brand-orange">Contato</h2>
+        <address class="mt-6 space-y-4 text-muted not-italic">
           <p>
             BR-280 - Colégio Agrícola<br />
             Araquari - SC, 89245-000
@@ -63,7 +60,7 @@ function scrollToTop() {
           <p>
             <a
               href="mailto:fabricadesoftware.araquari@ifc.edu.br"
-              class="break-words text-white/85 transition-colors hover:text-brand-orange"
+              class="break-words text-white transition-colors hover:text-brand-orange"
             >
               fabricadesoftware.araquari@ifc.edu.br
             </a>
@@ -77,13 +74,11 @@ function scrollToTop() {
       </div>
     </div>
 
-    <div
-      class="flex flex-wrap items-center justify-between gap-4 border-t border-white/8 py-6 text-sm"
-    >
-      <p class="text-white/60">{{ year }} © Fábrica de Software · IFC Campus Araquari</p>
+    <div class="flex flex-wrap items-center justify-between gap-4 border-t border-white/8 py-6">
+      <p class="text-muted">{{ year }} © Fábrica de Software · IFC Campus Araquari</p>
       <button
         type="button"
-        class="cursor-pointer text-white/85 transition-colors hover:text-brand-orange"
+        class="cursor-pointer text-white transition-colors hover:text-brand-orange"
         @click="scrollToTop"
       >
         Voltar ao topo ↑
@@ -97,16 +92,6 @@ function scrollToTop() {
 </template>
 
 <style scoped>
-.footer-title {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  color: var(--color-brand-orange);
-}
-
 /* Sized from its own width, so the word always spans the footer and bleeds off the bottom. */
 .wordmark {
   container-type: inline-size;
