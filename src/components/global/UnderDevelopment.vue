@@ -5,9 +5,7 @@ defineProps<{ title: string }>()
 </script>
 
 <template>
-  <main
-    class="grid min-h-[calc(100svh-var(--announcement-height))] place-items-center px-(--page-padding) py-32 text-center"
-  >
+  <main class="grid min-h-svh place-items-center px-(--page-padding) py-32 text-center">
     <div>
       <p class="font-mono text-xs tracking-[0.2em] text-white/60 uppercase">Em desenvolvimento</p>
       <h1 class="mt-4 font-mono text-4xl font-bold md:text-6xl">

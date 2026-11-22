@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router'
 import AppIcon from '@/components/global/AppIcon.vue'
 import logo from '@/assets/logo.svg'
-import { footerLinks, socials } from '@/constants/links'
+import { navLinks, socials } from '@/constants/links'
 
 const year = new Date().getFullYear()
 
@@ -42,7 +42,7 @@ function scrollToTop() {
       <nav aria-labelledby="footer-navigation">
         <h2 id="footer-navigation" class="type-eyebrow text-brand-orange">Navegação</h2>
         <ul class="mt-6 space-y-4">
-          <li v-for="link in footerLinks" :key="link.to">
+          <li v-for="link in navLinks" :key="link.to">
             <RouterLink :to="link.to" class="text-white transition-colors hover:text-brand-orange">
               {{ link.label }}
             </RouterLink>

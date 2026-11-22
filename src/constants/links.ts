@@ -9,10 +9,6 @@ export const navLinks = [
   { label: 'Notícias', to: '/notices' },
 ]
 
-export const selectionProcessLink = { label: 'Processo seletivo', to: '/selection-process' }
-
-export const footerLinks = [...navLinks, selectionProcessLink]
-
 export const socials: { label: string; href: string; icon: IconName }[] = [
   { label: 'GitHub', href: GITHUB_URL, icon: 'github' },
   {

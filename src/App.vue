@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
-import AnnouncementBar from '@/components/layout/AnnouncementBar.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import NavBar from '@/components/layout/NavBar.vue'
 import LoadingScreen from '@/components/loading/LoadingScreen.vue'
@@ -18,7 +17,6 @@ const { progress: routeProgress, isLoading: isRouteLoading, destination } = useR
 
 <template>
   <div :inert="isAppLoading || isRouteLoading">
-    <AnnouncementBar v-if="!isErrorPage" />
     <div class="relative">
       <NavBar v-if="!isErrorPage" :is-covered="isRouteLoading" />
       <RouterView />
