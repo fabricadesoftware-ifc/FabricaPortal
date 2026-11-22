@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import MemberAvatar from '@/components/global/MemberAvatar.vue'
 import type { Team } from '@/types/project'
+import { summarizeTeam } from '@/utils/summarizeTeam'
 
 const props = defineProps<{
   /** Undefined while loading or when the API is unavailable. */
@@ -14,18 +15,9 @@ const total = computed(() => (props.team ? props.team.teachers + props.team.stud
 const avatarCount = computed(() => Math.min(total.value, MAX_AVATARS))
 const hiddenCount = computed(() => total.value - avatarCount.value)
 
-const summary = computed(() => {
-  if (!props.team) return 'Docentes e discentes do IFC'
-
-  const { teachers, students } = props.team
-
-  return [
-    teachers && `${teachers} ${teachers === 1 ? 'docente' : 'docentes'}`,
-    students && `${students} ${students === 1 ? 'discente' : 'discentes'}`,
-  ]
-    .filter(Boolean)
-    .join(' · ')
-})
+const summary = computed(() =>
+  props.team ? summarizeTeam(props.team) : 'Docentes e discentes do IFC',
+)
 </script>
 
 <template>
