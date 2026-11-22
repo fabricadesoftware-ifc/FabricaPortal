@@ -19,7 +19,10 @@ const { progress: routeProgress, isLoading: isRouteLoading, destination } = useR
   <div :inert="isAppLoading || isRouteLoading">
     <div class="relative">
       <NavBar v-if="!isErrorPage" :is-covered="isRouteLoading" />
-      <RouterView />
+      <!-- Reserva a altura da tela enquanto a página carrega, para o rodapé não pular (CLS). -->
+      <div class="min-h-svh">
+        <RouterView />
+      </div>
       <AppFooter />
     </div>
   </div>

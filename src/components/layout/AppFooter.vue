@@ -19,7 +19,7 @@ function scrollToTop() {
     >
       <div>
         <RouterLink to="/" aria-label="Fábrica de Software" class="inline-block">
-          <img :src="logo" alt="" class="h-11 w-auto" />
+          <img :src="logo" alt="" width="63" height="44" class="h-11 w-auto" />
         </RouterLink>
         <p class="mt-6 max-w-72 text-muted">
           Um ambiente exclusivo onde alunos constroem software de verdade.

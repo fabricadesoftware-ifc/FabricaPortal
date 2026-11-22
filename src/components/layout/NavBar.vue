@@ -56,7 +56,7 @@ onBeforeUnmount(() => largeScreen.removeEventListener('change', onResize))
     class="pointer-events-none absolute inset-0 z-50 px-(--page-padding) pt-8 md:pt-10 *:pointer-events-auto"
   >
     <RouterLink to="/" aria-label="Fábrica de Software" class="absolute">
-      <img :src="logo" alt="" class="h-11 w-auto" />
+      <img :src="logo" alt="" width="63" height="44" class="h-11 w-auto" />
     </RouterLink>
 
     <nav
