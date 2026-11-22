@@ -1,4 +1,4 @@
-import type { TechnologyGroup } from '@/types/technology'
+import type { Technology, TechnologyGroup } from '@/types/technology'
 
 // Logos from Devicon (https://devicon.dev, MIT) and Simple Icons (https://simpleicons.org, CC0).
 // The dark ones were lightened to be seen on the dark background.
@@ -17,6 +17,7 @@ export const technologyGroups: TechnologyGroup[] = [
     name: 'Front-End',
     technologies: [
       technology('Vue.js', 'vue'),
+      technology('React', 'react'),
       technology('JavaScript', 'javascript'),
       technology('TypeScript', 'typescript'),
       technology('HTML', 'html'),
@@ -33,8 +34,6 @@ export const technologyGroups: TechnologyGroup[] = [
       technology('Django', 'django'),
       technology('Node.js', 'node'),
       technology('Express', 'express'),
-      technology('Celery', 'celery'),
-      technology('Gunicorn', 'gunicorn'),
       technology('C++', 'cpp'),
       technology('Arduino', 'arduino'),
     ],
@@ -46,7 +45,6 @@ export const technologyGroups: TechnologyGroup[] = [
       technology('Redis', 'redis'),
       technology('Prisma', 'prisma'),
       technology('Pandas', 'pandas'),
-      technology('NumPy', 'numpy'),
       technology('Streamlit', 'streamlit'),
       technology('MinIO', 'minio'),
       technology('Cloudinary', 'cloudinary'),
@@ -63,6 +61,12 @@ export const technologyGroups: TechnologyGroup[] = [
       technology('ESLint', 'eslint'),
       technology('Prettier', 'prettier'),
       technology('npm', 'npm'),
+      technology('Figma', 'figma'),
     ],
   },
 ]
+
+const technologies = technologyGroups.flatMap((group) => group.technologies)
+
+export const findTechnology = (name: string): Technology =>
+  technologies.find((technology) => technology.name === name) ?? { name }

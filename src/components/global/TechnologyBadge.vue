@@ -10,12 +10,14 @@ defineProps<{ technology: Technology }>()
   >
     <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-white/6 xl:size-11">
       <img
+        v-if="technology.icon"
         :src="technology.icon"
         alt=""
         width="22"
         height="22"
         class="size-5.5 object-contain xl:size-6.5"
       />
+      <span v-else class="size-2 rounded-full bg-white/40" aria-hidden="true" />
     </span>
     <span class="type-ui">{{ technology.name }}</span>
   </div>
