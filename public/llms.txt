@@ -1,0 +1,14 @@
+# Fábrica de Software
+
+> Um ambiente exclusivo onde alunos do IFC Campus Araquari constroem software de verdade.
+
+## Páginas
+
+- [Início](https://fabricadesoftware.ifc.edu.br/): o que é a Fábrica
+- [Projetos](https://fabricadesoftware.ifc.edu.br/projects): sistemas feitos pelos alunos
+- [Membros](https://fabricadesoftware.ifc.edu.br/members): quem faz parte
+- [Avisos](https://fabricadesoftware.ifc.edu.br/notices): notícias e editais
+
+## Código
+
+- [GitHub da Fábrica](https://github.com/fabricadesoftware-ifc)

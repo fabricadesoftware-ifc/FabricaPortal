@@ -39,7 +39,7 @@ onBeforeUnmount(() => {
     <!-- In the same place as the logo and the button of the page. -->
     <div class="flex items-start justify-between">
       <RouterLink to="/" aria-label="Fábrica de Software" @click="emit('close')">
-        <img :src="logo" alt="" class="h-11 w-auto" />
+        <img :src="logo" alt="" width="63" height="44" class="h-11 w-auto" />
       </RouterLink>
       <button
         ref="closeButton"
