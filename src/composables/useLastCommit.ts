@@ -6,6 +6,7 @@ const REPOS_URL = `${import.meta.env.VITE_GITHUB_API_URL}/orgs/fabricadesoftware
 interface Repo {
   name: string
   pushed_at: string
+  html_url: string
 }
 
 /** "fabricaPainel_frontEnd" -> "painel" */
@@ -26,7 +27,7 @@ const timeAgo = (iso: string) => {
 
 /** Latest push in the organization. Stays null when the GitHub API is unavailable. */
 export function useLastCommit() {
-  const lastCommit = ref<{ ago: string; project: string } | null>(null)
+  const lastCommit = ref<{ ago: string; project: string; url: string } | null>(null)
 
   onMounted(async () => {
     try {
@@ -35,7 +36,13 @@ export function useLastCommit() {
         if (!response.ok) throw new Error(`Falha ao buscar repositórios (${response.status})`)
         return (await response.json()) as Repo[]
       })
-      if (repo) lastCommit.value = { ago: timeAgo(repo.pushed_at), project: projectName(repo.name) }
+      if (repo) {
+        lastCommit.value = {
+          ago: timeAgo(repo.pushed_at),
+          project: projectName(repo.name),
+          url: repo.html_url,
+        }
+      }
     } catch {
       // Decorative information: the hero works without it.
     }
