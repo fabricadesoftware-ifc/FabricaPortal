@@ -7,6 +7,7 @@ import { useSlidingHighlight } from '@/composables/useSlidingHighlight'
 import { navLinks } from '@/constants/links'
 import GithubButton from './GithubButton.vue'
 import MobileMenu from './MobileMenu.vue'
+import WeatherButton from './WeatherButton.vue'
 
 const props = defineProps<{
   /** Whether a loading screen hides the navbar. */
@@ -83,11 +84,19 @@ onBeforeUnmount(() => largeScreen.removeEventListener('change', onResize))
       <GithubButton class="ml-1" />
     </nav>
 
-    <div class="pointer-events-none sticky top-8 *:pointer-events-auto md:hidden">
+    <!-- Needs the room beside the centered navbar. -->
+    <div class="absolute top-10 right-(--page-padding) hidden lg:block">
+      <WeatherButton />
+    </div>
+
+    <div
+      class="pointer-events-none sticky top-8 flex justify-end gap-2 *:pointer-events-auto md:hidden"
+    >
+      <WeatherButton is-sheet />
       <button
         ref="menuButton"
         type="button"
-        class="ml-auto grid size-11 cursor-pointer place-items-center rounded-lg border border-white/8 bg-surface"
+        class="grid size-11 cursor-pointer place-items-center rounded-lg border border-white/8 bg-surface"
         aria-label="Abrir menu"
         aria-haspopup="dialog"
         :aria-expanded="isMenuOpen"

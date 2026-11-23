@@ -72,6 +72,12 @@ const icons = {
   previous: ['m15 6-6 6 6 6'],
   next: ['m9 6 6 6-6 6'],
   close: ['M6 6l12 12', 'M18 6 6 18'],
+  chevron: ['m6 9 6 6 6-6'],
+  external: ['M7 17 17 7', 'M8 7h9v9'],
+  compass: [
+    'M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20z',
+    'm16.24 7.76-1.8 5.41a2 2 0 0 1-1.27 1.27L7.76 16.24l1.8-5.41a2 2 0 0 1 1.27-1.27z',
+  ],
 } as const
 
 export type IconName = keyof typeof icons
