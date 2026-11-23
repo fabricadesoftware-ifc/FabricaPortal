@@ -87,10 +87,12 @@ function endDrag() {
     <button
       ref="toggle"
       type="button"
-      class="flex cursor-pointer items-stretch rounded-lg border bg-surface text-left transition-[border-color,background-color,scale] duration-200 active:scale-[0.97] motion-reduce:transition-none"
+      class="group flex cursor-pointer items-stretch rounded-lg border bg-surface text-left transition-[border-color,background-color,box-shadow,scale] duration-200 active:scale-[0.97] motion-reduce:transition-none"
       :class="[
         isSheet ? 'h-11' : 'h-[3.125rem]',
-        isOpen ? 'border-white/25 bg-white/5' : 'border-white/8 hover:border-white/20',
+        isOpen
+          ? 'border-white/25 bg-white/5'
+          : 'border-white/8 hover:border-white/20 hover:bg-white/3 hover:shadow-[0_0_0.75rem_rgb(255_255_255/0.05)]',
       ]"
       :aria-expanded="isOpen"
       :aria-controls="panelId"
@@ -106,6 +108,7 @@ function endDrag() {
         <WeatherIcon
           :condition="condition"
           :is-day="isDay"
+          class="transition-[translate,scale] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-0.5 group-hover:scale-110 motion-reduce:transition-none"
           :class="isSheet ? 'size-7' : 'size-9'"
         />
       </span>
@@ -125,7 +128,7 @@ function endDrag() {
           </span>
           <AppIcon
             name="compass"
-            class="ml-1 size-5 text-white/70 transition-[rotate] duration-700 ease-out"
+            class="ml-1 size-5 text-white/70 transition-[rotate,color] duration-700 ease-out group-hover:text-white"
             :style="{ rotate: `${(weather.windDirection ?? 45) - 45}deg` }"
           />
         </span>
