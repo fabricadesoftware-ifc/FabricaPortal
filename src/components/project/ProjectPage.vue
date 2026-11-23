@@ -23,7 +23,7 @@ const props = defineProps<{
   team?: Team
 }>()
 
-const { repositories, features } = projectDetails[getProjectSlug(props.project)] ?? {
+const { repositories, features, links } = projectDetails[getProjectSlug(props.project)] ?? {
   repositories: [],
   features: [],
 }
@@ -55,7 +55,7 @@ const sections = [
 
 <template>
   <main class="section pt-32 md:pt-40" :style="{ '--color': color }">
-    <ProjectHeader :project="project" />
+    <ProjectHeader :project="project" :links="links" />
     <ProjectFacts :project="project" :team="team" :percentage="percentage" class="mt-10" />
 
     <div class="mt-10 rounded-3xl border border-white/8 bg-surface p-4 md:p-8 xl:p-10">

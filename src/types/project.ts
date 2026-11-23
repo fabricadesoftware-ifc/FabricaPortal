@@ -54,6 +54,13 @@ export interface ProjectFeature {
 export interface ProjectDetails {
   repositories: Repository[]
   features: ProjectFeature[]
+  /** Other addresses, next to the one of the project. */
+  links?: ProjectLink[]
+}
+
+export interface ProjectLink {
+  label: string
+  href: string
 }
 
 export interface TechnologyFilter {

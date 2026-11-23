@@ -23,6 +23,10 @@ export const projectDetails: Record<string, ProjectDetails> = {
   },
   fabroku: {
     repositories: pair('Fabroku_BackEnd', 'Fabroku_FrontEnd'),
+    links: [
+      { label: 'Documentação', href: 'https://docs.fabroku.fabricadesoftware.ifc.edu.br/' },
+      { label: 'Status', href: 'https://status.fabricadesoftware.ifc.edu.br/status/fabrica' },
+    ],
     features: [
       { icon: 'cloud', title: 'Deploy', description: 'Publicação das aplicações dos projetos.' },
       {
