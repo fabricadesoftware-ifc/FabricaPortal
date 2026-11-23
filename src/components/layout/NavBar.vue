@@ -29,6 +29,13 @@ const highlight = useSlidingHighlight(desktopNav, {
 // Only the page itself: a member or a notice is not the list of them.
 const isActive = (to: string) => route.path.replace(/\/$/, '') === to.replace(/\/$/, '')
 
+// Already on the home page, the logo goes back to its top.
+function toTop() {
+  if (route.path !== '/') return
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' })
+}
+
 const menuButton = useTemplateRef('menuButton')
 
 async function closeMenu() {
@@ -57,8 +64,8 @@ onBeforeUnmount(() => largeScreen.removeEventListener('change', onResize))
   <header
     class="pointer-events-none absolute inset-0 z-50 px-(--page-padding) pt-8 md:pt-10 *:pointer-events-auto"
   >
-    <RouterLink to="/" aria-label="Fábrica de Software" class="absolute">
-      <img :src="logo" alt="" width="63" height="44" class="h-11 w-auto" />
+    <RouterLink to="/" aria-label="Fábrica de Software — Início" class="absolute" @click="toTop">
+      <img :src="logo" alt="" width="63" height="44" class="h-14 w-auto" />
     </RouterLink>
 
     <nav
