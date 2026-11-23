@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, useTemplateRef } from 'vue'
-import { RouterLink } from 'vue-router'
+import { onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
+import { RouterLink, useRouter } from 'vue-router'
 import AppIcon from '@/components/global/AppIcon.vue'
 import logo from '@/assets/logo.svg'
+import { useGlobalSearch } from '@/composables/useGlobalSearch'
 import { useScrollLock } from '@/composables/useScrollLock'
 import { navLinks, socials } from '@/constants/links'
 
@@ -11,6 +12,18 @@ defineProps<{ isActive: (to: string) => boolean }>()
 const emit = defineEmits<{ close: [] }>()
 
 const closeButton = useTemplateRef('closeButton')
+
+const router = useRouter()
+const query = ref('')
+const { groups, results, load } = useGlobalSearch(query)
+
+/** Enter opens the first result. */
+function openFirst() {
+  const [first] = results.value
+  if (!first) return
+  router.push(first.to)
+  emit('close')
+}
 
 useScrollLock()
 
@@ -52,16 +65,69 @@ onBeforeUnmount(() => {
       </button>
     </div>
 
+    <label
+      class="item type-ui mt-8 flex items-center gap-3 rounded-lg border border-white/12 bg-surface px-4 py-3 transition-colors focus-within:border-brand-orange/70 [@media(height<30rem)]:mt-5"
+      :style="{ '--index': 0 }"
+    >
+      <AppIcon name="search" class="size-4.5 shrink-0 text-muted" />
+      <span class="sr-only">Buscar projetos, membros e notícias</span>
+      <input
+        v-model="query"
+        type="search"
+        enterkeyhint="go"
+        autocomplete="off"
+        placeholder="Buscar projetos, membros e notícias…"
+        class="search w-full min-w-0 text-base font-normal outline-none placeholder:text-subtle"
+        @focus="load"
+        @keydown.enter.prevent="openFirst"
+      />
+    </label>
+
+    <!-- Takes the place of the links while something is searched. -->
+    <div v-if="query.trim()" class="relative mt-6" aria-live="polite">
+      <TransitionGroup name="result">
+        <section v-for="group in groups" :key="group.label" class="mb-5 w-full">
+          <h2 class="type-label font-normal text-subtle">{{ group.label }}</h2>
+          <TransitionGroup tag="ul" name="result" class="relative mt-1">
+            <li v-for="result in group.results" :key="result.key" class="w-full">
+              <RouterLink
+                :to="result.to"
+                class="type-ui flex items-center gap-3 py-3 transition-colors active:text-brand-orange"
+                @click="emit('close')"
+              >
+                <span
+                  class="size-1.5 shrink-0 rounded-full"
+                  :style="{ background: group.color }"
+                  aria-hidden="true"
+                />
+                <span class="min-w-0 flex-1 truncate">{{ result.label }}</span>
+                <span
+                  class="type-label shrink-0 font-normal tracking-normal text-subtle normal-case"
+                >
+                  {{ result.detail }}
+                </span>
+              </RouterLink>
+            </li>
+          </TransitionGroup>
+        </section>
+      </TransitionGroup>
+
+      <p v-if="!results.length" class="type-small py-6 text-center text-muted">
+        Nada encontrado para “{{ query }}”.
+      </p>
+    </div>
+
     <nav
+      v-else
       aria-label="Principal"
-      class="mt-8 border-t border-white/8 pt-6 [@media(height<30rem)]:mt-5 [@media(height<30rem)]:pt-4"
+      class="mt-6 border-t border-white/8 pt-6 [@media(height<30rem)]:mt-5 [@media(height<30rem)]:pt-4"
     >
       <ul class="[@media(height<30rem)]:grid [@media(height<30rem)]:grid-cols-2">
         <li
           v-for="(link, index) in navLinks"
           :key="link.to"
           class="item"
-          :style="{ '--index': index }"
+          :style="{ '--index': index + 1 }"
         >
           <RouterLink
             :to="link.to"
@@ -78,7 +144,7 @@ onBeforeUnmount(() => {
 
     <ul
       class="item mt-auto flex justify-center gap-2.5 pt-10"
-      :style="{ '--index': navLinks.length }"
+      :style="{ '--index': navLinks.length + 1 }"
     >
       <li v-for="social in socials" :key="social.label">
         <a
@@ -96,6 +162,11 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+/* Blue by default on Chromium. The input is 16px, or iOS zooms in on focus. */
+.search::-webkit-search-cancel-button {
+  filter: grayscale(1) brightness(1.8);
+}
+
 /* The items come after the panel, one by one. */
 .item {
   animation: appear 0.4s calc(0.15s + var(--index) * 0.06s) cubic-bezier(0.22, 1, 0.36, 1) backwards;
@@ -122,9 +193,37 @@ onBeforeUnmount(() => {
   transform: translateX(100%);
 }
 
+/* Results come and go while typing, and the others slide into their place. */
+.result-enter-active,
+.result-move {
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.result-leave-active {
+  position: absolute;
+  transition: opacity 0.15s ease-in;
+}
+
+.result-enter-from {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+.result-leave-to {
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .item {
     animation: none;
+  }
+
+  .result-enter-active,
+  .result-move,
+  .result-leave-active {
+    transition: none;
   }
 
   .menu-enter-active,

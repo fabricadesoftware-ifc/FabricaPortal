@@ -6,6 +6,7 @@ import logo from '@/assets/logo.svg'
 import { useSlidingHighlight } from '@/composables/useSlidingHighlight'
 import { navLinks } from '@/constants/links'
 import GithubButton from './GithubButton.vue'
+import GlobalSearch from './GlobalSearch.vue'
 import MobileMenu from './MobileMenu.vue'
 import WeatherButton from './WeatherButton.vue'
 
@@ -81,6 +82,7 @@ onBeforeUnmount(() => largeScreen.removeEventListener('change', onResize))
       >
         {{ link.label }}
       </RouterLink>
+      <GlobalSearch class="ml-1" />
       <GithubButton class="ml-1" />
     </nav>
 
