@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
 import { projects } from '@/constants/projects'
+import HeroClock from './HeroClock.vue'
 import LastCommit from './LastCommit.vue'
 import OrbitLink from './OrbitLink.vue'
 
@@ -30,12 +31,8 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
         <OrbitLink v-for="project in projects" :key="project.label" v-bind="project" />
       </div>
 
-      <p class="description type-body text-muted">
-        Um ambiente exclusivo projetado para os alunos da área da Informática (Superior e Técnico)
-        que desejam mergulhar nas práticas de uma verdadeira softwarehouse.
-      </p>
-
       <LastCommit class="last-commit" />
+      <HeroClock class="clock" />
     </div>
   </section>
 </template>
@@ -79,12 +76,12 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
   border-radius: 50%;
 }
 
-.description {
+.clock {
+  margin-top: 1.5rem;
   padding: 0 var(--page-padding);
 }
 
 .last-commit {
-  margin-top: 1.5rem;
   padding: 0 var(--page-padding);
 }
 
@@ -117,14 +114,12 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
     transform: translate(-50%, -50%);
   }
 
-  .description {
+  .clock {
     position: absolute;
     bottom: 1rem;
     left: var(--page-padding);
-    max-width: 25em;
+    margin: 0;
     padding: 0;
-    font-size: calc(clamp(0.875rem, 12.5 * var(--u), 1.125rem) * var(--text-scale));
-    line-height: 1.6;
   }
 
   .last-commit {
