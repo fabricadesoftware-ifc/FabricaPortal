@@ -1,3 +1,5 @@
+import type { WeatherCondition } from '@/utils/weatherCondition'
+
 /** Readings of a key of ThingsBoard, the newest first. Values come as text. */
 export type ApiTelemetry = Record<string, { ts: number; value: string }[] | undefined>
 
@@ -9,6 +11,50 @@ export interface ApiDashboard {
       { filter: { type: string; singleEntity?: { entityType: string; id: string } } }
     >
   }
+}
+
+/** The part of the forecast of Open-Meteo that the site uses. Lists follow `time`. */
+export interface ApiForecast {
+  hourly: {
+    /** Local time, as in 2026-11-22T09:00. */
+    time: string[]
+    temperature_2m: (number | null)[]
+    precipitation_probability: (number | null)[]
+    weather_code: (number | null)[]
+    is_day: (0 | 1)[]
+    uv_index: (number | null)[]
+  }
+  daily: {
+    temperature_2m_max: (number | null)[]
+    temperature_2m_min: (number | null)[]
+    precipitation_probability_max: (number | null)[]
+    uv_index_max: (number | null)[]
+  }
+}
+
+export interface ForecastHour {
+  /** Local time of the station, as in 2026-11-22T09:00. */
+  time: string
+  /** 0 to 23, in the time zone of the station. */
+  hour: number
+  temperature: number | null
+  /** Chance of rain, in %. */
+  rainChance: number | null
+  condition: WeatherCondition
+  isDay: boolean
+  /** Ultraviolet index, from 0 up. */
+  uvIndex: number | null
+}
+
+export interface Forecast {
+  max: number | null
+  min: number | null
+  /** Highest chance of rain of the day, in %. */
+  rainChance: number | null
+  /** Highest ultraviolet index of the day. */
+  uvMax: number | null
+  /** From some hours ago to some hours ahead. */
+  hours: ForecastHour[]
 }
 
 /** Latest readings of the weather station. Null when the reading is missing or impossible. */

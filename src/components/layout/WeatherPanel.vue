@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import AppIcon from '@/components/global/AppIcon.vue'
 import WeatherIcon from '@/components/global/WeatherIcon.vue'
+import { useForecast } from '@/composables/useForecast'
+import WeatherForecast from './WeatherForecast.vue'
 import WeatherScale, { type ScaleLevel } from './WeatherScale.vue'
 import { DASHBOARD_URL } from '@/services/thingsboard'
 import type { Weather } from '@/types/weather'
@@ -44,6 +46,15 @@ const AIR_QUALITY: ScaleLevel[] = [
   { upTo: 120, label: 'Ruim', color: '#f97316' },
   { upTo: 200, label: 'Muito ruim', color: '#ef4444' },
   { upTo: 300, label: 'Péssima', color: '#991b1b' },
+]
+
+/** Levels of the World Health Organization. */
+const ULTRAVIOLET: ScaleLevel[] = [
+  { upTo: 2, label: 'Baixo', color: '#22c55e' },
+  { upTo: 5, label: 'Moderado', color: '#facc15' },
+  { upTo: 7, label: 'Alto', color: '#f97316' },
+  { upTo: 10, label: 'Muito alto', color: '#ef4444' },
+  { upTo: 14, label: 'Extremo', color: '#a855f7' },
 ]
 
 /** Ticks of the compass, every 15 degrees. */
@@ -92,9 +103,17 @@ const rangePosition = computed(() => {
   return max > min ? clamp((temperature - min) / (max - min)) : 0.5
 })
 
+const { forecast, hasFailed: forecastFailed, currentIndex } = useForecast()
+
 const airQuality = computed(() =>
   weather.value.airQuality == null ? null : Math.round(weather.value.airQuality),
 )
+
+/** Ultraviolet index of the current hour, from the forecast. */
+const ultraviolet = computed(() => {
+  const index = forecast.value?.hours[currentIndex.value]?.uvIndex
+  return index == null ? null : Math.round(index)
+})
 
 const metrics = computed(() => {
   const data = weather.value
@@ -247,6 +266,14 @@ const metrics = computed(() => {
       </div>
     </div>
 
+    <WeatherForecast
+      v-if="!forecastFailed"
+      :forecast="forecast"
+      :current-index="currentIndex"
+      class="reveal mx-5 mt-3"
+      style="--i: 3"
+    />
+
     <!-- Readings -->
     <dl
       class="reveal mx-5 mt-3 grid grid-cols-3 overflow-hidden rounded-xl border border-white/8"
@@ -272,7 +299,7 @@ const metrics = computed(() => {
       </div>
     </dl>
 
-    <!-- Air quality -->
+    <!-- Air quality and sun -->
     <div
       class="reveal mx-5 mt-3 divide-y divide-white/8 rounded-xl border border-white/8 px-3"
       style="--i: 5"
@@ -284,6 +311,18 @@ const metrics = computed(() => {
         :value="airQuality"
         class="py-3"
       />
+      <WeatherScale
+        v-if="!forecastFailed"
+        title="Índice UV"
+        unit="UV"
+        :levels="ULTRAVIOLET"
+        :value="ultraviolet"
+        class="py-3"
+      >
+        <template v-if="forecast?.uvMax != null" #note>
+          Máx hoje {{ Math.round(forecast.uvMax) }}
+        </template>
+      </WeatherScale>
     </div>
 
     <footer
