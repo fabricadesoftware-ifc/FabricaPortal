@@ -66,6 +66,7 @@ export const portfolioProjects: PortfolioProject[] = [
     href: 'https://github.com/fabricadesoftware-ifc/fabricaGPTER_frontEnd',
   },
   {
+    id: 44,
     name: 'Fabroku',
     category: 'Infraestrutura',
     status: 'active',
