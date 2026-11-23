@@ -2,13 +2,17 @@ import {
   DirectionalLight,
   HemisphereLight,
   Mesh,
+  NeutralToneMapping,
+  PCFSoftShadowMap,
   PerspectiveCamera,
+  PMREMGenerator,
   Scene,
   Timer,
   Vector3,
   WebGLRenderer,
   type Material,
 } from 'three'
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js'
 import { createIsland } from './island'
 
 export interface FactoryWorld {
@@ -24,15 +28,38 @@ const PIN_HEAD_Y = 0.5
 export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement): FactoryWorld {
   const renderer = new WebGLRenderer({ canvas, alpha: true, antialias: true })
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  // Keeps the brand colors, which other tone mappings shift.
+  renderer.toneMapping = NeutralToneMapping
+  renderer.shadowMap.enabled = true
+  renderer.shadowMap.type = PCFSoftShadowMap
 
   const scene = new Scene()
+
+  // Soft reflections on the metal and the glass.
+  const pmrem = new PMREMGenerator(renderer)
+  const environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture
+  scene.environment = environment
+  scene.environmentIntensity = 0.35
   const camera = new PerspectiveCamera(28, 1, 0.1, 50)
   camera.position.set(0.1, 6.4, 16)
   camera.lookAt(0.1, 0.25, 0)
 
-  const sun = new DirectionalLight(0xffffff, 3)
+  const sun = new DirectionalLight(0xfff1e0, 3)
   sun.position.set(-3, 7, 5)
-  scene.add(new HemisphereLight(0xffffff, 0x57504b, 1.1), sun)
+  sun.castShadow = true
+  sun.shadow.mapSize.set(1024, 1024)
+  sun.shadow.camera.left = sun.shadow.camera.bottom = -4
+  sun.shadow.camera.right = sun.shadow.camera.top = 4
+  sun.shadow.camera.far = 20
+  sun.shadow.bias = -0.0005
+  sun.shadow.normalBias = 0.02
+  sun.shadow.radius = 3
+
+  // Cool light from behind, which outlines the shapes against the dark page.
+  const rim = new DirectionalLight(0xa8c4ff, 0.9)
+  rim.position.set(4, 3, -6)
+
+  scene.add(new HemisphereLight(0xe6f0ff, 0x3a302a, 0.9), sun, rim)
 
   const { root, pin, smoke, debris } = createIsland()
   root.scale.setScalar(ISLAND_SCALE)
@@ -140,6 +167,8 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
   return {
     dispose() {
       renderer.setAnimationLoop(null)
+      environment.dispose()
+      pmrem.dispose()
       resizeObserver.disconnect()
       visibilityObserver.disconnect()
       listeners.abort()
