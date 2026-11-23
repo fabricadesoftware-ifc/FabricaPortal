@@ -20,15 +20,6 @@ const total = computed(() => props.members.length)
 const rail = useTemplateRef('rail')
 const { visible, isAtStart, isAtEnd, scroll, scrollTo } = useScrollRail(rail, '[data-member]')
 
-const range = computed(() => {
-  const { first, last } = visible.value
-
-  // Only the people who are not shown may be on screen.
-  if (first < 0) return `${padNumber(total.value)} de ${padNumber(total.value)}`
-  if (first === last) return `${padNumber(first + 1)} de ${padNumber(total.value)}`
-  return `${padNumber(first + 1)}–${padNumber(last + 1)} de ${padNumber(total.value)}`
-})
-
 const matchesText = computed(() => {
   const { length } = props.matches
 
@@ -67,7 +58,6 @@ watch(
         Fábrica
       </h2>
       <p class="type-label text-muted">
-        <span v-if="matches.length">{{ range }}</span>
         <span :class="{ 'sr-only': matches.length }" role="status">{{ matchesText }}</span>
       </p>
     </header>
