@@ -49,6 +49,13 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
   const pinBaseY = pin.position.y
   const pinHead = new Vector3()
 
+  // Small screens show the label as the island's nameplate, so the pin has nothing to point.
+  const largeScreen = window.matchMedia('(width >= 64rem)')
+  const showPin = () => {
+    pin.visible = largeScreen.matches
+    draw()
+  }
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   let dragX: number | null = null
   let dragYaw = 0
@@ -101,6 +108,8 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
   })
   resizeObserver.observe(canvas)
 
+  showPin()
+
   // Renders only while the canvas is on screen.
   const visibilityObserver = new IntersectionObserver(([entry]) => {
     renderer.setAnimationLoop(entry?.isIntersecting && !reducedMotion ? render : null)
@@ -109,6 +118,8 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
 
   const listeners = new AbortController()
   const { signal } = listeners
+
+  largeScreen.addEventListener('change', showPin, { signal })
 
   if (!reducedMotion) {
     window.addEventListener(
