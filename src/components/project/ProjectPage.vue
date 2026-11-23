@@ -9,11 +9,13 @@ import { useProjectProgress } from '@/composables/useProjectProgress'
 import { projectCategories } from '@/constants/portfolio'
 import { projectDetails } from '@/constants/projectDetails'
 import { findTechnology } from '@/constants/technologies'
+import type { Member } from '@/types/member'
 import type { PortfolioProject, Team } from '@/types/project'
 import { getProjectSlug } from '@/utils/getProjectSlug'
 import ProjectFacts from './ProjectFacts.vue'
 import ProjectFeatures from './ProjectFeatures.vue'
 import ProjectHeader from './ProjectHeader.vue'
+import ProjectMembers from './ProjectMembers.vue'
 import ProjectProgress from './ProjectProgress.vue'
 
 const props = defineProps<{
@@ -21,6 +23,8 @@ const props = defineProps<{
   others: PortfolioProject[]
   /** Undefined while loading or when the API is unavailable. */
   team?: Team
+  /** The ones linked to the project. Empty while loading. */
+  members: Member[]
 }>()
 
 const { repositories, features, links } = projectDetails[getProjectSlug(props.project)] ?? {
@@ -44,13 +48,14 @@ const otherRows = computed(() =>
   })),
 )
 
-// Projects without repositories or features skip their sections.
-const sections = [
+// Projects without repositories, features or members skip their sections.
+const sections = computed(() => [
   { id: 'visao-geral', title: 'Visão geral' },
   ...(repositories.length ? [{ id: 'progresso', title: 'Progresso' }] : []),
   ...(features.length ? [{ id: 'o-que-entrega', title: 'O que entrega' }] : []),
   { id: 'stack', title: 'Stack' },
-]
+  ...(props.members.length ? [{ id: 'membros', title: 'Membros' }] : []),
+])
 </script>
 
 <template>
@@ -96,6 +101,7 @@ const sections = [
             :last-activity="lastActivity"
           />
           <ProjectFeatures v-else-if="section.id === 'o-que-entrega'" :features="features" />
+          <ProjectMembers v-else-if="section.id === 'membros'" :members="members" />
           <ul v-else class="flex flex-wrap gap-3">
             <li v-for="technology in project.technologies" :key="technology">
               <TechnologyBadge :technology="findTechnology(technology)" />
