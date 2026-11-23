@@ -46,7 +46,6 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
 
   const sun = new DirectionalLight(0xfff1e0, 3)
   sun.position.set(-3, 7, 5)
-  sun.castShadow = true
   sun.shadow.mapSize.set(1024, 1024)
   sun.shadow.camera.left = sun.shadow.camera.bottom = -4
   sun.shadow.camera.right = sun.shadow.camera.top = 4
@@ -135,7 +134,15 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
   })
   resizeObserver.observe(canvas)
 
+  // Phones skip the shadows, which cost the most to draw.
+  const shadowScreen = window.matchMedia('(width >= 48rem)')
+  const toggleShadows = () => {
+    sun.castShadow = shadowScreen.matches
+    draw()
+  }
+
   showPin()
+  toggleShadows()
 
   // Renders only while the canvas is on screen.
   const visibilityObserver = new IntersectionObserver(([entry]) => {
@@ -147,6 +154,7 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
   const { signal } = listeners
 
   largeScreen.addEventListener('change', showPin, { signal })
+  shadowScreen.addEventListener('change', toggleShadows, { signal })
 
   if (!reducedMotion) {
     window.addEventListener(
