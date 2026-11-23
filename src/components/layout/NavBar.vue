@@ -26,8 +26,8 @@ const highlight = useSlidingHighlight(desktopNav, {
   isPaused: () => props.isCovered,
 })
 
-const isActive = (to: string) =>
-  to === '/' ? route.path === '/' : route.path === to || route.path.startsWith(`${to}/`)
+// Only the page itself: a member or a notice is not the list of them.
+const isActive = (to: string) => route.path.replace(/\/$/, '') === to.replace(/\/$/, '')
 
 const menuButton = useTemplateRef('menuButton')
 
