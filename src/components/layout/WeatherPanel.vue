@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import AppIcon from '@/components/global/AppIcon.vue'
 import WeatherIcon from '@/components/global/WeatherIcon.vue'
 import { useForecast } from '@/composables/useForecast'
-import WeatherForecast from './WeatherForecast.vue'
 import WeatherScale, { type ScaleLevel } from './WeatherScale.vue'
 import { DASHBOARD_URL } from '@/services/thingsboard'
 import type { Weather } from '@/types/weather'
@@ -265,14 +264,6 @@ const metrics = computed(() => {
         </p>
       </div>
     </div>
-
-    <WeatherForecast
-      v-if="!forecastFailed"
-      :forecast="forecast"
-      :current-index="currentIndex"
-      class="reveal mx-5 mt-3"
-      style="--i: 3"
-    />
 
     <!-- Readings -->
     <dl
