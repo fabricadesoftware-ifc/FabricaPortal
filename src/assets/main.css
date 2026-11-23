@@ -23,6 +23,13 @@
   --color-brand-blue: #2a2aff;
 }
 
+/* Registered, so it can fade. */
+@property --scrollbar-thumb {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgb(255 255 255 / 0.15);
+}
+
 @layer base {
   html {
     /* Size of every text of the pages. */
@@ -57,6 +64,52 @@
     color: #fff;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* Thin and dark on every scrolling area. Some of them change or hide it. */
+  ::-webkit-scrollbar {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    /* The transparent border keeps it away from the edges, on any background. */
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background: var(--scrollbar-thumb) padding-box;
+  }
+
+  /* Each element has its own, so a lit scrollbar does not light the ones inside it. */
+  * {
+    --scrollbar-thumb: rgb(255 255 255 / 0.15);
+  }
+
+  /* Set by trackScrollbarHover, since the thumb itself cannot fade. */
+  [data-scrollbar] {
+    transition: --scrollbar-thumb 0.25s ease-out;
+  }
+
+  [data-scrollbar-hover] {
+    --scrollbar-thumb: rgb(255 255 255 / 0.35);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-scrollbar] {
+      transition: none;
+    }
+  }
+
+  /* Chromium ignores the rules above where scrollbar-color is set, so only Firefox gets it. */
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-color: rgb(255 255 255 / 0.15) transparent;
+      scrollbar-width: thin;
+    }
   }
 
   :focus-visible {
