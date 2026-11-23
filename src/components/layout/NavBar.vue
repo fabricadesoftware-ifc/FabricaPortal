@@ -3,9 +3,11 @@ import { nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from
 import { RouterLink, useRoute } from 'vue-router'
 import AppIcon from '@/components/global/AppIcon.vue'
 import logo from '@/assets/logo.svg'
+import { useHoverHighlight } from '@/composables/useHoverHighlight'
 import { useSlidingHighlight } from '@/composables/useSlidingHighlight'
 import { navLinks } from '@/constants/links'
 import GithubButton from './GithubButton.vue'
+import GlobalSearch from './GlobalSearch.vue'
 import MobileMenu from './MobileMenu.vue'
 import WeatherButton from './WeatherButton.vue'
 
@@ -25,8 +27,17 @@ const highlight = useSlidingHighlight(desktopNav, {
   isPaused: () => props.isCovered,
 })
 
-const isActive = (to: string) =>
-  to === '/' ? route.path === '/' : route.path === to || route.path.startsWith(`${to}/`)
+const hover = useHoverHighlight(desktopNav)
+
+// Only the page itself: a member or a notice is not the list of them.
+const isActive = (to: string) => route.path.replace(/\/$/, '') === to.replace(/\/$/, '')
+
+// Already on the home page, the logo goes back to its top.
+function toTop() {
+  if (route.path !== '/') return
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' })
+}
 
 const menuButton = useTemplateRef('menuButton')
 
@@ -56,19 +67,28 @@ onBeforeUnmount(() => largeScreen.removeEventListener('change', onResize))
   <header
     class="pointer-events-none absolute inset-0 z-50 px-(--page-padding) pt-8 md:pt-10 *:pointer-events-auto"
   >
-    <RouterLink to="/" aria-label="Fábrica de Software" class="absolute">
-      <img :src="logo" alt="" width="63" height="44" class="h-11 w-auto" />
+    <RouterLink to="/" aria-label="Fábrica de Software — Início" class="absolute" @click="toTop">
+      <img :src="logo" alt="" width="63" height="44" class="h-14 w-auto" />
     </RouterLink>
 
     <nav
       ref="desktopNav"
       aria-label="Principal"
       class="sticky top-10 mx-auto hidden w-fit items-center gap-1 rounded-xl border border-white/8 bg-surface p-1.5 md:flex"
+      @pointerleave="hover.leaveAll"
     >
       <span
         v-if="highlight"
         class="absolute inset-y-1.5 left-0 rounded-lg bg-white/10 transition-[translate,width] delay-150 duration-300 ease-out motion-reduce:transition-none"
         :style="{ translate: `${highlight.left}px`, width: `${highlight.width}px` }"
+        aria-hidden="true"
+      />
+      <!-- Slides from link to link. -->
+      <span
+        v-if="hover.box.value"
+        class="absolute inset-y-1.5 left-0 rounded-lg bg-white/5 duration-200 ease-out motion-reduce:transition-none"
+        :class="hover.classes.value"
+        :style="hover.style.value"
         aria-hidden="true"
       />
       <RouterLink
@@ -77,10 +97,14 @@ onBeforeUnmount(() => largeScreen.removeEventListener('change', onResize))
         :to="link.to"
         :aria-current="isActive(link.to) ? 'page' : undefined"
         class="type-ui relative rounded-lg px-3.5 py-2 transition-colors"
-        :class="isActive(link.to) ? 'text-white' : 'text-white/90 hover:bg-white/5'"
+        :class="isActive(link.to) ? 'text-white' : 'text-white/90 hover:text-white'"
+        data-hover-item
+        @pointerenter="hover.enter"
+        @pointerleave="hover.leave"
       >
         {{ link.label }}
       </RouterLink>
+      <GlobalSearch class="ml-1" />
       <GithubButton class="ml-1" />
     </nav>
 

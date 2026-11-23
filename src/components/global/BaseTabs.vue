@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTemplateRef } from 'vue'
+import { useHoverHighlight } from '@/composables/useHoverHighlight'
 import { useSlidingHighlight } from '@/composables/useSlidingHighlight'
 import { useTabList } from '@/composables/useTabList'
 
@@ -24,6 +25,7 @@ const variants = {
     root: 'w-fit max-w-full rounded-xl max-sm:w-full',
     list: 'gap-1 max-sm:gap-0 rounded-xl border border-white/8 bg-surface p-1',
     highlight: 'inset-y-1 rounded-lg bg-brand-orange',
+    hover: 'inset-y-1 rounded-lg bg-white/5',
     // As tall as a button, counting the padding of the list.
     tab: 'rounded-lg px-4 py-2.5 max-sm:px-1 md:px-5 lg:py-[calc(0.625rem*var(--type-scale,1)-0.25rem)]',
     active: 'text-white',
@@ -32,6 +34,7 @@ const variants = {
     root: 'mx-auto w-full max-w-3xl border-b border-white/8 max-sm:-mx-4 max-sm:w-auto',
     list: 'mx-auto',
     highlight: 'inset-y-0 border-b-2 border-brand-orange bg-brand-orange/15',
+    hover: 'inset-y-0 bg-white/5',
     tab: 'px-5 py-4 max-sm:px-0.5 md:px-6',
     active: 'text-accent',
   },
@@ -42,6 +45,9 @@ const highlight = useSlidingHighlight(list, {
   selector: '[aria-selected="true"]',
   source: active,
 })
+
+// Slides from tab to tab, like the navbar.
+const hover = useHoverHighlight(list)
 
 const { select, onKeydown } = useTabList(list, active, () => tabs.length)
 </script>
@@ -56,7 +62,16 @@ const { select, onKeydown } = useTabList(list, active, () => tabs.length)
       class="relative flex w-max max-sm:w-full"
       :class="variants[variant].list"
       @keydown="onKeydown"
+      @pointerleave="hover.leaveAll"
     >
+      <!-- Before the active tab, which covers it. -->
+      <span
+        v-if="hover.box.value"
+        class="absolute left-0 duration-200 ease-out motion-reduce:transition-none"
+        :class="[variants[variant].hover, hover.classes.value]"
+        :style="hover.style.value"
+        aria-hidden="true"
+      />
       <span
         v-if="highlight"
         class="absolute left-0 transition-[translate,width] duration-300 ease-out motion-reduce:transition-none"
@@ -77,6 +92,9 @@ const { select, onKeydown } = useTabList(list, active, () => tabs.length)
           variants[variant].tab,
           index === active ? variants[variant].active : 'text-muted hover:text-white',
         ]"
+        data-hover-item
+        @pointerenter="hover.enter"
+        @pointerleave="hover.leave"
         @click="select(index)"
       >
         {{ tab }}

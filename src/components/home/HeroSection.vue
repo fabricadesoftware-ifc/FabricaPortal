@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
 import { projects } from '@/constants/projects'
+import HeroClock from './HeroClock.vue'
 import LastCommit from './LastCommit.vue'
 import OrbitLink from './OrbitLink.vue'
 
@@ -30,12 +31,8 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
         <OrbitLink v-for="project in projects" :key="project.label" v-bind="project" />
       </div>
 
-      <p class="description type-body text-muted">
-        Um ambiente exclusivo projetado para os alunos da área da Informática (Superior e Técnico)
-        que desejam mergulhar nas práticas de uma verdadeira softwarehouse.
-      </p>
-
       <LastCommit class="last-commit" />
+      <HeroClock class="clock" />
     </div>
   </section>
 </template>
@@ -73,18 +70,42 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
   margin: 1.5rem auto 3rem;
 }
 
+/* Registered, so they can turn. */
+@property --spin-inner {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --spin-outer {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.orbit {
+  animation:
+    spin-inner 90s linear infinite,
+    spin-outer 140s linear infinite;
+}
+
+/* Stops so a project can be clicked. */
+.orbit:has(.orbit-link:hover, .orbit-link:focus-visible) {
+  animation-play-state: paused;
+}
+
 .orbit-ring {
   position: absolute;
   border: 1px solid rgb(255 255 255 / 0.07);
   border-radius: 50%;
 }
 
-.description {
+.clock {
+  margin-top: 1.5rem;
   padding: 0 var(--page-padding);
 }
 
 .last-commit {
-  margin-top: 1.5rem;
   padding: 0 var(--page-padding);
 }
 
@@ -117,14 +138,12 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
     transform: translate(-50%, -50%);
   }
 
-  .description {
+  .clock {
     position: absolute;
     bottom: 1rem;
     left: var(--page-padding);
-    max-width: 25em;
+    margin: 0;
     padding: 0;
-    font-size: calc(clamp(0.875rem, 12.5 * var(--u), 1.125rem) * var(--text-scale));
-    line-height: 1.6;
   }
 
   .last-commit {
@@ -143,8 +162,21 @@ const FactoryWorld = defineAsyncComponent(() => import('./FactoryWorld.vue'))
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cursor {
+  .cursor,
+  .orbit {
     animation: none;
+  }
+}
+
+@keyframes spin-inner {
+  to {
+    --spin-inner: 360deg;
+  }
+}
+
+@keyframes spin-outer {
+  to {
+    --spin-outer: 360deg;
   }
 }
 
