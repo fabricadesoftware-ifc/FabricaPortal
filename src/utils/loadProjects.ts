@@ -11,8 +11,8 @@ const statuses: Record<string, ProjectStatus> = {
 /** Names of the API that the site writes in another way. */
 const technologyNames: Record<string, string> = { VueJS: 'Vue.js', Node: 'Node.js' }
 
-/** "Fábrica Painel" -> "Painel" */
-const shortName = (name: string) => name.trim().replace(/^fábrica\s*(?=.)/i, '')
+/** "Fábrica Painel" -> "Painel", "FabricaHackathon" -> "Hackathon" */
+const shortName = (name: string) => name.trim().replace(/^f[áa]brica\s*(?=.)/i, '')
 
 /** The most recent image. */
 function getCover({ images }: Project) {

@@ -1,5 +1,6 @@
 import aguasCover from '@/assets/projects/aguas.webp'
 import fabrokuCover from '@/assets/projects/fabroku.webp'
+import hackathonCover from '@/assets/projects/hackathon.webp'
 import piCover from '@/assets/projects/pi.webp'
 import portalCover from '@/assets/projects/portal.webp'
 import type {
@@ -120,6 +121,16 @@ export const portfolioProjects: PortfolioProject[] = [
     technologies: ['Vue.js', 'Django', 'PostgreSQL', 'TypeScript', 'Python', 'Redis'],
     href: 'https://github.com/fabricadesoftware-ifc/FabricaPortal',
     cover: portalCover,
+  },
+  {
+    id: 43,
+    name: 'HackIFC',
+    category: 'Educação',
+    status: 'active',
+    description: 'Edições, equipes e projetos da maratona HackIFC 24H.',
+    technologies: ['Vue.js', 'Django', 'Python'],
+    href: 'https://github.com/fabricadesoftware-ifc/fabricaHackathon_frontEnd',
+    cover: hackathonCover,
   },
 ]
 

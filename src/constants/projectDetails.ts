@@ -109,6 +109,10 @@ export const projectDetails: Record<string, ProjectDetails> = {
       { icon: 'dashboard', title: 'Campi', description: 'A execução orçamentária de cada campus.' },
     ],
   },
+  hackifc: {
+    repositories: pair('fabricaHackathon_backEnd', 'fabricaHackathon_frontEnd'),
+    features: [],
+  },
   portal: {
     repositories: pair('FabricaPortal_BackEnd', 'FabricaPortal'),
     features: [
