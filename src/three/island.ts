@@ -13,6 +13,7 @@ import {
   Matrix4,
   Mesh,
   MeshStandardMaterial,
+  PointLight,
   Quaternion,
   Shape,
   TorusGeometry,
@@ -289,6 +290,7 @@ function createBuilding() {
   }
 
   const front = DEPTH / 2
+  const windows: MeshStandardMaterial[] = []
   building.add(
     box([WIDTH + 0.12, 0.1, DEPTH + 0.12], COLORS.dark, [0, 0.05, 0], { roughness: 0.95 }),
     box([0.26, 0.42, 0.03], COLORS.dark, [-0.42, 0.29, front]),
@@ -303,10 +305,16 @@ function createBuilding() {
     })
     pane.material.emissive.set(COLORS.window)
     pane.material.emissiveIntensity = 0.45
+    windows.push(pane.material)
     building.add(pane)
   }
 
-  return building
+  // Warm light that spills from the windows onto the grass at night. Off during the day.
+  const windowLight = new PointLight(COLORS.window, 0, 2.5, 2)
+  windowLight.position.set(0.26, 0.4, front + 0.35)
+  building.add(windowLight)
+
+  return { building, windows, windowLight }
 }
 
 function createChimney() {
@@ -384,7 +392,7 @@ export function createIsland() {
   const tree = createTree()
   tree.position.set(-1, 0, 0.45)
 
-  const building = createBuilding()
+  const { building, windows, windowLight } = createBuilding()
   building.position.set(0.8, 0, 0)
   building.rotation.y = -0.45
 
@@ -416,5 +424,5 @@ export function createIsland() {
   root.add(createGround(), tree, building, chimney, silo, stone, metalCrate, orangeCrate, bush, pin)
   root.add(...smoke, ...debris)
 
-  return { root, pin, smoke, debris }
+  return { root, pin, smoke, debris, windows, windowLight }
 }

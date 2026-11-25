@@ -1,4 +1,5 @@
 import {
+  Color,
   DirectionalLight,
   HemisphereLight,
   Mesh,
@@ -8,6 +9,7 @@ import {
   PMREMGenerator,
   Scene,
   Timer,
+  MathUtils,
   Vector3,
   WebGLRenderer,
   type Material,
@@ -23,6 +25,19 @@ const DRAG_SPEED = 0.008
 const ISLAND_SCALE = 1.12
 const ISLAND_Y = -0.35
 const PIN_HEAD_Y = 0.5
+
+// Day and night follow the visitor's clock, in hours, with an hour of twilight around each.
+const SUNRISE = 6
+const SUNSET = 18
+const DAYLIGHT_CHECK_MS = 60_000
+
+/** 1 at full day, 0 at full night, easing through dawn and dusk. */
+function daylightAt(date: Date) {
+  const hour = date.getHours() + date.getMinutes() / 60
+  const dawn = MathUtils.smoothstep(hour, SUNRISE - 0.5, SUNRISE + 0.5)
+  const dusk = 1 - MathUtils.smoothstep(hour, SUNSET - 0.5, SUNSET + 0.5)
+  return Math.min(dawn, dusk)
+}
 
 /** The label receives its position through the `--pin-x` and `--pin-y` CSS variables. */
 export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement): FactoryWorld {
@@ -58,9 +73,10 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
   const rim = new DirectionalLight(0xa8c4ff, 0.9)
   rim.position.set(4, 3, -6)
 
-  scene.add(new HemisphereLight(0xe6f0ff, 0x3a302a, 0.9), sun, rim)
+  const sky = new HemisphereLight(0xe6f0ff, 0x3a302a, 0.9)
+  scene.add(sky, sun, rim)
 
-  const { root, pin, smoke, debris } = createIsland()
+  const { root, pin, smoke, debris, windows, windowLight } = createIsland()
   root.scale.setScalar(ISLAND_SCALE)
   root.position.y = ISLAND_Y
   scene.add(root)
@@ -141,8 +157,35 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
     draw()
   }
 
+  // At night the sun becomes a dim, cold moon and the factory windows light up.
+  const day = {
+    sun: new Color(0xfff1e0),
+    sky: new Color(0xe6f0ff),
+    ground: new Color(0x3a302a),
+  }
+  const night = {
+    sun: new Color(0x8fa6ff),
+    sky: new Color(0x34406a),
+    ground: new Color(0x15161c),
+  }
+  const setDaylight = () => {
+    const t = daylightAt(new Date())
+    sun.color.lerpColors(night.sun, day.sun, t)
+    sun.intensity = MathUtils.lerp(0.45, 3, t)
+    sky.color.lerpColors(night.sky, day.sky, t)
+    sky.groundColor.lerpColors(night.ground, day.ground, t)
+    sky.intensity = MathUtils.lerp(0.35, 0.9, t)
+    rim.intensity = MathUtils.lerp(0.6, 0.9, t)
+    scene.environmentIntensity = MathUtils.lerp(0.06, 0.35, t)
+    for (const pane of windows) pane.emissiveIntensity = MathUtils.lerp(2.2, 0.45, t)
+    windowLight.intensity = MathUtils.lerp(3, 0, t)
+    draw()
+  }
+  const daylightTimer = window.setInterval(setDaylight, DAYLIGHT_CHECK_MS)
+
   showPin()
   toggleShadows()
+  setDaylight()
 
   // Renders only while the canvas is on screen.
   const visibilityObserver = new IntersectionObserver(([entry]) => {
@@ -175,6 +218,7 @@ export function createFactoryWorld(canvas: HTMLCanvasElement, label: HTMLElement
   return {
     dispose() {
       renderer.setAnimationLoop(null)
+      window.clearInterval(daylightTimer)
       environment.dispose()
       pmrem.dispose()
       resizeObserver.disconnect()
